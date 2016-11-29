@@ -1,0 +1,18 @@
+language: python
+python:
+    - 2.7
+    - 3.3
+
+addons:
+    apt:
+        packages:
+            - dvipng
+            - texlive
+            - texlive-fonts-recommended
+            - texlive-latex-extra
+
+install:
+    - pip install sphinx sphinx_rtd_theme
+
+script:
+    - make html 2> _warnings.txt && cat _warnings.txt && [[ ! -s _warnings.txt ]]

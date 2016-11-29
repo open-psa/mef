@@ -2,6 +2,11 @@
 The Open-PSA Model Exchange Format
 ##################################
 
+.. image:: https://travis-ci.org/open-psa/mef.svg?branch=master
+    :target: https://travis-ci.org/open-psa/mef
+
+|
+
 This repository hosts source text files for the Open-PSA Model Exchange Format.
 
 
