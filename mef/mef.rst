@@ -1,7 +1,7 @@
 Anatomy of the Model Exchange Format
 ====================================
 
-This chapter presents the anatomy of the Model Exchange Format, i.e. the
+This chapter presents the anatomy of the Model Exchange Format, i.e., the
 main components of a model and their relationships. We assume the reader
 is familiar with the fault tree/event tree methodology.
 
@@ -19,7 +19,7 @@ one of the three categories: terms, variables and containers.
 
 *Variables:* Variables are named elements. Gates, basic events, house
 events, stochastic parameters, functional events, initiating events and
-consequences are all variables. A variable is always defined, i.e.
+consequences are all variables. A variable is always defined, i.e.,
 associated with a term.
 
 *Terms:* Terms are built over variables, constants and operators. For
@@ -65,10 +65,10 @@ Fault Tree Layer
 *Boolean formulae, Basic Events, House Events and Gates:* Boolean
 formulae, or formulae for short, are terms built over the usual set of
 constants (true, false), connectives (and, or, not…) and Boolean
-variables, i.e. Basic Events, Gates and House Events. Boolean variables
+variables, i.e., Basic Events, Gates and House Events. Boolean variables
 are called events, for that's what they represent in the sense of the
 probability theory. Basic events are associated with probability
-distributions, i.e. with (stochastic) expressions. Gates are defined as
+distributions, i.e., with (stochastic) expressions. Gates are defined as
 Boolean formulae. House events are special gates that are defined as
 Boolean constants only.
 
@@ -128,7 +128,7 @@ another one (the initiating terms are set operations).
 *Functional Events:* Functional Events describe actions that are taken
 to prevent an accident or to mitigate its consequences (usually by means
 of a fault tree). Depending on the result of such an action, the
-functional event may be in different, e.g. "success" or "failure".
+functional event may be in different, e.g., "success" or "failure".
 Functional Events label the columns the graphical representation of
 Event Trees.
 
@@ -202,7 +202,7 @@ Containers as name spaces
 
 Once declared, elements are visible and accessible everywhere in the
 model. This visibility means in turn that an object of a given type,
-e.g. parameter or event, is unique. No two distinct objects of the same
+e.g., parameter or event, is unique. No two distinct objects of the same
 type can have the same name. This constraint seems to be fine and
 coherent. However, some tools do not obey the rule: two gates of two
 different fault trees and representing two different functions may have
@@ -212,7 +212,7 @@ are working in collaboration, such name conflicts are virtually
 impossible to avoid.
 
 To solve this problem, the Model Exchange Format considers containers,
-i.e. not only fault trees and event trees but also user defined
+i.e., not only fault trees and event trees but also user defined
 containers, as name spaces. By default, objects defined in a container
 are global. But it is possible to declare them as local to the container
 as well. In that case, they are not visible outside the container, and
@@ -269,7 +269,7 @@ child of the definition of the object. E.g.
 *Attributes:* Attributes can be associated with each element (variable
 or container) of the Model Exchange Format. An attribute is a pair
 (name, value), where both name and value are normally short strings.
-Values are usually scalars, i.e. they are not interpreted. In order to
+Values are usually scalars, i.e., they are not interpreted. In order to
 allow tools to interpret values, a third field "type" can be optionally
 added to attributes. The tags "attributes" and "attribute" are used to
 set attributes. The former is mandatory, even when only one attribute is
@@ -319,11 +319,11 @@ up as left hand side of an equation are gates. Variables that show up
 only in right hand side formulae are basic events. Finally, variables
 that show up only as left hand side of an equation are top events. Such
 a representation imposes two additional conditions: first, the set of
-equations must contain no loop, i.e. that the Boolean formula at the
+equations must contain no loop, i.e., that the Boolean formula at the
 right hand side of an equation must not depend, even indirectly
 (recursively), on the variable at the left hand side. Second, a variable
 must not show up more than once at the left hand side of an equation,
-i.e. gates must be uniquely defined. `Figure Fault Tree
+i.e., gates must be uniquely defined. `Figure Fault Tree
 Layer-3 <#anchor-39>`__ shows a Fault Tree. The corresponding set of
 equations is as follows.
 
@@ -365,7 +365,7 @@ Figure ‑. A Fault Tree
 The semantics of connectives is given `Table Fault Tree
 Layer-1 <#anchor-42>`__. Note that connectives "and", "or", "xor",
 "iff", "nand" and "nor" are associative. Therefore it suffices to give
-their semantics when they take two arguments, i.e. two Boolean formulae
+their semantics when they take two arguments, i.e., two Boolean formulae
 F and G.
 
 *fault-tree-definition* ::=
@@ -599,7 +599,7 @@ Figure ‑. Backus-Naur grammar of the XML representation of Boolean
 formulae.
 
 The attribute "role" is used to declare whether an element is public or
-private, i.e. whether it can be referred by its name everywhere in the
+private, i.e., whether it can be referred by its name everywhere in the
 model or only within its inner most container. This point will be
 further explained in the next section. This attribute is optional for by
 default all elements are public.
@@ -817,7 +817,7 @@ Recommendations
 ~~~~~~~~~~~~~~~
 
 *Layered Models:* In PSA models, fault trees are in general layered,
-i.e. arguments of connectives (and, or...) are always either variables
+i.e., arguments of connectives (and, or...) are always either variables
 or negations of variables. Although there is no reason to force such a
 condition, it is recommended to obey it, for the sake of clarity.
 
@@ -853,7 +853,7 @@ Stochastic equations associated with basic events play actually two
 roles:
 
 -  They are used to calculate probability distributions of each basic
-   event, i.e. for a given mission time t, the probability Q(t) that the
+   event, i.e., for a given mission time t, the probability Q(t) that the
    given basic event occurs before t. The probability distribution
    associated with a basic event is typically a negative exponential
    distribution of parameter :
@@ -872,12 +872,12 @@ represents explicitly the mission time as a parameter of a special type.
 Stochastic expressions are made of the following elements:
 
 -  Boolean and numerical constants,
--  Stochastic variables, i.e. parameters, including the special variable
+-  Stochastic variables, i.e., parameters, including the special variable
    to represent the mission time,
 -  Boolean and arithmetic operations (sums, differences, products…),
 -  Built-in expressions that can be seen as macro-expressions that are
    used to simplify and shorten the writing of probability distributions
-   (E.g. exponential, Weibull...),
+   (e.g., exponential, Weibull...),
 -  Primitives to generate numbers at pseudo-random according to some
    probability distribution. The base primitive makes it possible to
    generate random deviates with a uniform probability distribution.
@@ -1374,7 +1374,7 @@ Figure ‑. Meaning of parameters  and  of the "periodic-test"
 built-in.
 
 There are three phases in the behaviour of the component. The first
-phase corresponds to the time from 0 to the date of the first test, i.e.
+phase corresponds to the time from 0 to the date of the first test, i.e.,
 . The second phase is the test phase. It spreads from times +n. to
 +n.+, with n any positive integer. The third phase is the functioning
 phase. It spreads from times +n.+ from +(n+1)..
@@ -1471,7 +1471,7 @@ The Backus-Naur grammar for the XML representation of built-ins is given
 Figure ‑. Backus-Naur grammar for XML representation of Built-ins
 
 +--------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Positional   | We adopted a positional definition of arguments. For instance, in the negative exponential distribution, we assumed that the failure rate is always the first argument and the mission time always the second. An alternative way would be to name arguments, i.e. to enclose them into tags explicating their role. For instance, the failure rate would be enclosed in a tag "failure-rate", the mission time in a tag "time" and so on… The problem with this second approach is that many additional tags must be defined and it is not sure that it helps a lot the understanding of the built-ins. Nevertheless, we may switch to this approach if the experience shows that the first one proves to be confusing.   |
+| Positional   | We adopted a positional definition of arguments. For instance, in the negative exponential distribution, we assumed that the failure rate is always the first argument and the mission time always the second. An alternative way would be to name arguments, i.e., to enclose them into tags explicating their role. For instance, the failure rate would be enclosed in a tag "failure-rate", the mission time in a tag "time" and so on… The problem with this second approach is that many additional tags must be defined and it is not sure that it helps a lot the understanding of the built-ins. Nevertheless, we may switch to this approach if the experience shows that the first one proves to be confusing.   |
 |              |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | versus       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 |              |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
@@ -1531,7 +1531,7 @@ arguments and their semantics
 
 *Uniform Deviates:* These primitives describe uniform distributions in a
 given range defined by its lower- and upper-bounds. The default value of
-a uniform deviate is the mean of the range, i.e. (lower-bound +
+a uniform deviate is the mean of the range, i.e., (lower-bound +
 upper-bound)/2.
 
 *Normal Deviates:* These primitives describe normal distributions
@@ -1569,7 +1569,7 @@ distributed random variables, each of which has mean .
 The probability density of the gamma distribution can be expressed in
 terms of the gamma function:
 
-The default value of the gamma distribution is its mean, i.e. k..
+The default value of the gamma distribution is its mean, i.e., k..
 
 *Beta Deviates:* These primitives describe Beta distributions defined by
 two shape parameters  and .
@@ -1577,7 +1577,7 @@ two shape parameters  and .
 The probability density of the beta distribution can be expressed in
 terms of the B function:
 
-The default value of the gamma distribution is its mean, i.e. /(+).
+The default value of the gamma distribution is its mean, i.e., /(+).
 
 *Histograms:* Histograms are lists of pairs (x:sub:`1`, E\ :sub:`1`)…
 (x:sub:`n`, E\ :sub:`n`) where the x\ :sub:`i`'s are numbers such that
@@ -1593,7 +1593,7 @@ x\ :sub:`n`]. Then, a value is drawn at random by means of the
 expression E\ :sub:`i`, where i is the index of the interval such
 x\ :sub:`i-1`\ < z ≤ x\ :sub:`i`.
 
-By default, the value of a histogram is its mean, i.e.
+By default, the value of a histogram is its mean, i.e.,
 
 Both Cumulative Distribution Functions and Density Probability
 Distributions can be translated into histograms.
@@ -1770,7 +1770,7 @@ in following operations.
    together.
 2) Substitute a gate "G\ :sub:`i` = BE\ :sub:`CCFi` or BE\ :sub:`i`\ "
    for each basic event BE\ :sub:`i`.
-3) Associate the probability distribution (e.g. Q) with the event
+3) Associate the probability distribution (e.g., Q) with the event
    BE\ :sub:`CCFi`.
 
 *Multiple Greek Letters:* the Multiple Greek Letters (MGL) model
@@ -1967,7 +1967,7 @@ Here several remarks can be made.
    or the probability 0.0.
 -  As for Delete Terms, it is possible to give purely logical
    interpretation to Recovery Rules. The idea is to add a global
-   constraint "H  e", i.e. "not H or e", for each Recovery Rule (H, e).
+   constraint "H  e", i.e., "not H or e", for each Recovery Rule (H, e).
 -  Another definition of Recovery Rules as a post-processing is that the
    event e is substituted for subset H in the minimal cutset. This
    definition has however the major drawback to be impossible to
@@ -2017,8 +2017,8 @@ A substitution is a triple (H, S, t) where:
    finally
 -  t, the target, is either a basic event or a constant.
 
-Let C be a minimal cutset, i.e. a set of basic events. The substitution
-(H, S, t) is applicable on C if C satisfies H (i.e. if H is true when C
+Let C be a minimal cutset, i.e., a set of basic events. The substitution
+(H, S, t) is applicable on C if C satisfies H (i.e., if H is true when C
 is realized) . The application of (H, S, t) on C consists in removing
 from C all the basic events of S and in adding to C the target t.
 
@@ -2223,7 +2223,7 @@ Description
 ~~~~~~~~~~~
 
 The Model Exchange Format distinguishes the structure of the event
-trees, i.e. the set of sequences they encode, from what is collected
+trees, i.e., the set of sequences they encode, from what is collected
 along the sequences and how it is collected. Let us consider for now
 only the structural view point. With that respect, an event tree is made
 of the following components.
@@ -2275,7 +2275,7 @@ events.
 
 The states of functional events at a node depend on the path that has
 been followed from the root node to this node. By default, functional
-events are in an unspecified state, i.e. that the predicate
+events are in an unspecified state, i.e., that the predicate
 "test-functional-event" (see section `V.5 <#anchor-100>`__) returns
 false in any case. `Table Event Tree Layer-7 <#anchor-129>`__ gives the
 states of functional events for all of the possible paths starting from
@@ -2504,7 +2504,7 @@ fill the structure with instructions. Instructions are actually used for
 two main purposes:
 
 -  To collect formulae or stochastic expressions and
--  To define flavors of fault trees and probability distributions, i.e.
+-  To define flavors of fault trees and probability distributions, i.e.,
    to set values of house events and flag parameters.
 
 The collection of a top event consists in and-ing the formula associated
@@ -2515,7 +2515,7 @@ multiplies the current probability of the sequence by the value of this
 expression. In the Model Exchange Format, the operation is performed by
 means of the instruction "collect-expression".
 
-To give flavors to fault trees, i.e. to change the values of gates,
+To give flavors to fault trees, i.e., to change the values of gates,
 house events, basic events and parameters, the Model Exchange Format
 introduces the four corresponding instruction: "set-gate",
 "set-house-event", "set-basic-event" and "set-parameter".
@@ -2539,7 +2539,7 @@ instructions.
 
 Finally, some models require to link event trees. A special instruction
 "event-tree" is introduced for this purpose. It should be used only in
-sequence definitions, i.e. in end-state.
+sequence definitions, i.e., in end-state.
 
 It is sometimes the case that the same values of house events and
 parameter flags are used at several places. Such a configuration is
@@ -2743,7 +2743,7 @@ Consequences and Consequence Groups
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 It is often convenient to group sequences of event trees into bins of
-sequences with similar physical consequences (e.g. Core Melt). The Model
+sequences with similar physical consequences (e.g., Core Melt). The Model
 Exchange Format provides the notion of consequence to do so. A
 consequence is characterized by an event tree, a particular initiating
 event for this event tree and a particular sequence (end-state) of the
@@ -3038,7 +3038,7 @@ features of the model.
 -  Calculation method(s)
 
    -  Name
-   -  Limits (e.g. number of basic events, of sequences, of cutsets)
+   -  Limits (e.g., number of basic events, of sequences, of cutsets)
    -  Preprocessing techniques (modularization, rewritings...)
    -  Handling of success terms
    -  Cutoffs, if any (absolute, relative, dynamic, ...)
@@ -3064,7 +3064,7 @@ Format of Results
 -----------------
 
 PSA tools produce many different kinds of results. Some are common to
-most of the tools (e.g. probability/frequency of some group of
+most of the tools (e.g., probability/frequency of some group of
 consequences, importance factors, sensitivity analyses...). They fall
 into different categories. The following three categories are so
 frequent that is it worth to normalize the way they are stored into XML
