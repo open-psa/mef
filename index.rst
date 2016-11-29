@@ -5,7 +5,7 @@ The Open-PSA Model Exchange Format
 +--------------------------+----------------------------------+
 | Title                    | Open-PSA Model Exchange Format   |
 +--------------------------+----------------------------------+
-| Version                  | 2.0d                             |
+| Version                  | |release|                        |
 +--------------------------+----------------------------------+
 | Creation Date            | August 1\ :sup:`st`, 2007        |
 +--------------------------+----------------------------------+
@@ -21,7 +21,9 @@ Table of Contents
 .. toctree::
     :maxdepth: 2
 
-    mef.rst
+    mef/open_psa_initiative
+    mef/introduction
+    mef/mef
 
 
 List of Figures
