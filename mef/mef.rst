@@ -1389,7 +1389,7 @@ performed. The Markov graphs for each of these cases are pictured
 
 Figure ‑. Multi-phase Markov graph for the "periodic-test" built-in.
 
-Ai’s , Fi’s, Ri’s states correspond respectively to states where the
+Ai's , Fi's, Ri's states correspond respectively to states where the
 component is available, failed and in repair. Dashed lines correspond to
 immediate transitions. Initial states are respectively A1, F1 and R1.
 
@@ -1797,7 +1797,7 @@ consists in following operations.
 
 For instance, for a group of 4 basic events: A, B, C and D, the basic
 event A is transformed into a gate G\ :sub:`A` = A or AB or AC or AD or
-ABC or ABD or ACD or ABDC and the Q\ :sub:`k`\ ’s are as follows.
+ABC or ABD or ACD or ABDC and the Q\ :sub:`k`\ 's are as follows.
 
 Note that if \ :sub:`k`\ =0 then Q\ :sub:`k`, Q\ :sub:`k+1`...are null
 as well. In such a case it is not necessary to create the groups with k
@@ -1813,7 +1813,7 @@ of size *k* is as follows:
 *Phi-Factor:* the phi-factor model is the same as MGL and alpha-factor
 models except that factors for each level are given directly.
 
-Indeed the sum of the \ :sub:`i`\ ’s should equal 1.
+Indeed the sum of the \ :sub:`i`\ 's should equal 1.
 
 XML representation
 ~~~~~~~~~~~~~~~~~~
@@ -1941,7 +1941,7 @@ e\ :sub:`2`, e\ :sub:`3`} be a Delete Term (group).
 -  A global constraint "C\ :sub:`G` = not 2-out-of-3(e\ :sub:`1`,
    e\ :sub:`2`, e\ :sub:`3`)" is introduced and each top event (or event
    tree sequences) "top" is rewritten as "top and C\ :sub:`G`\ ".
--  As for Common Causes Groups, the e\ :sub:`i`\ ’s are locally
+-  As for Common Causes Groups, the e\ :sub:`i`\ 's are locally
    rewritten in as gates:
 
 -
@@ -1975,11 +1975,11 @@ Here several remarks can be made.
    from a configuration.
 
 *Exchange Events:* Exchange Events are very similar to Recovery Rules.
-An Exchange Event (Rule) is a triple (H, e, e’), where H is a set of
-basic events and e and e’ are two basic events. Considered as a
+An Exchange Event (Rule) is a triple (H, e, e'), where H is a set of
+basic events and e and e' are two basic events. Considered as a
 post-processing of minimal cutsets, such a rule is interpreted as
 follows. If the minimal cutset contains both the set H and the basic
-event e, then the basic event e’ is substituted for e in the cutset. For
+event e, then the basic event e' is substituted for e in the cutset. For
 the same reason as above, Exchange Events cannot be interpreted in a
 logical way.
 
@@ -1998,7 +1998,7 @@ used in practice. Fortunately, Exchange Events (considered as a post
 processing mechanism) can be avoided in many cases by using the
 instructions that give flavors to fault trees while walking along event
 tree sequences: in a given sequence, one may decide to substitute the
-event e’ for the event e (or the parameter p’ for the parameter p) in
+event e' for the event e (or the parameter p' for the parameter p) in
 the Fault Trees collected so far. This mechanism is perfectly acceptable
 because it applies while creating the Boolean formula to be assessed.
 
@@ -2041,10 +2041,10 @@ Recovery Rules and Exchange Events:
    = {e:sub:`1`, e\ :sub:`2`\ …, e\ :sub:`n`}. Then (H, e) is
    represented by the substitution (e:sub:`1` and e\ :sub:`2` and…and
    e\ :sub:`n`, H, e).
--  Finally, let (H, e, e’) be an Exchange Event Rule, where H =
-   {e:sub:`1`, e\ :sub:`2`\ …, e\ :sub:`n`}. Then (H, e, e’) is
+-  Finally, let (H, e, e') be an Exchange Event Rule, where H =
+   {e:sub:`1`, e\ :sub:`2`\ …, e\ :sub:`n`}. Then (H, e, e') is
    represented by the substitution (e:sub:`1` and e\ :sub:`2` and…and
-   e\ :sub:`n` and e, {e}, e’).
+   e\ :sub:`n` and e, {e}, e').
 
 Note that a substitution (H, , t) can always be interpreted as the
 global constraint "H  t".
@@ -2326,7 +2326,7 @@ We are now ready to explicitly define the XML grammar of the structure
 of event trees. Its Backus-Naur form is given `Figure Event Tree
 Layer-24 <#anchor-133>`__ and `Figure Event Tree
 Layer-25 <#anchor-134>`__. In these figures, we leave instructions
-unspecified, for they don’t concern the structure of the tree and are
+unspecified, for they don't concern the structure of the tree and are
 the subject of the next section. Note that branches and functional
 events cannot be declared (nor referred to) outside event trees, for
 there would be no meaning in doing so.
@@ -3337,11 +3337,11 @@ Backus-Naur form we shall use is as follows.
 -  Items repeating 1 or more times are followed by a '+'.
 -  Items repeating 0 or more times are followed by a '\*'.
 -  Items repeating k times are enclosed in square brackets followed by
-   ‘:k’. E.g. [ *item-x* ]:3.
+   ':k'. E.g. [ *item-x* ]:3.
 -  Items repeating n or more times are followed by 'n'.
 -  Where items need to be grouped they are enclosed in simple
    parenthesis.
--  Comments start with a ‘#’ and spread until the end of the line
+-  Comments start with a '#' and spread until the end of the line
 
 A. DTD of the Open-PSA Model Exchange Format
 
