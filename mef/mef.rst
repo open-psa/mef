@@ -235,19 +235,19 @@ other gates.
 In the Model Exchange Format, the definition of a variable or a
 container, for instance a gate, is in the following form.
 
-<define-gate name="motor-fails-to-start" ...>
+.. code:: xml
 
- ...
-
-</define-gate>
+    <define-gate name="motor-fails-to-start" ...>
+        ...
+    </define-gate>
 
 References to that gate are in the following form.
 
- ...
+.. code:: xml
 
- <gate name="motor-fails-to-start" />
-
- ...
+    ...
+    <gate name="motor-fails-to-start"/>
+    ...
 
 So, there are two tags for each element (variable or container) of the
 Model Exchange Format: the tag "define-element" to define this element
@@ -259,17 +259,12 @@ an object. The Model Exchange Format defines a special tag "label" to do
 so. The tag label can contain any text. It must be inserted as the first
 child of the definition of the object. E.g.
 
-<define-gate name="motor-fails-to-start" ...>
+.. code:: xml
 
- <label>
-
- Warning: secondary motor failures are not taken into account here.
-
- </label>
-
- ...
-
-</define-gate>
+    <define-gate name="motor-fails-to-start" ...>
+        <label>Warning: secondary motor failures are not taken into account here.</label>
+        ...
+    </define-gate>
 
 *Attributes:* Attributes can be associated with each element (variable
 or container) of the Model Exchange Format. An attribute is a pair
@@ -281,25 +276,16 @@ set attributes. The former is mandatory, even when only one attribute is
 defined. It must be inserted as the first child of the definition of the
 object, or just after the tag label, if any. E.g.
 
-<define-gate name="motor-fails-to-start" ...>
+.. code:: xml
 
- <label>
-
- Warning: secondary motor failures are not taken into account here.
-
- </label>
-
- <attributes>
-
- <attribute name="zone" value="room33" />
-
- ...
-
- </attributes>
-
- ...
-
-</define-gate>
+    <define-gate name="motor-fails-to-start" ...>
+        <label>Warning: secondary motor failures are not taken into account here.</label>
+        <attributes>
+            <attribute name="zone" value="room33" />
+            ...
+        </attributes>
+        ...
+    </define-gate>
 
 The Backus-Naur form for the XML representation of labels and attributes
 is as follows.
@@ -624,91 +610,51 @@ representation, the house event "h1" has by default the value "true".
 Basic events are not declared for it is not necessary, so no probability
 distributions they are not associated with a probability distribution.
 
-<?xml version="1.0" ?>
+.. code:: xml
 
-<!DOCTYPE opsa-mef>
-
-<opsa-mef>
-
- <define-fault-tree name="FT1" >
-
- <define-gate name="top">
-
- <or>
-
- <gate name="g1" />
-
- <gate name="g2" />
-
- </or>
-
- </define-gate>
-
- <define-gate name="g1">
-
- <and>
-
- <house-event name="h1" />
-
- <gate name="g3"/>
-
- <gate name="g4"/>
-
- </and>
-
- </define-gate>
-
- <define-gate name="g2">
-
- <and>
-
- <not>
-
- <house-event name="h1" />
-
- </not>
-
- <basic-event name="e2" />
-
- <gate name="g4" />
-
- </and>
-
- </define-gate>
-
- <define-gate name="g3">
-
- <or>
-
- <basic-event name="e1" />
-
- <basic-event name="e3" />
-
- </or>
-
- </define-gate>
-
- <define-gate name="g4">
-
- <or>
-
- <basic-event name="e3" />
-
- <basic-event name="e4" />
-
- </or>
-
- </define-gate>
-
- <define-house-event name="h1" >
-
- <constant value="true" />
-
- </define-house-event>
-
- </define-fault-tree>
-
-<opsa-mef>
+    <?xml version="1.0" ?>
+    <!DOCTYPE opsa-mef>
+    <opsa-mef>
+        <define-fault-tree name="FT1">
+            <define-gate name="top">
+                <or>
+                    <gate name="g1"/>
+                    <gate name="g2"/>
+                </or>
+            </define-gate>
+            <define-gate name="g1">
+                <and>
+                    <house-event name="h1"/>
+                    <gate name="g3"/>
+                    <gate name="g4"/>
+                </and>
+            </define-gate>
+            <define-gate name="g2">
+                <and>
+                    <not>
+                        <house-event name="h1"/>
+                    </not>
+                    <basic-event name="e2"/>
+                    <gate name="g4"/>
+                </and>
+            </define-gate>
+            <define-gate name="g3">
+                <or>
+                    <basic-event name="e1"/>
+                    <basic-event name="e3"/>
+                </or>
+            </define-gate>
+            <define-gate name="g4">
+                <or>
+                    <basic-event name="e3"/>
+                    <basic-event name="e4"/>
+                </or>
+            </define-gate>
+            <define-house-event name="h1">
+                <constant value="true"/>
+            </define-house-event>
+        </define-fault-tree>
+    </opsa-mef>
 
 Figure ‑. XML description of Fault Tree pictured `Figure Fault Tree
 Layer-3 <#anchor-39>`__.
@@ -747,95 +693,53 @@ which is declared in the component A, is used outside of this component
 
 Figure ‑. A Fault Tree with Three Components
 
-<define-fault-tree name="FT">
+.. code:: xml
 
- <define-gate name="TOP">
-
- <or>
-
- <gate name="G1" />
-
- <gate name="G2" />
-
- <gate name="G3" />
-
- </or>
-
- </define-gate>
-
- <define-component name="A">
-
- <define-gate name="G1">
-
- <and>
-
- <basic-event name="BE1" />
-
- <basic-event name="BE2" />
-
- </and>
-
- </define-gate>
-
- <define-gate name="G2">
-
- <and>
-
- <basic-event name="BE1" />
-
- <basic-event name="BE3" />
-
- </and>
-
- </define-gate>
-
- <define-basic-event name="BE1" >
-
- <float value="1.2e-3" />
-
- </define-basic-event>
-
- <define-component name="B">
-
- <define-basic-event name="BE2" >
-
- <float value="2.4e-3" />
-
- </define-basic-event>
-
- <define-basic-event name="BE3" >
-
- <float value="5.2e-3" />
-
- </define-basic-event>
-
- </define-component>
-
- </define-component>
-
- <define-component name="C">
-
- <define-gate name="G3">
-
- <and>
-
- <basic-event name="BE1" />
-
- <basic-event name="BE4" />
-
- </and>
-
- </define-gate>
-
- <define-basic-event name="BE4" >
-
- <float value="1.6e-3" />
-
- </define-basic-event>
-
- </define-component>
-
-</define-fault-tree>
+    <define-fault-tree name="FT">
+        <define-gate name="TOP">
+            <or>
+                <gate name="G1"/>
+                <gate name="G2"/>
+                <gate name="G3"/>
+            </or>
+        </define-gate>
+        <define-component name="A">
+            <define-gate name="G1">
+                <and>
+                    <basic-event name="BE1"/>
+                    <basic-event name="BE2"/>
+                </and>
+            </define-gate>
+            <define-gate name="G2">
+                <and>
+                    <basic-event name="BE1"/>
+                    <basic-event name="BE3"/>
+                </and>
+            </define-gate>
+            <define-basic-event name="BE1">
+                <float value="1.2e-3"/>
+            </define-basic-event>
+            <define-component name="B">
+                <define-basic-event name="BE2">
+                    <float value="2.4e-3"/>
+                </define-basic-event>
+                <define-basic-event name="BE3">
+                    <float value="5.2e-3"/>
+                </define-basic-event>
+            </define-component>
+        </define-component>
+        <define-component name="C">
+            <define-gate name="G3">
+                <and>
+                    <basic-event name="BE1"/>
+                    <basic-event name="BE4"/>
+                </and>
+            </define-gate>
+            <define-basic-event name="BE4">
+                <float value="1.6e-3"/>
+            </define-basic-event>
+        </define-component>
+    </define-fault-tree>
 
 Figure ‑. XML Representation for the Fault Tree pictured `Figure Fault
 Tree Layer-8 <#anchor-55>`__
@@ -885,17 +789,14 @@ There is actually three ways to refer an element:
    component "C". In this case, the definition of the gate "G3" is as
    follows.
 
- <define-gate name="G3">
+.. code:: xml
 
- <and>
-
- <basic-event name="FT.A.BE1" />
-
- <basic-event name="BE4" />
-
- </and>
-
- </define-gate>
+    <define-gate name="G3">
+        <and>
+            <basic-event name="FT.A.BE1"/>
+            <basic-event name="BE4"/>
+        </and>
+    </define-gate>
 
 The important point here is that it is possible to name two private
 elements of two different containers with the same identifier. For
@@ -1254,37 +1155,24 @@ exponential distribution with a failure rate =1.23e-4/h to the basic
 event "pump-failure". Using primitives defined above, we can encode
 explicitly such probability distribution as follows.
 
-<define-basic-event name="pump-failure" >
+.. code:: xml
 
- <sub>
-
- <float value="1.0" />
-
- <exp>
-
- <mul>
-
- <neg>
-
- <parameter name="lambda" />
-
- </neg>
-
- <system-mission-time />
-
- </mul>
-
- </exp>
-
- </sub>
-
-</define-basic-event>
-
-<define-parameter name="lambda" >
-
- <float value="1.23e-4" />
-
-</define-parameter>
+    <define-basic-event name="pump-failure">
+        <sub>
+            <float value="1.0"/>
+            <exp>
+                <mul>
+                    <neg>
+                        <parameter name="lambda"/>
+                    </neg>
+                    <system-mission-time/>
+                </mul>
+            </exp>
+        </sub>
+    </define-basic-event>
+    <define-parameter name="lambda">
+        <float value="1.23e-4"/>
+    </define-parameter>
 
 Boolean Operations
 ~~~~~~~~~~~~~~~~~~
@@ -1304,15 +1192,15 @@ representation is given `Figure Stochastic Layer-13 <#anchor-76>`__.
 +------------+--------------+---------------+
 | eq         | 2            | =             |
 +------------+--------------+---------------+
-| df         | 2            |              |
+| df         | 2            | ≠             |
 +------------+--------------+---------------+
-| lt         | 2            |              |
+| lt         | 2            | <             |
 +------------+--------------+---------------+
-| gt         | 2            |              |
+| gt         | 2            | >             |
 +------------+--------------+---------------+
-| leq        | 2            |              |
+| leq        | 2            | ≤             |
 +------------+--------------+---------------+
-| geq        | 2            |              |
+| geq        | 2            | ≥             |
 +------------+--------------+---------------+
 
 Table ‑. Boolean operators, their number of arguments and their
@@ -1394,43 +1282,27 @@ sequences of events trees or depending on the initiating event. Using
 primitives defined so far, we can encode the definition of "lambda" as
 follows.
 
-<define-parameter name="lambda" >
+.. code:: xml
 
- <switch>
-
- <case>
-
- <eq>
-
- <parameter name="stress-level" />
-
- <int value="1" />
-
- </eq>
-
- <float value="1.0e-4" />
-
- </case>
-
- <case>
-
- <eq>
-
- <parameter name="stress-level" />
-
- <int value="2" />
-
- </eq>
-
- <float value="2.5e-4" />
-
- </case>
-
- <float value="1.0e-3" />
-
- </switch>
-
-</define-parameter>
+    <define-parameter name="lambda">
+        <switch>
+            <case>
+                <eq>
+                    <parameter name="stress-level"/>
+                    <int value="1"/>
+                </eq>
+                <float value="1.0e-4"/>
+            </case>
+            <case>
+                <eq>
+                    <parameter name="stress-level"/>
+                    <int value="2"/>
+                </eq>
+                <float value="2.5e-4"/>
+            </case>
+            <float value="1.0e-3"/>
+        </switch>
+    </define-parameter>
 
 Built-Ins
 ---------
@@ -1608,21 +1480,18 @@ Figure ‑. Backus-Naur grammar for XML representation of Built-ins
 | arguments    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 +--------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-| 
+|
 | *Example:* The negative exponential distribution can be encoded in a
   simple way as follows.
 
-<define-basic-event name="pump-failure" >
+.. code:: xml
 
- <exponential>
-
- <parameter name="lambda" />
-
- <system-mission-time />
-
- </exponential>
-
-</define-basic-event>
+    <define-basic-event name="pump-failure">
+        <exponential>
+            <parameter name="lambda"/>
+            <system-mission-time/>
+        </exponential>
+    </define-basic-event>
 
 Primitive to Generate Random Deviates
 -------------------------------------
@@ -1786,44 +1655,33 @@ distribution is distributed according to a lognormal distribution of
 mean 0.001 and error factor 3 for a confidence level of 95%. The
 parameter "lambda" is then defined as follows.
 
-<define-parameter name="lambda" >
+.. code:: xml
 
- <lognormal-deviate>
-
- <float value="0.001" />
-
- <float value="3" />
-
- <float value="0.95" />
-
- </lognormal-deviate>
-
-</define-parameter>
+    <define-parameter name="lambda">
+        <lognormal-deviate>
+            <float value="0.001"/>
+            <float value="3"/>
+            <float value="0.95"/>
+        </lognormal-deviate>
+    </define-parameter>
 
 *Example:* Assume that the parameter "lambda" has been sampled outside
 of the model and is distributed according to the following histogram.
 
 The XML encoding for "lambda" is as follows.
 
-<define-parameter name="lambda" >
+.. code:: xml
 
- <histogram>
-
- <float value"100" />
-
- <bin> <float value"170" /> <float value="0.70e-4" /> </bin>
-
- <bin> <float value"200" /> <float value="1.10e-4" /> </bin>
-
- <bin> <float value"210" /> <float value="1.30e-4" /> </bin>
-
- <bin> <float value"230" /> <float value="1.00e-4" /> </bin>
-
- <bin> <float value"280" /> <float value="0.50e-4" /> </bin>
-
- </histogram>
-
-</define-parameter>
+    <define-parameter name="lambda">
+        <histogram>
+            <float value"100"/>
+            <bin> <float value"170"/> <float value="0.70e-4"/> </bin>
+            <bin> <float value"200"/> <float value="1.10e-4"/> </bin>
+            <bin> <float value"210"/> <float value="1.30e-4"/> </bin>
+            <bin> <float value"230"/> <float value="1.00e-4"/> </bin>
+            <bin> <float value"280"/> <float value="0.50e-4"/> </bin>
+        </histogram>
+    </define-parameter>
 
 Directives to Test the Status of Initiating and Functional Events
 -----------------------------------------------------------------
@@ -2020,58 +1878,36 @@ factor ::=
 
 Figure ‑. Backus-Naur form for the XML representation of CCF-groups
 
-*Example: * Here follows a declaration of a CCF-group with four elements
+*Example:* Here follows a declaration of a CCF-group with four elements
 under the MGL model.
 
-<define-CCF-group name="pumps" model="MGL" >
+.. code:: xml
 
- <members>
-
- <basic-event name="pumpA" />
-
- <basic-event name="pumpB" />
-
- <basic-event name="pumpC" />
-
- <basic-event name="pumpD" />
-
- </members>
-
- <factors>
-
- <factor level="2" >
-
- <float value="0.10" />
-
- </factor>
-
- <factor level="3" >
-
- <float value="0.20" />
-
- </factor>
-
- <factor level="4" >
-
- <float value="0.30" />
-
- </factor>
-
- </factors>
-
- <distribution>
-
- <exponential>
-
- <parameter name="lambda" />
-
- <system-mission-time />
-
- </exponential>
-
- </distribution>
-
-</define-CCF-group>
+    <define-CCF-group name="pumps" model="MGL">
+        <members>
+            <basic-event name="pumpA"/>
+            <basic-event name="pumpB"/>
+            <basic-event name="pumpC"/>
+            <basic-event name="pumpD"/>
+        </members>
+        <factors>
+            <factor level="2">
+                <float value="0.10"/>
+            </factor>
+            <factor level="3">
+                <float value="0.20"/>
+            </factor>
+            <factor level="4">
+                <float value="0.30"/>
+            </factor>
+        </factors>
+        <distribution>
+            <exponential>
+                <parameter name="lambda"/>
+                <system-mission-time/>
+            </exponential>
+        </distribution>
+    </define-CCF-group>
 
 Delete Terms, Recovery Rules and Exchange Events
 ------------------------------------------------
@@ -2108,7 +1944,7 @@ e\ :sub:`2`, e\ :sub:`3`} be a Delete Term (group).
 -  As for Common Causes Groups, the e\ :sub:`i`\ ’s are locally
    rewritten in as gates:
 
--  
+-
 
    -  e\ :sub:`1` is rewritten as a gate ge\ :sub:`1` = e\ :sub:`1` and
       (not e\ :sub:`2`) and (not e\ :sub:`3`)
@@ -2243,29 +2079,20 @@ term) because they can only occur when respectively equipment A, B and C
 are under maintenance and only one equipment can be in maintenance at
 once. The representation of such a delete term is as follows.
 
-<define-substitution name="pumps" type="delete-terms" >
+.. code:: xml
 
- <hypothesis>
-
- <atleast min="2">
-
- <basic-event name="failure-pump-A" />
-
- <basic-event name="failure-pump-B" />
-
- <basic-event name="failure-pump-C" />
-
- </atleast>
-
- </hypothesis>
-
- <target>
-
- <constant value="false" />
-
- <target>
-
-</define-substitution >
+    <define-substitution name="pumps" type="delete-terms">
+        <hypothesis>
+            <atleast min="2">
+                <basic-event name="failure-pump-A"/>
+                <basic-event name="failure-pump-B"/>
+                <basic-event name="failure-pump-C"/>
+            </atleast>
+        </hypothesis>
+        <target>
+            <constant value="false"/>
+        </target>
+    </define-substitution>
 
 *Example:* Assume that if the valve V is broken and an overpressure is
 detected in pipe P, then a mitigating action A is performed. This is a
@@ -2274,62 +2101,42 @@ hypothesis is the conjunction of Basic Events "valve-V-broken" and
 "overpressure-pipe-P" and the added Basic Event is "failure-action-A".
 It is encoded as follows.
 
-<define-substitution name="mitigation" type="recovery-rule" >
+.. code:: xml
 
- <hypothesis>
-
- <and>
-
- <basic-event name="valve-V-broken" />
-
- <basic-event name="overpressure-pipe-P" />
-
- </and>
-
- </hypothesis>
-
- <target>
-
- <basic-event name="failure-action-A" />
-
- <target>
-
-</define-substitution >
+    <define-substitution name="mitigation" type="recovery-rule">
+        <hypothesis>
+            <and>
+                <basic-event name="valve-V-broken"/>
+                <basic-event name="overpressure-pipe-P"/>
+            </and>
+        </hypothesis>
+        <target>
+            <basic-event name="failure-action-A"/>
+        </target>
+    </define-substitution>
 
 *Example:* Assume that if magnitude of the earthquake is 5, 6 or 7, the
 size of a leak of a given pipe P get large, while it was small for
 magnitudes below 5. We can use an exchange event rule to model this
 situation.
 
-<define-substitution name="magnitude-impact" type="exchange-event" >
+.. code:: xml
 
- <hypothesis>
-
- <or>
-
- <basic-event name="magnitude-5" />
-
- <basic-event name="magnitude-6" />
-
- <basic-event name="magnitude-7" />
-
- </or>
-
- </hypothesis>
-
- <source>
-
- <basic-event name="small-leak-pipe-P" />
-
- <source>
-
- <target>
-
- <basic-event name="large-leak-pipe-P" />
-
- <target>
-
-</define-substitution >
+    <define-substitution name="magnitude-impact" type="exchange-event">
+        <hypothesis>
+            <or>
+                <basic-event name="magnitude-5"/>
+                <basic-event name="magnitude-6"/>
+                <basic-event name="magnitude-7"/>
+            </or>
+        </hypothesis>
+        <source>
+            <basic-event name="small-leak-pipe-P"/>
+        </source>
+        <target>
+            <basic-event name="large-leak-pipe-P"/>
+        </target>
+    </define-substitution>
 
 Event Tree Layer
 ================
@@ -2634,91 +2441,51 @@ sequences
 Layer-23 <#anchor-127>`__. The XML description for this example is given
 `Figure Event Tree Layer-26 <#anchor-137>`__.
 
-<define-event-tree name="my-first-event-tree" >
+.. code:: xml
 
- <define-functional-event name="F" />
-
- <define-functional-event name="G" />
-
- <define-functional-event name="H" />
-
- <define-sequence name="S1" />
-
- <define-sequence name="S2" />
-
- <define-sequence name="S5" />
-
- <define-sequence name="S6" />
-
- <define-branch name="sub-tree7" >
-
- <fork functional-event="H" >
-
- <path state="success" >
-
- <sequence name="S1" />
-
- </path>
-
- <path state="failure" >
-
- <sequence name="S2" />
-
- </path>
-
- </fork>
-
- <define-branch>
-
- <initial-state>
-
- <fork functional-event="F" >
-
- <path state="success" >
-
- <branch name="sub-tree7" />
-
- </path>
-
- <path state="failure">
-
- <fork functional-event="G" >
-
- <path state="success" >
-
- <branch name="sub-tree7" />
-
- </path>
-
- <path state="failure">
-
- <fork functional-event="H">
-
- <path state="success" >
-
- <sequence name="S5" />
-
- </path>
-
- <path state="failure" >
-
- <sequence name="S6" />
-
- </path>
-
- </fork>
-
- </path>
-
- </fork>
-
- </path>
-
- </fork>
-
- </initial-state>
-
-</define-event-tree>
+    <define-event-tree name="my-first-event-tree">
+        <define-functional-event name="F"/>
+        <define-functional-event name="G"/>
+        <define-functional-event name="H"/>
+        <define-sequence name="S1"/>
+        <define-sequence name="S2"/>
+        <define-sequence name="S5"/>
+        <define-sequence name="S6"/>
+        <define-branch name="sub-tree7">
+            <fork functional-event="H">
+                <path state="success">
+                    <sequence name="S1"/>
+                </path>
+                <path state="failure">
+                    <sequence name="S2"/>
+                </path>
+            </fork>
+        </define-branch>
+        <initial-state>
+            <fork functional-event="F">
+                <path state="success">
+                    <branch name="sub-tree7"/>
+                </path>
+                <path state="failure">
+                    <fork functional-event="G">
+                        <path state="success">
+                            <branch name="sub-tree7"/>
+                        </path>
+                        <path state="failure">
+                            <fork functional-event="H">
+                                <path state="success">
+                                    <sequence name="S5"/>
+                                </path>
+                                <path state="failure">
+                                    <sequence name="S6"/>
+                                </path>
+                            </fork>
+                        </path>
+                    </fork>
+                </path>
+            </fork>
+        </initial-state>
+    </define-event-tree>
 
 Figure ‑. XML representation for the structure of the Event Tree
 pictured `Figure Event Tree Layer-23 <#anchor-127>`__
@@ -2863,101 +2630,64 @@ bypass. The XML description for the branches of this example is given
 `Figure Event Tree Layer-28 <#anchor-146>`__. It is easy to verify by
 traversing this tree by hand so that it produces the expected semantics.
 
-<define-event-tree name="my-first-event-tree" >
+.. code:: xml
 
- ...
-
- <initial-state>
-
- <fork functional-event="F" >
-
- <path state="success" >
-
- <collect-formula> <not> <gate name="F" > </not> </collect-formula>
-
- <branch name="sub-tree7" />
-
- </path>
-
- <path state="failure" >
-
- <collect-formula> <gate name="F" > </collect-formula>
-
- <fork functional-event="G" >
-
- <path state="success" >
-
- <collect-formula> <not> <gate name="G" > </not> </collect-formula>
-
- <branch name="sub-tree7" />
-
- </path>
-
- <path state="failure" >
-
- <collect-formula> <gate name="G" > </collect-formula>
-
- <fork functional-event="H">
-
- <path state="bypass" >
-
- <!-- here nothing is collected -->
-
- <sequence name="S5" />
-
- </path>
-
- <path state="failure" >
-
- <collect-formula> <gate name="H" > </collect-formula>
-
- <sequence name="S6" />
-
- </path>
-
- </fork>
-
- </path>
-
- </fork>
-
- </path>
-
- </fork>
-
- </initial-state>
-
-</define-event-tree>
+    <define-event-tree name="my-first-event-tree">
+        ...
+        <initial-state>
+            <fork functional-event="F">
+                <path state="success">
+                    <collect-formula> <not> <gate name="F"/> </not> </collect-formula>
+                    <branch name="sub-tree7"/>
+                </path>
+                <path state="failure">
+                    <collect-formula> <gate name="F"/> </collect-formula>
+                    <fork functional-event="G">
+                        <path state="success">
+                            <collect-formula> <not> <gate name="G"/> </not> </collect-formula>
+                            <branch name="sub-tree7"/>
+                        </path>
+                        <path state="failure">
+                            <collect-formula> <gate name="G"/> </collect-formula>
+                            <fork functional-event="H">
+                                <path state="bypass">
+                                    <!-- here nothing is collected -->
+                                    <sequence name="S5"/>
+                                </path>
+                                <path state="failure">
+                                    <collect-formula> <gate name="H"/> </collect-formula>
+                                    <sequence name="S6"/>
+                                </path>
+                            </fork>
+                        </path>
+                    </fork>
+                </path>
+            </fork>
+        </initial-state>
+    </define-event-tree>
 
 Figure ‑. XML representation of the branches of the event tree pictured
 `Figure Event Tree Layer-23 <#anchor-127>`__
 
 This example does not set any house events or flag parameters. To set a
-house event for all sub-sequent sub-tree exploration (including the next
+house event for all subsequent sub-tree exploration (including the next
 fault tree to be collected), it suffices to insert an instruction "set"
 in front of the instruction "collect". E.g.
 
-…
+.. code:: xml
 
-<set-house-event name"="h1"> <bool value="true" /> </set-house-event>
-
-<collect-formula> <gate name="G" > </collect-formula>
-
-…
+    <set-house-event name"="h1"> <bool value="true"/> </set-house-event>
+    <collect-formula> <gate name="G"/> </collect-formula>
 
 To set the same house event locally for the next fault tree to be
 collected, it suffices to set back its value to "false" after the
 gathering of the fault tree. E.g.
 
-…
+.. code:: xml
 
-<set-house-event name="h1"> <bool value="true" /> </set-house-event>
-
-<collect-formula> <gate name="G" > </collect-formula>
-
-<set-house-event name="h1"> <bool value="false" /> </set-house-event>
-
-…
+    <set-house-event name="h1"> <bool value="true"/> </set-house-event>
+    <collect-formula> <gate name="G"/> </collect-formula>
+    <set-house-event name="h1"> <bool value="false"/> </set-house-event>
 
 The same principle applies to parameters.
 
@@ -2968,55 +2698,36 @@ functional event "G" is in the state failure and to "0.002" otherwise.
 This goal is achieved by means of a "if-then-else" construct and the
 "test-initial-event" expression. E.g.
 
-…
+.. code:: xml
 
-<if>
-
- <and>
-
- <test-initial-event name="I1" />
-
- <test-functional-event name="G" state="failure" />
-
- </and>
-
- <block>
-
- <set-parameter name="lambda1"> <float value="0.001" /> </set-parameter>
-
- <set-parameter name="lambda2"> <float value="0.001" /> </set-parameter>
-
- </block>
-
- <block>
-
- <set-parameter name="lambda1"> <float value="0.002" /> </set-parameter>
-
- <set-parameter name="lambda2"> <float value="0.002" /> </set-parameter>
-
- </block>
-
-</if>
-
-…
+    <if>
+        <and>
+            <test-initial-event name="I1"/>
+            <test-functional-event name="G" state="failure"/>
+        </and>
+        <block>
+            <set-parameter name="lambda1"> <float value="0.001"/> </set-parameter>
+            <set-parameter name="lambda2"> <float value="0.001"/> </set-parameter>
+        </block>
+        <block>
+            <set-parameter name="lambda1"> <float value="0.002"/> </set-parameter>
+            <set-parameter name="lambda2"> <float value="0.002"/> </set-parameter>
+        </block>
+    </if>
 
 Finally, we could imagine that the sequence S1 is linked to an event
 tree ET2 if the initiating event was I1 and to another event tree ET3
 otherwise. The definition of the sequence S1 would be as follows.
 
-<define-sequence name="S1" >
+.. code:: xml
 
- <if>
-
- <test-initial-event name="I1" />
-
- <event-tree name="ET2" />
-
- <event-tree name="ET3" />
-
- </if>
-
-</define-sequence>
+    <define-sequence name="S1">
+        <if>
+            <test-initial-event name="I1"/>
+            <event-tree name="ET2"/>
+            <event-tree name="ET3"/>
+        </if>
+    </define-sequence>
 
 Organization of a Model
 =======================
@@ -3127,29 +2838,21 @@ notion of entities: in any XML file it is possible to declare file
 entities in the preamble and to include them in the body of the
 document. This mechanism is exemplified below.
 
-<?xml version="1.0" ?>
+.. code:: xml
 
-<!DOCTYPE SMRF
+    <?xml version="1.0" ?>
 
- [!ENTITY file1 SYSTEM "file1.xml"
-
- ENTITY file2 SYSTEM "file2.xml"
-
->
-
-<smrf>
-
- ...
-
- &file1;
-
- ...
-
- &file2;
-
- ...
-
-</smrf>
+    <!DOCTYPE SMRF
+    [!ENTITY file1 SYSTEM "file1.xml"
+    ENTITY file2 SYSTEM "file2.xml"
+    >
+    <smrf>
+        ...
+        &file1;
+        ...
+        &file2;
+        ...
+    </smrf>
 
 This mechanism has however the drawback that XML tools have to include
 actually the files into the document, hence making its manipulation
@@ -3160,15 +2863,13 @@ the same goal: the tag include. This tag can be inserted at any place in
 a document. Its effect is to load the content of the given file into the
 model. E.g.
 
-<opsa-mef>
+.. code:: xml
 
- ...
-
- <include file="basic-events.xml" />
-
- ...
-
-</opsa-mef>
+    <opsa-mef>
+        ...
+        <include file="basic-events.xml"/>
+        ...
+    </opsa-mef>
 
 Organization of a Model
 -----------------------
@@ -3701,7 +3402,7 @@ A. Backus-Naur form for the Open-PSA Model Exchange Format
 
  <include file="*string*" />
 
-A. 
+A.
 
    1. Consequence, Consequence Groups, Alignments
 
@@ -3745,7 +3446,7 @@ A.
 
  </define-alignment>
 
-A. 
+A.
 
    1. Initiating events, Initiating event Groups
 
@@ -3785,7 +3486,7 @@ A.
 
  \| <parameter name="*identifier*" />
 
-A. 
+A.
 
    1. Event Trees
 
@@ -3855,7 +3556,7 @@ A.
 
  <initial-state> *branch* </initial-state>
 
-A. 
+A.
 
    1. Instructions, Rules
 
@@ -3926,7 +3627,7 @@ collect-expression ::= <collect-expression> *expression*
 
  </define-rule>
 
-A. 
+A.
 
    1. CCF-groups, Substitutions
 
@@ -3994,7 +3695,7 @@ factor ::=
 
  </define-substitution >
 
-A. 
+A.
 
    1. Fault Trees, Components
 
@@ -4087,7 +3788,7 @@ A.
 
  </define-house-event>
 
-A. 
+A.
 
    1. Formulae
 
@@ -4134,7 +3835,7 @@ A.
 
 *Boolean-value* ::= true \| false
 
-A. 
+A.
 
    1. Basic Events, Parameters
 
@@ -4168,7 +3869,7 @@ A.
 
  \| demands \| fit
 
-A. 
+A.
 
    1. Expressions
 
@@ -4336,5 +4037,3 @@ A.
  <test-initiating-event name="*name*" />
 
  \| <test-functional-event name="*name*" state="*identifier*" />
-
-
