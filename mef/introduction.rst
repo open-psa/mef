@@ -6,7 +6,7 @@ Why Do We Need a Model Exchange Format?
 =======================================
 
 Over the years, research efforts have been made in the direction of
-“next generation” PSA software and “declarative modeling”, which try to
+"next generation" PSA software and "declarative modeling", which try to
 present a more informative view of the actual systems, components, and
 interactions which the model represents. The concern of these studies
 has been to end the use of approximations: numerical approximations for
@@ -15,8 +15,8 @@ which leave out perhaps critical elements of the actual system under
 study. From all these investigations, some issues related to large
 nuclear PSA models have been raised, which need to be addressed before
 to put new calculation engines or next generation user interfaces into
-place. To address these issues enumerated below, an “Model Exchange
-Format”, a representation which is independent of all PSA software, must
+place. To address these issues enumerated below, an "Model Exchange
+Format", a representation which is independent of all PSA software, must
 be in place. In this perspective software would retain their own
 internal representation for a model; but each software would also be
 able to share models and industry data by means of the Model Exchange
@@ -44,15 +44,15 @@ each software to correctly interpret the model representation.
 *Clarity of the models:* For one who examined a number of large nuclear
 PRA models, it is obvious that just looking at the basic events, gates
 and fault trees/event trees is of little help in understanding the
-“where”, “why”, and “how” of model elements: common cause failures,
+"where", "why", and "how" of model elements: common cause failures,
 initiating events, sequence information, alignment information, systems
-and trains, flags, logic of recovery rules, or the dreaded “delete
-terms”. The Model Exchange Format employs what is becoming known as
+and trains, flags, logic of recovery rules, or the dreaded "delete
+terms". The Model Exchange Format employs what is becoming known as
 structured modeling. Structured Modeling takes its name from the
 structured programming movement in the 1970s. Before that time,
 variables, arrays, and other data structures, were used with no
 definitions and explanations. Structured programming techniques forced
-programmers to “declare variables” at the beginning of a program by name
+programmers to "declare variables" at the beginning of a program by name
 and also by the type of variable it was: an integer, a real number, and
 so on. In this way the meaning of the program became clearer, and
 calculation speeds were increased. Structured Modeling, as applied to
@@ -144,8 +144,8 @@ Model Exchange Format is defined as a XML document type. XML is widely
 used on the internet as a common way for programs to share data. It is
 well structured and makes it possible to give explicit name to each
 construct. XML is therefore well suited for structured modeling. By
-giving the elements of a model a formal designation (“this is an
-initiating event”, “this is a basic event”, and so on), quantification
+giving the elements of a model a formal designation ("this is an
+initiating event", "this is a basic event", and so on), quantification
 results and understanding of the model can be improved.
 
 XML presents another major advantage for tool developers: many

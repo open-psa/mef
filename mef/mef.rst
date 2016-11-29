@@ -23,13 +23,13 @@ consequences are all variables. A variable is always defined, i.e.
 associated with a term.
 
 *Terms:* Terms are built over variables, constants and operators. For
-instance, the Boolean formula “primary-motor-failure or
-no-current-to-motor” is a term built over the basic event
-“primary-motor-failure”, the gate “no-current-to-motor” and the Boolean
-operator “or”. Similarly, the probability distribution
-“1-exp(-lambda\*t)” is a term built over the numerical constant “1”, the
-failure rate “lambda” the time “t”, and the three arithmetic operators
-“-“, “exp” and “\*” (“lambda” and “t” are variables). Note that
+instance, the Boolean formula "primary-motor-failure or
+no-current-to-motor" is a term built over the basic event
+"primary-motor-failure", the gate "no-current-to-motor" and the Boolean
+operator "or". Similarly, the probability distribution
+"1-exp(-lambda\*t)" is a term built over the numerical constant "1", the
+failure rate "lambda" the time "t", and the three arithmetic operators
+"-", "exp" and "\*" ("lambda" and "t" are variables). Note that
 variables are terms
 
 *Containers:* According to our terminology, a model is nothing but a set
@@ -52,8 +52,8 @@ Stochastic Layer
 *Stochastic variables and terms:* Stochastic expressions are terms that
 are used to define probability distributions (associated with basic
 events). Stochastic variables are called parameters. For instance,
-“1-exp(-lambda\*t)” is a stochastic expression built over the two
-parameters “lambda” and “t”.
+"1-exp(-lambda\*t)" is a stochastic expression built over the two
+parameters "lambda" and "t".
 
 From a programming viewpoint, it is convenient to group definitions of
 parameters into (stochastic) containers. The stochastic layer is
@@ -108,7 +108,7 @@ following.
 an Initiating Event Group) to different end-states. In the Model
 Exchange Format, end-states are called Sequences. The same event tree
 can be used for different Initiating Events. Along the scenarios,
-“flavored” copies of fault trees are collected and/or values are
+"flavored" copies of fault trees are collected and/or values are
 computed. Flavors are obtained by changing values of house events and
 parameters while walking along the tree. Event Trees are containers
 according to our terminology. They contain definition of functional
@@ -128,7 +128,7 @@ another one (the initiating terms are set operations).
 *Functional Events:* Functional Events describe actions that are taken
 to prevent an accident or to mitigate its consequences (usually by means
 of a fault tree). Depending on the result of such an action, the
-functional event may be in different, e.g. “success” or “failure”.
+functional event may be in different, e.g. "success" or "failure".
 Functional Events label the columns the graphical representation of
 Event Trees.
 
@@ -192,7 +192,7 @@ different failure modes of a physical component).
 
 Second, the Model Exchange Format makes it possible to associate user
 defined attributes to the main components. For instance, we may define
-an attribute “zone” with a value “room33” for all constructs describing
+an attribute "zone" with a value "room33" for all constructs describing
 components located in the room 33. This indirect mean is very powerful.
 It can be used extensively to perform calculations or changes on a
 particular subset of elements.
@@ -228,8 +228,8 @@ Format.
 XML specific reasons), it is important to distinguish the
 declaration/definition of an element from references to that element.
 For instance, we have to distinguish the definition of the gate
-“motor-fails-to-start” (as the Boolean formula “primary-motor-failure or
-no-current-to-motor”), from references to that gate into definitions of
+"motor-fails-to-start" (as the Boolean formula "primary-motor-failure or
+no-current-to-motor"), from references to that gate into definitions of
 other gates.
 
 In the Model Exchange Format, the definition of a variable or a
@@ -250,12 +250,12 @@ References to that gate are in the following form.
  ...
 
 So, there are two tags for each element (variable or container) of the
-Model Exchange Format: the tag “define-element” to define this element
-and the tag “element” to refer this element. Note that the attribute
-“name” is systematically used to name elements.
+Model Exchange Format: the tag "define-element" to define this element
+and the tag "element" to refer this element. Note that the attribute
+"name" is systematically used to name elements.
 
 *Labels:* It is often convenient to add a comment to the definition of
-an object. The Model Exchange Format defines a special tag “label” to do
+an object. The Model Exchange Format defines a special tag "label" to do
 so. The tag label can contain any text. It must be inserted as the first
 child of the definition of the object. E.g.
 
@@ -275,8 +275,8 @@ child of the definition of the object. E.g.
 or container) of the Model Exchange Format. An attribute is a pair
 (name, value), where both name and value are normally short strings.
 Values are usually scalars, i.e. they are not interpreted. In order to
-allow tools to interpret values, a third field “type” can be optionally
-added to attributes. The tags “attributes” and “attribute” are used to
+allow tools to interpret values, a third field "type" can be optionally
+added to attributes. The tags "attributes" and "attribute" are used to
 set attributes. The former is mandatory, even when only one attribute is
 defined. It must be inserted as the first child of the definition of the
 object, or just after the tag label, if any. E.g.
@@ -328,7 +328,7 @@ and house events), Boolean constants (true and false) and connectives
 in general a directed acyclic graph structure (and not a tree-like
 structure), because variables can be referenced more than once. The
 simplest way to describe a fault tree is to represent it as a set of
-equations in the form “variable = Boolean-formula”. Variables that show
+equations in the form "variable = Boolean-formula". Variables that show
 up as left hand side of an equation are gates. Variables that show up
 only in right hand side formulae are basic events. Finally, variables
 that show up only as left hand side of an equation are top events. Such
@@ -377,8 +377,8 @@ We shall see what parameters and expressions are in the next chapter.
 Figure ‑. A Fault Tree
 
 The semantics of connectives is given `Table Fault Tree
-Layer-1 <#anchor-42>`__. Note that connectives “and”, “or”, “xor”,
-“iff”, “nand” and “nor” are associative. Therefore it suffices to give
+Layer-1 <#anchor-42>`__. Note that connectives "and", "or", "xor",
+"iff", "nand" and "nor" are associative. Therefore it suffices to give
 their semantics when they take two arguments, i.e. two Boolean formulae
 F and G.
 
@@ -454,7 +454,7 @@ Figure ‑. Backus-Naur presentation of constructs of Fault Trees
 Table ‑. Semantics of Boolean connectives
 
 +-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Dynamic Gates   | In a second step, it would be of interest to incorporate to the Model Exchange Format “inhibit” gates, “priority” gates and “triggers” (like in Boolean Driven Markov processes). All of these dynamic gates can be interpreted as “and” gates in a Boolean framework. In more general frameworks (like Markovian frameworks) they can be interpreted in a different way, and provide mechanisms to model in an accurate way backup systems, limited amount of resources… The complexity of the assessment of this kind of model is indeed much higher than the one of Boolean models (which is already at least NP-hard or #P-hard).   |
+| Dynamic Gates   | In a second step, it would be of interest to incorporate to the Model Exchange Format "inhibit" gates, "priority" gates and "triggers" (like in Boolean Driven Markov processes). All of these dynamic gates can be interpreted as "and" gates in a Boolean framework. In more general frameworks (like Markovian frameworks) they can be interpreted in a different way, and provide mechanisms to model in an accurate way backup systems, limited amount of resources… The complexity of the assessment of this kind of model is indeed much higher than the one of Boolean models (which is already at least NP-hard or #P-hard).   |
 +-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 XML Representation
@@ -466,17 +466,17 @@ Layer-6 <#anchor-47>`__.
 
 This description deserves some comments.
 
--  It leaves for now the tags “define-parameter” and “expression”
+-  It leaves for now the tags "define-parameter" and "expression"
    unspecified. We shall see in the next chapter how these tags are used
    to define the probability distributions.
--  Similarly, the tag “define-component” will be explained in the next
+-  Similarly, the tag "define-component" will be explained in the next
    section.
 -  Although the Model Exchange Format adopts the declarative modeling
    paradigm, it is often convenient to use variables in formulae before
    declaring them. The Model Exchange Format therefore refers to
-   variables with the generic term “event”, possibly without a “type”
+   variables with the generic term "event", possibly without a "type"
    attribute.
--  By default, the value of a house is event is “false”. So it is not
+-  By default, the value of a house is event is "false". So it is not
    necessary to associate a value with a house event when declaring it.
    We shall see section `VII.3 <#anchor-48>`__ how to change the value
    of a house event.
@@ -612,7 +612,7 @@ Figure ‑. Backus-Naur form of XML description of Fault Trees
 Figure ‑. Backus-Naur grammar of the XML representation of Boolean
 formulae.
 
-The attribute “role” is used to declare whether an element is public or
+The attribute "role" is used to declare whether an element is public or
 private, i.e. whether it can be referred by its name everywhere in the
 model or only within its inner most container. This point will be
 further explained in the next section. This attribute is optional for by
@@ -620,7 +620,7 @@ default all elements are public.
 
 The fault tree pictured `Figure Fault Tree Layer-3 <#anchor-39>`__ is
 described `Figure Fault Tree Layer-7 <#anchor-51>`__. In this
-representation, the house event “h1” has by default the value “true”.
+representation, the house event "h1" has by default the value "true".
 Basic events are not declared for it is not necessary, so no probability
 distributions they are not associated with a probability distribution.
 
@@ -728,7 +728,7 @@ gates, house events, basic event and parameters.
 
 It is sometimes convenient to group definitions of house events, basic
 events and parameters outside fault trees. The Model Exchange Format
-provides the container “model-data” to do so.
+provides the container "model-data" to do so.
 
 The Model Exchange Format makes it possible to group further
 declarations through the notion of component. A component is just a
@@ -845,8 +845,8 @@ Solving Name Conflicts: Public versus Private Elements
 
 By default, all of the elements of a model are public: they are visible
 everywhere in the model and they can be referred by their name. For
-instance, the basic event “BE1” of the fault tree pictured `Figure Fault
-Tree Layer-9 <#anchor-56>`__ can be just referred as “BE1”. This
+instance, the basic event "BE1" of the fault tree pictured `Figure Fault
+Tree Layer-9 <#anchor-56>`__ can be just referred as "BE1". This
 principle is fairly simple. It may cause however some problem for large
 models, developed by several persons: it is hard to prevent the same
 name to be used twice, especially for what concerns gates (some software
@@ -856,10 +856,10 @@ The Model Exchange Format makes it possible to declare elements of fault
 trees either as public or as private (to their inner most container).
 Unless declared otherwise, an element is public if its innermost
 container is public and private otherwise. For instance, if the
-component “A” of the fault tree pictured `Figure Fault Tree
-Layer-9 <#anchor-56>`__ is declared as private, then the component “B”
-(and its two basic events “BE2” and “BE3”), the gates “G1” and “G2” and
-the basic event “BE1” are private by default. There is no difference
+component "A" of the fault tree pictured `Figure Fault Tree
+Layer-9 <#anchor-56>`__ is declared as private, then the component "B"
+(and its two basic events "BE2" and "BE3"), the gates "G1" and "G2" and
+the basic event "BE1" are private by default. There is no difference
 between public and private elements except that two private elements of
 two different containers may have the same name, while public elements
 must be uniquely defined.
@@ -869,20 +869,20 @@ There is actually three ways to refer an element:
 -  An element can be referred by its name. This works either if the
    element is public or if it is referred inside the container (fault
    tree or component) in which it is declared. For instance, if the
-   basic event “BE1” is public, it can be referred as “BE1” anywhere in
-   the model. If it is private, it can be referred as “BE1” only inside
-   the component “A”.
+   basic event "BE1" is public, it can be referred as "BE1" anywhere in
+   the model. If it is private, it can be referred as "BE1" only inside
+   the component "A".
 -  An element can be referred by its full path (of containers), whether
    it is public or private. The names of containers should be separated
-   with dots. For instance, the basic event “BE2” can be referred as
-   “FT.A.B.BE2” anywhere in the model.
+   with dots. For instance, the basic event "BE2" can be referred as
+   "FT.A.B.BE2" anywhere in the model.
 -  Finally, an element can be referred by its local path, whether it is
-   public or private. For instance, if the gate “G1” can be referred as
-   “FT.A.G1” outside of the fault tree “FT”, as “A.G1” inside the
-   declaration of “FT”, and finally as “G1” inside the declaration of
-   the component “A”. If the basic event BE1 is private (for a reason or
-   another), it should be referred either as “FT.A.BE1” inside the
-   component “C”. In this case, the definition of the gate “G3” is as
+   public or private. For instance, if the gate "G1" can be referred as
+   "FT.A.G1" outside of the fault tree "FT", as "A.G1" inside the
+   declaration of "FT", and finally as "G1" inside the declaration of
+   the component "A". If the basic event BE1 is private (for a reason or
+   another), it should be referred either as "FT.A.BE1" inside the
+   component "C". In this case, the definition of the gate "G3" is as
    follows.
 
  <define-gate name="G3">
@@ -899,9 +899,9 @@ There is actually three ways to refer an element:
 
 The important point here is that it is possible to name two private
 elements of two different containers with the same identifier. For
-instance, if components “B” and “C” are private, it is possible to
-rename the basic-event “BE4” as “BE2”. Outside these two components the
-two basic events “B2” must be referred using their (local or global)
+instance, if components "B" and "C" are private, it is possible to
+rename the basic-event "BE4" as "BE2". Outside these two components the
+two basic events "B2" must be referred using their (local or global)
 paths.
 
 Inherited attributes
@@ -926,7 +926,7 @@ identifiers can be any string. It is however strongly recommended for
 portability issues to use non problematic identifiers, like those of
 programming languages, and to add a description of elements as a
 comment. This means not using lexical entities such as spaces,
-tabulations, “.” or “/” in names of elements, as well as realizing that
+tabulations, "." or "/" in names of elements, as well as realizing that
 some old tools cannot differentiate between capital and small letters.
 
 *Role of Parameters, House Events and Basic Events:* Parameters, house
@@ -982,7 +982,7 @@ Stochastic expressions are made of the following elements:
    generate random deviates with a uniform probability distribution.
    Several other primitives are derived from this one to generate random
    deviates with normal, lognormal… distributions. Moreover, it is
-   possible to define discrete distributions “by hand” through the
+   possible to define discrete distributions "by hand" through the
    notion of histogram.
 -  Directives to test the status of initial and functional events.
 
@@ -1251,7 +1251,7 @@ operations
 
 *Example:* Assume for instance we want to associate a negative
 exponential distribution with a failure rate =1.23e-4/h to the basic
-event “pump-failure”. Using primitives defined above, we can encode
+event "pump-failure". Using primitives defined above, we can encode
 explicitly such probability distribution as follows.
 
 <define-basic-event name="pump-failure" >
@@ -1345,8 +1345,8 @@ Conditional Operations
 ~~~~~~~~~~~~~~~~~~~~~~
 
 The Model Exchange Format proposes two conditional operations: an
-“if-then-else” operation and a “switch/case” operation. The latter is a
-list of pairs of expressions, introduced by the tag “case”. The first
+"if-then-else" operation and a "switch/case" operation. The latter is a
+list of pairs of expressions, introduced by the tag "case". The first
 expression of the pair should be a Boolean condition. If this condition
 is realized, then the second expression is evaluated and its value
 returned. Otherwise, the next pair is considered.
@@ -1381,17 +1381,17 @@ Figure ‑. Backus-Naur grammar for XML representation of conditional
 operations
 
 *Example:* Assume for instance we want to give different values to the
-failure rate “lambda” depending on a global parameter “stress-level":
+failure rate "lambda" depending on a global parameter "stress-level":
 
-“lambda”=1.0e-4/h if “stress-level”=1,
+"lambda"=1.0e-4/h if "stress-level"=1,
 
-“lambda”=2.5e-4/h if “stress-level”=2, and finally
+"lambda"=2.5e-4/h if "stress-level"=2, and finally
 
-“lambda”=1.0e-3/h if “stress-level”=3.
+"lambda"=1.0e-3/h if "stress-level"=3.
 
-The value of “stress-level”will be modified while walking along the
+The value of "stress-level"will be modified while walking along the
 sequences of events trees or depending on the initiating event. Using
-primitives defined so far, we can encode the definition of “lambda” as
+primitives defined so far, we can encode the definition of "lambda" as
 follows.
 
 <define-parameter name="lambda" >
@@ -1440,7 +1440,7 @@ Description
 
 Built-ins can be seen as macro arithmetic expressions. They are mainly
 used to simplify the writing of probability distributions. A special
-built-in “extern-function” makes it possible to define externally
+built-in "extern-function" makes it possible to define externally
 calculated built-ins. As for arithmetic operators, more built-ins can be
 added on demand to the Model Exchange Format. Here follows a preliminary
 list of built-ins. `Table Fault Tree Layer-1 <#anchor-42>`__ summarizes
@@ -1468,7 +1468,7 @@ A further investigation is certainly necessary on this topic. We
 tentatively give here a candidate definition (that is extracted from one
 of the tools we considered).
 
-The “periodic-test” built-in would take the following parameters (in
+The "periodic-test" built-in would take the following parameters (in
 order).
 
 +----+-----------------------------------------------------------------------------------------+
@@ -1498,7 +1498,7 @@ order).
 `Figure Stochastic Layer-15 <#anchor-85>`__ illustrates the meaning of
 the parameters  and .
 
-Figure ‑. Meaning of parameters  and  of the “periodic-test”
+Figure ‑. Meaning of parameters  and  of the "periodic-test"
 built-in.
 
 There are three phases in the behaviour of the component. The first
@@ -1515,7 +1515,7 @@ working, failed or in repair. In the latter case, the test is not
 performed. The Markov graphs for each of these cases are pictured
 `Figure Stochastic Layer-16 <#anchor-87>`__.
 
-Figure ‑. Multi-phase Markov graph for the “periodic-test” built-in.
+Figure ‑. Multi-phase Markov graph for the "periodic-test" built-in.
 
 Ai’s , Fi’s, Ri’s states correspond respectively to states where the
 component is available, failed and in repair. Dashed lines correspond to
@@ -1599,7 +1599,7 @@ The Backus-Naur grammar for the XML representation of built-ins is given
 Figure ‑. Backus-Naur grammar for XML representation of Built-ins
 
 +--------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Positional   | We adopted a positional definition of arguments. For instance, in the negative exponential distribution, we assumed that the failure rate is always the first argument and the mission time always the second. An alternative way would be to name arguments, i.e. to enclose them into tags explicating their role. For instance, the failure rate would be enclosed in a tag “failure-rate”, the mission time in a tag “time” and so on… The problem with this second approach is that many additional tags must be defined and it is not sure that it helps a lot the understanding of the built-ins. Nevertheless, we may switch to this approach if the experience shows that the first one proves to be confusing.   |
+| Positional   | We adopted a positional definition of arguments. For instance, in the negative exponential distribution, we assumed that the failure rate is always the first argument and the mission time always the second. An alternative way would be to name arguments, i.e. to enclose them into tags explicating their role. For instance, the failure rate would be enclosed in a tag "failure-rate", the mission time in a tag "time" and so on… The problem with this second approach is that many additional tags must be defined and it is not sure that it helps a lot the understanding of the built-ins. Nevertheless, we may switch to this approach if the experience shows that the first one proves to be confusing.   |
 |              |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | versus       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 |              |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
@@ -1781,10 +1781,10 @@ given
 
 Figure ‑. Backus-Naur grammar for XML representation of random deviates
 
-*Example:* Assume that the parameter “lambda” of a negative exponential
+*Example:* Assume that the parameter "lambda" of a negative exponential
 distribution is distributed according to a lognormal distribution of
 mean 0.001 and error factor 3 for a confidence level of 95%. The
-parameter “lambda” is then defined as follows.
+parameter "lambda" is then defined as follows.
 
 <define-parameter name="lambda" >
 
@@ -1800,10 +1800,10 @@ parameter “lambda” is then defined as follows.
 
 </define-parameter>
 
-*Example:* Assume that the parameter “lambda” has been sampled outside
+*Example:* Assume that the parameter "lambda" has been sampled outside
 of the model and is distributed according to the following histogram.
 
-The XML encoding for “lambda” is as follows.
+The XML encoding for "lambda" is as follows.
 
 <define-parameter name="lambda" >
 
@@ -1910,7 +1910,7 @@ in following operations.
    represent the independent occurrence of BE\ :sub:`i` and
    BE\ :sub:`CCFi` to represent the occurrence of all BE\ :sub:`i`
    together.
-2) Substitute a gate “G\ :sub:`i` = BE\ :sub:`CCFi` or BE\ :sub:`i`\ ”
+2) Substitute a gate "G\ :sub:`i` = BE\ :sub:`CCFi` or BE\ :sub:`i`\ "
    for each basic event BE\ :sub:`i`.
 3) Associate the probability distribution (e.g. Q) with the event
    BE\ :sub:`CCFi`.
@@ -2102,9 +2102,9 @@ e\ :sub:`2`, e\ :sub:`3`} be a Delete Term (group).
    cutsets, or to discard them on the fly during their generation. If a
    minimal cusets contains at least two of the elements of G, it is
    discarded.
--  A global constraint “C\ :sub:`G` = not 2-out-of-3(e\ :sub:`1`,
-   e\ :sub:`2`, e\ :sub:`3`)” is introduced and each top event (or event
-   tree sequences) “top” is rewritten as “top and C\ :sub:`G`\ ”.
+-  A global constraint "C\ :sub:`G` = not 2-out-of-3(e\ :sub:`1`,
+   e\ :sub:`2`, e\ :sub:`3`)" is introduced and each top event (or event
+   tree sequences) "top" is rewritten as "top and C\ :sub:`G`\ ".
 -  As for Common Causes Groups, the e\ :sub:`i`\ ’s are locally
    rewritten in as gates:
 
@@ -2127,11 +2127,11 @@ the risk (hence their name).
 Here several remarks can be made.
 
 -  It is possible to mimics Delete Terms by means of recovery rules. To
-   do so, it suffices to assign the basic event e to the value “false”
+   do so, it suffices to assign the basic event e to the value "false"
    or the probability 0.0.
 -  As for Delete Terms, it is possible to give purely logical
    interpretation to Recovery Rules. The idea is to add a global
-   constraint “H  e”, i.e. “not H or e”, for each Recovery Rule (H, e).
+   constraint "H  e", i.e. "not H or e", for each Recovery Rule (H, e).
 -  Another definition of Recovery Rules as a post-processing is that the
    event e is substituted for subset H in the minimal cutset. This
    definition has however the major drawback to be impossible to
@@ -2186,8 +2186,8 @@ Let C be a minimal cutset, i.e. a set of basic events. The substitution
 is realized) . The application of (H, S, t) on C consists in removing
 from C all the basic events of S and in adding to C the target t.
 
-Note that if t is the constant “true”, adding t to C is equivalent to
-add nothing. If t is the constant “false” adding t to C is equivalent to
+Note that if t is the constant "true", adding t to C is equivalent to
+add nothing. If t is the constant "false" adding t to C is equivalent to
 discard C.
 
 This notion of substitution generalizes the notions of Delete Terms,
@@ -2211,14 +2211,14 @@ Recovery Rules and Exchange Events:
    e\ :sub:`n` and e, {e}, e’).
 
 Note that a substitution (H, , t) can always be interpreted as the
-global constraint “H  t”.
+global constraint "H  t".
 
 XML Representation
 ~~~~~~~~~~~~~~~~~~
 
 The Backus-Naur form for the XML description of substitutions is given
 `Figure Meta-Logical Layer-21 <#anchor-119>`__. The optional attribute
-“type” is used to help tools that implement “traditional” substitutions.
+"type" is used to help tools that implement "traditional" substitutions.
 
 *substitution-definition* ::=
 
@@ -2237,8 +2237,8 @@ The Backus-Naur form for the XML description of substitutions is given
 Figure ‑. Backus-Naur form for the XML representation of
 exclusive-groups
 
-*Example:* Assume that Basic Events “failure-pump-A”, “failure-pump-B”
-and ““failure-pump-C” are pair wisely exclusive (they form a delete
+*Example:* Assume that Basic Events "failure-pump-A", "failure-pump-B"
+and ""failure-pump-C" are pair wisely exclusive (they form a delete
 term) because they can only occur when respectively equipment A, B and C
 are under maintenance and only one equipment can be in maintenance at
 once. The representation of such a delete term is as follows.
@@ -2270,8 +2270,8 @@ once. The representation of such a delete term is as follows.
 *Example:* Assume that if the valve V is broken and an overpressure is
 detected in pipe P, then a mitigating action A is performed. This is a
 typical Recovery Rule (under the first interpretation), where the
-hypothesis is the conjunction of Basic Events “valve-V-broken” and
-“overpressure-pipe-P” and the added Basic Event is “failure-action-A”.
+hypothesis is the conjunction of Basic Events "valve-V-broken" and
+"overpressure-pipe-P" and the added Basic Event is "failure-action-A".
 It is encoded as follows.
 
 <define-substitution name="mitigation" type="recovery-rule" >
@@ -2388,7 +2388,7 @@ In practice, things are less simple:
    associated fault tree but rather as a bypass. This interpretation of
    success branches is typically tool-dependent: some tools (have
    options to) ignore success branches; therefore modelers use this
-   “possibility” to “factorize” models.
+   "possibility" to "factorize" models.
 -  Branching may have more than two alternatives, or represent
    multi-states, not just success and failure, each alternative being
    labeled with a different fault tree.
@@ -2456,8 +2456,8 @@ Layer-23 <#anchor-127>`__ are the following.
 -  The tree rooted by the initial node (here the node 1).
 
 Forks decompose the current branch according to the state of a
-functional event. Usually, this state is either “success” or “failure”.
-It may be “bypass” as well (as in our example for the path from node 6
+functional event. Usually, this state is either "success" or "failure".
+It may be "bypass" as well (as in our example for the path from node 6
 to node 7). In the case of multiple branches, the name of state is
 defined by the user.
 
@@ -2469,7 +2469,7 @@ events.
 The states of functional events at a node depend on the path that has
 been followed from the root node to this node. By default, functional
 events are in an unspecified state, i.e. that the predicate
-“test-functional-event” (see section `V.5 <#anchor-100>`__) returns
+"test-functional-event" (see section `V.5 <#anchor-100>`__) returns
 false in any case. `Table Event Tree Layer-7 <#anchor-129>`__ gives the
 states of functional events for all of the possible paths starting from
 the root node of the event tree pictured `Figure Event Tree
@@ -2743,35 +2743,35 @@ two main purposes:
 The collection of a top event consists in and-ing the formula associated
 with the sequence with a copy of the fault tree rooted with the top
 event. In the Model Exchange Format, the operation is performed by means
-of the instruction “collect-formula”. The collection of an expression
+of the instruction "collect-formula". The collection of an expression
 multiplies the current probability of the sequence by the value of this
 expression. In the Model Exchange Format, the operation is performed by
-means of the instruction “collect-expression”.
+means of the instruction "collect-expression".
 
 To give flavors to fault trees, i.e. to change the values of gates,
 house events, basic events and parameters, the Model Exchange Format
-introduces the four corresponding instruction: “set-gate”,
-“set-house-event”, “set-basic-event” and “set-parameter”.
+introduces the four corresponding instruction: "set-gate",
+"set-house-event", "set-basic-event" and "set-parameter".
 
 Sequences are walked from left to right. Therefore, when a value of an
 element is changed, this change applies on the current environment and
 propagates to the right. This default behavior can be changed by using
-the flag “direction”, which can take either the value “forward” (the
-default), “backward” or “both”. This feature should be handled with much
+the flag "direction", which can take either the value "forward" (the
+default), "backward" or "both". This feature should be handled with much
 care.
 
 The flavor given to fault trees, as well as what is collected, may
 depend on the initial event and the current state of functional events.
 To do so, the Model Exchange Format provides an if-then-else instruction
-(the “else” part is optional) and the two expressions
-“test-initial-event” and “test-functional-event”. These two instructions
+(the "else" part is optional) and the two expressions
+"test-initial-event" and "test-functional-event". These two instructions
 have been introduced Section `V.3 <#anchor-82>`__. Since the then- and
-else-branches of the “if-then-else” may contain several instructions,
+else-branches of the "if-then-else" may contain several instructions,
 the Model Exchange Format introduces the notion of block of
 instructions.
 
 Finally, some models require to link event trees. A special instruction
-“event-tree” is introduced for this purpose. It should be used only in
+"event-tree" is introduced for this purpose. It should be used only in
 sequence definitions, i.e. in end-state.
 
 It is sometimes the case that the same values of house events and
@@ -2934,8 +2934,8 @@ Figure ‑. XML representation of the branches of the event tree pictured
 
 This example does not set any house events or flag parameters. To set a
 house event for all sub-sequent sub-tree exploration (including the next
-fault tree to be collected), it suffices to insert an instruction “set”
-in front of the instruction “collect”. E.g.
+fault tree to be collected), it suffices to insert an instruction "set"
+in front of the instruction "collect". E.g.
 
 …
 
@@ -2946,7 +2946,7 @@ in front of the instruction “collect”. E.g.
 …
 
 To set the same house event locally for the next fault tree to be
-collected, it suffices to set back its value to “false” after the
+collected, it suffices to set back its value to "false" after the
 gathering of the fault tree. E.g.
 
 …
@@ -2961,12 +2961,12 @@ gathering of the fault tree. E.g.
 
 The same principle applies to parameters.
 
-Assume now that we want to set the parameters “Assume now that we want
-to set the parameters “lambda1” and “lambda2” of some probability
-distributions to “0.001” if the initiating event was “I1” and the
-functional event “G” is in the state failure and to “0.002” otherwise.
-This goal is achieved by means of a “if-then-else” construct and the
-“test-initial-event” expression. E.g.
+Assume now that we want to set the parameters "Assume now that we want
+to set the parameters "lambda1" and "lambda2" of some probability
+distributions to "0.001" if the initiating event was "I1" and the
+functional event "G" is in the state failure and to "0.002" otherwise.
+This goal is achieved by means of a "if-then-else" construct and the
+"test-initial-event" expression. E.g.
 
 …
 
@@ -3383,7 +3383,7 @@ product, which is not possible with the formulae of the Model Exchange
 Format. An alternative XML representation for sums of products (sets of
 minimal cutsets are a specific type of sums of products) is given
 `Figure Report Layer-33 <#anchor-171>`__. More attributes can be added
-to tags “sum-of-products” and “product” to carry the relevant
+to tags "sum-of-products" and "product" to carry the relevant
 information.
 
 *sum-of-products* ::=

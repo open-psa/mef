@@ -9,7 +9,7 @@ The Open Initiative for Next Generation of
 As we enter a time in which safety and reliability have come to the
 attention of the public, especially in the face of climate change and a
 nuclear renaissance, efforts are being made in the direction of the
-“next generation” of Probabilistic Safety Assessment with regards to
+"next generation" of Probabilistic Safety Assessment with regards to
 software and methods. These new initiatives hope to present a more
 informative view of the actual models of systems, components, and their
 interactions, which helps decision makers to go a step forward with
