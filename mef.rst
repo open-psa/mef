@@ -1,37 +1,4 @@
 The Open-PSA Initiative
-
-Open-PSA Model Exchange Format
-
-+--------------------------+----------------------------------+
-| Title                    | Open-PSA Model Exchange Format   |
-+--------------------------+----------------------------------+
-| Version                  | 2.0d                             |
-+--------------------------+----------------------------------+
-| Creation Date            | August 1\ :sup:`st`, 2007        |
-+--------------------------+----------------------------------+
-| Last modification date   |                                  |
-+--------------------------+----------------------------------+
-| Editors                  | Epstein Steven, Rauzy Antoine    |
-+--------------------------+----------------------------------+
-
-Table of Contents
-
-List of Figures
-
-List of Tables
-
-Contributors
-
-This document presents the “Open-PSA Model Exchange Format”. The
-redaction of this representation format is a shared effort. The
-following persons contributed to various extents to the current version
-of the document: Becker Guenter, Čepin Marko, Contini Sergio, Ducamp
-François, Epstein Steven, Herrero Santos Roberto, Hibti Mohamed,
-Kampramanis Ioanis, Klügel Jens, Meléndez Asensio Enrique, Perez Mulas
-Arturo, Nusbaumer Olivier, Quatrain Richard, Rauzy Antoine, Rauzy Pablo,
-Reinhart Mark and Sörman Johan.
-
-The Open-PSA Initiative
 =======================
 
 The Open Initiative for Next Generation of
