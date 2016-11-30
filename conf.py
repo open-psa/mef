@@ -69,10 +69,10 @@ contributors = open('CONTRIBUTORS').read().strip().replace('\n', ', ')
 # built documents.
 #
 git_log = check_output(['git', 'log', '-n', '1', '--format=format:%H.%cd',
-                        '--date=short', 'mef/'])
+                        '--date=short', 'mef/']).decode()
 commit_hash, commit_date = git_log.split('.')
 # The full version, including alpha/beta/rc tags.
-release = check_output(['git', 'describe', '--tags', commit_hash])
+release = check_output(['git', 'describe', '--tags', commit_hash]).decode()
 # The short X.Y version.
 version = release[:release.rfind('.')]
 version_date = '2007-08-1'

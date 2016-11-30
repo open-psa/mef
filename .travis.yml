@@ -15,4 +15,5 @@ install:
     - pip install sphinx sphinx_rtd_theme
 
 script:
-    - make html 2> _warnings.txt && cat _warnings.txt && [[ ! -s _warnings.txt ]]
+    - make html 2> _warnings.txt
+    - cat _warnings.txt && [[ ! -s _warnings.txt ]]
