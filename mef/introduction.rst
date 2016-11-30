@@ -141,7 +141,7 @@ Choice of XML
 To create the Model Exchange Format, we must make formal definitions for
 representing existing PRA models and define a syntax to write them. The
 Model Exchange Format is defined as a XML document type. XML is widely
-used on the internet as a common way for programs to share data. It is
+used on the Internet as a common way for programs to share data. It is
 well structured and makes it possible to give explicit name to each
 construct. XML is therefore well suited for structured modeling. By
 giving the elements of a model a formal designation ("this is an
@@ -150,7 +150,7 @@ results and understanding of the model can be improved.
 
 XML presents another major advantage for tool developers: many
 development teams have more or less already designed its own XML parser
-and many such parsers are anyway freely available on internet. Therefore
+and many such parsers are anyway freely available on the Internet. Therefore
 the choice of a XML based syntax discharges programmers of PSA tools of
 the tedious task to design parsers and to perform syntactic checks.
 Moreover, due to their tree-like structure, it is easy to ignore parts

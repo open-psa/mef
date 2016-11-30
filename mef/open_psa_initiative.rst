@@ -2,9 +2,7 @@
 The Open-PSA Initiative
 #######################
 
-The Open Initiative for Next Generation of
-
- Probabilistic Safety Assessment
+The Open Initiative for Next Generation of Probabilistic Safety Assessment
 
 As we enter a time in which safety and reliability have come to the
 attention of the public, especially in the face of climate change and a
@@ -44,7 +42,7 @@ addressed before new calculation engines or next generation user
 interfaces are put into place:
 
 -  Quality assurance of calculations;
--  Un-founded reliance on numerical approximations and truncation;
+-  Unfounded reliance on numerical approximations and truncation;
 -  Portability of the models between different software;
 -  Clarity of the models;
 -  Completeness of the models;

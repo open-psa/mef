@@ -24,6 +24,7 @@ Table of Contents
     mef/open_psa_initiative
     mef/introduction
     mef/mef
+    mef/mef_ebnf
 
 
 List of Figures

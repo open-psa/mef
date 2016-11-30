@@ -290,12 +290,11 @@ object, or just after the tag label, if any. E.g.
 The Backus-Naur form for the XML representation of labels and attributes
 is as follows.
 
-*label* := <label> *any text* </label>
+.. code:: latex
 
-*attributes* ::= <attributes> *attribute*\ + </attributes>
-
-*attribute* ::= <attribute name="*identifier*" value="*string*" [
-type="string" ] />
+    label ::= <label> any text </label>
+    attributes ::= <attributes> attribute+ </attributes>
+    attribute ::= <attribute name="identifier" value="string" [ type="string" ] />
 
 Fault Tree Layer
 ================
@@ -327,15 +326,11 @@ i.e., gates must be uniquely defined. `Figure Fault Tree
 Layer-3 <#anchor-39>`__ shows a Fault Tree. The corresponding set of
 equations is as follows.
 
-TOP = G1 or G2
-
-G1 = H1 and G3 and G4
-
-G2 = not H1 and BE2 and G4
-
-G3 = BE1 or BE3
-
-G4 = BE3 or BE4
+    TOP = G1 or G2
+    G1 = H1 and G3 and G4
+    G2 = not H1 and BE2 and G4
+    G3 = BE1 or BE3
+    G4 = BE3 or BE4
 
 On the figure, basic events are surrounded with a circle. Basic events
 are in general associated with a probability distribution (see Chapter
@@ -368,48 +363,33 @@ Layer-1 <#anchor-42>`__. Note that connectives "and", "or", "xor",
 their semantics when they take two arguments, i.e., two Boolean formulae
 F and G.
 
-*fault-tree-definition* ::=
+.. code:: latex
 
- fault-tree *identifier* ( *event-definition* \| *parameter-definition*
-)\*
+    fault-tree-definition ::=
+        fault-tree identifier (event-definition | parameter-definition)
 
-*event-definition* ::=
+    event-definition ::=
+          gate = formula
+        | basic-event = expression
+        | house-event = Boolean-constant
 
- *gate* = *formula*
+    formula ::=
+          event
+        | Boolean-constant
+        | and formula+
+        | or formula+
+        | not formula
+        | xor formula+
+        | iff formula+
+        | nand formula+
+        | nor formula+
+        | atleast integer formula+
+        | cardinality integer integer formula+
+        | imply formula formula
 
- \| *basic-event* = *expression*
+    event ::= gate | basic-event | house-event
 
- \| *house-event* = *Boolean-constant*
-
-*formula* ::=
-
- *event*
-
- \| *Boolean-constant*
-
- \| and *formula*\ +
-
- \| or *formula*\ +
-
- \| not *formula*
-
- \| xor *formula*\ +
-
- \| iff *formula*\ +
-
- \| nand *formula*\ +
-
- \| nor *formula*\ +
-
- \| atleast *integer formula*\ +
-
- \| cardinality *integer integer formula*\ +
-
- \| imply *formula* *formula*
-
-*event* ::= *gate* \| *basic-event* \| *house-event*
-
-*Boolean-constant* ::= constant (true \| false)
+    Boolean-constant ::= constant (true | false)
 
 Figure ‑. Backus-Naur presentation of constructs of Fault Trees
 
@@ -471,129 +451,82 @@ This description deserves some comments.
    the same name space), even if they are of different types. This point
    will be explained in the next section.
 
-*fault-tree-definition* ::=
+.. code:: latex
 
- <define-fault-tree name="*identifier*" >
+    fault-tree-definition ::=
+        <define-fault-tree name="identifier" >
+            [ label ]
+            [ attributes ]
+            (event-definition | parameter-definition |component-definition)*
+        </define-fault-tree >
 
- [ *label* ]
+    component-definition ::=
+        <define-component name="identifier" [ role="private|public" ] >
+            [ label ]
+            [ attributes ]
+            (event-definition | parameter-definition | component-definition)*
+        </define-component>
 
- [ *attributes* ]
+     model-data ::=
+        <model-data>
+            (house-event-definition | basic-event-definition | parameter-definition)*
+        </model-data>
 
- ( *event-definition* \| *parameter-definition \|component-definition
-*)\*
+    event-definition ::=
+          gate-definition
+        | house-event-definition
+        | basic-event-definition
 
- </define-fault-tree >
+    gate-definition ::=
+        <define-gate name="identifier" [ role="private|public" ] >
+            [ label ]
+            [ attributes ]
+            formula
+        </define-gate>
 
-*component-definition* ::=
+    house-event-definition ::=
+        <define-house-event name="identifier" [ role="private|public" ] >
+            [ label ]
+            [ attributes ]
+            [ Boolean -constant ]
+        </define-house-event>
 
-* *\ <define-component name="*identifier*" [ role="private\|public" ] >
-
- [ *label* ]
-
- [ *attributes* ]
-
- ( *event-definition* \| *parameter-definition* \|
-*component-definition* )\*
-
- </define-component>
-
-*model-data* ::=
-
-* *\ <model-data>
-
- ( *house-event-definition* \| *basic-event-definition* \|
-*parameter-definition* )\*
-
- </model-data>
-
-*event-definition* ::=
-
- *gate-definition*
-
- \| *house-event-definition*
-
- \| *basic-event-definition*
-
-*gate-definition* ::=
-
- <define-gate name="*identifier*" [ role="private\|public" ] >
-
- [ *label* ]
-
- [ *attributes* ]
-
- *formula*
-
- </define-gate>
-
-*house-event-definition* ::=
-
- <define-house-event name="*identifier*" [ role="private\|public" ] >
-
- [ *label* ]
-
- [ *attributes* ]
-
- [ *Boolean-constant* ]
-
- </define-house-event>
-
-*basic-event-definition* ::=
-
- <define-basic-event name="*identifier*" [ role="private\|public" ] >
-
- [ *label* ]
-
- [ *attributes* ]
-
- [ *expression* ]
-
- </declare>
+    basic-event-definition ::=
+        <define-basic-event name="identifier" [ role="private|public" ] >
+            [ label ]
+            [ attributes ]
+            [ expression ]
+        </define-basic-event>
 
 Figure ‑. Backus-Naur form of XML description of Fault Trees
 
-*formula* ::=
+.. code:: latex
 
- *event*
+    formula ::=
+          event
+        | Boolean-constant
+        | <and> formula+ </and>
+        | <or> formula+ </or>
+        | <not> formula </not>
+        | <xor> formula+ </xor>
+        | <iff> formula+ </iff>
+        | <nand> formula+ </nand>
+        | <nor> formula+ </nor>
+        | <atleast min="integer" > formula+ </atleast>
+        | <cardinality min="integer" max="integer" > formula+  </cardinality>
+        | <imply> formula formula </imply>
 
- \| *Boolean-constant*
+    event ::=
+          <event name="identifier" [ type="event-type" ] />
+        | <gate name="identifier" />
+        | <house-event name="identifier" />
+        | <basic-event name="identifier" />
 
- \| <and> *formula*\ + </and>
+    event-type ::= gate | basic-event | house-event
 
- \| <or> *formula*\ + </or>
+    Boolean-constant ::= <constant value="Boolean-value" />
 
- \| <not> *formula* </not>
-
- \| <xor> *formula*\ + </xor>
-
- \| <iff> *formula*\ + </iff>
-
- \| <nand> *formula*\ + </nand>
-
- \| <nor> *formula*\ + </nor>
-
- \| <atleast min="*integer*" > *formula*\ + </atleast>
-
- \| <cardinality min="*integer*" max="*integer*" > *formula*\ +
-</cardinality>
-
- \| <imply> *formula* *formula* </imply>
-
-*event* ::=
-
- <event name="*identifier*" [ type="*event-type*" ] />
-
- \| <gate name="*identifier*" />
-
- \| <house-event name="*identifier*" />
-
- \| <basic-event name="*identifier*" />
-
-*event-type* ::= gate \| basic-event \| house-event
-
-*Boolean-constant* ::= <constant value="*Boolean-value*" />
-
-*Boolean-value* ::= true \| false
+    Boolean-value ::= true | false
 
 Figure ‑. Backus-Naur grammar of the XML representation of Boolean
 formulae.
@@ -892,72 +825,44 @@ form for the constructs of the stochastic layer. Note that, conversely
 to variables (events) of the Fault Tree layer, parameters have to be
 defined (there is no equivalent to Basic Events).
 
-*basic-event-declaration *::= *basic-event* = *expression*
+.. code:: latex
 
-*parameter-declaration* ::= *parameter* = *expression*
+    basic-event-declaration ::= basic-event = expression
+    parameter-declaration ::= parameter = expression
+    expression ::=
+        constant | parameter | operation | built-in | random-deviate | test-event
+    constant ::= bool | integer | float
+    parameter ::= regular-parameter | system-mission-time
+    operation ::=
+         and expression+
+        | or expression+
+        | not expression
+        | eq expression expression
+        | df expression expression
+        ...
+        | neg expression
+        | add expression+
+        | sub expression+
+        | mul expression+
+        | div expression+
+        | pow expression expression
+        ...
+        | if expression then expression else expression
 
-*expression* ::=
+    built-in ::=
+          exponential expression expression
+        | Weibull expression expression expression expression
+        ...
 
- *constant* \| *parameter* \| *operation* \| *built-in* \|
-*random-deviate \| test-event*
+    random-deviate ::=
+          uniform-deviate expression expression
+        | lognormal-deviate expression expression expression
+        | histogram
+        ...
 
-*constant* ::= *bool* \| *integer* \| *float*
-
-*parameter* ::= *regular-parameter* \| system-mission-time
-
-*operation* ::=
-
- and *expression*\ +
-
- \| or *expression*\ +
-
- \| not *expression*
-
- \| eq *expression* *expression*
-
- \| df *expression* *expression*
-
- ...
-
- \| neg *expression*
-
- \| add *expression*\ +
-
- \| sub *expression*\ +
-
- \| mul *expression*\ +
-
- \| div *expression*\ +
-
- \| pow *expression* *expression*
-
- ...
-
- \| if *expression* then *expression* else *expression*
-
-*built-in* ::=
-
- exponential *expression expression*
-
- \| Weibull *expression* *expression expression expression*
-
- ...
-
-*random-deviate* ::=
-
- uniform-deviate *expression* *expression*
-
- \| lognormal-deviate *expression* *expression* *expression*
-
- \| *histogram*
-
- ...
-
-test-event ::=
-
- test-initial-event name
-
- \| test-functional-event name state
+    test-event ::=
+          test-initial-event name
+        | test-functional-event name state
 
 Figure ‑. Backus-Naur form for the constructs of the stochastic layer
 (sketch)
@@ -965,44 +870,31 @@ Figure ‑. Backus-Naur form for the constructs of the stochastic layer
 The XML representation of the stochastic layer just reflects these
 different constructs.
 
-*parameter-definition* ::=
+.. code:: latex
 
- <define-parameter name="*identifier*"
+    parameter-definition ::=
+        <define-parameter name="identifier"
+            [ role="private|public" ] [ unit="unit" ]>
+            [ label ] [ attributes ]
+            expression
+        </define-parameter>
 
- [ role="private\|public" ] [ unit="*unit*" ]>
+    unit ::= bool | int | float | hours | hours-1 | years | years-1| demands | fit
 
- [ *label* ] [ *attributes* ]
+    expression ::=
+        constant | parameter | operation | built-in | random-deviate | test-event
 
- *expression*
+    constant ::=
+          <bool value="Boolean-value" />
+        | <int value="integer" />
+        | <float value="float" />
 
- </define-parameter>
+    parameter ::=
+          <parameter name="identifier" [ unit="unit" ] />
+        | <system-mission-time [ unit="unit" ] />
 
-*unit* ::= bool \| int \| float \| hours \| hours-1 \| years \| years-1
-
- \| demands \| fit
-
-*expression* ::=
-
- *constant* \| *parameter* \| *operation* \| *built-in* \|
-*random-deviate \| test-event*
-
-*constant* ::=
-
- <bool value="*Boolean-value*" />
-
- \| <int value="*integer*" />
-
- \| <float value="*float*" />
-
-*parameter* ::=
-
- <parameter name="*identifier*" [ unit="*unit*" ] />
-
- \| <system-mission-time [ unit="*unit*" ] />
-
-*operation* ::=
-
- *numerical-operation* \| *Boolean-operation* \| *conditional-operation*
+    operation ::=
+        numerical-operation | Boolean-operation | conditional-operation
 
 Figure ‑. Backus-Naur grammar for XML representation of expressions
 (main)
@@ -1043,7 +935,7 @@ representation is given `Figure Stochastic Layer-12 <#anchor-70>`__.
 +------------+--------------+-------------------------------------------+
 | div        | >1           | division                                  |
 +------------+--------------+-------------------------------------------+
-| pi         | 0            | 3.1415926535…                             |
+| pi         | 0            | 3.1415926535...                           |
 +------------+--------------+-------------------------------------------+
 | abs        | 1            | absolute value                            |
 +------------+--------------+-------------------------------------------+
@@ -1059,7 +951,7 @@ representation is given `Figure Stochastic Layer-12 <#anchor-70>`__.
 +------------+--------------+-------------------------------------------+
 | exp        | 1            | exponential                               |
 +------------+--------------+-------------------------------------------+
-| log        | 1            | (Neperian) logarithm                      |
+| log        | 1            | (Napierian) logarithm                     |
 +------------+--------------+-------------------------------------------+
 | log10      | 1            | decimal logarithm                         |
 +------------+--------------+-------------------------------------------+
@@ -1091,61 +983,36 @@ representation is given `Figure Stochastic Layer-12 <#anchor-70>`__.
 Table ‑. Numerical Operations, their number of arguments and their
 semantics
 
-*numerical-operation* ::=
+.. code:: latex
 
- <neg> *expression* </neg>
-
- \| <add> *expression*\ + </add>
-
- \| <sub> *expression*\ + </sub>
-
- \| <mul> *expression*\ + </mul>
-
- \| <div> *expression*\ + </div>
-
- \| <pi />
-
- \| <abs> *expression* </abs>
-
- \| <acos> *expression* </acos>
-
- \| <asin> *expression* </asin>
-
- \| <atan> *expression* </atan>
-
- \| <cos> *expression* </cos>
-
- \| <cosh> *expression* </cosh>
-
- \| <exp> *expression* </exp>
-
- \| <log> *expression* </log>
-
- \| <log10> *expression* </log10>
-
- \| <mod> *expression* *expression* </mod>
-
- \| <pow> *expression* *expression* </pow>
-
- \| <sin> *expression* </sin>
-
- \| <sinh> *expression* </sinh>
-
- \| <tan> *expression* </tan>
-
- \| <tanh> *expression* </tanh>
-
- \| <sqrt> *expression* </sqrt>
-
- \| <ceil> *expression* </ceil>
-
- \| <floor> *expression* </floor>
-
- \| <min> *expression*\ + </min>
-
- \| <max> *expression*\ + </max>
-
- \| <mean> *expression*\ + </mean>
+    numerical-operation ::=
+          <neg> expression </neg>
+        | <add> expression+ </add>
+        | <sub> expression+ </sub>
+        | <mul> expression+ </mul>
+        | <div> expression+ </div>
+        | <pi />
+        | <abs> expression </abs>
+        | <acos> expression </acos>
+        | <asin> expression </asin>
+        | <atan> expression </atan>
+        | <cos> expression </cos>
+        | <cosh> expression </cosh>
+        | <exp> expression </exp>
+        | <log> expression </log>
+        | <log10> expression </log10>
+        | <mod> expression expression </mod>
+        | <pow> expression expression </pow>
+        | <sin> expression </sin>
+        | <sinh> expression </sinh>
+        | <tan> expression </tan>
+        | <tanh> expression </tanh>
+        | <sqrt> expression </sqrt>
+        | <ceil> expression </ceil>
+        | <floor> expression </floor>
+        | <min> expression+ </min>
+        | <max> expression+ </max>
+        | <mean> expression+ </mean>
 
 Figure ‑. Backus-Naur grammar for XML representation of numerical
 operations
@@ -1206,25 +1073,18 @@ representation is given `Figure Stochastic Layer-13 <#anchor-76>`__.
 Table ‑. Boolean operators, their number of arguments and their
 semantics
 
-*Boolean-operation* ::=
+.. code:: latex
 
- <not> *expression* </not>
-
- \| <and> *expression*\ + </and>
-
- \| <or> *expression*\ + </or>
-
- \| <eq> *expression* *expression* </eq>
-
- \| <df> *expression* *expression* </df>
-
- \| <lt> *expression* *expression* </lt>
-
- \| <gt> *expression* *expression* </gt>
-
- \| <leq> *expression* *expression* </leq>
-
- \| <geq> *expression* *expression* </geq>
+    Boolean-operation ::=
+          <not> expression </not>
+        | <and> expression+ </and>
+        | <or> expression+ </or>
+        | <eq> expression expression </eq>
+        | <df> expression expression </df>
+        | <lt> expression expression </lt>
+        | <gt> expression expression </gt>
+        | <leq> expression expression </leq>
+        | <geq> expression expression </geq>
 
 Figure ‑. Backus-Naur grammar for XML representation of Boolean
 operations
@@ -1243,27 +1103,21 @@ The list ends with an expression, in order to be sure that the switch
 has always a possible value. The XML representation for conditional
 operation is given `Figure Stochastic Layer-14 <#anchor-80>`__.
 
-*conditional-operation* ::=
+.. code:: latex
 
- *if-then-else-operation* \| *switch-operation*
+    conditional-operation ::=
+        if-then-else-operation | switch-operation
 
-*if-then-else-operation* ::=
+    if-then-else-operation ::=
+        <ite> expression expression expression </ite>
 
- <ite> *expression* *expression* *expression* </ite>
+    switch-operation ::=
+        <switch>
+            case-operation*
+            expression
+        </switch>
 
-*switch-operation* ::=
-
- <switch>
-
- *case-operation*\ \*
-
- *expression*
-
- </switch>
-
-*case-operation* ::=
-
- <case> expression expression </case>
+    case-operation ::= <case> expression expression </case>
 
 Figure ‑. Backus-Naur grammar for XML representation of conditional
 operations
@@ -1452,21 +1306,16 @@ XML Representation
 The Backus-Naur grammar for the XML representation of built-ins is given
 `Figure Stochastic Layer-17 <#anchor-91>`__.
 
-*built-in* ::=
+.. code:: latex
 
- <exponential> [ *expression* ]:2 </exponential>
-
- \| <GLM> [ *expression* ]:4 </GLM>
-
- \| <Weibull> [ *expression* ]:3 </Weibull>
-
- \| <periodic-test> [ *expression* ]:11 </periodic-test>
-
- \| <periodic-test> [ *expression* ]:5 </periodic-test>
-
- \| <periodic-test> [ *expression* ]:4 </periodic-test>
-
- \| <extern-function name="*name*" > *expression*\ \* </extern-function>
+    built-in ::=
+          <exponential> [ expression ]:2 </exponential>
+        | <GLM> [ expression ]:4 </GLM>
+        | <Weibull> [ expression ]:3 </Weibull>
+        | <periodic-test> [ expression ]:11 </periodic-test>
+        | <periodic-test> [ expression ]:5 </periodic-test>
+        | <periodic-test> [ expression ]:4 </periodic-test>
+        | <extern-function name="name" > expression* </extern-function>
 
 Figure ‑. Backus-Naur grammar for XML representation of Built-ins
 
@@ -1549,9 +1398,9 @@ follows.
 
 Its mean, *E(x)* is defined as follows.
 
-The confidence intervals *[X:sub:`*0,05*`, X\ :sub:`*0,95*`]* associated
+The confidence intervals *[X\ :sub:`*0,05*`, X\ :sub:`*0,95*`]* associated
 with a confidence level of *0.95* and the median
-*X\ :sub:`*0,50*`*\ :sub:` `\ are the following:
+*X\ :sub:`*0,50*`* are the following:
 
 The error factor *EF* is defined as follows:
 
@@ -1626,27 +1475,19 @@ XML Representation
 The Backus-Naur grammar for the XML representation of random deviates is
 given
 
-*random-deviate* ::=
+.. code:: latex
 
- <uniform-deviate> [ *expression* ]:2 </uniform-deviate>
+    random-deviate ::=
+          <uniform-deviate> [ expression ]:2 </uniform-deviate>
+        | <normal-deviate> [ expression ]:2 </normal-deviate>
+        | <lognormal-deviate> [ expression ]:3 </lognormal-deviate>
+        | <gamma-deviate> [ expression ]:2 </gamma-deviate>
+        | <beta-deviate> [ expression ]:2 </beta-deviate>
+        | histogram
 
- \| <normal-deviate> [ *expression* ]:2 </normal-deviate>
+    histogram ::= <histogram > expression /bin/+ </histogram>
 
- \| <lognormal-deviate> [ *expression* ]:3 </lognormal-deviate>
-
- \| <gamma-deviate> [ *expression* ]:2 </gamma-deviate>
-
- \| <beta-deviate> [ *expression* ]:2 </beta-deviate>
-
- \| histogram
-
-*histogram* ::=
-
- <histogram > *expression* *bin*\ + </histogram>
-
-*bin* ::=
-
- <bin> *expression* *expression* </bin>
+    bin ::= <bin> expression expression </bin>
 
 Figure ‑. Backus-Naur grammar for XML representation of random deviates
 
@@ -1715,11 +1556,11 @@ The XML representation for directives to test the status of initiating
 and functional events is given `Figure Stochastic
 Layer-19 <#anchor-106>`__.
 
-*test-event* ::=
+.. code:: latex
 
- <test-initiating-event name="*name*" />
-
- \| <test-functional-event name="*name*" state="*identifier*" />
+    test-event ::=
+          <test-initiating-event name="name" />
+        | <test-functional-event name="name" state="identifier" />
 
 Figure ‑. Backus-Naur grammar for XML representation of directives to
 test the status of initiating and functional events
@@ -1828,53 +1669,37 @@ associated with basic events of a member of the CCF group should be
 equal to 1, although this is not strictly required by the Model Exchange
 Format.
 
-*CCF-group-definition* ::=
+.. code:: latex
 
- <define-CCF-group name="*identifier*" model="*CCF-model*" >
+    CCF-group-definition ::=
+        <define-CCF-group name="identifier" model="CCF-model" >
+            [ label ]
+            [ attributes ]
+            members
+            distribution
+            factors
+        </define-CCF-group>
 
- [ *label* ]
+    members ::=
+        <members>
+            <basic-event name="identifier" />+
+        </members>
 
- [ *attributes* ]
+    factors ::=
+          <factors> factor+ </factors>
+        | factor
 
- *members*
+    factor ::=
+        <factor [ level="integer" ] >
+            expression
+        </factor>
 
- *distribution*
+    distribution ::=
+        <distribution>
+            expression
+        </distribution>
 
- *factors*
-
- </define-CCF-group>
-
-*members* ::=
-
- <members>
-
- <basic-event name="*identifier*" />+
-
- </members>
-
-*factors* ::=
-
- <factors> *factor*\ + </factors>
-
- \| *factor*
-
-factor ::=
-
- <factor [ level="*integer*" ] >
-
- *expression*
-
- </factor>
-
-*distribution* ::=
-
- <distribution >
-
- *expression*
-
- </distribution>
-
-*CCF-model* ::= beta-factor \| MGL \| alpha-factor \| phi-factor
+    CCF-model ::= beta-factor | MGL | alpha-factor | phi-factor
 
 Figure ‑. Backus-Naur form for the XML representation of CCF-groups
 
@@ -1936,22 +1761,22 @@ e\ :sub:`2`, e\ :sub:`3`} be a Delete Term (group).
 
 -  A first way to handle G, is to use it to post-process minimal
    cutsets, or to discard them on the fly during their generation. If a
-   minimal cusets contains at least two of the elements of G, it is
+   minimal cutsets contains at least two of the elements of G, it is
    discarded.
+
 -  A global constraint "C\ :sub:`G` = not 2-out-of-3(e\ :sub:`1`,
    e\ :sub:`2`, e\ :sub:`3`)" is introduced and each top event (or event
    tree sequences) "top" is rewritten as "top and C\ :sub:`G`\ ".
+
 -  As for Common Causes Groups, the e\ :sub:`i`\ 's are locally
    rewritten in as gates:
 
--
-
-   -  e\ :sub:`1` is rewritten as a gate ge\ :sub:`1` = e\ :sub:`1` and
-      (not e\ :sub:`2`) and (not e\ :sub:`3`)
-   -  e\ :sub:`2` is rewritten as a gate ge\ :sub:`2` = e\ :sub:`2` and
-      (not e\ :sub:`1`) and (not e\ :sub:`3`)
-   -  e\ :sub:`3` is rewritten as a gate ge\ :sub:`3` = e\ :sub:`3` and
-      (not e\ :sub:`1`) and (not e\ :sub:`2`)
+    *  e\ :sub:`1` is rewritten as a gate ge\ :sub:`1` = e\ :sub:`1` and
+       (not e\ :sub:`2`) and (not e\ :sub:`3`)
+    *  e\ :sub:`2` is rewritten as a gate ge\ :sub:`2` = e\ :sub:`2` and
+       (not e\ :sub:`1`) and (not e\ :sub:`3`)
+    *  e\ :sub:`3` is rewritten as a gate ge\ :sub:`3` = e\ :sub:`3` and
+       (not e\ :sub:`1`) and (not e\ :sub:`2`)
 
 *Recovery Rules:* Recovery Rules are an extension of Delete Terms. A
 Recovery Rule is a couple (H, e), where H is a set of basic events and e
@@ -2056,19 +1881,15 @@ The Backus-Naur form for the XML description of substitutions is given
 `Figure Meta-Logical Layer-21 <#anchor-119>`__. The optional attribute
 "type" is used to help tools that implement "traditional" substitutions.
 
-*substitution-definition* ::=
+.. code:: latex
 
- <define-substitution [ name="*identifier*" ] [ type="*identifier*" ] >
-
- [ *label* ] [ *attributes* ]
-
- <hypothesis> *Boolean-formula* </hypothesis>
-
- [ <source> *basic-event*\ + </source> ]
-
- <target> *basic-event+ \| Boolean-constant* </target>
-
- </define-substitution >
+    substitution-definition ::=
+        <define-substitution [ name="identifier" ] [ type="identifier" ] >
+            [ label ] [ attributes ]
+            <hypothesis> Boolean-formula </hypothesis>
+            [ <source> basic-event+ </source> ]
+            <target> basic-event+ | Boolean-constant </target>
+        </define-substitution>
 
 Figure ‑. Backus-Naur form for the XML representation of
 exclusive-groups
@@ -2172,11 +1993,9 @@ corresponding safety mission while lower branches represent its failure.
 Applying the so-called fault tree linking approach, we obtain the
 following interpretation for the sequences.
 
-S1 = I and not F and not HS4 = I and F and not G and H
-
-S2 = I and not F and HS5 = I and F and G and not F
-
-S3 = I and F and not G and not HS6 = I and F and G and H
+    S1 = I and not F and not HS4 = I and F and not G and H
+    S2 = I and not F and HS5 = I and F and G and not F
+    S3 = I and F and not G and not HS6 = I and F and G and H
 
 In practice, things are less simple:
 
@@ -2331,108 +2150,75 @@ the subject of the next section. Note that branches and functional
 events cannot be declared (nor referred to) outside event trees, for
 there would be no meaning in doing so.
 
-*initiating-event-definition *::=
+.. code:: latex
 
- <define-initiating-event name="*identifier*" [
-event-tree="*identifier*" ] >
+    initiating-event-definition ::=
+        <define-initiating-event name="identifier" [ event-tree="identifier"] >
+            [ label ]
+            [ attributes ]
+            instruction*
+        </define-initiating-event>
 
- [ *label* ] [ *attributes* ]
+    initiating-event-group-definition::=
+        <define-initiating-event-group name="identifier" [ event-tree="identifier" ] >
+            [ label ]
+            [ attributes ]
+            initiating-event+
+        </define-initiating-event-group>
 
- *instruction\**
-
- </define-initiating-event>
-
-*initiating-event-group-definition*::=
-
- <define-initiating-event-group name="*identifier*"
-[event-tree="*identifier*"] >
-
- [ *label* ] [ *attributes* ]
-
- *initiating-event*\ +
-
- </define-initiating-event-group>
-
-*initiating-event* ::=
-
- <initiating-event name="*identifier*" />
-
- \| <initiating-event-group name="*identifier*" />
+    initiating-event ::=
+          <initiating-event name="identifier" />
+        | <initiating-event-group name="identifier" />
 
 Figure ‑. Backus-Naur form of the XML representation of initiating
 events
 
-*event-tree-definition* ::=
+.. code:: latex
 
- <define-event-tree name="*identifier*" >
+    event-tree-definition ::=
+        <define-event-tree name="identifier">
+            [ label ]
+            [ attributes ]
+            functional-event-definition*
+            sequence-definition*
+            branch-definition*
+            initial-state
+        </define-event-tree>
 
- [ *label* ]
+    functional-event-definition ::=
+        <define-functional-event name="identifier">
+            [ label ]
+            [ attributes ]
+        </define-functional-event>
 
- [ *attributes* ]
+    sequence-definition ::=
+        <define-sequence name="identifier">
+            [ label ]
+            [ attributes ]
+            instruction+
+        </define-sequence>
 
- *functional-event-definition\**
+    branch-definition ::=
+        <define-branch name="identifier">
+            [ label ]
+            [ attributes ]
+            branch
+        </define-branch>
 
- *sequence-definition*\ \*
+    initial-state ::=
+        <initial-state>
+            branch
+        </initial-state>
 
- *branch-definition*\ \*
+    branch ::= instruction* (fork | end-state)
 
- *initial-state*
+    fork ::= <fork functional-event="identifier"> path+ </fork>
 
- </define-event-tree>
+    path ::= <path state="identifier"> branch </path>
 
-*functional-event-definition* ::=
-
- <define-functional-event name="*identifier*" >
-
- [ *label* ]
-
- [ *attributes* ]
-
- </define-functional-event>
-
-*sequence-definition* ::=
-
- <define-sequence name="*identifier*" >
-
- [ *label* ]
-
- [ *attributes* ]
-
- *instruction*\ +
-
- </define-sequence>
-
-*branch-definition* ::=
-
- <define-branch name="*identifier*" >
-
- [ *label* ]
-
- [ *attributes* ]
-
- *branch*
-
- </define-branch>
-
-*initial-state* ::=
-
- <initial-state>
-
- *branch*
-
- </initial-state>
-
-*branch* ::= *instruction*\ \* (*fork* \| *end-state*)
-
-*fork* ::= <fork functional-event="*identifier*"> *path*\ + </fork>
-
-*path* ::= <path state="*identifier*" > *branch* </path>
-
-*end-state *::=
-
- <sequence name="*identifier*" />
-
- \| <branch name="*identifier*" />
+    end-state ::=
+          <sequence name="identifier" />
+        | <branch name="identifier" />
 
 Figure ‑. Backus-Naur form of the XML representation of event trees and
 sequences
@@ -2553,72 +2339,55 @@ XML Representation
 The Backus-Naur form for the XML representation of instructions is given
 `Figure Event Tree Layer-27 <#anchor-144>`__.
 
-*instruction* ::= *set* \| *collect* \| *if-then-else* \| *block* \|
-*rule \| link*
+.. code:: latex
 
-*set* ::= *set-gate* \| *set-house-event* \| *set-basic-event* \|
-*set-parameter*
+    instruction ::= set | collect | if-then-else | block | rule | link
 
-*set-gate* ::=
+    set ::= set-gate | set-house-event | set-basic-event | set-parameter
 
- <set-gate name="*identifier*" [ direction="*direction*" ] >
+    set-gate ::=
+        <set-gate name="identifier" [ direction="direction" ] >
+            formula
+        </set-gate>
 
- *formula*
+    set-house-event ::=
+        <set-house-event name="identifier" [ direction="direction" ] >
+            Boolean-constant
+        </set-house-event>
 
- </set-gate>
+    set-basic-event ::=
+        <set-basic-event name="identifier" [ direction="direction" ] >
+            expression
+        </set-basic-event>
 
-*set-house-event* ::=
+    set-parameter ::=
+        <set-parameter name="identifier" [ direction="direction" ] >
+            expression
+        </set-parameter>
 
- <set-house-event name="*identifier*" [ direction="*direction*" ] >
+    direction ::= forward | backward | both
 
- *Boolean-constant*
+    if-then-else ::=
+        <if> expression instruction [ instruction ] </if>
 
- </set-house-event>
+    collect ::= collect-formula | collect-expression
 
-*set-basic-event* ::=
+    collect-formula ::= <collect-formula> formula </collect-formula>
 
- <set-basic-event name="*identifier*" [ direction="*direction*" ] >
+    collect-expression ::= <collect-expression> expression </collect-expression>
 
- *expression*
+    block ::= <block> instruction* </block>
 
- </set-basic-event>
+    rule ::= <rule name="identifier" />
 
-*set-parameter* ::=
+    link ::= <event-tree name="name" />
 
- <set-parameter name="*identifier*" [ direction="*direction*" ] >
-
- *expression*
-
- </set-parameter>
-
-*direction* ::= forward \| backward \| both
-
-*if-then-else* ::=
-
- <if> *expression* *instruction* [ *instruction* ] </if>
-
-*collect* ::= *collect-formula* \| *collect-expression*
-
-collect-formula ::= <collect-formula> *formula *\ </collect-formula>
-
-collect-expression ::= <collect-expression> *expression*
-</collect-expression>
-
-*block* ::= <block> *instruction*\ \* </block>
-
-*rule* ::= <rule name="*identifier*" />
-
-*link* ::= <event-tree name="*name*" />
-
-*rule-definition* ::=
-
- <define-rule name="*identifier*" >
-
- [ *label* ] [ *attributes* ]
-
- *instruction*\ +
-
- </define-rule>
+    rule-definition ::=
+        <define-rule name="identifier" >
+            [ label ]
+            [ attributes ]
+            instruction+
+        </define-rule>
 
 Figure ‑. Backus-Naur form for the XML representation of instructions
 
@@ -2753,35 +2522,26 @@ The Backus-Naur form for the XML representation of declarations of
 groups of consequences is given `Figure Organization of a
 Model-29 <#anchor-154>`__.
 
-*consequence-definition* ::=
+.. code:: latex
 
- <define-consequence name="*identifier*" >
+    consequence-definition ::=
+        <define-consequence name="identifier" >
+            [ label ]
+            [ attributes ]
+            <initiating-event name="identifier" />
+            <sequence name="identifier" />
+        </define-consequence>
 
- [ *label* ] [ *attributes* ]
+    consequence-group-definition ::=
+        <define-consequence-group name="identifier" >
+            [ label ]
+            [ attributes ]
+            consequence | consequence-group
+        </define-consequence-group>
 
- <initiating-event name="*identifier*" />
+    consequence ::= <consequence name="identifier" />
 
- <sequence name="*identifier*" />
-
- </define-consequence>
-
-*consequence-group-definition* ::=
-
- <define-consequence-group name="*identifier*" >
-
- [ *label* ] [ *attributes* ]
-
- *consequence* \| *consequence-group*
-
- </define-consequence-group>
-
-*consequence* ::=
-
- <consequence name="*identifier*" />
-
-*consequence-group* ::=
-
- <consequence-group name="*identifier*" />
+    consequence-group ::= <consequence-group name="identifier" />
 
 Figure ‑. Backus-Naur form of the XML representation of consequence
 groups
@@ -2801,25 +2561,21 @@ different values in each phase. The Backus-Naur form for the XML
 representation of declarations of phases is given `Figure Organization
 of a Model-30 <#anchor-157>`__.
 
-*mission-definition* ::=
+.. code:: latex
 
- <define-mission name="*identifier*" >
+    mission-definition ::=
+        <define-mission name="identifier" >
+            [ label ]
+            [ attributes ]
+            define-phase+
+        </define-alignment>
 
- [ *label* ] [ *attributes* ]
-
- *define*-*phase+*
-
- </define-alignment>
-
-*phase-definition* ::=
-
- <define-phase name="*identifier*" time-fraction="*float*" >
-
- [ *label* ] [ *attributes* ]
-
- *instruction*\ \*
-
- </define-phase>
+    phase-definition ::=
+        <define-phase name="identifier" time-fraction="float" >
+            [ label ]
+            [ attributes ]
+            instruction*
+        </define-phase>
 
 Figure ‑. Backus-Naur form of the XML representation of Missions and
 Phases
@@ -2886,102 +2642,72 @@ Figure ‑. Containers and the constructs they can define
 representation of models. This representation just collects what has
 been defined so far.
 
-*model* ::=
+.. code:: latex
 
- <?xml version="1.0" ?>
+    model ::=
+        <?xml version="1.0" ?>
+        <!DOCTYPE opsa-mef >
+        <opsa-mef>
+            [ label ]
+            [ attributes ]
+            (
+                  mission-definition
+                | consequence-group-definition
+                | consequence-definition
+                | event-tree-definition
+                | rule-definition
+                | initiating-event-group-definition
+                | initiating-event-definition
+                | fault-tree-definition
+                | substitution-definition
+                | CCF-group-definition
+            )*
+        </opsa-mef>
 
- <!DOCTYPE opsa-mef >
+    event-tree-definition ::=
+        <define-event-tree name="identifier">
+            [ label ]
+            [ attributes ]
+            functional-event-definition*
+            sequence-definition*
+            branch-definition*
+            initial-state
+        </define-event-tree>
 
- <opsa-mef>
+    fault-tree-definition ::=
+        <define-fault-tree name="identifier">
+            [ label ]
+            [ attributes ]
+            (
+                 substitution-definition
+                | CCF-group-definition
+                | component-definition
+                | gate-definition
+                | house-event-definition
+                | basic-event-definition
+                | parameter-definition
+            )*
+        </define-fault-tree>
 
- [ *label* ] [ *attributes* ]
+    component-definition ::=
+        <define-component name="identifier">
+            [ label ]
+            [ attributes ]
+            (
+                  substitution-definition
+                | CCF-group-definition
+                | component-definition
+                | gate-definition
+                | house-event-definition
+                | basic-event-definition
+                | parameter-definition
+            )*
+        </define-component>
 
- (
-
- *mission-definition*
-
- \| *consequence-group-definition* \| *consequence-definition*
-
- \| *event-tree-definition*
-
- \| *rule-definition*
-
- \| *initiating-event-group-definition* \| *initiating-event-definition*
-
- \| *fault-tree-definition*
-
- \| *substitution-definition* \| *CCF-group-definition*
-
- )\*
-
- </opsa-mef>
-
-*event-tree-definition* ::=
-
- <define-event-tree name="*identifier*">
-
- [ *label* ] [ *attributes* ]
-
- *functional-event-definition\**
-
- sequence-definition\*
-
- branch-definition\*
-
- initial-event
-
- )\*
-
- </define-event-tree>
-
-*fault-tree-definition* ::=
-
- <define-fault-tree name="*identifier*">
-
- [ *label* ] [ *attributes* ]
-
- (
-
- *substitution-definition* \| *CCF-group-definition*
-
- \| *component-definition*
-
- \| *gate-definition* \| *house-event-definition*
-
- \| *basic-event-definition* \| *parameter-definition*
-
- )\*
-
- </define-fault-tree>
-
-*component-definition* ::=
-
- <define-component name="*identifier*">
-
- [ *label* ] [ *attributes* ]
-
- (
-
- *substitution-definition* \| *CCF-group-definition*
-
- \| *component-definition*
-
- \| *gate-definition* \| *house-event-definition*
-
- \| *basic-event-definition* \| *parameter-definition*
-
- )\*
-
- </define-component>
-
-*model-data* ::=
-
- <model-data>
-
- (*house-event-definition *\ \| *basic-event-definition* \|
-*parameter-definition*)\*
-
- </model-data>
+    model-data ::=
+        <model-data>
+            (house-event-definition | basic-event-definition | parameter-definition)*
+        </model-data>
 
 Figure ‑. Backus-Naur form for the XML representation of containers
 
@@ -3024,41 +2750,41 @@ features of the model.
 
 -  Software
 
-   -  Version
-   -  Contact organization (editor, vendor...)
-   -  ...
+   *  Version
+   *  Contact organization (editor, vendor...)
+   *  ...
 
 -  Calculated quantities
 
-   -  Name
-   -  Mathematic definition
-   -  Approximations used
-   -  ...
+   *  Name
+   *  Mathematical definition
+   *  Approximations used
+   *  ...
 
 -  Calculation method(s)
 
-   -  Name
-   -  Limits (e.g., number of basic events, of sequences, of cutsets)
-   -  Preprocessing techniques (modularization, rewritings...)
-   -  Handling of success terms
-   -  Cutoffs, if any (absolute, relative, dynamic, ...)
-   -  Are delete terms, recovery rules or exchange events applied?
-   -  Extra-logical methods used
-   -  Secondary software necessary
-   -  Warning and caveats
-   -  Calculation time
-   -  ...
+   *  Name
+   *  Limits (e.g., number of basic events, of sequences, of cutsets)
+   *  Preprocessing techniques (modularization, rewritings...)
+   *  Handling of success terms
+   *  Cutoffs, if any (absolute, relative, dynamic, ...)
+   *  Are delete terms, recovery rules or exchange events applied?
+   *  Extra-logical methods used
+   *  Secondary software necessary
+   *  Warning and caveats
+   *  Calculation time
+   *  ...
 
 -  Features of the model
 
-   -  Name
-   -  Number of: gates, basic events, house events, fault trees, event
+   *  Name
+   *  Number of: gates, basic events, house events, fault trees, event
       trees, functional events, initiating events
 
 -  Feedback
 
-   -  Success or failure reports
-   -  ...
+   *  Success or failure reports
+   *  ...
 
 Format of Results
 -----------------
@@ -3087,37 +2813,26 @@ minimal cutsets are a specific type of sums of products) is given
 to tags "sum-of-products" and "product" to carry the relevant
 information.
 
-*sum-of-products* ::=
+.. code:: latex
 
- <sum-of-products
+    sum-of-products ::=
+        <sum-of-products
+            [ name="identifier" ]
+            [ description="text" ]
+            [ basic-events="integer" ]
+            [ products="integer" ]
+        >
+            product*
+        </sum-of-products>
 
- [ name="*identifier*" ]
+    product ::=
+        <product [ order="integer" ] >
+            literal*
+        </product>
 
- [ description="*text*" ]
-
- [ basic-events="*integer*" ]
-
- [ products="*integer*" ]
-
- >
-
- *product*\ \*
-
- </sum-of-products>
-
-*product* ::=
-
- <product [ order="*integer*" ] >
-
- *literal*\ \*
-
- </product>
-
-*literal* ::=
-
- <basic-event name="*identifier*" />
-
- \| <not> <basic-event name="*identifier*" /> </not>
+    literal ::=
+          <basic-event name="identifier" />
+        | <not> <basic-event name="identifier" /> </not>
 
 Figure ‑. Backus-Naur form for the XML representation of
 sums-of-products
@@ -3132,53 +2847,33 @@ standard deviation), confidence ranges, error factors, quantiles... The
 XML representation for statistical measure is given `Figure Report
 Layer-34 <#anchor-174>`__.
 
-*measure* ::=
+.. code:: latex
 
- <measure
+    measure ::=
+        <measure
+            [ name="identifier" ]
+            [ description="text" ]
+        >
+            [ <mean value="float" /> ]
+            [ <standard-deviation value="float" /> ]
+            [ <confidence-range
+                percentage="float"
+                lower-bound="float"
+                upper-bound="float" /> ]
+            [ <error-factor percentage="float" value="float" /> ]
+            [ quantiles ]
+        </measure>
 
- [ name="*identifier*" ]
+    quantiles ::=
+        <quantiles number="integer" >
+            quantile+
+        </quantiles>
 
- [ description="*text*" ]
-
- >
-
- [ <mean value="*float*" > ]
-
- [ <standard-deviation value="*float*" > ]
-
- [ <confidence-range
-
- percentage="*float*"
-
- lower-bound="*float*"
-
- upper-bound="*float*" > ]
-
- [ <error-factor percentage="*float*" value="*float*" > ]
-
- [ *quantiles* ]
-
- </measure>
-
-*quantiles* ::=
-
- <quantiles number="*integer*" >
-
- *quantile*\ +
-
- </quantiles>
-
-*quantile* ::=
-
- <quantile number="*integer*"
-
- [ mean="*float*" ]
-
- [ lower-bound="*float*" ]
-
- [ upper-bound="*float*" ]
-
- />
+    quantile ::=
+        <quantile number="integer"
+            [ mean="float" ]
+            [ lower-bound="float" ]
+            [ upper-bound="float" ] />
 
 Figure ‑. Backus-Naur form for the XML representation of statistical
 measures
@@ -3192,25 +2887,19 @@ unavailability through the time. The XML representation of curves
 suggested by the Model Exchange Format is given `Figure Report
 Layer-35 <#anchor-177>`__.
 
-curve ::=
+.. code:: latex
 
- <curve
+    curve ::=
+        <curve
+            [ name="identifier" ]
+            [ description="text" ]
+            [ X-title="string" Y-title="string" [ Z-title="string" ] ]
+            [ X-unit="unit" Y-unit="unit" [ Z-unit="unit" ] ]
+        >
+            <point X="float" Y="float" [ Z="float" ] />*
+        </curve>
 
- [ name="*identifier*" ]
-
- [ description="*text*" ]
-
- [ X-title="*string*" Y-title="*string*" [ Z-title="*string*" ] ]
-
- [ X-unit="*unit*" Y-unit="*unit*" [ Z-unit="*unit*" ] ]
-
- >
-
- <point X="*float*" Y="*float*" [ Z="*float*" ] />\*
-
- </curve>
-
-*unit* ::= seconds \| hours \| ...
+    unit ::= seconds | hours | ...
 
 Figure ‑. Backus-Naur for the XML representation of curves
 
@@ -3277,7 +2966,9 @@ semantics document the programming language in BNF.
 
 A BNF specification is a set of derivation rules, written as
 
-symbol ::= <*expression* with symbols>
+.. code:: latex
+
+    symbol ::= <expression with symbols>
 
 where *symbol* is a nonterminal, and the expression consists of
 sequences of symbols and/or sequences separated by the vertical bar,
@@ -3287,22 +2978,17 @@ terminals.
 
 As an example, consider this possible BNF for a U.S. postal address:
 
-*postal-address* ::= *name-part street-address zip-part*
+.. code:: latex
 
-*name-part* ::=
+    postal-address ::= name-part street-address zip-part
+    name-part ::=
+      personal-part last-name [ jr-part ] EOL
+      | personal-part name-part EOL
 
-* personal-part last-name* [* jr-part* ]\ * EOL *
-
- \| personal-part name-part EOL
-
-*personal-part* ::= *first-name \| initial *.\ * *
-
-*jr-part* ::= Jr \| Sr \| *dynastic-number*
-
-*street-address* ::= [ *apartement-number* ]\ * house-number street-name
-EOL*
-
-*zip-part* ::= *town-name *,\ * state-code ZIP-code EOL*
+    personal-part ::= first-name | initial .
+    jr-part ::= Jr | Sr | dynastic-number
+    street-address ::= [ apartement-number ] house-number street-name EOL
+    zip-part ::= town-name , state-code ZIP-code EOL
 
 This translates into English as:
 
@@ -3346,694 +3032,3 @@ Backus-Naur form we shall use is as follows.
 A. DTD of the Open-PSA Model Exchange Format
 
 The schema in various formats can be found at https://github.com/open-psa/schemas
-
-
-A. Backus-Naur form for the Open-PSA Model Exchange Format
-
-   1. Models
-
-*model* ::=
-
- <?xml version="1.0" ?>
-
- <!DOCTYPE opsa-mef >
-
- <opsa-mef [ name="*identifier*" ] >
-
- [ *label* ] [ *attributes* ]
-
- (
-
- *event-tree-definition*
-
- \| *alignment-definition*
-
- \| *consequence-group-definition* \| *consequence-definition*
-
- \| *rule-definition*
-
- \| *initiating-event-group-definition* \| *initiating-event-definition*
-
- \| *fault-tree-definition*
-
- \| *substitution-definition*
-
- \| *CCF-group-definition*
-
- \| *include-directive*
-
- )\*
-
- </opsa-mef>
-
-*label* :=
-
- <label> *any text* </label>
-
-*attributes* ::=
-
- <attributes> *attribute*\ + </attributes>
-
-*attribute* ::=
-
- <attribute name="*identifier*" value="*string*" [ type="*string*" ] / >
-
-*include-directive* ::=
-
- <include file="*string*" />
-
-A.
-
-   1. Consequence, Consequence Groups, Alignments
-
-*consequence-definition* ::=
-
- <define-consequence name="*identifier*" >
-
- [ *label* ] [ *attributes* ]
-
- <initiating-event name="*identifier*" />
-
- <sequence name="*identifier*" />
-
- </define-consequence>
-
-*consequence-group-definition* ::=
-
- <define-consequence-group name="*identifier*" >
-
- [ *label* ] [ *attributes* ]
-
- *consequence* \| *consequence-group*
-
- </define-consequence-group>
-
-*consequence* ::=
-
- <consequence name="*identifier*" />
-
-*consequence-group* ::=
-
- <consequence-group name="*identifier*" />
-
-*alignment-definition* ::=
-
- <define-alignment name="*identifier*" time-fraction="*float*" >
-
- [ *label* ] [ *attributes* ]
-
- *instruction*\ \*
-
- </define-alignment>
-
-A.
-
-   1. Initiating events, Initiating event Groups
-
-*initiating-event-definition *::=
-
- <define-initiating-event name="*identifier*"
-[event-tree="*identifier*"] >
-
- [ *label* ] [ *attributes* ]
-
- [ *collected-item \| consequence \| consequence-group *]
-
- </define-initiating-event>
-
-*initiating-event-group-definition*::=
-
- <define-initiating-event-group name="*identifier*"
-[event-tree="*identifier*"] >
-
- [ *label* ] [ *attributes* ]
-
- *initiating-event*\ +
-
- </define-initiating-event-group>
-
-*initiating-event* ::=
-
- <initiating-event name="*identifier*" />
-
- \| <initiating-event-group name="*identifier*" />
-
-*collected-item* ::=
-
- <basic-event name="*identifier*" />
-
- \| <gate name="*identifier*" />
-
- \| <parameter name="*identifier*" />
-
-A.
-
-   1. Event Trees
-
-*event-tree-definition* ::=
-
- <define-event-tree name="*identifier*">
-
- [ *label* ] [ *attributes* ]
-
- *functional-event-definition\**
-
- sequence-definition\*
-
- branch-definition\*
-
- initial-state
-
- </define-event-tree>
-
-*functional-event-definition* ::=
-
- <define-functional-event name="*identifier*" >
-
- [ *label* ]
-
- [ *attributes* ]
-
- </define-functional-event>
-
-*sequence-definition* ::=
-
- <define-sequence name="*identifier*" >
-
- [ *label* ]
-
- [ *attributes* ]
-
- *instruction*\ +
-
- </define-sequence>
-
-*branch-definition* ::=
-
- <define-branch name="*identifier*" >
-
- [ *label* ]
-
- [ *attributes* ]
-
- *branch*
-
- </define-branch>
-
-*branch* ::= *instruction*\ \* (*fork* \| *end-state*)
-
-*fork* ::= <fork functional-event="*identifier*"> *path*\ + </fork>
-
-*path* ::= <path state="*identifier*" > *branch* </path>
-
-*end-state* ::=
-
- <sequence name="*identifier*" />
-
- \| <branch name="*identifier*" />
-
-*initial-state* ::=
-
- <initial-state> *branch* </initial-state>
-
-A.
-
-   1. Instructions, Rules
-
-*instruction* ::= *set* \| *collect* \| *if-then-else* \| *block* \|
-*rule \| link*
-
-*set* ::= *set-gate* \| *set-house-event* \| *set-basic-event* \|
-*set-parameter*
-
-*set-gate* ::=
-
- <set-gate name="*identifier*" [ direction="*direction*" ] >
-
- *formula*
-
- </set-gate>
-
-*set-house-event* ::=
-
- <set-house-event name="*identifier*" [ direction="*direction*" ] >
-
- *Boolean-constant*
-
- </set-house-event>
-
-*set-basic-event* ::=
-
- <set-basic-event name="*identifier*" [ direction="*direction*" ] >
-
- *expression*
-
- </set-basic-event>
-
-*set-parameter* ::=
-
- <set-parameter name="*identifier*" [ direction="*direction*" ] >
-
- *expression*
-
- </set-parameter>
-
-*direction* ::= forward \| backward \| both
-
-*if-then-else* ::=
-
- <if> *expression* *instruction* [ *instruction* ] </if>
-
-*collect* ::= *collect-formula* \| *collect-expression*
-
-collect-formula ::= <collect-formula> *formula *\ </collect-formula>
-
-collect-expression ::= <collect-expression> *expression*
-</collect-expression>
-
-*block* ::= <block> *instruction*\ \* </block>
-
-*rule* ::= <rule name="*identifier*" />
-
-*link* ::= <event-tree name="*name*" />
-
-*rule-definition* ::=
-
- <define-rule name="*identifier*" >
-
- [ *label* ] [ *attributes* ]
-
- *instruction*\ +
-
- </define-rule>
-
-A.
-
-   1. CCF-groups, Substitutions
-
-*CCF-group-definition* ::=
-
- <define-CCF-group name="*identifier*" model="*CCF-model*" >
-
- [ *label* ]
-
- [ *attributes* ]
-
- *members*
-
- *distribution*
-
- *factors*
-
- </define-CCF-group>
-
-*members* ::=
-
- <members>
-
- <basic-event name="*identifier*" />+
-
- </members>
-
-*factors* ::=
-
- <factors> *factor*\ + </factors>
-
- \| *factor*
-
-factor ::=
-
- <factor [ level="*integer*" ] >
-
- *expression*
-
- </factor>
-
-*distribution* ::=
-
- <distribution >
-
- *expression*
-
- </distribution>
-
-*CCF-model* ::= beta-factor \| MGL \| alpha-factor \| phi-factor
-
-*substitution-definition* ::=
-
- <define-substitution [ name="*identifier*" ] [ type="*identifier*" >
-
- [ *label* ]
-
- [ *attributes* ]
-
- <hypothesis> *Boolean-formula* </hypothesis>
-
- [ <source> *basic-event*\ + </source> ]
-
- <target> *basic-event+ \| Boolean-constant* </target>
-
- </define-substitution >
-
-A.
-
-   1. Fault Trees, Components
-
-*fault-tree-definition* ::=
-
- <define-fault-tree name="*identifier*">
-
- [ *label* ]
-
- [ *attributes* ]
-
- (
-
- *substitution-definition* \| *CCF-group-definition*
-
- \| *component-definition*
-
- \| *gate-definition* \| *house-event-definition*
-
- \| *basic-event-definition* \| *parameter-definition*
-
- \| *include-directive*
-
- )\*
-
- </define-fault-tree>
-
-*component-definition* ::=
-
- <define-component name="*identifier*">
-
- [ *label* ]
-
- [ *attributes* ]
-
- (
-
- *substitution-definition* \| *CCF-group-definition*
-
- \| *component-definition*
-
- \| *gate-definition* \| *house-event-definition*
-
- \| *basic-event-definition* \| *parameter-definition*
-
- \| *include-directive*
-
- )\*
-
- </define-component>
-
-*model-data* ::=
-
- <model-data>
-
- ( *house-event-definition* \| *basic-event-definition* \|
-*parameter-definition* )\*
-
- </model-data>
-
-*event-definition* ::=
-
- *gate-definition*
-
- \| *house-event-definition*
-
- \| *basic-event-definition*
-
-*gate-definition* ::=
-
- <define-gate name="*identifier*" [ role="private\|public" ] >
-
- [ *label* ]
-
- [ *attributes* ]
-
- *formula*
-
- </define-gate>
-
-*house-event-definition* ::=
-
- <define-house-event name="*identifier*" [ role="private\|public" ] >
-
- [ *label* ]
-
- [ *attributes* ]
-
- [ *Boolean-constant* ]
-
- </define-house-event>
-
-A.
-
-   1. Formulae
-
-*formula* ::=
-
- *event*
-
- \| *Boolean-constant*
-
- \| <and> *formula*\ + </and>
-
- \| <or> *formula*\ + </or>
-
- \| <not> *formula* </not>
-
- \| <xor> *formula*\ + </xor>
-
- \| <iff> *formula*\ + </iff>
-
- \| <nand> *formula*\ + </nand>
-
- \| <nor> *formula*\ + </nor>
-
- \| <atleast min="*integer*" > *formula*\ + </atleast>
-
- \| <cardinality min="*integer*" max="*integer*" > *formula*\ +
-</cardinality>
-
- \| <imply> *formula* *formula* </imply>
-
-*event* ::=
-
- <event name="*identifier*" [ type="*event-type*" ] />
-
- \| <gate name="*identifier*" />
-
- \| <house-event name="*identifier*" />
-
- \| <basic-event name="*identifier*" />
-
-*event-type* ::= gate \| basic-event \| house-event
-
-*Boolean-constant* ::= <constant value="*Boolean-value*" />
-
-*Boolean-value* ::= true \| false
-
-A.
-
-   1. Basic Events, Parameters
-
-*basic-event-definition* ::=
-
- <define-basic-event name="*identifier*" [ role="private\|public" ] >
-
- [ *label* ]
-
- [ *attributes* ]
-
- [ *expression* ]
-
- </declare>
-
-*parameter-definition* ::=
-
- <define-parameter name="*identifier*"
-
- [ role="private\|public" ] [ unit="*unit*" ]>
-
- [ *label* ]
-
- [ *attributes* ]
-
- *expression*
-
- </define-parameter>
-
-*unit* ::= bool \| int \| float \| hours \| hours-1 \| years \| years-1
-
- \| demands \| fit
-
-A.
-
-   1. Expressions
-
-*expression* ::=
-
- *constant* \| *parameter* \| *operation* \| *built-in* \|
-*random-deviate \| test-event*
-
-*constant* ::=
-
- <bool value="*Boolean-value*" />
-
- \| <int value="*integer*" />
-
- \| <float value="*float*" />
-
-*parameter* ::=
-
- <parameter name="*identifier*" [ type="*value-type*" ] />
-
- \| <system-mission-time [ unit="*unit*" ] />
-
-*operation* ::=
-
- *numerical-operation* \| *Boolean-operation* \| *conditional-operation*
-
-*numerical-operation* ::=
-
- <neg> *expression* </neg>
-
- \| <add> *expression*\ + </add>
-
- \| <sub> *expression*\ + </sub>
-
- \| <mul> *expression*\ + </mul>
-
- \| <div> *expression*\ + </div>
-
- \| <pi />
-
- \| <abs> *expression* </abs>
-
- \| <acos> *expression* </acos>
-
- \| <asin> *expression* </asin>
-
- \| <atan> *expression* </atan>
-
- \| <cos> *expression* </cos>
-
- \| <cosh> *expression* </cosh>
-
- \| <exp> *expression* </exp>
-
- \| <log> *expression* </log>
-
- \| <log10> *expression* </log10>
-
- \| <mod> *expression* *expression* </mod>
-
- \| <pow> *expression* *expression* </pow>
-
- \| <sin> *expression* </sin>
-
- \| <sinh> *expression* </sinh>
-
- \| <tan> *expression* </tan>
-
- \| <tanh> *expression* </tanh>
-
- \| <sqrt> *expression* </sqrt>
-
- \| <ceil> *expression* </ceil>
-
- \| <floor> *expression* </floor>
-
- \| <min> *expression*\ + </min>
-
- \| <max> *expression*\ + </max>
-
- \| <mean> *expression*\ + </mean>
-
-*Boolean-operation* ::=
-
- <not> *expression* </not>
-
- \| <and> *expression*\ + </and>
-
- \| <or> *expression*\ + </or>
-
- \| <eq> *expression* *expression* </eq>
-
- \| <df> *expression* *expression* </df>
-
- \| <lt> *expression* *expression* </lt>
-
- \| <gt> *expression* *expression* </gt>
-
- \| <leq> *expression* *expression* </leq>
-
- \| <geq> *expression* *expression* </geq>
-
-*conditional-operation* ::=
-
- *if-then-else-operation* \| *switch-operation*
-
-*if-then-else-operation* ::=
-
- <ite> *expression* *expression* *expression* </ite>
-
-*switch-operation* ::=
-
- <switch>
-
- *case-operation*\ \*
-
- *expression*
-
- </switch>
-
-*case-operation* ::=
-
- <case> expression expression </case>
-
-*built-in* ::=
-
- <exponential> [ *expression* ]:2 </exponential>
-
- \| <GLM> [ *expression* ]:4 </GLM>
-
- \| <Weibull> [ *expression* ]:3 </Weibull>
-
- \| <periodic-test> [ *expression* ]:11 </periodic-test>
-
- \| <periodic-test> [ *expression* ]:5 </periodic-test>
-
- \| <periodic-test> [ *expression* ]:4 </periodic-test>
-
- \| <extern-function name="*name*" > *expression*\ \* </extern-function>
-
-*random-deviate* ::=
-
- <uniform-deviate> [ *expression* ]:2 </uniform-deviate>
-
- \| <normal-deviate> [ *expression* ]:2 </normal-deviate>
-
- \| <lognormal-deviate> [ *expression* ]:3 </lognormal-deviate>
-
- \| <gamma-deviate> [ *expression* ]:2 </gamma-deviate>
-
- \| <beta-deviate> [ *expression* ]:2 </beta-deviate>
-
- \| histogram
-
-*histogram* ::=
-
- <histogram > *expression* *bin*\ + </histogram>
-
-*bin* ::=
-
- <bin> *expression* *expression* </bin>
-
-*test-event* ::=
-
- <test-initiating-event name="*name*" />
-
- \| <test-functional-event name="*name*" state="*identifier*" />
