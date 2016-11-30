@@ -15,6 +15,15 @@ The Open-PSA Model Exchange Format
 +--------------------------+----------------------------------+
 
 
+Contributors
+============
+
+This document presents the "Open-PSA Model Exchange Format".
+The redaction of this representation format is a shared effort.
+The following persons contributed to various extents
+to the current version of the document: |contributors|.
+
+
 Table of Contents
 =================
 
@@ -25,22 +34,3 @@ Table of Contents
     mef/introduction
     mef/mef
     mef/mef_ebnf
-
-
-List of Figures
-===============
-
-List of Tables
-==============
-
-Contributors
-============
-
-This document presents the “Open-PSA Model Exchange Format”. The
-redaction of this representation format is a shared effort. The
-following persons contributed to various extents to the current version
-of the document: Becker Guenter, Čepin Marko, Contini Sergio, Ducamp
-François, Epstein Steven, Herrero Santos Roberto, Hibti Mohamed,
-Kampramanis Ioanis, Klügel Jens, Meléndez Asensio Enrique, Perez Mulas
-Arturo, Nusbaumer Olivier, Quatrain Richard, Rauzy Antoine, Rauzy Pablo,
-Reinhart Mark and Sörman Johan.

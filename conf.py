@@ -17,10 +17,15 @@
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
 # import os
-# import sys
+import sys
 # sys.path.insert(0, os.path.abspath('.'))
 
 import sphinx_rtd_theme
+
+if sys.version[0] == '2':
+    import codecs
+    def open(filename):
+        return codecs.open(filename, 'r', 'utf-8')
 
 # -- General configuration ------------------------------------------------
 
@@ -56,6 +61,7 @@ master_doc = 'index'
 project = u'The Open-PSA Model Exchange Format'
 copyright = u'2016, The Open-PSA Initiative'
 author = u'The Open-PSA Initiative'
+contributors = open('CONTRIBUTORS').read().strip().replace('\n', ', ')
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -119,6 +125,9 @@ pygments_style = 'sphinx'
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = False
 
+rst_epilog = u"""
+.. |contributors| replace:: %s
+""" % contributors
 
 # -- Options for HTML output ----------------------------------------------
 
@@ -171,8 +180,7 @@ html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 # If not None, a 'Last updated on:' timestamp is inserted at every page
 # bottom, using the given strftime format.
 # The empty string is equivalent to '%b %d, %Y'.
-#
-# html_last_updated_fmt = None
+html_last_updated_fmt = ''
 
 # If true, SmartyPants will be used to convert quotes and dashes to
 # typographically correct entities.
