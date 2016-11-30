@@ -7,9 +7,9 @@ The Open-PSA Model Exchange Format
 +--------------------------+----------------------------------+
 | Version                  | |release|                        |
 +--------------------------+----------------------------------+
-| Creation Date            | August 1\ :sup:`st`, 2007        |
+| Creation Date            | |version_date|                   |
 +--------------------------+----------------------------------+
-| Last modification date   | |today|                          |
+| Last modification date   | |commit_date|                    |
 +--------------------------+----------------------------------+
 | Editors                  | Epstein Steven, Rauzy Antoine    |
 +--------------------------+----------------------------------+
