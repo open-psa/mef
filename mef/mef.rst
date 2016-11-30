@@ -235,15 +235,15 @@ other gates.
 In the Model Exchange Format, the definition of a variable or a
 container, for instance a gate, is in the following form.
 
-.. code:: xml
+.. code-block:: xml
 
-    <define-gate name="motor-fails-to-start" ...>
+    <define-gate name="motor-fails-to-start">
         ...
     </define-gate>
 
 References to that gate are in the following form.
 
-.. code:: xml
+.. code-block:: xml
 
     ...
     <gate name="motor-fails-to-start"/>
@@ -259,9 +259,9 @@ an object. The Model Exchange Format defines a special tag "label" to do
 so. The tag label can contain any text. It must be inserted as the first
 child of the definition of the object. E.g.
 
-.. code:: xml
+.. code-block:: xml
 
-    <define-gate name="motor-fails-to-start" ...>
+    <define-gate name="motor-fails-to-start">
         <label>Warning: secondary motor failures are not taken into account here.</label>
         ...
     </define-gate>
@@ -276,9 +276,9 @@ set attributes. The former is mandatory, even when only one attribute is
 defined. It must be inserted as the first child of the definition of the
 object, or just after the tag label, if any. E.g.
 
-.. code:: xml
+.. code-block:: xml
 
-    <define-gate name="motor-fails-to-start" ...>
+    <define-gate name="motor-fails-to-start">
         <label>Warning: secondary motor failures are not taken into account here.</label>
         <attributes>
             <attribute name="zone" value="room33" />
@@ -290,7 +290,7 @@ object, or just after the tag label, if any. E.g.
 The Backus-Naur form for the XML representation of labels and attributes
 is as follows.
 
-.. code:: latex
+.. code-block:: bnf
 
     label ::= <label> any text </label>
     attributes ::= <attributes> attribute+ </attributes>
@@ -363,7 +363,7 @@ Layer-1 <#anchor-42>`__. Note that connectives "and", "or", "xor",
 their semantics when they take two arguments, i.e., two Boolean formulae
 F and G.
 
-.. code:: latex
+.. code-block:: bnf
 
     fault-tree-definition ::=
         fault-tree identifier (event-definition | parameter-definition)
@@ -463,7 +463,7 @@ This description deserves some comments.
    the same name space), even if they are of different types. This point
    will be explained in the next section.
 
-.. code:: latex
+.. code-block:: bnf
 
     fault-tree-definition ::=
         <define-fault-tree name="identifier" >
@@ -512,7 +512,7 @@ This description deserves some comments.
 
 Figure ‑. Backus-Naur form of XML description of Fault Trees
 
-.. code:: latex
+.. code-block:: bnf
 
     formula ::=
           event
@@ -555,7 +555,7 @@ representation, the house event "h1" has by default the value "true".
 Basic events are not declared for it is not necessary, so no probability
 distributions they are not associated with a probability distribution.
 
-.. code:: xml
+.. code-block:: xml
 
     <?xml version="1.0" ?>
     <!DOCTYPE opsa-mef>
@@ -638,7 +638,7 @@ which is declared in the component A, is used outside of this component
 
 Figure ‑. A Fault Tree with Three Components
 
-.. code:: xml
+.. code-block:: xml
 
     <define-fault-tree name="FT">
         <define-gate name="TOP">
@@ -734,7 +734,7 @@ There is actually three ways to refer an element:
    component "C". In this case, the definition of the gate "G3" is as
    follows.
 
-.. code:: xml
+.. code-block:: xml
 
     <define-gate name="G3">
         <and>
@@ -837,7 +837,7 @@ form for the constructs of the stochastic layer. Note that, conversely
 to variables (events) of the Fault Tree layer, parameters have to be
 defined (there is no equivalent to Basic Events).
 
-.. code:: latex
+.. code-block:: bnf
 
     basic-event-declaration ::= basic-event = expression
     parameter-declaration ::= parameter = expression
@@ -882,7 +882,7 @@ Figure ‑. Backus-Naur form for the constructs of the stochastic layer
 The XML representation of the stochastic layer just reflects these
 different constructs.
 
-.. code:: latex
+.. code-block:: bnf
 
     parameter-definition ::=
         <define-parameter name="identifier"
@@ -995,7 +995,7 @@ representation is given `Figure Stochastic Layer-12 <#anchor-70>`__.
 Table ‑. Numerical Operations, their number of arguments and their
 semantics
 
-.. code:: latex
+.. code-block:: bnf
 
     numerical-operation ::=
           <neg> expression </neg>
@@ -1030,11 +1030,11 @@ Figure ‑. Backus-Naur grammar for XML representation of numerical
 operations
 
 *Example:* Assume for instance we want to associate a negative
-exponential distribution with a failure rate =1.23e-4/h to the basic
+exponential distribution with a failure rate *λ*\ =1.23e-4/h to the basic
 event "pump-failure". Using primitives defined above, we can encode
 explicitly such probability distribution as follows.
 
-.. code:: xml
+.. code-block:: xml
 
     <define-basic-event name="pump-failure">
         <sub>
@@ -1085,7 +1085,7 @@ representation is given `Figure Stochastic Layer-13 <#anchor-76>`__.
 Table ‑. Boolean operators, their number of arguments and their
 semantics
 
-.. code:: latex
+.. code-block:: bnf
 
     Boolean-operation ::=
           <not> expression </not>
@@ -1115,7 +1115,7 @@ The list ends with an expression, in order to be sure that the switch
 has always a possible value. The XML representation for conditional
 operation is given `Figure Stochastic Layer-14 <#anchor-80>`__.
 
-.. code:: latex
+.. code-block:: bnf
 
     conditional-operation ::=
         if-then-else-operation | switch-operation
@@ -1148,7 +1148,7 @@ sequences of events trees or depending on the initiating event. Using
 primitives defined so far, we can encode the definition of "lambda" as
 follows.
 
-.. code:: xml
+.. code-block:: xml
 
     <define-parameter name="lambda">
         <switch>
@@ -1316,7 +1316,7 @@ XML Representation
 The Backus-Naur grammar for the XML representation of built-ins is given
 `Figure Stochastic Layer-17 <#anchor-91>`__.
 
-.. code:: latex
+.. code-block:: bnf
 
     built-in ::=
           <exponential> [ expression ]:2 </exponential>
@@ -1346,7 +1346,7 @@ Figure ‑. Backus-Naur grammar for XML representation of Built-ins
 |
 | *Example:* The negative exponential distribution can be encoded in a simple way as follows.
 
-.. code:: xml
+.. code-block:: xml
 
     <define-basic-event name="pump-failure">
         <exponential>
@@ -1486,7 +1486,7 @@ XML Representation
 The Backus-Naur grammar for the XML representation of random deviates is
 given
 
-.. code:: latex
+.. code-block:: bnf
 
     random-deviate ::=
           <uniform-deviate> [ expression ]:2 </uniform-deviate>
@@ -1507,7 +1507,7 @@ distribution is distributed according to a lognormal distribution of
 mean 0.001 and error factor 3 for a confidence level of 95%. The
 parameter "lambda" is then defined as follows.
 
-.. code:: xml
+.. code-block:: xml
 
     <define-parameter name="lambda">
         <lognormal-deviate>
@@ -1522,16 +1522,16 @@ of the model and is distributed according to the following histogram.
 
 The XML encoding for "lambda" is as follows.
 
-.. code:: xml
+.. code-block:: xml
 
     <define-parameter name="lambda">
         <histogram>
-            <float value"100"/>
-            <bin> <float value"170"/> <float value="0.70e-4"/> </bin>
-            <bin> <float value"200"/> <float value="1.10e-4"/> </bin>
-            <bin> <float value"210"/> <float value="1.30e-4"/> </bin>
-            <bin> <float value"230"/> <float value="1.00e-4"/> </bin>
-            <bin> <float value"280"/> <float value="0.50e-4"/> </bin>
+            <float value="100"/>
+            <bin> <float value="170"/> <float value="0.70e-4"/> </bin>
+            <bin> <float value="200"/> <float value="1.10e-4"/> </bin>
+            <bin> <float value="210"/> <float value="1.30e-4"/> </bin>
+            <bin> <float value="230"/> <float value="1.00e-4"/> </bin>
+            <bin> <float value="280"/> <float value="0.50e-4"/> </bin>
         </histogram>
     </define-parameter>
 
@@ -1567,7 +1567,7 @@ The XML representation for directives to test the status of initiating
 and functional events is given `Figure Stochastic
 Layer-19 <#anchor-106>`__.
 
-.. code:: latex
+.. code-block:: bnf
 
     test-event ::=
           <test-initiating-event name="name" />
@@ -1679,7 +1679,7 @@ associated with basic events of a member of the CCF group should be
 equal to 1, although this is not strictly required by the Model Exchange
 Format.
 
-.. code:: latex
+.. code-block:: bnf
 
     CCF-group-definition ::=
         <define-CCF-group name="identifier" model="CCF-model" >
@@ -1716,7 +1716,7 @@ Figure ‑. Backus-Naur form for the XML representation of CCF-groups
 *Example:* Here follows a declaration of a CCF-group with four elements
 under the MGL model.
 
-.. code:: xml
+.. code-block:: xml
 
     <define-CCF-group name="pumps" model="MGL">
         <members>
@@ -1891,7 +1891,7 @@ The Backus-Naur form for the XML description of substitutions is given
 `Figure Meta-Logical Layer-21 <#anchor-119>`__. The optional attribute
 "type" is used to help tools that implement "traditional" substitutions.
 
-.. code:: latex
+.. code-block:: bnf
 
     substitution-definition ::=
         <define-substitution [ name="identifier" ] [ type="identifier" ] >
@@ -1910,7 +1910,7 @@ term) because they can only occur when respectively equipment A, B and C
 are under maintenance and only one equipment can be in maintenance at
 once. The representation of such a delete term is as follows.
 
-.. code:: xml
+.. code-block:: xml
 
     <define-substitution name="pumps" type="delete-terms">
         <hypothesis>
@@ -1932,7 +1932,7 @@ hypothesis is the conjunction of Basic Events "valve-V-broken" and
 "overpressure-pipe-P" and the added Basic Event is "failure-action-A".
 It is encoded as follows.
 
-.. code:: xml
+.. code-block:: xml
 
     <define-substitution name="mitigation" type="recovery-rule">
         <hypothesis>
@@ -1951,7 +1951,7 @@ size of a leak of a given pipe P get large, while it was small for
 magnitudes below 5. We can use an exchange event rule to model this
 situation.
 
-.. code:: xml
+.. code-block:: xml
 
     <define-substitution name="magnitude-impact" type="exchange-event">
         <hypothesis>
@@ -2160,7 +2160,7 @@ the subject of the next section. Note that branches and functional
 events cannot be declared (nor referred to) outside event trees, for
 there would be no meaning in doing so.
 
-.. code:: latex
+.. code-block:: bnf
 
     initiating-event-definition ::=
         <define-initiating-event name="identifier" [ event-tree="identifier"] >
@@ -2183,7 +2183,7 @@ there would be no meaning in doing so.
 Figure ‑. Backus-Naur form of the XML representation of initiating
 events
 
-.. code:: latex
+.. code-block:: bnf
 
     event-tree-definition ::=
         <define-event-tree name="identifier">
@@ -2237,7 +2237,7 @@ sequences
 Layer-23 <#anchor-127>`__. The XML description for this example is given
 `Figure Event Tree Layer-26 <#anchor-137>`__.
 
-.. code:: xml
+.. code-block:: xml
 
     <define-event-tree name="my-first-event-tree">
         <define-functional-event name="F"/>
@@ -2349,7 +2349,7 @@ XML Representation
 The Backus-Naur form for the XML representation of instructions is given
 `Figure Event Tree Layer-27 <#anchor-144>`__.
 
-.. code:: latex
+.. code-block:: bnf
 
     instruction ::= set | collect | if-then-else | block | rule | link
 
@@ -2409,7 +2409,7 @@ bypass. The XML description for the branches of this example is given
 `Figure Event Tree Layer-28 <#anchor-146>`__. It is easy to verify by
 traversing this tree by hand so that it produces the expected semantics.
 
-.. code:: xml
+.. code-block:: xml
 
     <define-event-tree name="my-first-event-tree">
         ...
@@ -2453,16 +2453,16 @@ house event for all subsequent sub-tree exploration (including the next
 fault tree to be collected), it suffices to insert an instruction "set"
 in front of the instruction "collect". E.g.
 
-.. code:: xml
+.. code-block:: xml
 
-    <set-house-event name"="h1"> <bool value="true"/> </set-house-event>
+    <set-house-event name="h1"> <bool value="true"/> </set-house-event>
     <collect-formula> <gate name="G"/> </collect-formula>
 
 To set the same house event locally for the next fault tree to be
 collected, it suffices to set back its value to "false" after the
 gathering of the fault tree. E.g.
 
-.. code:: xml
+.. code-block:: xml
 
     <set-house-event name="h1"> <bool value="true"/> </set-house-event>
     <collect-formula> <gate name="G"/> </collect-formula>
@@ -2477,7 +2477,7 @@ functional event "G" is in the state failure and to "0.002" otherwise.
 This goal is achieved by means of a "if-then-else" construct and the
 "test-initial-event" expression. E.g.
 
-.. code:: xml
+.. code-block:: xml
 
     <if>
         <and>
@@ -2498,7 +2498,7 @@ Finally, we could imagine that the sequence S1 is linked to an event
 tree ET2 if the initiating event was I1 and to another event tree ET3
 otherwise. The definition of the sequence S1 would be as follows.
 
-.. code:: xml
+.. code-block:: xml
 
     <define-sequence name="S1">
         <if>
@@ -2532,7 +2532,7 @@ The Backus-Naur form for the XML representation of declarations of
 groups of consequences is given `Figure Organization of a
 Model-29 <#anchor-154>`__.
 
-.. code:: latex
+.. code-block:: bnf
 
     consequence-definition ::=
         <define-consequence name="identifier" >
@@ -2571,7 +2571,7 @@ different values in each phase. The Backus-Naur form for the XML
 representation of declarations of phases is given `Figure Organization
 of a Model-30 <#anchor-157>`__.
 
-.. code:: latex
+.. code-block:: bnf
 
     mission-definition ::=
         <define-mission name="identifier" >
@@ -2604,7 +2604,7 @@ notion of entities: in any XML file it is possible to declare file
 entities in the preamble and to include them in the body of the
 document. This mechanism is exemplified below.
 
-.. code:: xml
+.. code-block:: xml
 
     <?xml version="1.0" ?>
 
@@ -2629,7 +2629,7 @@ the same goal: the tag include. This tag can be inserted at any place in
 a document. Its effect is to load the content of the given file into the
 model. E.g.
 
-.. code:: xml
+.. code-block:: xml
 
     <opsa-mef>
         ...
@@ -2652,7 +2652,7 @@ Figure ‑. Containers and the constructs they can define
 representation of models. This representation just collects what has
 been defined so far.
 
-.. code:: latex
+.. code-block:: bnf
 
     model ::=
         <?xml version="1.0" ?>
@@ -2823,7 +2823,7 @@ minimal cutsets are a specific type of sums of products) is given
 to tags "sum-of-products" and "product" to carry the relevant
 information.
 
-.. code:: latex
+.. code-block:: bnf
 
     sum-of-products ::=
         <sum-of-products
@@ -2857,7 +2857,7 @@ standard deviation), confidence ranges, error factors, quantiles... The
 XML representation for statistical measure is given `Figure Report
 Layer-34 <#anchor-174>`__.
 
-.. code:: latex
+.. code-block:: bnf
 
     measure ::=
         <measure
@@ -2897,7 +2897,7 @@ unavailability through the time. The XML representation of curves
 suggested by the Model Exchange Format is given `Figure Report
 Layer-35 <#anchor-177>`__.
 
-.. code:: latex
+.. code-block:: bnf
 
     curve ::=
         <curve
@@ -2976,7 +2976,7 @@ semantics document the programming language in BNF.
 
 A BNF specification is a set of derivation rules, written as
 
-.. code:: latex
+.. code-block:: bnf
 
     symbol ::= <expression with symbols>
 
@@ -2988,7 +2988,7 @@ terminals.
 
 As an example, consider this possible BNF for a U.S. postal address:
 
-.. code:: latex
+.. code-block:: bnf
 
     postal-address ::= name-part street-address zip-part
     name-part ::=

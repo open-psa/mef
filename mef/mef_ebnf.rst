@@ -4,7 +4,7 @@ Backus-Naur form for the Open-PSA Model Exchange Format
 Models
 ------
 
-.. code:: latex
+.. code-block:: bnf
 
     model ::=
       <?xml version="1.0" ?>
@@ -36,7 +36,7 @@ Models
 Consequence, Consequence Groups, Alignments
 -------------------------------------------
 
-.. code:: latex
+.. code-block:: bnf
 
     consequence-definition ::=
       <define-consequence name="identifier">
@@ -64,7 +64,7 @@ Consequence, Consequence Groups, Alignments
 Initiating events, Initiating event Groups
 ------------------------------------------
 
-.. code:: latex
+.. code-block:: bnf
 
     initiating-event-definition ::=
       <define-initiating-event name="identifier" [event-tree="identifier"]>
@@ -92,7 +92,7 @@ Initiating events, Initiating event Groups
 Event Trees
 -----------
 
-.. code:: latex
+.. code-block:: bnf
 
     event-tree-definition ::=
       <define-event-tree name="identifier">
@@ -135,7 +135,7 @@ Event Trees
 Instructions, Rules
 -------------------
 
-.. code:: latex
+.. code-block:: bnf
 
 
     instruction ::= set | collect | if-then-else | block | rule | link
@@ -187,7 +187,7 @@ Instructions, Rules
 CCF-groups, Substitutions
 -------------------------
 
-.. code:: latex
+.. code-block:: bnf
 
     CCF-group-definition ::=
       <define-CCF-group name="identifier" model="CCF-model" >
@@ -231,7 +231,7 @@ CCF-groups, Substitutions
 Fault Trees, Components
 -----------------------
 
-.. code:: latex
+.. code-block:: bnf
 
     fault-tree-definition ::=
       <define-fault-tree name="identifier">
@@ -288,7 +288,7 @@ Fault Trees, Components
 Formulae
 --------
 
-.. code:: latex
+.. code-block:: bnf
 
     formula ::=
       event
@@ -319,7 +319,7 @@ Formulae
 Basic Events, Parameters
 ------------------------
 
-.. code:: latex
+.. code-block:: bnf
 
     basic-event-definition ::=
       <define-basic-event name="identifier" [ role="private|public" ] >
@@ -340,7 +340,7 @@ Basic Events, Parameters
 Expressions
 -----------
 
-.. code:: latex
+.. code-block:: bnf
 
     expression ::=
       constant | parameter | operation | built-in | random-deviate | test-event

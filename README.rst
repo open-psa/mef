@@ -29,7 +29,7 @@ git
 To install all the dependencies with ``apt`` and ``pip``
 (assuming already installed Python and git):
 
-.. code-block::
+.. code-block:: bash
 
     sudo apt-get install dvipng texlive texlive-fonts-recommended texlive-latex-extra
     sudo pip install sphinx sphinx_rtd_theme
