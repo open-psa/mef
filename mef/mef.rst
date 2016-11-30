@@ -13,7 +13,7 @@ Variables, Terms and Containers
 
 Elements of a model are, as expected, components of fault trees/event
 trees, namely basic events, gates, house events, probability
-distributions, initiating events, safety systems, consequences…
+distributions, initiating events, safety systems, consequences...
 Conceptually, it is convenient to arrange most of these elements into
 one of the three categories: terms, variables and containers.
 
@@ -40,7 +40,7 @@ grouped into higher level containers. For instance, a fault tree is a
 container for definitions of gates, house-events, basic events and
 parameters of probability distributions. Similarly, an event tree is a
 container for definitions of initiating events, functional events,
-sequences…
+sequences...
 
 We are now ready to list the main elements of a model. The exact content
 and role of these different elements will be detailed in the subsequent
@@ -64,7 +64,7 @@ Fault Tree Layer
 
 *Boolean formulae, Basic Events, House Events and Gates:* Boolean
 formulae, or formulae for short, are terms built over the usual set of
-constants (true, false), connectives (and, or, not…) and Boolean
+constants (true, false), connectives (and, or, not...) and Boolean
 variables, i.e., Basic Events, Gates and House Events. Boolean variables
 are called events, for that's what they represent in the sense of the
 probability theory. Basic events are associated with probability
@@ -393,35 +393,47 @@ F and G.
 
 Figure ‑. Backus-Naur presentation of constructs of Fault Trees
 
-+---------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Connective    | Semantics                                                                                                                                                                                                             |
-+---------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| and           | F and G is true if both F and G are true, and false otherwise                                                                                                                                                         |
-+---------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| or            | F or G is true if either F or G is true, and false otherwise                                                                                                                                                          |
-+---------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| not           | not F is true if its F is false, and false otherwise                                                                                                                                                                  |
-+---------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| xor           | F xor G is equivalent to (F and not G) or (not F and G)                                                                                                                                                               |
-+---------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| iff           | F iff G is equivalent to (F and G) or (not F and not G)                                                                                                                                                               |
-+---------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| nand          | F nand G is equivalent to not (F and G)                                                                                                                                                                               |
-+---------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| nor           | F nor G is equivalent to not (F or G)                                                                                                                                                                                 |
-+---------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| atleast       | true if at least k out of the Boolean formulae given as arguments are true, and false otherwise. This connective is also called k-out-of-n, where k is the integer and n is the Boolean formulae given in arguments   |
-+---------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| cardinality   | true if at least l and at most h of the Boolean formulae given as arguments are true, and false otherwise. l and h are the two integers (in order) given as arguments.                                                |
-+---------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| imply         | F implies G is equivalent to not F and G                                                                                                                                                                              |
-+---------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++-----------------+---------------------------------------------------------------------------------------+
+| **Connective**  | **Semantics**                                                                         |
++=================+=======================================================================================+
+| **and**         | F and G is true if both F and G are true, and false otherwise                         |
++-----------------+---------------------------------------------------------------------------------------+
+| **or**          | F or G is true if either F or G is true, and false otherwise                          |
++-----------------+---------------------------------------------------------------------------------------+
+| **not**         | not F is true if its F is false, and false otherwise                                  |
++-----------------+---------------------------------------------------------------------------------------+
+| **xor**         | F xor G is equivalent to (F and not G) or (not F and G)                               |
++-----------------+---------------------------------------------------------------------------------------+
+| **iff**         | F iff G is equivalent to (F and G) or (not F and not G)                               |
++-----------------+---------------------------------------------------------------------------------------+
+| **nand**        | F nand G is equivalent to not (F and G)                                               |
++-----------------+---------------------------------------------------------------------------------------+
+| **nor**         | F nor G is equivalent to not (F or G)                                                 |
++-----------------+---------------------------------------------------------------------------------------+
+| **atleast**     | true if at least k out of the Boolean formulae given as arguments are true,           |
+|                 | and false otherwise. This connective is also called k-out-of-n,                       |
+|                 | where k is the integer and n is the Boolean formulae given in arguments               |
++-----------------+---------------------------------------------------------------------------------------+
+| **cardinality** | true if at least l and at most h of the Boolean formulae given as arguments are true, |
+|                 | and false otherwise. l and h are the two integers (in order) given as arguments.      |
++-----------------+---------------------------------------------------------------------------------------+
+| **imply**       | F implies G is equivalent to not F and G                                              |
++-----------------+---------------------------------------------------------------------------------------+
 
 Table ‑. Semantics of Boolean connectives
 
-+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Dynamic Gates   | In a second step, it would be of interest to incorporate to the Model Exchange Format "inhibit" gates, "priority" gates and "triggers" (like in Boolean Driven Markov processes). All of these dynamic gates can be interpreted as "and" gates in a Boolean framework. In more general frameworks (like Markovian frameworks) they can be interpreted in a different way, and provide mechanisms to model in an accurate way backup systems, limited amount of resources… The complexity of the assessment of this kind of model is indeed much higher than the one of Boolean models (which is already at least NP-hard or #P-hard).   |
-+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++---------------+---------------------------------------------------------------------------------------+
+| Dynamic Gates | In a second step, it would be of interest to incorporate to the Model Exchange Format |
+|               | "inhibit" gates, "priority" gates and "triggers"                                      |
+|               | (like in Boolean Driven Markov processes).                                            |
+|               | All of these dynamic gates can be interpreted as "and" gates in a Boolean framework.  |
+|               | In more general frameworks (like Markovian frameworks),                               |
+|               | they can be interpreted in a different way,                                           |
+|               | and provide mechanisms to model in an accurate way backup systems,                    |
+|               | limited amount of resources...                                                        |
+|               | The complexity of the assessment of this kind of model is indeed much higher          |
+|               | than the one of Boolean models (which is already at least NP-hard or #P-hard).        |
++---------------+---------------------------------------------------------------------------------------+
 
 XML Representation
 ------------------
@@ -807,7 +819,7 @@ Stochastic expressions are made of the following elements:
 -  Boolean and numerical constants,
 -  Stochastic variables, i.e., parameters, including the special variable
    to represent the mission time,
--  Boolean and arithmetic operations (sums, differences, products…),
+-  Boolean and arithmetic operations (sums, differences, products...),
 -  Built-in expressions that can be seen as macro-expressions that are
    used to simplify and shorten the writing of probability distributions
    (e.g., exponential, Weibull...),
@@ -815,7 +827,7 @@ Stochastic expressions are made of the following elements:
    probability distribution. The base primitive makes it possible to
    generate random deviates with a uniform probability distribution.
    Several other primitives are derived from this one to generate random
-   deviates with normal, lognormal… distributions. Moreover, it is
+   deviates with normal, lognormal... distributions. Moreover, it is
    possible to define discrete distributions "by hand" through the
    notion of histogram.
 -  Directives to test the status of initial and functional events.
@@ -922,63 +934,63 @@ Numerical Operation
 operators proposed by the Model Exchange Format. Their XML
 representation is given `Figure Stochastic Layer-12 <#anchor-70>`__.
 
-+------------+--------------+-------------------------------------------+
-| Operator   | #arguments   | Semantics                                 |
-+------------+--------------+-------------------------------------------+
-| neg        | 1            | unary minus                               |
-+------------+--------------+-------------------------------------------+
-| add        | >1           | addition                                  |
-+------------+--------------+-------------------------------------------+
-| sub        | >1           | subtraction                               |
-+------------+--------------+-------------------------------------------+
-| mul        | >1           | multiplication                            |
-+------------+--------------+-------------------------------------------+
-| div        | >1           | division                                  |
-+------------+--------------+-------------------------------------------+
-| pi         | 0            | 3.1415926535...                           |
-+------------+--------------+-------------------------------------------+
-| abs        | 1            | absolute value                            |
-+------------+--------------+-------------------------------------------+
-| acos       | 1            | arc cosine of the argument in radians     |
-+------------+--------------+-------------------------------------------+
-| asin       | 1            | arc sine of the argument in radians       |
-+------------+--------------+-------------------------------------------+
-| atan       | 1            | arc tangent of the argument in radians    |
-+------------+--------------+-------------------------------------------+
-| cos        | 1            | cosine                                    |
-+------------+--------------+-------------------------------------------+
-| cosh       | 1            | hyperbolic cosine                         |
-+------------+--------------+-------------------------------------------+
-| exp        | 1            | exponential                               |
-+------------+--------------+-------------------------------------------+
-| log        | 1            | (Napierian) logarithm                     |
-+------------+--------------+-------------------------------------------+
-| log10      | 1            | decimal logarithm                         |
-+------------+--------------+-------------------------------------------+
-| mod        | 2            | modulo                                    |
-+------------+--------------+-------------------------------------------+
-| pow        | 1            | power                                     |
-+------------+--------------+-------------------------------------------+
-| sin        | 1            | sine                                      |
-+------------+--------------+-------------------------------------------+
-| sinh       | 1            | hyperbolic sine                           |
-+------------+--------------+-------------------------------------------+
-| tan        | 1            | tangent                                   |
-+------------+--------------+-------------------------------------------+
-| tanh       | 1            | hyperbolic tangent                        |
-+------------+--------------+-------------------------------------------+
-| sqrt       | 1            | square root                               |
-+------------+--------------+-------------------------------------------+
-| ceil       | 1            | first integer greater than the argument   |
-+------------+--------------+-------------------------------------------+
-| floor      | 1            | first integer smaller than the argument   |
-+------------+--------------+-------------------------------------------+
-| min        | >1           | minimum                                   |
-+------------+--------------+-------------------------------------------+
-| max        | >1           | maximum                                   |
-+------------+--------------+-------------------------------------------+
-| mean       | >1           | mean                                      |
-+------------+--------------+-------------------------------------------+
++----------------+------------------+-------------------------------------------+
+| **Operator**   | **#arguments**   | **Semantics**                             |
++================+==================+===========================================+
+| **neg**        | 1                | unary minus                               |
++----------------+------------------+-------------------------------------------+
+| **add**        | >1               | addition                                  |
++----------------+------------------+-------------------------------------------+
+| **sub**        | >1               | subtraction                               |
++----------------+------------------+-------------------------------------------+
+| **mul**        | >1               | multiplication                            |
++----------------+------------------+-------------------------------------------+
+| **div**        | >1               | division                                  |
++----------------+------------------+-------------------------------------------+
+| **pi**         | 0                | 3.1415926535...                           |
++----------------+------------------+-------------------------------------------+
+| **abs**        | 1                | absolute value                            |
++----------------+------------------+-------------------------------------------+
+| **acos**       | 1                | arc cosine of the argument in radians     |
++----------------+------------------+-------------------------------------------+
+| **asin**       | 1                | arc sine of the argument in radians       |
++----------------+------------------+-------------------------------------------+
+| **atan**       | 1                | arc tangent of the argument in radians    |
++----------------+------------------+-------------------------------------------+
+| **cos**        | 1                | cosine                                    |
++----------------+------------------+-------------------------------------------+
+| **cosh**       | 1                | hyperbolic cosine                         |
++----------------+------------------+-------------------------------------------+
+| **exp**        | 1                | exponential                               |
++----------------+------------------+-------------------------------------------+
+| **log**        | 1                | (Napierian) logarithm                     |
++----------------+------------------+-------------------------------------------+
+| **log10**      | 1                | decimal logarithm                         |
++----------------+------------------+-------------------------------------------+
+| **mod**        | 2                | modulo                                    |
++----------------+------------------+-------------------------------------------+
+| **pow**        | 1                | power                                     |
++----------------+------------------+-------------------------------------------+
+| **sin**        | 1                | sine                                      |
++----------------+------------------+-------------------------------------------+
+| **sinh**       | 1                | hyperbolic sine                           |
++----------------+------------------+-------------------------------------------+
+| **tan**        | 1                | tangent                                   |
++----------------+------------------+-------------------------------------------+
+| **tanh**       | 1                | hyperbolic tangent                        |
++----------------+------------------+-------------------------------------------+
+| **sqrt**       | 1                | square root                               |
++----------------+------------------+-------------------------------------------+
+| **ceil**       | 1                | first integer greater than the argument   |
++----------------+------------------+-------------------------------------------+
+| **floor**      | 1                | first integer smaller than the argument   |
++----------------+------------------+-------------------------------------------+
+| **min**        | >1               | minimum                                   |
++----------------+------------------+-------------------------------------------+
+| **max**        | >1               | maximum                                   |
++----------------+------------------+-------------------------------------------+
+| **mean**       | >1               | mean                                      |
++----------------+------------------+-------------------------------------------+
 
 Table ‑. Numerical Operations, their number of arguments and their
 semantics
@@ -1048,27 +1060,27 @@ Boolean Operations
 operators proposed by the Model Exchange Format. Their XML
 representation is given `Figure Stochastic Layer-13 <#anchor-76>`__.
 
-+------------+--------------+---------------+
-| Operator   | #arguments   | Semantics     |
-+------------+--------------+---------------+
-| and        | > 1          | Boolean and   |
-+------------+--------------+---------------+
-| or         | >1           | Boolean or    |
-+------------+--------------+---------------+
-| not        | 1            | Boolean not   |
-+------------+--------------+---------------+
-| eq         | 2            | =             |
-+------------+--------------+---------------+
-| df         | 2            | ≠             |
-+------------+--------------+---------------+
-| lt         | 2            | <             |
-+------------+--------------+---------------+
-| gt         | 2            | >             |
-+------------+--------------+---------------+
-| leq        | 2            | ≤             |
-+------------+--------------+---------------+
-| geq        | 2            | ≥             |
-+------------+--------------+---------------+
++----------------+------------------+-----------------+
+| **Operator**   | **#arguments**   | **Semantics**   |
++================+==================+=================+
+| **and**        | > 1              | Boolean and     |
++----------------+------------------+-----------------+
+| **or**         | >1               | Boolean or      |
++----------------+------------------+-----------------+
+| **not**        | 1                | Boolean not     |
++----------------+------------------+-----------------+
+| **eq**         | 2                | =               |
++----------------+------------------+-----------------+
+| **df**         | 2                |  ≠              |
++----------------+------------------+-----------------+
+| **lt**         | 2                | <               |
++----------------+------------------+-----------------+
+| **gt**         | 2                | >               |
++----------------+------------------+-----------------+
+| **leq**        | 2                |  ≤              |
++----------------+------------------+-----------------+
+| **geq**        | 2                |  ≥              |
++----------------+------------------+-----------------+
 
 Table ‑. Boolean operators, their number of arguments and their
 semantics
@@ -1174,19 +1186,19 @@ this preliminary list.
 
 *Exponential with two parameters:* this built-in implements the negative
 exponential distribution. The two parameters are the hourly failure
-rate, usually called , and the time t. It definition is as follows.
+rate, usually called *λ*, and the time *t*. It definition is as follows.
 
 *Exponential with four parameters (GLM):* this built-in generalizes the
 previous one. It makes it possible to take into account repairable
-components (through the hourly repairing rate **) and failures on
-demand (through the probability  of such an event). It takes four
-parameters, , the hourly failure rate , ** and the time t (in this
-order). Its definition is as follows.
+components (through the hourly repairing rate *µ*) and failures on
+demand (through the probability *γ* of such an event). It takes four
+parameters, *γ*, the hourly failure rate *λ*, *µ* and the time *t* (in
+this order). Its definition is as follows.
 
 *Weibull:* this built-in implements the Weibull distribution. It takes
-four parameters: a scale parameter **, a shape parameter **, a time
-shift t\ :sub:`0`, and the time t (in this order). Its definition is as
-follows.
+four parameters: a scale parameter *α*, a shape parameter *β*, a
+time shift *t*\ :sub:`0`, and the time *t* (in this order). Its definition
+is as follows.
 
 *Periodic test:* In several applications, it is of interest to introduce
 some specific distributions to describe periodically tested components.
@@ -1194,47 +1206,48 @@ A further investigation is certainly necessary on this topic. We
 tentatively give here a candidate definition (that is extracted from one
 of the tools we considered).
 
-The "periodic-test" built-in would take the following parameters (in
-order).
+The "periodic-test" built-in would take the following parameters (in order).
 
-+----+-----------------------------------------------------------------------------------------+
-|    | failure rate when the component is working.                                             |
-+----+-----------------------------------------------------------------------------------------+
-|    | failure rate when the component is tested.                                              |
-+----+-----------------------------------------------------------------------------------------+
-|    | repair rate (once the test showed that the component is failed).                        |
-+----+-----------------------------------------------------------------------------------------+
-|    | delay between two consecutive tests.                                                    |
-+----+-----------------------------------------------------------------------------------------+
-|    | delay before the first test.                                                            |
-+----+-----------------------------------------------------------------------------------------+
-|    | probability of failure due to the (beginning of the) test.                              |
-+----+-----------------------------------------------------------------------------------------+
-|    | duration of the test.                                                                   |
-+----+-----------------------------------------------------------------------------------------+
-|    | indicator of the component availability during the test (1 available, 0 unavailable).   |
-+----+-----------------------------------------------------------------------------------------+
-|    | test covering: probability that the test detects the failure, if any.                   |
-+----+-----------------------------------------------------------------------------------------+
-|    | probability that the component is badly restarted after a test or a repair.             |
-+----+-----------------------------------------------------------------------------------------+
-|    | the mission time.                                                                       |
-+----+-----------------------------------------------------------------------------------------+
++---------------+---------------------------------------------------------------------------------------+
+| **Parameter** | **Description**                                                                       |
++===============+=======================================================================================+
+| **λ**         | failure rate when the component is working.                                           |
++---------------+---------------------------------------------------------------------------------------+
+| **λ**\*       | failure rate when the component is tested.                                            |
++---------------+---------------------------------------------------------------------------------------+
+| **µ**         | repair rate (once the test showed that the component is failed).                      |
++---------------+---------------------------------------------------------------------------------------+
+| **τ**         | delay between two consecutive tests.                                                  |
++---------------+---------------------------------------------------------------------------------------+
+| **θ**         | delay before the first test.                                                          |
++---------------+---------------------------------------------------------------------------------------+
+| **γ**         | probability of failure due to the (beginning of the) test.                            |
++---------------+---------------------------------------------------------------------------------------+
+| **π**         | duration of the test.                                                                 |
++---------------+---------------------------------------------------------------------------------------+
+| **x**         | indicator of the component availability during the test (1 available, 0 unavailable). |
++---------------+---------------------------------------------------------------------------------------+
+| **σ**         | test covering: probability that the test detects the failure, if any.                 |
++---------------+---------------------------------------------------------------------------------------+
+| **ω**         | probability that the component is badly restarted after a test or a repair.           |
++---------------+---------------------------------------------------------------------------------------+
+| **t**         | the mission time.                                                                     |
++---------------+---------------------------------------------------------------------------------------+
 
 `Figure Stochastic Layer-15 <#anchor-85>`__ illustrates the meaning of
-the parameters  and .
+the parameters *τ*, *θ* and *π*.
 
-Figure ‑. Meaning of parameters  and  of the "periodic-test"
-built-in.
+Figure ‑. Meaning of parameters *τ*, *θ* and *π* of the  "periodic-test" built-in.
 
-There are three phases in the behaviour of the component. The first
-phase corresponds to the time from 0 to the date of the first test, i.e.,
-. The second phase is the test phase. It spreads from times +n. to
-+n.+, with n any positive integer. The third phase is the functioning
-phase. It spreads from times +n.+ from +(n+1)..
+There are three phases in the behavior of the component. The first
+phase corresponds to the time from 0 to the date of the first test, i.e.
+*θ*. The second phase is the test phase. It spreads from times
+*θ*\ +n.\ *τ* to *θ*\ +n.\ *τ*\ +\ *π*, with n any positive integer.
+The third phase is the functioning phase. It spreads from times
+*θ*\ +n.\ *τ*\ +\ *π* from *θ*\ +(n+1).\ *τ*.
 
 In the first phase, the distribution is a simple exponential law of
-parameter .
+parameter *λ*.
 
 The component may enter in the second phase in three states, either
 working, failed or in repair. In the latter case, the test is not
@@ -1249,7 +1262,7 @@ immediate transitions. Initial states are respectively A1, F1 and R1.
 
 The situation is simpler in the third phase. If the component enters
 available this phase, the distribution follows an exponential law of
-parameter . If the component enters failed in this phase, it remains
+parameter *λ*. If the component enters failed in this phase, it remains
 phase up to the next test. Finally, the Markov graph for the case where
 the component is in repair is the same as in the second phase.
 
@@ -1257,21 +1270,18 @@ The Model Exchange Format could provide also two simplified forms for
 the periodic test distribution.
 
 *Periodic-test with 5 arguments:* The first one takes five parameters:
-, , ,  and t. In that case, the test is assumed to be instantaneous.
-Therefore, parameters \* (the failure rate during the test) and x
+*λ*, *µ*, *τ*, *θ* and *t*. In that case, the test is assumed to be instantaneous.
+Therefore, parameters *λ*\* (the failure rate during the test) and x
 (indicator of the component availability during the test) are
 meaningless. There other parameters are set as follows.
 
--   (the probability of failure due to the beginning of the test) is
-   set to 0.
--   (the probability that the test detects the failure, if any) is set
-   to 1.
--   (the probability that the component is badly restarted after a
-   test or a repair) is set to 0.
+-  *γ* (the probability of failure due to the beginning of the test) is set to 0.
+-  *σ* (the probability that the test detects the failure, if any) is set to 1.
+-  *ω* (the probability that the component is badly restarted after a test or a repair) is set to 0.
 
 *Periodic-test with 4 arguments:* The second one takes only four
-parameters: , ,  and t. The repair is assumed to be instantaneous (or
-equivalently the repair rate  = +).
+parameters: *λ*, *τ*, *θ* and t. The repair is assumed to be
+instantaneous (or equivalently the repair rate µ = +∞).
 
 *Extern functions:* The Model Exchange Format should provide a mean to
 call extern functions. This makes it extensible and allows the link the
@@ -1284,19 +1294,19 @@ XML terms as input and output. This is probably the best way to handle
 communication between tools, but it would be far too complex too embed
 XML into stochastic expressions.
 
-+-------------------+--------------+-----------------------------------------------------------------------------------------------------------------------------+
-| Built-in          | #arguments   | Semantics                                                                                                                   |
-+-------------------+--------------+-----------------------------------------------------------------------------------------------------------------------------+
-| exponential       | 2            | negative exponential distribution with hourly failure rate and time                                                         |
-+-------------------+--------------+-----------------------------------------------------------------------------------------------------------------------------+
-| exponential       | 4            | negative exponential distribution with probability of failure on demand, hourly failure rate, hourly repair rate and time   |
-+-------------------+--------------+-----------------------------------------------------------------------------------------------------------------------------+
-| Weibull           | 4            | Weibull distribution with scale and shape parameters, a time shift and the time                                             |
-+-------------------+--------------+-----------------------------------------------------------------------------------------------------------------------------+
-| periodic-test     | 11, 5 or 4   | Distributions to describe periodically tested components                                                                    |
-+-------------------+--------------+-----------------------------------------------------------------------------------------------------------------------------+
-| extern-function   | any          | call to an extern routine                                                                                                   |
-+-------------------+--------------+-----------------------------------------------------------------------------------------------------------------------------+
++---------------------+----------------+---------------------------------------------------------------------------------------------------------------------------+
+| **Built-in**        | **#arguments** | **Semantics**                                                                                                             |
++=====================+================+===========================================================================================================================+
+| **exponential**     | 2              | negative exponential distribution with hourly failure rate and time                                                       |
++---------------------+----------------+---------------------------------------------------------------------------------------------------------------------------+
+| **exponential**     | 4              | negative exponential distribution with probability of failure on demand, hourly failure rate, hourly repair rate and time |
++---------------------+----------------+---------------------------------------------------------------------------------------------------------------------------+
+| **Weibull**         | 4              | Weibull distribution with scale and shape parameters, a time shift and the time                                           |
++---------------------+----------------+---------------------------------------------------------------------------------------------------------------------------+
+| **periodic-test**   | 11, 5 or 4     | Distributions to describe periodically tested components                                                                  |
++---------------------+----------------+---------------------------------------------------------------------------------------------------------------------------+
+| **extern-function** | any            | call to an extern routine                                                                                                 |
++---------------------+----------------+---------------------------------------------------------------------------------------------------------------------------+
 
 Table ‑. Built-ins, their number of arguments and their semantics
 
@@ -1319,19 +1329,22 @@ The Backus-Naur grammar for the XML representation of built-ins is given
 
 Figure ‑. Backus-Naur grammar for XML representation of Built-ins
 
-+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Positional   | We adopted a positional definition of arguments. For instance, in the negative exponential distribution, we assumed that the failure rate is always the first argument and the mission time always the second. An alternative way would be to name arguments, i.e., to enclose them into tags explicating their role. For instance, the failure rate would be enclosed in a tag "failure-rate", the mission time in a tag "time" and so on… The problem with this second approach is that many additional tags must be defined and it is not sure that it helps a lot the understanding of the built-ins. Nevertheless, we may switch to this approach if the experience shows that the first one proves to be confusing.   |
-|              |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| versus       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-|              |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| named        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-|              |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| arguments    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+.. note:: **Positional versus named arguments.**
+    We adopted a positional definition of arguments.
+    For instance, in the negative exponential distribution,
+    we assumed that the failure rate is always the first argument
+    and the mission time is always the second.
+    An alternative way would be to name arguments,
+    i.e., to enclose them into tags explicating their role.
+    For instance, the failure rate would be enclosed in a tag "failure-rate",
+    the mission time in a tag "time" and so on...
+    The problem with this second approach is that many additional tags must be defined,
+    and it is not sure that it helps a lot the understanding of the built-ins.
+    Nevertheless, we may switch to this approach
+    if the experience shows that the first one proves to be confusing.
 
 |
-| *Example:* The negative exponential distribution can be encoded in a
-  simple way as follows.
+| *Example:* The negative exponential distribution can be encoded in a simple way as follows.
 
 .. code:: xml
 
@@ -1359,29 +1372,28 @@ preliminary list of distributions which is summarized `Table Stochastic
 Layer-5 <#anchor-95>`__. As for arithmetic operators and built-ins, this
 list can be extended on demand.
 
-+---------------------+--------------+--------------------------------------------------------------------------------------------------------------+
-| Distribution        | #arguments   | Semantics                                                                                                    |
-+---------------------+--------------+--------------------------------------------------------------------------------------------------------------+
-| uniform-deviate     | 2            | uniform distribution between a lower and an upper bounds                                                     |
-+---------------------+--------------+--------------------------------------------------------------------------------------------------------------+
-| normal-deviate      | 2            | normal (Gaussian) distribution defined by its mean and its standard deviation                                |
-+---------------------+--------------+--------------------------------------------------------------------------------------------------------------+
-| lognormal-deviate   | 3            | lognormal distribution defined by its mean, its error factor and the confidence level of this error factor   |
-+---------------------+--------------+--------------------------------------------------------------------------------------------------------------+
-| gamma-deviate       | 2            | gamma distributions defined by a shape and a scale factors                                                   |
-+---------------------+--------------+--------------------------------------------------------------------------------------------------------------+
-| beta-deviate        | 2            | beta distributions defined by two shape parameters  and                                                    |
-+---------------------+--------------+--------------------------------------------------------------------------------------------------------------+
-| histograms          | any          | discrete distributions defined by means of a list of pairs                                                   |
-+---------------------+--------------+--------------------------------------------------------------------------------------------------------------+
++-----------------------+----------------+------------------------------------------------------------------------------------------------------------+
+| **Distribution**      | **#arguments** | **Semantics**                                                                                              |
++=======================+================+============================================================================================================+
+| **uniform-deviate**   | 2              | uniform distribution between a lower and an upper bounds                                                   |
++-----------------------+----------------+------------------------------------------------------------------------------------------------------------+
+| **normal-deviate**    | 2              | normal (Gaussian) distribution defined by its mean and its standard deviation                              |
++-----------------------+----------------+------------------------------------------------------------------------------------------------------------+
+| **lognormal-deviate** | 3              | lognormal distribution defined by its mean, its error factor and the confidence level of this error factor |
++-----------------------+----------------+------------------------------------------------------------------------------------------------------------+
+| **gamma-deviate**     | 2              | gamma distributions defined by a shape and a scale factors                                                 |
++-----------------------+----------------+------------------------------------------------------------------------------------------------------------+
+| **beta-deviate**      | 2              | beta distributions defined by two shape parameters *α* and *β*                                             |
++-----------------------+----------------+------------------------------------------------------------------------------------------------------------+
+| **histograms**        | any            | discrete distributions defined by means of a list of pairs                                                 |
++-----------------------+----------------+------------------------------------------------------------------------------------------------------------+
 
 Table ‑. Primitive to generate random deviates, their number of
 arguments and their semantics
 
 *Uniform Deviates:* These primitives describe uniform distributions in a
 given range defined by its lower- and upper-bounds. The default value of
-a uniform deviate is the mean of the range, i.e., (lower-bound +
-upper-bound)/2.
+a uniform deviate is the mean of the range, i.e., (lower-bound + upper-bound)/2.
 
 *Normal Deviates:* These primitives describe normal distributions
 defined by their mean and their standard deviation (refer to text book
@@ -1389,18 +1401,17 @@ for a more detailed explanation). By default, the value of a normal
 distribution is its mean.
 
 *Lognormal distribution:* These primitives describe lognormal
-distributions defined by their mean  and their error factor EF. A
+distributions defined by their mean µ and their error factor EF. A
 random variable is distributed according to a lognormal distribution if
-its logarithm is distributed according to a normal distribution. If 
-and  are respectively the mean and the standard deviation of the
+its logarithm is distributed according to a normal distribution. If µ
+and *σ* are respectively the mean and the standard deviation of the
 distribution, the probability density of the random variable is as
 follows.
 
 Its mean, *E(x)* is defined as follows.
 
-The confidence intervals *[X\ :sub:`*0,05*`, X\ :sub:`*0,95*`]* associated
-with a confidence level of *0.95* and the median
-*X\ :sub:`*0,50*`* are the following:
+The confidence intervals *[X\ :sub:`0,05`, X\ :sub:`0,95`]* associated
+with a confidence level of *0.95* and the median *X\ :sub:`0,50`* are the following:
 
 The error factor *EF* is defined as follows:
 
@@ -1411,26 +1422,26 @@ determine the confidence interval and thereby the parameters of the
 lognormal law.
 
 *Gamma Deviates:* These primitives describe Gamma distributions defined
-by their shape parameter k and their scale parameter . If k is an
+by their shape parameter k and their scale parameter *θ*. If k is an
 integer then the distribution represents the sum of k exponentially
-distributed random variables, each of which has mean .
+distributed random variables, each of which has mean *θ*.
 
 The probability density of the gamma distribution can be expressed in
 terms of the gamma function:
 
-The default value of the gamma distribution is its mean, i.e., k..
+The default value of the gamma distribution is its mean, i.e., k.\ *θ*.
 
 *Beta Deviates:* These primitives describe Beta distributions defined by
-two shape parameters  and .
+two shape parameters *α* and *β*.
 
 The probability density of the beta distribution can be expressed in
 terms of the B function:
 
-The default value of the gamma distribution is its mean, i.e., /(+).
+The default value of the gamma distribution is its mean, i.e., *α*/(*α*\ +\ *β*).
 
-*Histograms:* Histograms are lists of pairs (x:sub:`1`, E\ :sub:`1`)…
+*Histograms:* Histograms are lists of pairs (x:sub:`1`, E\ :sub:`1`)...
 (x:sub:`n`, E\ :sub:`n`) where the x\ :sub:`i`'s are numbers such that
-x\ :sub:`i `\ < x\ :sub:`i+1` for i=1…n-1 and the E\ :sub:`i`'s are
+x\ :sub:`i `\ < x\ :sub:`i+1` for i=1...n-1 and the E\ :sub:`i`'s are
 expressions.
 
 The x\ :sub:`i`'s represent upper bounds of successive intervals. The
@@ -1448,23 +1459,23 @@ Both Cumulative Distribution Functions and Density Probability
 Distributions can be translated into histograms.
 
 A Cumulative Distribution Function is a list of pairs (p:sub:`1`,
-v\ :sub:`1`)… (p:sub:`n`, v\ :sub:`n`), where the p\ :sub:`i`'s are such
-that p\ :sub:`i` < p\ :sub:`i+1` for i=1… n and p\ :sub:`n`\ =1. It
+v\ :sub:`1`)... (p:sub:`n`, v\ :sub:`n`), where the p\ :sub:`i`'s are such
+that p\ :sub:`i` < p\ :sub:`i+1` for i=1... n and p\ :sub:`n`\ =1. It
 differs from histograms in two ways. First, X axis values are normalized
 (to spread between 0 and 1) and second they are presented in a
 cumulative way. The histogram that corresponds to a Cumulative
-Distribution Function (p:sub:`1`, v\ :sub:`1`)… (p:sub:`n`, v\ :sub:`n`)
-is the list of pairs (x:sub:`1`, v\ :sub:`1`)… (x:sub:`n`, v\ :sub:`n`),
+Distribution Function (p:sub:`1`, v\ :sub:`1`)... (p:sub:`n`, v\ :sub:`n`)
+is the list of pairs (x:sub:`1`, v\ :sub:`1`)... (x:sub:`n`, v\ :sub:`n`),
 with the initial value x\ :sub:`0` is 0, x\ :sub:`1` = p\ :sub:`1` and
 x\ :sub:`i` = p\ :sub:`i` - p\ :sub:`i-1` for all i>1.
 
 A Discrete Probability Distribution is a list of pairs (d:sub:`1`,
-m\ :sub:`1`)… (d:sub:`n`, m\ :sub:`n`). The d\ :sub:`i`'s are
+m\ :sub:`1`)... (d:sub:`n`, m\ :sub:`n`). The d\ :sub:`i`'s are
 probability densities. They could be however any kind of values. The
 m\ :sub:`i`'s are midpoints of intervals and are such that m\ :sub:`1` <
-m\ :sub:`2` < … < m\ :sub:`n` < 1. The histogram that corresponds to a
-Discrete Probability Distribution (d:sub:`1`, m\ :sub:`1`)… (d:sub:`n`,
-m\ :sub:`n`) is the list of pairs (x:sub:`1`, d\ :sub:`1`)… (x:sub:`n`,
+m\ :sub:`2` < ... < m\ :sub:`n` < 1. The histogram that corresponds to a
+Discrete Probability Distribution (d:sub:`1`, m\ :sub:`1`)... (d:sub:`n`,
+m\ :sub:`n`) is the list of pairs (x:sub:`1`, d\ :sub:`1`)... (x:sub:`n`,
 d\ :sub:`n`), with the initial value x\ :sub:`0` = 0, x\ :sub:`1` =
 2.m\ :sub:`1` and x\ :sub:`i` = x\ :sub:`i-1` +
 2.(m\ :sub:`i`-x:sub:`i-1`).
@@ -1538,13 +1549,13 @@ further explained Section `VII.3 <#anchor-103>`__.
 `Table Fault Tree Layer-1 <#anchor-42>`__ presents these directives and
 their arguments.
 
-+-------------------------+--------------+-------------------------------------------------------------------------------------------------------------------------------------+
-| Built-in                | #arguments   | Semantics                                                                                                                           |
-+-------------------------+--------------+-------------------------------------------------------------------------------------------------------------------------------------+
-| test-initiating-event   | 1            | <test-initiating-event name="name" /> returns true if the initiating event of the given name occurred.                              |
-+-------------------------+--------------+-------------------------------------------------------------------------------------------------------------------------------------+
-| test-functional-event   | 2            | <test-functional-event name="name" state="state" /> returns true if the functional event of the given name is in the given state.   |
-+-------------------------+--------------+-------------------------------------------------------------------------------------------------------------------------------------+
++---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------------------------+
+| **Built-in**              | **#arguments** | **Semantics**                                                                                                                     |
++===========================+================+===================================================================================================================================+
+| **test-initiating-event** | 1              | <test-initiating-event name="name" /> returns true if the initiating event of the given name occurred.                            |
++---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------------------------+
+| **test-functional-event** | 2              | <test-functional-event name="name" state="state" /> returns true if the functional event of the given name is in the given state. |
++---------------------------+----------------+-----------------------------------------------------------------------------------------------------------------------------------+
 
 Table ‑. Directives to test the status of initiating and functional
 events
@@ -1588,73 +1599,72 @@ dependently due to a common cause failure. So far, existing tools embed
 three models for common cause failures (CCF): the beta-factor model, the
 multiple Greek letters (MGL) model and the alpha-factor model.
 Alpha-factor and MGL models differ only from the way the factors for
-each level (2 components fail, 3 components fail…) are given. The Model
+each level (2 components fail, 3 components fail...) are given. The Model
 Exchange Format proposes the three mentioned models plus a fourth one,
 so-called phi-factor, which is a more direct way to set factors.
 
-*Beta-factor:* The -factor model assumes that if a common cause occurs
-then all components of the group fail simultaneously. Components can
-fail independently. Multiple independent failures are neglected. The
--factor model assumes moreover that all of the components of the group
-have the same probability distribution. It is characterized by this
-probability distribution and the conditional probability  that all
-components fail, given that one component failed.
+*Beta-factor:* The *β*-factor model assumes that if a common cause
+occurs then all components of the group fail simultaneously. Components
+can fail independently. Multiple independent failures are neglected. The
+*β*-factor model assumes moreover that all of the components of the
+group have the same probability distribution. It is characterized by
+this probability distribution and the conditional probability *β* that
+all components fail, given that one component failed.
 
 Let BE\ :sub:`1`, BE\ :sub:`2`... BE\ :sub:`n` be the *n* basic events
 of a common cause group with a probability distribution Q and a
-beta-factor . Applying the beta-factor model on the fault tree consists
+beta-factor *β*. Applying the beta-factor model on the fault tree consists
 in following operations.
 
-1) Create new basic events BE\ :sub:`CCFi` for each BE\ :sub:`i` to
+#. Create new basic events BE\ :sub:`CCFi` for each BE\ :sub:`i` to
    represent the independent occurrence of BE\ :sub:`i` and
    BE\ :sub:`CCFi` to represent the occurrence of all BE\ :sub:`i`
    together.
-2) Substitute a gate "G\ :sub:`i` = BE\ :sub:`CCFi` or BE\ :sub:`i`\ "
+#. Substitute a gate "G\ :sub:`i` = BE\ :sub:`CCFi` or BE\ :sub:`i`\ "
    for each basic event BE\ :sub:`i`.
-3) Associate the probability distribution (e.g., Q) with the event
-   BE\ :sub:`CCFi`.
+#. Associate the probability distribution (e.g., *β*\ ×Q) with the event BE\ :sub:`CCFi`.
 
 *Multiple Greek Letters:* the Multiple Greek Letters (MGL) model
 generalizes the beta-factor model. It considers the cases where
 sub-groups of 1, 2..., n-1 components of the group fail together. This
 model is characterized by the probability distribution of failure of the
-components, and n-1 factors \ :sub:`2`..., \ :sub:`n`. \ :sub:`k`
-denotes the conditional probability that k components of the group fail
-given that k-1 failed.
+components, and n-1 factors *ρ*\ :sub:`2`..., *ρ*\ :sub:`n`.
+*ρ*\ :sub:`k` denotes the conditional probability that k components of
+the group fail given that k-1 failed.
 
 Let BE\ :sub:`1`, BE\ :sub:`2`... BE\ :sub:`n` be the *n* basic events
 of a common cause group with a probability distribution Q and factors
-\ :sub:`2`..., \ :sub:`n`. Applying the MGL model on the fault tree
-consists in following operations.
+*ρ*\ :sub:`2`..., *ρ*\ :sub:`n`. Applying the MGL model on the fault
+tree consists in following operations.
 
-1) Create a basic event for each combination of basic events of the
+#. Create a basic event for each combination of basic events of the
    group (there are 2\ :sup:`*n*`-1 such combinations).
-2) Transform each basic event BE\ :sub:`i` into a OR-gate G\ :sub:`i`
+#. Transform each basic event BE\ :sub:`i` into a OR-gate G\ :sub:`i`
    over all newly created event basic events that represent a group that
    contains BE\ :sub:`i`.
-3) Associate the following probability distribution with each newly
+#. Associate the following probability distribution with each newly
    created basic event representing a group of *k* components (with
-   \ :sub:`n+1`\ =0).
+   *ρ*\ :sub:`n+1`\ =0).
 
 For instance, for a group of 4 basic events: A, B, C and D, the basic
 event A is transformed into a gate G\ :sub:`A` = A or AB or AC or AD or
 ABC or ABD or ACD or ABDC and the Q\ :sub:`k`\ 's are as follows.
 
-Note that if \ :sub:`k`\ =0 then Q\ :sub:`k`, Q\ :sub:`k+1`...are null
+Note that if *ρ*\ :sub:`k`\ =0 then Q\ :sub:`k`, Q\ :sub:`k+1`...are null
 as well. In such a case it is not necessary to create the groups with k
 elements or more.
 
 *Alpha-Factor:* the alpha-factor model is the same as the MGL model
 except in the way the factors are given. Here *n* factors
-\ :sub:`1`...\ :sub:`n` are given. a\ :sub:`k` represents the fraction
-of the total failure probability due to common cause failures that
-impact exactly *k* components. The distribution associated with a group
-of size *k* is as follows:
+*α*\ :sub:`1`...\ *α*\ :sub:`n` are given. *α*\ :sub:`k` represents the
+fraction of the total failure probability due to common cause failures
+that impact exactly *k* components. The distribution associated with a
+group of size *k* is as follows:
 
 *Phi-Factor:* the phi-factor model is the same as MGL and alpha-factor
 models except that factors for each level are given directly.
 
-Indeed the sum of the \ :sub:`i`\ 's should equal 1.
+Indeed the sum of the *ϕ*\ :sub:`i`'s should equal 1.
 
 XML representation
 ~~~~~~~~~~~~~~~~~~
@@ -1748,7 +1758,7 @@ example is the case where:
    maintenance,
 -  the basic event b can only occur when the equipment B is in
    maintenance,
--  equipments A and B are redundant and cannot be simultaneously in
+-  equipment A and B are redundant and cannot be simultaneously in
    maintenance.
 
 In most of the tools, delete terms are considered as a post-processing
@@ -1854,21 +1864,21 @@ discard C.
 This notion of substitution generalizes the notions of Delete Terms,
 Recovery Rules and Exchange Events:
 
--  Let D = {e:sub:`1`, e\ :sub:`2`\ …, e\ :sub:`n`} be a group of pair
+-  Let D = {e:sub:`1`, e\ :sub:`2`\ ..., e\ :sub:`n`} be a group of pair
    wisely exclusive events (a Delete Term). Then D is represented as the
-   substitution (2-out-of-n(e:sub:`1`, e\ :sub:`2`\ …, e\ :sub:`n`), ,
+   substitution (2-out-of-n(e:sub:`1`, e\ :sub:`2`\ ..., e\ :sub:`n`), ,
    false).
 -  Let (H, e) a Recovery Rule, under the first interpretation, where H =
-   {e:sub:`1`, e\ :sub:`2`\ …, e\ :sub:`n`}. Then, (H, e) is represented
-   by the substitution (e:sub:`1` and e\ :sub:`2` and…and e\ :sub:`n`,
+   {e:sub:`1`, e\ :sub:`2`\ ..., e\ :sub:`n`}. Then, (H, e) is represented
+   by the substitution (e:sub:`1` and e\ :sub:`2` and...and e\ :sub:`n`,
    , e).
 -  Let (H, e) a Recovery Rule, under the second interpretation, where H
-   = {e:sub:`1`, e\ :sub:`2`\ …, e\ :sub:`n`}. Then (H, e) is
-   represented by the substitution (e:sub:`1` and e\ :sub:`2` and…and
+   = {e:sub:`1`, e\ :sub:`2`\ ..., e\ :sub:`n`}. Then (H, e) is
+   represented by the substitution (e:sub:`1` and e\ :sub:`2` and...and
    e\ :sub:`n`, H, e).
 -  Finally, let (H, e, e') be an Exchange Event Rule, where H =
-   {e:sub:`1`, e\ :sub:`2`\ …, e\ :sub:`n`}. Then (H, e, e') is
-   represented by the substitution (e:sub:`1` and e\ :sub:`2` and…and
+   {e:sub:`1`, e\ :sub:`2`\ ..., e\ :sub:`n`}. Then (H, e, e') is
+   represented by the substitution (e:sub:`1` and e\ :sub:`2` and...and
    e\ :sub:`n` and e, {e}, e').
 
 Note that a substitution (H, , t) can always be interpreted as the
@@ -2056,7 +2066,7 @@ Branches end up either with a sequence name, or with a reference to
 another branch (such references are sometimes called transfers). They
 contain forks. Each fork is associated with a functional event. The
 initiating event could also be seen as a special fork (between the
-occurrence of this event and the occurrence of … no event). In the Model
+occurrence of this event and the occurrence of ... no event). In the Model
 Exchange Format, alternatives of the fork are called paths. Paths are
 labeled by state of the functional event that labels the fork.
 
@@ -2101,31 +2111,31 @@ states of functional events for all of the possible paths starting from
 the root node of the event tree pictured `Figure Event Tree
 Layer-23 <#anchor-127>`__. Empty cells correspond to unspecified states.
 
-+-----------+-----------+-----------+-----------+
-| path      | F         | G         | H         |
-+-----------+-----------+-----------+-----------+
-| 1         |           |           |           |
-+-----------+-----------+-----------+-----------+
-| 1-2       | success   |           |           |
-+-----------+-----------+-----------+-----------+
-| 1-2-3     | success   |           | success   |
-+-----------+-----------+-----------+-----------+
-| 1-2-4     | success   |           | failure   |
-+-----------+-----------+-----------+-----------+
-| 1-5       | failure   |           |           |
-+-----------+-----------+-----------+-----------+
-| 1-5-2     | failure   | success   |           |
-+-----------+-----------+-----------+-----------+
-| 1-5-2-3   | failure   | success   | success   |
-+-----------+-----------+-----------+-----------+
-| 1-5-2-4   | failure   | success   | failure   |
-+-----------+-----------+-----------+-----------+
-| 1-5-6     | failure   | failure   |           |
-+-----------+-----------+-----------+-----------+
-| 1-5-6-7   | failure   | failure   | bypass    |
-+-----------+-----------+-----------+-----------+
-| 1-5-6-8   | failure   | failure   | failure   |
-+-----------+-----------+-----------+-----------+
++----------+---------+---------+---------+
+| **path** | **F**   | **G**   | **H**   |
++==========+=========+=========+=========+
+| 1        |         |         |         |
++----------+---------+---------+---------+
+| 1-2      | success |         |         |
++----------+---------+---------+---------+
+| 1-2-3    | success |         | success |
++----------+---------+---------+---------+
+| 1-2-4    | success |         | failure |
++----------+---------+---------+---------+
+| 1-5      | failure |         |         |
++----------+---------+---------+---------+
+| 1-5-2    | failure | success |         |
++----------+---------+---------+---------+
+| 1-5-2-3  | failure | success | success |
++----------+---------+---------+---------+
+| 1-5-2-4  | failure | success | failure |
++----------+---------+---------+---------+
+| 1-5-6    | failure | failure |         |
++----------+---------+---------+---------+
+| 1-5-6-7  | failure | failure | bypass  |
++----------+---------+---------+---------+
+| 1-5-6-8  | failure | failure | failure |
++----------+---------+---------+---------+
 
 Table ‑. States of Functional Events for the different paths of the
 Event Tree of `Figure Event Tree Layer-23 <#anchor-127>`__
