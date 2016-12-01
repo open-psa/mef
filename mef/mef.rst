@@ -183,7 +183,7 @@ terms). The three container categories, namely models, event trees and
 fault trees are represented by dashed rectangles. Dependencies among
 categories are represented by arrows.
 
-Figure ‑. The main elements of a model, their layers and their
+Figure -. The main elements of a model, their layers and their
 dependencies
 
 Giving more structure to a model
@@ -373,7 +373,7 @@ several fault trees at once by means of a unique set of declarations.
 Therefore, the presence of multiple top events should not be prevented.
 We shall see what parameters and expressions are in the next chapter.
 
-Figure ‑. A Fault Tree
+Figure -. A Fault Tree
 
 The semantics of connectives is given `Table Fault Tree
 Layer-1 <#anchor-42>`__. Note that connectives "and", "or", "xor",
@@ -409,36 +409,36 @@ F and G.
 
     Boolean-constant ::= constant (true | false)
 
-Figure ‑. Backus-Naur presentation of constructs of Fault Trees
+Figure -. Backus-Naur presentation of constructs of Fault Trees
 
-+-----------------+---------------------------------------------------------------------------------------+
-| Connective      | Semantics                                                                             |
-+=================+=======================================================================================+
-| **and**         | F and G is true if both F and G are true, and false otherwise                         |
-+-----------------+---------------------------------------------------------------------------------------+
-| **or**          | F or G is true if either F or G is true, and false otherwise                          |
-+-----------------+---------------------------------------------------------------------------------------+
-| **not**         | not F is true if its F is false, and false otherwise                                  |
-+-----------------+---------------------------------------------------------------------------------------+
-| **xor**         | F xor G is equivalent to (F and not G) or (not F and G)                               |
-+-----------------+---------------------------------------------------------------------------------------+
-| **iff**         | F iff G is equivalent to (F and G) or (not F and not G)                               |
-+-----------------+---------------------------------------------------------------------------------------+
-| **nand**        | F nand G is equivalent to not (F and G)                                               |
-+-----------------+---------------------------------------------------------------------------------------+
-| **nor**         | F nor G is equivalent to not (F or G)                                                 |
-+-----------------+---------------------------------------------------------------------------------------+
-| **atleast**     | true if at least k out of the Boolean formulae given as arguments are true,           |
-|                 | and false otherwise. This connective is also called k-out-of-n,                       |
-|                 | where k is the integer and n is the Boolean formulae given in arguments               |
-+-----------------+---------------------------------------------------------------------------------------+
-| **cardinality** | true if at least l and at most h of the Boolean formulae given as arguments are true, |
-|                 | and false otherwise. l and h are the two integers (in order) given as arguments.      |
-+-----------------+---------------------------------------------------------------------------------------+
-| **imply**       | F implies G is equivalent to not F and G                                              |
-+-----------------+---------------------------------------------------------------------------------------+
++-----------------+-----------------------------------------------------------------------------------------------+
+| Connective      | Semantics                                                                                     |
++=================+===============================================================================================+
+| **and**         | F and G is true if both F and G are true, and false otherwise                                 |
++-----------------+-----------------------------------------------------------------------------------------------+
+| **or**          | F or G is true if either F or G is true, and false otherwise                                  |
++-----------------+-----------------------------------------------------------------------------------------------+
+| **not**         | not F is true if its F is false, and false otherwise                                          |
++-----------------+-----------------------------------------------------------------------------------------------+
+| **xor**         | F xor G is equivalent to (F and not G) or (not F and G)                                       |
++-----------------+-----------------------------------------------------------------------------------------------+
+| **iff**         | F iff G is equivalent to (F and G) or (not F and not G)                                       |
++-----------------+-----------------------------------------------------------------------------------------------+
+| **nand**        | F nand G is equivalent to not (F and G)                                                       |
++-----------------+-----------------------------------------------------------------------------------------------+
+| **nor**         | F nor G is equivalent to not (F or G)                                                         |
++-----------------+-----------------------------------------------------------------------------------------------+
+| **atleast**     | true if at least **k** out of the Boolean formulae given as arguments are true,               |
+|                 | and false otherwise. This connective is also called *k-out-of-n*,                             |
+|                 | where **k** is the integer and **n** is the Boolean formulae given in arguments               |
++-----------------+-----------------------------------------------------------------------------------------------+
+| **cardinality** | true if at least **l** and at most **h** of the Boolean formulae given as arguments are true, |
+|                 | and false otherwise. **l** and **h** are the two integers (in order) given as arguments.      |
++-----------------+-----------------------------------------------------------------------------------------------+
+| **imply**       | F implies G is equivalent to not F and G                                                      |
++-----------------+-----------------------------------------------------------------------------------------------+
 
-Table ‑. Semantics of Boolean connectives
+Table -. Semantics of Boolean connectives
 
 +---------------+---------------------------------------------------------------------------------------+
 | Dynamic Gates | In a second step, it would be of interest to incorporate to the Model Exchange Format |
@@ -528,7 +528,7 @@ This description deserves some comments.
             [ expression ]
         </define-basic-event>
 
-Figure ‑. Backus-Naur form of XML description of Fault Trees
+Figure -. Backus-Naur form of XML description of Fault Trees
 
 .. code-block:: bnf
 
@@ -558,7 +558,7 @@ Figure ‑. Backus-Naur form of XML description of Fault Trees
 
     Boolean-value ::= true | false
 
-Figure ‑. Backus-Naur grammar of the XML representation of Boolean
+Figure -. Backus-Naur grammar of the XML representation of Boolean
 formulae.
 
 The attribute "role" is used to declare whether an element is public or
@@ -619,7 +619,7 @@ distributions they are not associated with a probability distribution.
         </define-fault-tree>
     </opsa-mef>
 
-Figure ‑. XML description of Fault Tree pictured `Figure Fault Tree
+Figure -. XML description of Fault Tree pictured `Figure Fault Tree
 Layer-3 <#anchor-39>`__.
 
 Extra Logical Constructs and Recommendations
@@ -654,7 +654,7 @@ contain definitions of parameters. Note also that the basic event BE1,
 which is declared in the component A, is used outside of this component
 (namely in the sibling component C).
 
-Figure ‑. A Fault Tree with Three Components
+Figure -. A Fault Tree with Three Components
 
 .. code-block:: xml
 
@@ -704,7 +704,7 @@ Figure ‑. A Fault Tree with Three Components
         </define-component>
     </define-fault-tree>
 
-Figure ‑. XML Representation for the Fault Tree pictured `Figure Fault
+Figure -. XML Representation for the Fault Tree pictured `Figure Fault
 Tree Layer-8 <#anchor-55>`__
 
 Solving Name Conflicts: Public versus Private Elements
@@ -821,7 +821,7 @@ roles:
   event, i.e., for a given mission time t, the probability Q(t) that the
   given basic event occurs before t. The probability distribution
   associated with a basic event is typically a negative exponential
-  distribution of parameter :
+  distribution of parameter *λ*:
 
 Note that, for the sake of the clarity, the Model Exchange Format
 represents explicitly the mission time as a parameter of a special type.
@@ -830,7 +830,7 @@ represents explicitly the mission time as a parameter of a special type.
   analyses, such as Monte-Carlo simulations, are thus performed to
   study the change in risk due to this uncertainty. Expressions are
   therefore used to describe distributions of parameters. Typically,
-  the parameter  of a negative exponential distribution will be itself
+  the parameter *λ* of a negative exponential distribution will be itself
   distributed according to a lognormal law of mean 0.001 and error
   factor 3.
 
@@ -896,7 +896,7 @@ defined (there is no equivalent to Basic Events).
           test-initial-event name
         | test-functional-event name state
 
-Figure ‑. Backus-Naur form for the constructs of the stochastic layer
+Figure -. Backus-Naur form for the constructs of the stochastic layer
 (sketch)
 
 The XML representation of the stochastic layer just reflects these
@@ -928,7 +928,7 @@ different constructs.
     operation ::=
         numerical-operation | Boolean-operation | conditional-operation
 
-Figure ‑. Backus-Naur grammar for XML representation of expressions
+Figure -. Backus-Naur grammar for XML representation of expressions
 (main)
 
 Operations, built-ins and random deviates will be described in the
@@ -1012,7 +1012,7 @@ representation is given `Figure Stochastic Layer-12 <#anchor-70>`__.
 | **mean**  | >1         | mean                                    |
 +-----------+------------+-----------------------------------------+
 
-Table ‑. Numerical Operations, their number of arguments and their
+Table -. Numerical Operations, their number of arguments and their
 semantics
 
 .. code-block:: bnf
@@ -1046,7 +1046,7 @@ semantics
         | <max> expression+ </max>
         | <mean> expression+ </mean>
 
-Figure ‑. Backus-Naur grammar for XML representation of numerical
+Figure -. Backus-Naur grammar for XML representation of numerical
 operations
 
 Example
@@ -1105,7 +1105,7 @@ representation is given `Figure Stochastic Layer-13 <#anchor-76>`__.
 | **geq**  | 2          |  ≥          |
 +----------+------------+-------------+
 
-Table ‑. Boolean operators, their number of arguments and their
+Table -. Boolean operators, their number of arguments and their
 semantics
 
 .. code-block:: bnf
@@ -1121,7 +1121,7 @@ semantics
         | <leq> expression expression </leq>
         | <geq> expression expression </geq>
 
-Figure ‑. Backus-Naur grammar for XML representation of Boolean
+Figure -. Backus-Naur grammar for XML representation of Boolean
 operations
 
 Conditional Operations
@@ -1154,7 +1154,7 @@ operation is given `Figure Stochastic Layer-14 <#anchor-80>`__.
 
     case-operation ::= <case> expression expression </case>
 
-Figure ‑. Backus-Naur grammar for XML representation of conditional
+Figure -. Backus-Naur grammar for XML representation of conditional
 operations
 
 Example
@@ -1267,7 +1267,7 @@ The "periodic-test" built-in would take the following parameters (in order).
 `Figure Stochastic Layer-15 <#anchor-85>`__ illustrates the meaning of
 the parameters *τ*, *θ* and *π*.
 
-Figure ‑. Meaning of parameters *τ*, *θ* and *π* of the "periodic-test" built-in.
+Figure -. Meaning of parameters *τ*, *θ* and *π* of the "periodic-test" built-in.
 
 There are three phases in the behavior of the component. The first
 phase corresponds to the time from 0 to the date of the first test, i.e. *θ*.
@@ -1283,7 +1283,7 @@ working, failed or in repair. In the latter case, the test is not
 performed. The Markov graphs for each of these cases are pictured
 `Figure Stochastic Layer-16 <#anchor-87>`__.
 
-Figure ‑. Multi-phase Markov graph for the "periodic-test" built-in.
+Figure -. Multi-phase Markov graph for the "periodic-test" built-in.
 
 Ai's , Fi's, Ri's states correspond respectively to states where the
 component is available, failed and in repair. Dashed lines correspond to
@@ -1340,7 +1340,7 @@ Extern functions
 | **extern-function** | any        | call to an extern routine                                                                                                 |
 +---------------------+------------+---------------------------------------------------------------------------------------------------------------------------+
 
-Table ‑. Built-ins, their number of arguments and their semantics
+Table -. Built-ins, their number of arguments and their semantics
 
 XML Representation
 ~~~~~~~~~~~~~~~~~~
@@ -1359,7 +1359,7 @@ The Backus-Naur grammar for the XML representation of built-ins is given
         | <periodic-test> [ expression ]:4 </periodic-test>
         | <extern-function name="name" > expression* </extern-function>
 
-Figure ‑. Backus-Naur grammar for XML representation of Built-ins
+Figure -. Backus-Naur grammar for XML representation of Built-ins
 
 .. note:: **Positional versus named arguments.**
     We adopted a positional definition of arguments.
@@ -1422,7 +1422,7 @@ list can be extended on demand.
 | **histograms**        | any        | discrete distributions defined by means of a list of pairs                                                 |
 +-----------------------+------------+------------------------------------------------------------------------------------------------------------+
 
-Table ‑. Primitive to generate random deviates, their number of
+Table -. Primitive to generate random deviates, their number of
 arguments and their semantics
 
 Uniform Deviates
@@ -1446,8 +1446,8 @@ Lognormal distribution
 
     Its mean, *E(x)* is defined as follows.
 
-    The confidence intervals *[X\ :sub:`0,05`, X\ :sub:`0,95`]* associated
-    with a confidence level of *0.95* and the median *X\ :sub:`0,50`* are the following:
+    The confidence intervals [X\ :sub:`0,05`, X\ :sub:`0,95`] associated
+    with a confidence level of *0.95* and the median X\ :sub:`0,50` are the following:
 
     The error factor *EF* is defined as follows:
 
@@ -1478,46 +1478,45 @@ Beta Deviates
     The default value of the gamma distribution is its mean, i.e., *α*/(*α*\ +\ *β*).
 
 Histograms
-    Histograms are lists of pairs (x:sub:`1`, E\ :sub:`1`)...
-    (x:sub:`n`, E\ :sub:`n`) where the x\ :sub:`i`'s are numbers such that
-    x\ :sub:`i `\ < x\ :sub:`i+1` for i=1...n-1 and the E\ :sub:`i`'s are
+    Histograms are lists of pairs (x\ :sub:`1`, E\ :sub:`1`)...
+    (x\ :sub:`n`, E\ :sub:`n`) where the x\ :sub:`i`'s are numbers such that
+    x\ :sub:`i` < x\ :sub:`i+1` for i=1...n-1 and the E\ :sub:`i`'s are
     expressions.
 
     The x\ :sub:`i`'s represent upper bounds of successive intervals. The
     lower bound of the first interval x\ :sub:`0` is given apart.
 
     The drawing of a value according to a histogram is a two steps process.
-    First, a value z is drawn uniformly in the range [x:sub:`0`,
+    First, a value z is drawn uniformly in the range [x\ :sub:`0`,
     x\ :sub:`n`]. Then, a value is drawn at random by means of the
     expression E\ :sub:`i`, where i is the index of the interval such
-    x\ :sub:`i-1`\ < z ≤ x\ :sub:`i`.
+    x\ :sub:`i-1` < z ≤ x\ :sub:`i`.
 
     By default, the value of a histogram is its mean, i.e.,
 
     Both Cumulative Distribution Functions and Density Probability
     Distributions can be translated into histograms.
 
-    A Cumulative Distribution Function is a list of pairs (p:sub:`1`,
-    v\ :sub:`1`)... (p:sub:`n`, v\ :sub:`n`), where the p\ :sub:`i`'s are such
+    A Cumulative Distribution Function is a list of pairs (p\ :sub:`1`,
+    v\ :sub:`1`)... (p\ :sub:`n`, v\ :sub:`n`), where the p\ :sub:`i`'s are such
     that p\ :sub:`i` < p\ :sub:`i+1` for i=1... n and p\ :sub:`n`\ =1. It
     differs from histograms in two ways. First, X axis values are normalized
     (to spread between 0 and 1) and second they are presented in a
     cumulative way. The histogram that corresponds to a Cumulative
-    Distribution Function (p:sub:`1`, v\ :sub:`1`)... (p:sub:`n`, v\ :sub:`n`)
-    is the list of pairs (x:sub:`1`, v\ :sub:`1`)... (x:sub:`n`, v\ :sub:`n`),
+    Distribution Function (p\ :sub:`1`, v\ :sub:`1`)... (p\ :sub:`n`, v\ :sub:`n`)
+    is the list of pairs (x\ :sub:`1`, v\ :sub:`1`)... (x\ :sub:`n`, v\ :sub:`n`),
     with the initial value x\ :sub:`0` is 0, x\ :sub:`1` = p\ :sub:`1` and
     x\ :sub:`i` = p\ :sub:`i` - p\ :sub:`i-1` for all i>1.
 
-    A Discrete Probability Distribution is a list of pairs (d:sub:`1`,
-    m\ :sub:`1`)... (d:sub:`n`, m\ :sub:`n`). The d\ :sub:`i`'s are
+    A Discrete Probability Distribution is a list of pairs (d\ :sub:`1`,
+    m\ :sub:`1`)... (d\ :sub:`n`, m\ :sub:`n`). The d\ :sub:`i`'s are
     probability densities. They could be however any kind of values. The
     m\ :sub:`i`'s are midpoints of intervals and are such that m\ :sub:`1` <
     m\ :sub:`2` < ... < m\ :sub:`n` < 1. The histogram that corresponds to a
-    Discrete Probability Distribution (d:sub:`1`, m\ :sub:`1`)... (d:sub:`n`,
-    m\ :sub:`n`) is the list of pairs (x:sub:`1`, d\ :sub:`1`)... (x:sub:`n`,
+    Discrete Probability Distribution (d\ :sub:`1`, m\ :sub:`1`)... (d\ :sub:`n`,
+    m\ :sub:`n`) is the list of pairs (x\ :sub:`1`, d\ :sub:`1`)... (x\ :sub:`n`,
     d\ :sub:`n`), with the initial value x\ :sub:`0` = 0, x\ :sub:`1` =
-    2.m\ :sub:`1` and x\ :sub:`i` = x\ :sub:`i-1` +
-    2.(m\ :sub:`i`-x:sub:`i-1`).
+    2.m\ :sub:`1` and x\ :sub:`i` = x\ :sub:`i-1` + 2.(m\ :sub:`i`-x\ :sub:`i-1`).
 
 XML Representation
 ~~~~~~~~~~~~~~~~~~
@@ -1539,7 +1538,7 @@ given
 
     bin ::= <bin> expression expression </bin>
 
-Figure ‑. Backus-Naur grammar for XML representation of random deviates
+Figure -. Backus-Naur grammar for XML representation of random deviates
 
 Example
 ^^^^^^^
@@ -1602,7 +1601,7 @@ their arguments.
 | **test-functional-event** | 2          | <test-functional-event name="name" state="state" /> returns true if the functional event of the given name is in the given state. |
 +---------------------------+------------+-----------------------------------------------------------------------------------------------------------------------------------+
 
-Table ‑. Directives to test the status of initiating and functional
+Table -. Directives to test the status of initiating and functional
 events
 
 XLM Representation
@@ -1618,7 +1617,7 @@ Layer-19 <#anchor-106>`__.
           <test-initiating-event name="name" />
         | <test-functional-event name="name" state="identifier" />
 
-Figure ‑. Backus-Naur grammar for XML representation of directives to
+Figure -. Backus-Naur grammar for XML representation of directives to
 test the status of initiating and functional events
 
 Meta-Logical Layer
@@ -1760,7 +1759,7 @@ Format.
 
     CCF-model ::= beta-factor | MGL | alpha-factor | phi-factor
 
-Figure ‑. Backus-Naur form for the XML representation of CCF-groups
+Figure -. Backus-Naur form for the XML representation of CCF-groups
 
 Example
 ^^^^^^^
@@ -1816,7 +1815,7 @@ Delete Terms
     are discarded. In order to speed-up calculations, some tools use basic
     events to discard minimal cutsets on the fly, during their generation.
 
-    Delete Terms can be handled in several ways. Let G = {e:sub:`1`,
+    Delete Terms can be handled in several ways. Let G = {e\ :sub:`1`,
     e\ :sub:`2`, e\ :sub:`3`} be a Delete Term (group).
 
     - A first way to handle G, is to use it to post-process minimal
@@ -1853,7 +1852,7 @@ Recovery Rules
       or the probability 0.0.
     - As for Delete Terms, it is possible to give purely logical
       interpretation to Recovery Rules. The idea is to add a global
-      constraint "H  e", i.e., "not H or e", for each Recovery Rule (H, e).
+      constraint "H → e", i.e., "not H or e", for each Recovery Rule (H, e).
     - Another definition of Recovery Rules as a post-processing is that the
       event e is substituted for subset H in the minimal cutset. This
       definition has however the major drawback to be impossible to
@@ -1914,25 +1913,25 @@ discard C.
 This notion of substitution generalizes the notions of Delete Terms,
 Recovery Rules and Exchange Events:
 
-- Let D = {e:sub:`1`, e\ :sub:`2`\ ..., e\ :sub:`n`} be a group of pair
+- Let D = {e\ :sub:`1`, e\ :sub:`2`\ ..., e\ :sub:`n`} be a group of pair
   wisely exclusive events (a Delete Term). Then D is represented as the
-  substitution (2-out-of-n(e:sub:`1`, e\ :sub:`2`\ ..., e\ :sub:`n`), ,
+  substitution (2-out-of-n(e\ :sub:`1`, e\ :sub:`2`\ ..., e\ :sub:`n`), ∅,
   false).
 - Let (H, e) a Recovery Rule, under the first interpretation, where H =
-  {e:sub:`1`, e\ :sub:`2`\ ..., e\ :sub:`n`}. Then, (H, e) is represented
-  by the substitution (e:sub:`1` and e\ :sub:`2` and...and e\ :sub:`n`,
-  , e).
+  {e\ :sub:`1`, e\ :sub:`2`\ ..., e\ :sub:`n`}. Then, (H, e) is represented
+  by the substitution (e\ :sub:`1` and e\ :sub:`2` and...and e\ :sub:`n`,
+  ∅, e).
 - Let (H, e) a Recovery Rule, under the second interpretation, where H
-  = {e:sub:`1`, e\ :sub:`2`\ ..., e\ :sub:`n`}. Then (H, e) is
-  represented by the substitution (e:sub:`1` and e\ :sub:`2` and...and
+  = {e\ :sub:`1`, e\ :sub:`2`\ ..., e\ :sub:`n`}. Then (H, e) is
+  represented by the substitution (e\ :sub:`1` and e\ :sub:`2` and...and
   e\ :sub:`n`, H, e).
 - Finally, let (H, e, e') be an Exchange Event Rule, where H =
-  {e:sub:`1`, e\ :sub:`2`\ ..., e\ :sub:`n`}. Then (H, e, e') is
-  represented by the substitution (e:sub:`1` and e\ :sub:`2` and...and
+  {e\ :sub:`1`, e\ :sub:`2`\ ..., e\ :sub:`n`}. Then (H, e, e') is
+  represented by the substitution (e\ :sub:`1` and e\ :sub:`2` and...and
   e\ :sub:`n` and e, {e}, e').
 
-Note that a substitution (H, , t) can always be interpreted as the
-global constraint "H  t".
+Note that a substitution (H, ∅, t) can always be interpreted as the
+global constraint "H → t".
 
 XML Representation
 ~~~~~~~~~~~~~~~~~~
@@ -1951,7 +1950,7 @@ The Backus-Naur form for the XML description of substitutions is given
             <target> basic-event+ | Boolean-constant </target>
         </define-substitution>
 
-Figure ‑. Backus-Naur form for the XML representation of
+Figure -. Backus-Naur form for the XML representation of
 exclusive-groups
 
 Example
@@ -2042,7 +2041,7 @@ lack of common interpretation for this formalism. To illustrate this
 point, we shall consider the toy example pictured `Figure Event Tree
 Layer-22 <#anchor-123>`__.
 
-Figure ‑. A Small Event Tree
+Figure -. A Small Event Tree
 
 This event tree is made of the following elements.
 
@@ -2144,7 +2143,7 @@ this figure, nodes of the tree are numbered from 1 to 8. The initiating
 event is represented as a fork. Finally, the branch (the sub-tree)
 rooted by the node 2 is named B1.
 
-Figure ‑. Structure of an Event Tree
+Figure -. Structure of an Event Tree
 
 Components of the event tree pictured `Figure Event Tree
 Layer-23 <#anchor-127>`__ are the following.
@@ -2201,7 +2200,7 @@ Layer-23 <#anchor-127>`__. Empty cells correspond to unspecified states.
 | 1-5-6-8 | failure | failure | failure |
 +---------+---------+---------+---------+
 
-Table ‑. States of Functional Events for the different paths of the
+Table -. States of Functional Events for the different paths of the
 Event Tree of `Figure Event Tree Layer-23 <#anchor-127>`__
 
 As mentioned above, an event tree may be parametric: the same tree can
@@ -2244,7 +2243,7 @@ there would be no meaning in doing so.
           <initiating-event name="identifier" />
         | <initiating-event-group name="identifier" />
 
-Figure ‑. Backus-Naur form of the XML representation of initiating
+Figure -. Backus-Naur form of the XML representation of initiating
 events
 
 .. code-block:: bnf
@@ -2294,7 +2293,7 @@ events
           <sequence name="identifier" />
         | <branch name="identifier" />
 
-Figure ‑. Backus-Naur form of the XML representation of event trees and
+Figure -. Backus-Naur form of the XML representation of event trees and
 sequences
 
 Example
@@ -2350,7 +2349,7 @@ Layer-23 <#anchor-127>`__. The XML description for this example is given
         </initial-state>
     </define-event-tree>
 
-Figure ‑. XML representation for the structure of the Event Tree
+Figure -. XML representation for the structure of the Event Tree
 pictured `Figure Event Tree Layer-23 <#anchor-127>`__
 
 Instructions
@@ -2466,7 +2465,7 @@ The Backus-Naur form for the XML representation of instructions is given
             instruction+
         </define-rule>
 
-Figure ‑. Backus-Naur form for the XML representation of instructions
+Figure -. Backus-Naur form for the XML representation of instructions
 
 Example
 ^^^^^^^
@@ -2515,7 +2514,7 @@ traversing this tree by hand so that it produces the expected semantics.
         </initial-state>
     </define-event-tree>
 
-Figure ‑. XML representation of the branches of the event tree pictured
+Figure -. XML representation of the branches of the event tree pictured
 `Figure Event Tree Layer-23 <#anchor-127>`__
 
 This example does not set any house events or flag parameters. To set a
@@ -2623,7 +2622,7 @@ Model-29 <#anchor-154>`__.
 
     consequence-group ::= <consequence-group name="identifier" />
 
-Figure ‑. Backus-Naur form of the XML representation of consequence
+Figure -. Backus-Naur form of the XML representation of consequence
 groups
 
 Note that consequences and consequences groups can be used as initiating
@@ -2657,7 +2656,7 @@ of a Model-30 <#anchor-157>`__.
             instruction*
         </define-phase>
 
-Figure ‑. Backus-Naur form of the XML representation of Missions and
+Figure -. Backus-Naur form of the XML representation of Missions and
 Phases
 
 Splitting the Model into Several Files
@@ -2716,7 +2715,7 @@ Model Exchange Format introduces also eighteen constructs. `Figure
 Organization of a Model-31 <#anchor-161>`__ shows the containers and the
 constructs they can define.
 
-Figure ‑. Containers and the constructs they can define
+Figure -. Containers and the constructs they can define
 
 `Figure Organization of a Model-32 <#anchor-163>`__ gives the XML
 representation of models. This representation just collects what has
@@ -2789,7 +2788,7 @@ been defined so far.
             (house-event-definition | basic-event-definition | parameter-definition)*
         </model-data>
 
-Figure ‑. Backus-Naur form for the XML representation of containers
+Figure -. Backus-Naur form for the XML representation of containers
 
 Report Layer
 ============
@@ -2914,7 +2913,7 @@ information.
           <basic-event name="identifier" />
         | <not> <basic-event name="identifier" /> </not>
 
-Figure ‑. Backus-Naur form for the XML representation of
+Figure -. Backus-Naur form for the XML representation of
 sums-of-products
 
 Statistical measures
@@ -2955,7 +2954,7 @@ Layer-34 <#anchor-174>`__.
             [ lower-bound="float" ]
             [ upper-bound="float" ] />
 
-Figure ‑. Backus-Naur form for the XML representation of statistical
+Figure -. Backus-Naur form for the XML representation of statistical
 measures
 
 Curves
@@ -2981,12 +2980,13 @@ Layer-35 <#anchor-177>`__.
 
     unit ::= seconds | hours | ...
 
-Figure ‑. Backus-Naur for the XML representation of curves
+Figure -. Backus-Naur for the XML representation of curves
 
 References
 ==========
 
 Basic PSA references
+--------------------
 
 1. ASME RA-S-2002, "Standard for Probabilistic Risk Assessment for
    Nuclear Power Plant Applications", The American Society of Mechanical
@@ -3004,6 +3004,7 @@ Basic PSA references
    to the Licensing Basis", Revision 1, US NRC, 2002.
 
 Difficulties with PSA
+---------------------
 
 1. Čepin M., Analysis of Truncation Limit in Probabilistic Safety
    Assessment, Reliability Engineering and System Safety, 2005, Vol. 87
@@ -3012,6 +3013,7 @@ Difficulties with PSA
    System Safety, Volume 88, Issue 3, June 2005, Pages 195-205
 
 Novel approaches
+----------------
 
 1. Antoine Rauzy, New algorithms for fault trees analysis, Reliability
    Engineering & System Safety, Volume 40, Issue 3, 1993, Pages 203-211
@@ -3037,7 +3039,7 @@ A. Extended Backus-Naur Form
 The following presentation is inspired from the article about the
 Backus-Naur form in Wikipedia.
 
-The Backus–Naur form (also known as BNF, the Backus–Naur formalism or
+The Backus-Naur form (also known as BNF, the Backus-Naur formalism or
 Backus normal form) is a meta-syntax used to express context-free
 grammars: that is, a formal way to describe formal languages. BNF is
 widely used as a notation for the grammars of computer programming
@@ -3114,4 +3116,4 @@ Backus-Naur form we shall use is as follows.
 
 A. DTD of the Open-PSA Model Exchange Format
 
-The schema in various formats can be found at https://github.com/open-psa/schemas
+The schemas in various formats can be found at https://github.com/open-psa/schemas

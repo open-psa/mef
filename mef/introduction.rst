@@ -169,7 +169,7 @@ The Model Exchange Format relies on a four-plus-one layers architecture,
 as pictured `Figure Introduction-1 <#anchor-6>`__. Each layer
 corresponds to a specific class of objects/mathematical constructs.
 
-Figure ‑. Architecture of the Model Exchange Format
+Figure -. Architecture of the Model Exchange Format
 
 - The first, or stochastic, layer is populated with all stochastic
   aspects of models: probability distributions for the failure rates of
