@@ -444,24 +444,24 @@ Layer-6 <#anchor-47>`__.
 
 This description deserves some comments.
 
--  It leaves for now the tags "define-parameter" and "expression"
-   unspecified. We shall see in the next chapter how these tags are used
-   to define the probability distributions.
--  Similarly, the tag "define-component" will be explained in the next
-   section.
--  Although the Model Exchange Format adopts the declarative modeling
-   paradigm, it is often convenient to use variables in formulae before
-   declaring them. The Model Exchange Format therefore refers to
-   variables with the generic term "event", possibly without a "type"
-   attribute.
--  By default, the value of a house is event is "false". So it is not
-   necessary to associate a value with a house event when declaring it.
-   We shall see section `VII.3 <#anchor-48>`__ how to change the value
-   of a house event.
--  Although events are typed (they are either gates, house events or
-   basic events), two different events cannot have the same name (within
-   the same name space), even if they are of different types. This point
-   will be explained in the next section.
+- It leaves for now the tags "define-parameter" and "expression"
+  unspecified. We shall see in the next chapter how these tags are used
+  to define the probability distributions.
+- Similarly, the tag "define-component" will be explained in the next
+  section.
+- Although the Model Exchange Format adopts the declarative modeling
+  paradigm, it is often convenient to use variables in formulae before
+  declaring them. The Model Exchange Format therefore refers to
+  variables with the generic term "event", possibly without a "type"
+  attribute.
+- By default, the value of a house is event is "false". So it is not
+  necessary to associate a value with a house event when declaring it.
+  We shall see section `VII.3 <#anchor-48>`__ how to change the value
+  of a house event.
+- Although events are typed (they are either gates, house events or
+  basic events), two different events cannot have the same name (within
+  the same name space), even if they are of different types. This point
+  will be explained in the next section.
 
 .. code-block:: bnf
 
@@ -715,24 +715,24 @@ must be uniquely defined.
 
 There is actually three ways to refer an element:
 
--  An element can be referred by its name. This works either if the
-   element is public or if it is referred inside the container (fault
-   tree or component) in which it is declared. For instance, if the
-   basic event "BE1" is public, it can be referred as "BE1" anywhere in
-   the model. If it is private, it can be referred as "BE1" only inside
-   the component "A".
--  An element can be referred by its full path (of containers), whether
-   it is public or private. The names of containers should be separated
-   with dots. For instance, the basic event "BE2" can be referred as
-   "FT.A.B.BE2" anywhere in the model.
--  Finally, an element can be referred by its local path, whether it is
-   public or private. For instance, if the gate "G1" can be referred as
-   "FT.A.G1" outside of the fault tree "FT", as "A.G1" inside the
-   declaration of "FT", and finally as "G1" inside the declaration of
-   the component "A". If the basic event BE1 is private (for a reason or
-   another), it should be referred either as "FT.A.BE1" inside the
-   component "C". In this case, the definition of the gate "G3" is as
-   follows.
+- An element can be referred by its name. This works either if the
+  element is public or if it is referred inside the container (fault
+  tree or component) in which it is declared. For instance, if the
+  basic event "BE1" is public, it can be referred as "BE1" anywhere in
+  the model. If it is private, it can be referred as "BE1" only inside
+  the component "A".
+- An element can be referred by its full path (of containers), whether
+  it is public or private. The names of containers should be separated
+  with dots. For instance, the basic event "BE2" can be referred as
+  "FT.A.B.BE2" anywhere in the model.
+- Finally, an element can be referred by its local path, whether it is
+  public or private. For instance, if the gate "G1" can be referred as
+  "FT.A.G1" outside of the fault tree "FT", as "A.G1" inside the
+  declaration of "FT", and finally as "G1" inside the declaration of
+  the component "A". If the basic event BE1 is private (for a reason or
+  another), it should be referred either as "FT.A.BE1" inside the
+  component "C". In this case, the definition of the gate "G3" is as
+  follows.
 
 .. code-block:: xml
 
@@ -797,40 +797,40 @@ stochastic equations.
 Stochastic equations associated with basic events play actually two
 roles:
 
--  They are used to calculate probability distributions of each basic
-   event, i.e., for a given mission time t, the probability Q(t) that the
-   given basic event occurs before t. The probability distribution
-   associated with a basic event is typically a negative exponential
-   distribution of parameter :
+- They are used to calculate probability distributions of each basic
+  event, i.e., for a given mission time t, the probability Q(t) that the
+  given basic event occurs before t. The probability distribution
+  associated with a basic event is typically a negative exponential
+  distribution of parameter :
 
 Note that, for the sake of the clarity, the Model Exchange Format
 represents explicitly the mission time as a parameter of a special type.
 
--  Parameters are sometimes not known with certainty. Sensitivity
-   analyses, such as Monte-Carlo simulations, are thus performed to
-   study the change in risk due to this uncertainty. Expressions are
-   therefore used to describe distributions of parameters. Typically,
-   the parameter  of a negative exponential distribution will be itself
-   distributed according to a lognormal law of mean 0.001 and error
-   factor 3.
+- Parameters are sometimes not known with certainty. Sensitivity
+  analyses, such as Monte-Carlo simulations, are thus performed to
+  study the change in risk due to this uncertainty. Expressions are
+  therefore used to describe distributions of parameters. Typically,
+  the parameter  of a negative exponential distribution will be itself
+  distributed according to a lognormal law of mean 0.001 and error
+  factor 3.
 
 Stochastic expressions are made of the following elements:
 
--  Boolean and numerical constants,
--  Stochastic variables, i.e., parameters, including the special variable
-   to represent the mission time,
--  Boolean and arithmetic operations (sums, differences, products...),
--  Built-in expressions that can be seen as macro-expressions that are
-   used to simplify and shorten the writing of probability distributions
-   (e.g., exponential, Weibull...),
--  Primitives to generate numbers at pseudo-random according to some
-   probability distribution. The base primitive makes it possible to
-   generate random deviates with a uniform probability distribution.
-   Several other primitives are derived from this one to generate random
-   deviates with normal, lognormal... distributions. Moreover, it is
-   possible to define discrete distributions "by hand" through the
-   notion of histogram.
--  Directives to test the status of initial and functional events.
+- Boolean and numerical constants
+- Stochastic variables, i.e., parameters,
+  including the special variable to represent the mission time
+- Boolean and arithmetic operations (sums, differences, products...)
+- Built-in expressions that can be seen as macro-expressions that are
+  used to simplify and shorten the writing of probability distributions
+  (e.g., exponential, Weibull...)
+- Primitives to generate numbers at pseudo-random according to some
+  probability distribution. The base primitive makes it possible to
+  generate random deviates with a uniform probability distribution.
+  Several other primitives are derived from this one to generate random
+  deviates with normal, lognormal, or other distributions.
+  Moreover, it is possible to define discrete distributions "by hand"
+  through the notion of histogram.
+- Directives to test the status of initial and functional events
 
 `Figure Stochastic Layer-10 <#anchor-64>`__ sketches the Backus-Naur
 form for the constructs of the stochastic layer. Note that, conversely
@@ -1275,9 +1275,9 @@ Therefore, parameters *λ*\* (the failure rate during the test) and x
 (indicator of the component availability during the test) are
 meaningless. There other parameters are set as follows.
 
--  *γ* (the probability of failure due to the beginning of the test) is set to 0.
--  *σ* (the probability that the test detects the failure, if any) is set to 1.
--  *ω* (the probability that the component is badly restarted after a test or a repair) is set to 0.
+- *γ* (the probability of failure due to the beginning of the test) is set to 0.
+- *σ* (the probability that the test detects the failure, if any) is set to 1.
+- *ω* (the probability that the component is badly restarted after a test or a repair) is set to 0.
 
 *Periodic-test with 4 arguments:* The second one takes only four
 parameters: *λ*, *τ*, *θ* and t. The repair is assumed to be
@@ -1754,12 +1754,9 @@ Description
 events. They are used to model impossible configurations. A typical
 example is the case where:
 
--  the basic event a can only occur when the equipment A is in
-   maintenance,
--  the basic event b can only occur when the equipment B is in
-   maintenance,
--  equipment A and B are redundant and cannot be simultaneously in
-   maintenance.
+- The basic event a can only occur when the equipment A is in maintenance.
+- The basic event b can only occur when the equipment B is in maintenance.
+- Equipment A and B are redundant and cannot be simultaneously in maintenance.
 
 In most of the tools, delete terms are considered as a post-processing
 mechanism: minimal cutsets containing two basic events of a delete terms
@@ -1769,24 +1766,24 @@ events to discard minimal cutsets on the fly, during their generation.
 Delete Terms can be handled in several ways. Let G = {e:sub:`1`,
 e\ :sub:`2`, e\ :sub:`3`} be a Delete Term (group).
 
--  A first way to handle G, is to use it to post-process minimal
-   cutsets, or to discard them on the fly during their generation. If a
-   minimal cutsets contains at least two of the elements of G, it is
-   discarded.
+- A first way to handle G, is to use it to post-process minimal
+  cutsets, or to discard them on the fly during their generation. If a
+  minimal cutsets contains at least two of the elements of G, it is
+  discarded.
 
--  A global constraint "C\ :sub:`G` = not 2-out-of-3(e\ :sub:`1`,
-   e\ :sub:`2`, e\ :sub:`3`)" is introduced and each top event (or event
-   tree sequences) "top" is rewritten as "top and C\ :sub:`G`\ ".
+- A global constraint "C\ :sub:`G` = not 2-out-of-3(e\ :sub:`1`,
+  e\ :sub:`2`, e\ :sub:`3`)" is introduced and each top event (or event
+  tree sequences) "top" is rewritten as "top and C\ :sub:`G`\ ".
 
--  As for Common Causes Groups, the e\ :sub:`i`\ 's are locally
-   rewritten in as gates:
+- As for Common Causes Groups, the e\ :sub:`i`\ 's are locally
+  rewritten in as gates:
 
-    *  e\ :sub:`1` is rewritten as a gate ge\ :sub:`1` = e\ :sub:`1` and
-       (not e\ :sub:`2`) and (not e\ :sub:`3`)
-    *  e\ :sub:`2` is rewritten as a gate ge\ :sub:`2` = e\ :sub:`2` and
-       (not e\ :sub:`1`) and (not e\ :sub:`3`)
-    *  e\ :sub:`3` is rewritten as a gate ge\ :sub:`3` = e\ :sub:`3` and
-       (not e\ :sub:`1`) and (not e\ :sub:`2`)
+    * e\ :sub:`1` is rewritten as a gate ge\ :sub:`1` = e\ :sub:`1` and
+      (not e\ :sub:`2`) and (not e\ :sub:`3`)
+    * e\ :sub:`2` is rewritten as a gate ge\ :sub:`2` = e\ :sub:`2` and
+      (not e\ :sub:`1`) and (not e\ :sub:`3`)
+    * e\ :sub:`3` is rewritten as a gate ge\ :sub:`3` = e\ :sub:`3` and
+      (not e\ :sub:`1`) and (not e\ :sub:`2`)
 
 *Recovery Rules:* Recovery Rules are an extension of Delete Terms. A
 Recovery Rule is a couple (H, e), where H is a set of basic events and e
@@ -1797,17 +1794,17 @@ the risk (hence their name).
 
 Here several remarks can be made.
 
--  It is possible to mimics Delete Terms by means of recovery rules. To
-   do so, it suffices to assign the basic event e to the value "false"
-   or the probability 0.0.
--  As for Delete Terms, it is possible to give purely logical
-   interpretation to Recovery Rules. The idea is to add a global
-   constraint "H  e", i.e., "not H or e", for each Recovery Rule (H, e).
--  Another definition of Recovery Rules as a post-processing is that the
-   event e is substituted for subset H in the minimal cutset. This
-   definition has however the major drawback to be impossible to
-   interpret in a logical way. No Boolean formula can withdraw events
-   from a configuration.
+- It is possible to mimics Delete Terms by means of recovery rules. To
+  do so, it suffices to assign the basic event e to the value "false"
+  or the probability 0.0.
+- As for Delete Terms, it is possible to give purely logical
+  interpretation to Recovery Rules. The idea is to add a global
+  constraint "H  e", i.e., "not H or e", for each Recovery Rule (H, e).
+- Another definition of Recovery Rules as a post-processing is that the
+  event e is substituted for subset H in the minimal cutset. This
+  definition has however the major drawback to be impossible to
+  interpret in a logical way. No Boolean formula can withdraw events
+  from a configuration.
 
 *Exchange Events:* Exchange Events are very similar to Recovery Rules.
 An Exchange Event (Rule) is a triple (H, e, e'), where H is a set of
@@ -1846,11 +1843,9 @@ construct: the notion of substitution.
 
 A substitution is a triple (H, S, t) where:
 
--  H, the hypothesis, is a (simple) Boolean formula built over basic
-   events,
--  S, the source, is also a possibly empty set of basic events, and
-   finally
--  t, the target, is either a basic event or a constant.
+- H, the hypothesis, is a (simple) Boolean formula built over basic events.
+- S, the source, is also a possibly empty set of basic events.
+- t, the target, is either a basic event or a constant.
 
 Let C be a minimal cutset, i.e., a set of basic events. The substitution
 (H, S, t) is applicable on C if C satisfies H (i.e., if H is true when C
@@ -1864,22 +1859,22 @@ discard C.
 This notion of substitution generalizes the notions of Delete Terms,
 Recovery Rules and Exchange Events:
 
--  Let D = {e:sub:`1`, e\ :sub:`2`\ ..., e\ :sub:`n`} be a group of pair
-   wisely exclusive events (a Delete Term). Then D is represented as the
-   substitution (2-out-of-n(e:sub:`1`, e\ :sub:`2`\ ..., e\ :sub:`n`), ,
-   false).
--  Let (H, e) a Recovery Rule, under the first interpretation, where H =
-   {e:sub:`1`, e\ :sub:`2`\ ..., e\ :sub:`n`}. Then, (H, e) is represented
-   by the substitution (e:sub:`1` and e\ :sub:`2` and...and e\ :sub:`n`,
-   , e).
--  Let (H, e) a Recovery Rule, under the second interpretation, where H
-   = {e:sub:`1`, e\ :sub:`2`\ ..., e\ :sub:`n`}. Then (H, e) is
-   represented by the substitution (e:sub:`1` and e\ :sub:`2` and...and
-   e\ :sub:`n`, H, e).
--  Finally, let (H, e, e') be an Exchange Event Rule, where H =
-   {e:sub:`1`, e\ :sub:`2`\ ..., e\ :sub:`n`}. Then (H, e, e') is
-   represented by the substitution (e:sub:`1` and e\ :sub:`2` and...and
-   e\ :sub:`n` and e, {e}, e').
+- Let D = {e:sub:`1`, e\ :sub:`2`\ ..., e\ :sub:`n`} be a group of pair
+  wisely exclusive events (a Delete Term). Then D is represented as the
+  substitution (2-out-of-n(e:sub:`1`, e\ :sub:`2`\ ..., e\ :sub:`n`), ,
+  false).
+- Let (H, e) a Recovery Rule, under the first interpretation, where H =
+  {e:sub:`1`, e\ :sub:`2`\ ..., e\ :sub:`n`}. Then, (H, e) is represented
+  by the substitution (e:sub:`1` and e\ :sub:`2` and...and e\ :sub:`n`,
+  , e).
+- Let (H, e) a Recovery Rule, under the second interpretation, where H
+  = {e:sub:`1`, e\ :sub:`2`\ ..., e\ :sub:`n`}. Then (H, e) is
+  represented by the substitution (e:sub:`1` and e\ :sub:`2` and...and
+  e\ :sub:`n`, H, e).
+- Finally, let (H, e, e') be an Exchange Event Rule, where H =
+  {e:sub:`1`, e\ :sub:`2`\ ..., e\ :sub:`n`}. Then (H, e, e') is
+  represented by the substitution (e:sub:`1` and e\ :sub:`2` and...and
+  e\ :sub:`n` and e, {e}, e').
 
 Note that a substitution (H, , t) can always be interpreted as the
 global constraint "H  t".
@@ -1987,9 +1982,9 @@ Figure ‑. A Small Event Tree
 
 This event tree is made of the following elements.
 
--  An initiating event I.
--  Three functional events F, G and H.
--  Six sequences ending in six (a priori) different states S1 to S6.
+- An initiating event I
+- Three functional events F, G and H
+- Six sequences ending in six (a priori) different states S1 to S6
 
 The numbered black dots should be ignored for now. We added them only
 for the convenience of the forthcoming discussion.
@@ -2009,34 +2004,34 @@ following interpretation for the sequences.
 
 In practice, things are less simple:
 
--  There may be more that one initiating event, because the same event
-   tree can be used with different flavors.
--  Values of house events may be changed at some points along the
-   branches to give flavors to fault trees. The value of a house event
-   may be changed either locally to a fault tree, or for all the fault
-   trees encountered after the setting point.
--  The flavoring mechanism may be even more complex: some gates or basic
-   events may be negated; some parameters of probability distributions
-   may be impacted.
--  The flavor given to a fault tree may depend on what has happened so
-   far in the sequence: initiating event, value of house events...
--  Some success branches may not be interpreted as the negation of the
-   associated fault tree but rather as a bypass. This interpretation of
-   success branches is typically tool-dependent: some tools (have
-   options to) ignore success branches; therefore, modelers use this
-   "possibility" to "factorize" models.
--  Branching may have more than two alternatives, or represent
-   multi-states, not just success and failure, each alternative being
-   labeled with a different fault tree.
--  In the event tree linking approach, branching may involve no fault
-   tree at all, but rather a multiplication by some factor of the
-   current probability of the sequence.
--  It is sometimes convenient to replace a sub-tree by a reference to a
-   previously define sub-tree. For instance, if we identify end-states
-   S1 and S3 one the one hand, S2 and S4 on the other hand, we can merge
-   the two corresponding sub-trees rooted. It saves space (both in
-   computer memory and onto the display device) to replace the latter by
-   a reference to the former.
+- There may be more that one initiating event, because the same event
+  tree can be used with different flavors.
+- Values of house events may be changed at some points along the
+  branches to give flavors to fault trees. The value of a house event
+  may be changed either locally to a fault tree, or for all the fault
+  trees encountered after the setting point.
+- The flavoring mechanism may be even more complex: some gates or basic
+  events may be negated; some parameters of probability distributions
+  may be impacted.
+- The flavor given to a fault tree may depend on what has happened so
+  far in the sequence: initiating event, value of house events...
+- Some success branches may not be interpreted as the negation of the
+  associated fault tree but rather as a bypass. This interpretation of
+  success branches is typically tool-dependent: some tools (have
+  options to) ignore success branches; therefore, modelers use this
+  "possibility" to "factorize" models.
+- Branching may have more than two alternatives, or represent
+  multi-states, not just success and failure, each alternative being
+  labeled with a different fault tree.
+- In the event tree linking approach, branching may involve no fault
+  tree at all, but rather a multiplication by some factor of the
+  current probability of the sequence.
+- It is sometimes convenient to replace a sub-tree by a reference to a
+  previously define sub-tree. For instance, if we identify end-states
+  S1 and S3 one the one hand, S2 and S4 on the other hand, we can merge
+  the two corresponding sub-trees rooted. It saves space (both in
+  computer memory and onto the display device) to replace the latter by
+  a reference to the former.
 
 In a word, event trees cannot be seen as a static description formalism
 like fault trees. Rather, they should be seen as a kind of graphical
@@ -2057,10 +2052,10 @@ along the sequences and how it is collected. Let us consider for now
 only the structural view point. With that respect, an event tree is made
 of the following components.
 
--  One or more initiating events;
--  An ordered set of functional events (the columns);
--  A set of end-states (so called sequences); and finally
--  A set of branches to describe sequences.
+- One or more initiating events
+- An ordered set of functional events (the columns)
+- A set of end-states (so called sequences)
+- A set of branches to describe sequences
 
 Branches end up either with a sequence name, or with a reference to
 another branch (such references are sometimes called transfers). They
@@ -2085,11 +2080,11 @@ Figure ‑. Structure of an Event Tree
 Components of the event tree pictured `Figure Event Tree
 Layer-23 <#anchor-127>`__ are the following.
 
--  The initiating event I.
--  The three functional events F, G and H.
--  The end states S1, S2, S5 and S6.
--  The branch B1.
--  The tree rooted by the initial node (here the node 1).
+- The initiating event I
+- The three functional events F, G and H
+- The end states S1, S2, S5 and S6
+- The branch B1
+- The tree rooted by the initial node (here the node 1)
 
 Forks decompose the current branch according to the state of a
 functional event. Usually, this state is either "success" or "failure".
@@ -2299,9 +2294,9 @@ Boolean formulae associated with each sequences. To do so, we need to
 fill the structure with instructions. Instructions are actually used for
 two main purposes:
 
--  To collect formulae or stochastic expressions and
--  To define flavors of fault trees and probability distributions, i.e.,
-   to set values of house events and flag parameters.
+- To collect formulae or stochastic expressions
+- To define flavors of fault trees and probability distributions, i.e.,
+  to set values of house events and flag parameters
 
 The collection of a top event consists in and-ing the formula associated
 with the sequence with a copy of the fault tree rooted with the top
@@ -2730,9 +2725,9 @@ Preliminary Discussion
 The report layer is populated with constructs to save results of
 calculations. These constructs fall into two categories:
 
--  Constructs to tell which software, algorithm(s) and option(s) were
-   used to produce the results, and
--  The results themselves.
+- Constructs to tell
+  which software, algorithm(s) and option(s) were used to produce the results
+- The results themselves
 
 It is almost impossible and probably not even desirable to normalize
 fully the report layer. Tools are very different from one another and
@@ -2758,43 +2753,43 @@ Here follows a non exhaustive list of information about how the results
 have been obtained that can be relevant and other special or unique
 features of the model.
 
--  Software
+- Software
 
-   *  Version
-   *  Contact organization (editor, vendor...)
-   *  ...
+    * Version
+    * Contact organization (editor, vendor...)
+    * ...
 
--  Calculated quantities
+- Calculated quantities
 
-   *  Name
-   *  Mathematical definition
-   *  Approximations used
-   *  ...
+    * Name
+    * Mathematical definition
+    * Approximations used
+    * ...
 
--  Calculation method(s)
+- Calculation method(s)
 
-   *  Name
-   *  Limits (e.g., number of basic events, of sequences, of cutsets)
-   *  Preprocessing techniques (modularization, rewritings...)
-   *  Handling of success terms
-   *  Cutoffs, if any (absolute, relative, dynamic, ...)
-   *  Are delete terms, recovery rules or exchange events applied?
-   *  Extra-logical methods used
-   *  Secondary software necessary
-   *  Warning and caveats
-   *  Calculation time
-   *  ...
+    * Name
+    * Limits (e.g., number of basic events, of sequences, of cutsets)
+    * Preprocessing techniques (modularization, rewritings...)
+    * Handling of success terms
+    * Cutoffs, if any (absolute, relative, dynamic, ...)
+    * Are delete terms, recovery rules or exchange events applied?
+    * Extra-logical methods used
+    * Secondary software necessary
+    * Warning and caveats
+    * Calculation time
+    * ...
 
--  Features of the model
+- Features of the model
 
-   *  Name
-   *  Number of: gates, basic events, house events, fault trees, event
+    * Name
+    * Number of: gates, basic events, house events, fault trees, event
       trees, functional events, initiating events
 
--  Feedback
+- Feedback
 
-   *  Success or failure reports
-   *  ...
+    * Success or failure reports
+    * ...
 
 Format of Results
 -----------------
@@ -2806,9 +2801,9 @@ into different categories. The following three categories are so
 frequent that is it worth to normalize the way they are stored into XML
 files.
 
--  Minimal cutsets (and prime implicants)
--  Statistical measures (with moments)
--  Curves
+- Minimal cutsets (and prime implicants)
+- Statistical measures (with moments)
+- Curves
 
 Minimal Cutsets
 ~~~~~~~~~~~~~~~
@@ -3002,20 +2997,23 @@ As an example, consider this possible BNF for a U.S. postal address:
 
 This translates into English as:
 
--  A postal address consists of a name-part, followed by a
-   street-address part, followed by a zip-code part.
--  A name-part consists of either: a personal-part followed by a last
-   name followed by an optional "jr-part" (Jr., Sr., or dynastic number)
-   and end-of-line, or a personal part followed by a name part (this
-   rule illustrates the use of recursion in BNFs, covering the case of
-   people who use multiple first and middle names and/or initials).
--  A personal-part consists of either a first name or an initial
-   followed by a dot.
--  A street address consists of an optional apartment specifier,
-   followed by a house number, followed by a street name, followed by an
-   end-of-line.
--  A zip-part consists of a town-name, followed by a comma, followed by
-   a state code, followed by a ZIP-code followed by an end-of-line.
+- A postal address consists of a name-part, followed by a
+  street-address part, followed by a zip-code part.
+- A name-part consists of either:
+
+    * A personal-part followed by a last name
+      followed by an optional "jr-part" (Jr., Sr., or dynastic number)
+      and end-of-line
+    * A personal part followed by a name part
+      (this rule illustrates the use of recursion in BNFs, covering the case of people
+      who use multiple first and middle names and/or initials)
+
+- A personal-part consists of either a first name or an initial followed by a dot.
+- A street address consists of an optional apartment specifier,
+  followed by a house number, followed by a street name, followed by an
+  end-of-line.
+- A zip-part consists of a town-name, followed by a comma, followed by
+  a state code, followed by a ZIP-code followed by an end-of-line.
 
 Note that many things (such as the format of a first-name, apartment
 specifier, or ZIP-code) are left unspecified here. If necessary, they
@@ -3027,17 +3025,17 @@ application. One common feature of many variants is the use of regular
 expressions repetition operators such as \* and +. The Extended
 Backus-Naur form we shall use is as follows.
 
--  Non terminal symbols are *italicized*, terminal symbols are written
-   in regular font.
--  Optional items enclosed in square brackets. E.g. [ *item-x* ].
--  Items repeating 1 or more times are followed by a '+'.
--  Items repeating 0 or more times are followed by a '\*'.
--  Items repeating k times are enclosed in square brackets followed by
-   ':k'. E.g. [ *item-x* ]:3.
--  Items repeating n or more times are followed by 'n'.
--  Where items need to be grouped they are enclosed in simple
-   parenthesis.
--  Comments start with a '#' and spread until the end of the line
+- Non terminal symbols are *italicized*, terminal symbols are written
+  in regular font.
+- Optional items are enclosed in square brackets. E.g. [ *item-x* ].
+- Items repeating 1 or more times are followed by a '+'.
+- Items repeating 0 or more times are followed by a '\*'.
+- Items repeating k times are enclosed in square brackets followed by
+  ':k'. E.g. [ *item-x* ]:3.
+- Items repeating n or more times are followed by 'n'.
+- Where items need to be grouped they are enclosed in simple
+  parenthesis.
+- Comments start with a '#' and spread until the end of the line
 
 A. DTD of the Open-PSA Model Exchange Format
 

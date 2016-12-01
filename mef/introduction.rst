@@ -167,28 +167,28 @@ corresponds to a specific class of objects/mathematical constructs.
 
 Figure ‑. Architecture of the Model Exchange Format
 
--  The first, or stochastic, layer is populated with all stochastic
-   aspects of models: probability distributions for the failure rates of
-   basic events, parameters of these distributions and distributions of
-   these parameters, flags...
--  The second, or fault tree layer, is populated with logical components
-   of fault trees (gates, basic events, house events). This layer is the
-   core of PSA models. The two first layers can be used in isolation.
-   Some existing tools implement them only.
--  The third, or meta-logical, layer is populated constructs like common
-   cause groups, delete terms, recovery rules that are used to give
-   flavors to fault trees...
--  The fourth, or event tree, layer is populated with event trees,
-   initiating events and consequences. The Model Exchange Format sees
-   event trees as (graphical) programs. The execution of such a program
-   produces a set of sequences, i.e., a set (a disjunction) of Boolean
-   formulae. Probability distributions are also collected while walking
-   the event tree.
--  The fifth, or report layer, is populated with constructs to store
-   results of calculations. This includes constructs to describe
-   calculations (version of the model, used engine, used cutoffs,
-   targeted group of consequences, calculated quantities...) and well as
-   minimal cutsets and other results.
+- The first, or stochastic, layer is populated with all stochastic
+  aspects of models: probability distributions for the failure rates of
+  basic events, parameters of these distributions and distributions of
+  these parameters, flags...
+- The second, or fault tree layer, is populated with logical components
+  of fault trees (gates, basic events, house events). This layer is the
+  core of PSA models. The two first layers can be used in isolation.
+  Some existing tools implement them only.
+- The third, or meta-logical, layer is populated constructs like common
+  cause groups, delete terms, recovery rules that are used to give
+  flavors to fault trees...
+- The fourth, or event tree, layer is populated with event trees,
+  initiating events and consequences. The Model Exchange Format sees
+  event trees as (graphical) programs. The execution of such a program
+  produces a set of sequences, i.e., a set (a disjunction) of Boolean
+  formulae. Probability distributions are also collected while walking
+  the event tree.
+- The fifth, or report layer, is populated with constructs to store
+  results of calculations. This includes constructs to describe
+  calculations (version of the model, used engine, used cutoffs,
+  targeted group of consequences, calculated quantities...) and well as
+  minimal cutsets and other results.
 
 This five layers architecture helps to understand what the different
 elements of a model are and what their respective roles are. In a word,
@@ -238,29 +238,29 @@ corresponding to an introductive overview, one chapter per layer of the
 architecture of the Model Exchange Format and one additional chapter for
 models as a whole.
 
--  Chapter `III <#anchor-13>`__ gives an overview of main elements of a
-   model and shows how these elements are organized. It discusses how to
-   split a description into several files, how to solve naming
-   conflicts...
--  Chapter `IV <#anchor-14>`__ presents the fault tree layer. The fault
-   tree layer is not the lowest one in the hierarchy. However, fault
-   trees are the most basic and the central concept of PSA models. For
-   this reason, we put it in front.
--  Chapter `V <#anchor-15>`__ present the stochastic layer, i.e., all the
-   mechanisms to associate probability distributions to basic events.
--  Chapter `VI <#anchor-16>`__ presents the meta-logical layer.
--  Chapter `VII <#anchor-17>`__ presents the event tree layer.
--  Chapter `VIII <#anchor-18>`__ discusses the organization of models.
--  Finally, chapter presents the report/results layer, i.e., the
-   normalized format for results of assessment of PSA models.
+- Chapter `III <#anchor-13>`__ gives an overview of main elements of a
+  model and shows how these elements are organized. It discusses how to
+  split a description into several files, how to solve naming
+  conflicts...
+- Chapter `IV <#anchor-14>`__ presents the fault tree layer. The fault
+  tree layer is not the lowest one in the hierarchy. However, fault
+  trees are the most basic and the central concept of PSA models. For
+  this reason, we put it in front.
+- Chapter `V <#anchor-15>`__ present the stochastic layer, i.e., all the
+  mechanisms to associate probability distributions to basic events.
+- Chapter `VI <#anchor-16>`__ presents the meta-logical layer.
+- Chapter `VII <#anchor-17>`__ presents the event tree layer.
+- Chapter `VIII <#anchor-18>`__ discusses the organization of models.
+- Finally, chapter presents the report/results layer, i.e., the
+  normalized format for results of assessment of PSA models.
 
 Three appendices give additional details or summarize the contents of
 these six chapters.
 
--  `Appendix A. <#anchor-9>`__ presents the Backus-Naur form we use
-   throughout this document to describe both the mathematical structure
-   of the constructs and their XML representation.
--  `Appendix B. <#anchor-19>`__ gives the Document Type Definition (DTD)
-   of the full Model Exchange Format.
--  `Appendix C. <#anchor-11>`__ gives the Backus-Naur form of the Model
-   Exchange Format.
+- `Appendix A. <#anchor-9>`__ presents the Backus-Naur form we use
+  throughout this document to describe both the mathematical structure
+  of the constructs and their XML representation.
+- `Appendix B. <#anchor-19>`__ gives the Document Type Definition (DTD)
+  of the full Model Exchange Format.
+- `Appendix C. <#anchor-11>`__ gives the Backus-Naur form of the Model
+  Exchange Format.
