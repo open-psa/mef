@@ -342,6 +342,8 @@ i.e., gates must be uniquely defined. `Figure Fault Tree
 Layer-3 <#anchor-39>`__ shows a Fault Tree. The corresponding set of
 equations is as follows.
 
+::
+
     TOP = G1 or G2
     G1 = H1 and G3 and G4
     G2 = not H1 and BE2 and G4
@@ -1161,11 +1163,11 @@ Example
 Assume for instance we want to give different values to the
 failure rate "lambda" depending on a global parameter "stress-level":
 
-"lambda"=1.0e-4/h if "stress-level"=1,
+::
 
-"lambda"=2.5e-4/h if "stress-level"=2, and finally
-
-"lambda"=1.0e-3/h if "stress-level"=3.
+    "lambda"=1.0e-4/h if "stress-level"=1,
+    "lambda"=2.5e-4/h if "stress-level"=2, and finally
+    "lambda"=1.0e-3/h if "stress-level"=3.
 
 The value of "stress-level"will be modified while walking along the
 sequences of events trees or depending on the initiating event. Using
@@ -2060,9 +2062,14 @@ corresponding safety mission while lower branches represent its failure.
 Applying the so-called fault tree linking approach, we obtain the
 following interpretation for the sequences.
 
-    S1 = I and not F and not HS4 = I and F and not G and H
-    S2 = I and not F and HS5 = I and F and G and not F
-    S3 = I and F and not G and not HS6 = I and F and G and H
+::
+
+    S1 = I and not F and not H
+    S2 = I and not F and H
+    S3 = I and F and not G and not H
+    S4 = I and F and not G and H
+    S5 = I and F and G and not F
+    S6 = I and F and G and H
 
 In practice, things are less simple:
 
@@ -2628,7 +2635,7 @@ Missions, Phases
 
 Phases are physical configurations (like operation, maintenance...) in
 which the plant spends a fraction of the mission time. Phases are
-grouped into missions. The time fractions of the pahses of a mission
+grouped into missions. The time fractions of the phases of a mission
 should sum to 1. House events and parameters may be given values
 different values in each phase. The Backus-Naur form for the XML
 representation of declarations of phases is given `Figure Organization
