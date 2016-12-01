@@ -60,5 +60,8 @@ reST Style
 - No trailing whitespace characters
 - No tabs (spaces only)
 - No excessive blank lines at the end of files
-- Prefer two blank lines between sections with bodies
 - One blank line after a header before its body
+- Prefer two blank lines between sections with bodies
+- Prefer `Semantic Linefeeds`_ (i.e., one sentence per line)
+
+.. _Semantic Linefeeds: http://rhodesmill.org/brandon/2012/one-sentence-per-line/
