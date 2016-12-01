@@ -192,7 +192,7 @@ Figure -. Architecture of the Model Exchange Format
   results of calculations. This includes constructs to describe
   calculations (version of the model, used engine, used cutoffs,
   targeted group of consequences, calculated quantities...) and well as
-  minimal cutsets and other results.
+  minimal cut sets and other results.
 
 This five layers architecture helps to understand what the different
 elements of a model are and what their respective roles are. In a word,
@@ -238,7 +238,7 @@ Organization of the document
 ============================
 
 The remainder of this document is organized into six chapters
-corresponding to an introductive overview, one chapter per layer of the
+corresponding to an introductory overview, one chapter per layer of the
 architecture of the Model Exchange Format and one additional chapter for
 models as a whole.
 

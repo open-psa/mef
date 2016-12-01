@@ -12,8 +12,11 @@ addons:
             - texlive-latex-extra
 
 install:
+    - sudo apt-get install spell
     - pip install sphinx sphinx_rtd_theme
 
 script:
+    - spell -n -o -d en_us.ascii.add.spl mef/introduction.rst mef/mef.rst \
+      mef/open_psa_initiative.rst mef/appendices.rst
     - make html 2> _warnings.txt
     - cat _warnings.txt && [[ ! -s _warnings.txt ]]

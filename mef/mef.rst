@@ -1604,7 +1604,7 @@ their arguments.
 Table -. Directives to test the status of initiating and functional
 events
 
-XLM Representation
+XML Representation
 ~~~~~~~~~~~~~~~~~~
 
 The XML representation for directives to test the status of initiating
@@ -1811,16 +1811,16 @@ Delete Terms
     - Equipment A and B are redundant and cannot be simultaneously in maintenance.
 
     In most of the tools, delete terms are considered as a post-processing
-    mechanism: minimal cutsets containing two basic events of a delete terms
+    mechanism: minimal cut sets containing two basic events of a delete terms
     are discarded. In order to speed-up calculations, some tools use basic
-    events to discard minimal cutsets on the fly, during their generation.
+    events to discard minimal cut sets on the fly, during their generation.
 
     Delete Terms can be handled in several ways. Let G = {e\ :sub:`1`,
     e\ :sub:`2`, e\ :sub:`3`} be a Delete Term (group).
 
     - A first way to handle G, is to use it to post-process minimal
-      cutsets, or to discard them on the fly during their generation. If a
-      minimal cutsets contains at least two of the elements of G, it is
+      cut sets, or to discard them on the fly during their generation. If a
+      minimal cut sets contains at least two of the elements of G, it is
       discarded.
 
     - A global constraint "C\ :sub:`G` = not 2-out-of-3(e\ :sub:`1`,
@@ -1840,8 +1840,8 @@ Delete Terms
 Recovery Rules
     Recovery Rules are an extension of Delete Terms.
     A Recovery Rule is a couple (H, e), where H is a set of basic events and e
-    is a (fake) basic event. It is used to post-process minimal cutsets: if
-    a minimal cutset C contains H, the e is added to C. Recovery Rules are
+    is a (fake) basic event. It is used to post-process minimal cut sets: if
+    a minimal cut set C contains H, the e is added to C. Recovery Rules are
     used to model actions taken in some specific configurations to mitigate
     the risk (hence their name).
 
@@ -1854,7 +1854,7 @@ Recovery Rules
       interpretation to Recovery Rules. The idea is to add a global
       constraint "H → e", i.e., "not H or e", for each Recovery Rule (H, e).
     - Another definition of Recovery Rules as a post-processing is that the
-      event e is substituted for subset H in the minimal cutset. This
+      event e is substituted for subset H in the minimal cut set. This
       definition has however the major drawback to be impossible to
       interpret in a logical way. No Boolean formula can withdraw events
       from a configuration.
@@ -1863,9 +1863,9 @@ Exchange Events
     Exchange Events are very similar to Recovery Rules.
     An Exchange Event (Rule) is a triple (H, e, e'), where H is a set of
     basic events and e and e' are two basic events. Considered as a
-    post-processing of minimal cutsets, such a rule is interpreted as
-    follows. If the minimal cutset contains both the set H and the basic
-    event e, then the basic event e' is substituted for e in the cutset.
+    post-processing of minimal cut sets, such a rule is interpreted as
+    follows. If the minimal cut set contains both the set H and the basic
+    event e, then the basic event e' is substituted for e in the cut set.
     For the same reason as above,
     Exchange Events cannot be interpreted in a logical way.
 
@@ -1877,7 +1877,7 @@ for at least two reasons. First, models containing such constructs are
 not declarative. Second and more importantly, they tighten assessment
 tools to one specific type of algorithms. The second interpretation of
 Recovery Rules and Exchange Events tighten the models to be assessed by
-means of the minimal cutsets approach.
+means of the minimal cut sets approach.
 
 Nevertheless, Recovery Rules and Exchange Events are useful and broadly
 used in practice. Fortunately, Exchange Events (considered as a post
@@ -1901,7 +1901,7 @@ A substitution is a triple (H, S, t) where:
 - S, the source, is also a possibly empty set of basic events.
 - t, the target, is either a basic event or a constant.
 
-Let C be a minimal cutset, i.e., a set of basic events. The substitution
+Let C be a minimal cut set, i.e., a set of basic events. The substitution
 (H, S, t) is applicable on C if C satisfies H (i.e., if H is true when C
 is realized) . The application of (H, S, t) on C consists in removing
 from C all the basic events of S and in adding to C the target t.
@@ -2369,8 +2369,8 @@ two main purposes:
 - To define flavors of fault trees and probability distributions, i.e.,
   to set values of house events and flag parameters
 
-The collection of a top event consists in and-ing the formula associated
-with the sequence with a copy of the fault tree rooted with the top
+The collection of a top event consists in a Boolean product of the formula associated
+with the sequence and a copy of the fault tree rooted with the top
 event. In the Model Exchange Format, the operation is performed by means
 of the instruction "collect-formula". The collection of an expression
 multiplies the current probability of the sequence by the value of this
@@ -2843,7 +2843,7 @@ features of the model.
 - Calculation method(s)
 
     * Name
-    * Limits (e.g., number of basic events, of sequences, of cutsets)
+    * Limits (e.g., number of basic events, of sequences, of cut sets)
     * Preprocessing techniques (modularization, rewritings...)
     * Handling of success terms
     * Cutoffs, if any (absolute, relative, dynamic, ...)
@@ -2875,19 +2875,19 @@ into different categories. The following three categories are so
 frequent that is it worth to normalize the way they are stored into XML
 files.
 
-- Minimal cutsets (and prime implicants)
+- Minimal cut sets (and prime implicants)
 - Statistical measures (with moments)
 - Curves
 
-Minimal Cutsets
-~~~~~~~~~~~~~~~
+Minimal Cut Sets
+~~~~~~~~~~~~~~~~
 
-A first (and good) way to encode minimal cutsets consists in using the
+A first (and good) way to encode minimal cut sets consists in using the
 representation of formulae defined by the Model Exchange Format.
 However, it is often convenient to attach some information to each
 product, which is not possible with the formulae of the Model Exchange
 Format. An alternative XML representation for sums of products (sets of
-minimal cutsets are a specific type of sums of products) is given
+minimal cut sets are a specific type of sums of products) is given
 `Figure Report Layer-33 <#anchor-171>`__. More attributes can be added
 to tags "sum-of-products" and "product" to carry the relevant
 information.
@@ -2981,139 +2981,3 @@ Layer-35 <#anchor-177>`__.
     unit ::= seconds | hours | ...
 
 Figure -. Backus-Naur for the XML representation of curves
-
-References
-==========
-
-Basic PSA references
---------------------
-
-1. ASME RA-S-2002, "Standard for Probabilistic Risk Assessment for
-   Nuclear Power Plant Applications", The American Society of Mechanical
-   Engineers, 2002.
-2. Roberts N. H., W. E. Vesely, D. F. Haasl, F. F. Goldberg, Fault Tree
-   Handbook, NUREG-0492, US NRC, Washington, 1981.
-3. W. Vesely, J. Dugan, J. Fragola, J. Minarick, J. Railsback, Fault
-   Tree Handbook with Aerospace Applications, National Aeronautics and
-   Space Administration, NASA, 2002
-4. Regulatory Guide 1200, An Approach for Determining the Technical
-   Adequacy of Probabilistic Risk Assessment Results for Risk-Informed
-   Activities, US NRC, 2004.
-5. US NRC Regulatory Guide 1.174 "An Approach for Using Probabilistic
-   Risk Assessment in Risk-Informed Decisions on Plant-Specific Changes
-   to the Licensing Basis", Revision 1, US NRC, 2002.
-
-Difficulties with PSA
----------------------
-
-1. Čepin M., Analysis of Truncation Limit in Probabilistic Safety
-   Assessment, Reliability Engineering and System Safety, 2005, Vol. 87
-   (3), pp. 395-403.
-2. S. Epstein and A. Rauzy, Can we trust PRA?, Reliability Engineering &
-   System Safety, Volume 88, Issue 3, June 2005, Pages 195-205
-
-Novel approaches
-----------------
-
-1. Antoine Rauzy, New algorithms for fault trees analysis, Reliability
-   Engineering & System Safety, Volume 40, Issue 3, 1993, Pages 203-211
-2. Antoine Rauzy and Yves Dutuit, Exact and truncated computations of
-   prime implicants of coherent and non-coherent fault trees within
-   Aralia, Reliability Engineering & System Safety, Volume 58, Issue 2,
-   November 1997, Pages 127-144
-3. Poul Frederick Williams, Macha Nikolskaïa and Antoine Rauzy,
-   Bypassing BDD construction for reliability analysis, Information
-   Processing Letters, Volume 75, Issues 1-2, 31 July 2000, Pages 85-89
-4. Y. Dutuit and A. Rauzy, Approximate estimation of system reliability
-   via fault trees, Reliability Engineering & System Safety, Volume 87,
-   Issue 2, February 2005, Pages 163-172
-5. Čepin M., B. Mavko, A Dynamic Fault Tree, Reliability Engineering and
-   System Safety, 2002, Vol. 75, No. 1, pp. 83-91.
-6. Albert F. Myers and Antoine Rauzy, Assessment of redundant systems
-   with imperfect coverage by means of binary decision diagrams,
-   Reliability Engineering & System Safety, Volume 93, Issue 7, July
-   2008, Pages 1025-1035
-
-A. Extended Backus-Naur Form
-
-The following presentation is inspired from the article about the
-Backus-Naur form in Wikipedia.
-
-The Backus-Naur form (also known as BNF, the Backus-Naur formalism or
-Backus normal form) is a meta-syntax used to express context-free
-grammars: that is, a formal way to describe formal languages. BNF is
-widely used as a notation for the grammars of computer programming
-languages. Most textbooks for programming language theory and/or
-semantics document the programming language in BNF.
-
-A BNF specification is a set of derivation rules, written as
-
-.. code-block:: bnf
-
-    symbol ::= <expression with symbols>
-
-where *symbol* is a nonterminal, and the expression consists of
-sequences of symbols and/or sequences separated by the vertical bar,
-'\|', indicating a choice, the whole being a possible substitution for
-the symbol on the left. Symbols that never appear on a left side are
-terminals.
-
-As an example, consider this possible BNF for a U.S. postal address:
-
-.. code-block:: bnf
-
-    postal-address ::= name-part street-address zip-part
-    name-part ::=
-      personal-part last-name [ jr-part ] EOL
-      | personal-part name-part EOL
-
-    personal-part ::= first-name | initial .
-    jr-part ::= Jr | Sr | dynastic-number
-    street-address ::= [ apartement-number ] house-number street-name EOL
-    zip-part ::= town-name , state-code ZIP-code EOL
-
-This translates into English as:
-
-- A postal address consists of a name-part, followed by a
-  street-address part, followed by a zip-code part.
-- A name-part consists of either:
-
-    * A personal-part followed by a last name
-      followed by an optional "jr-part" (Jr., Sr., or dynastic number)
-      and end-of-line
-    * A personal part followed by a name part
-      (this rule illustrates the use of recursion in BNFs, covering the case of people
-      who use multiple first and middle names and/or initials)
-
-- A personal-part consists of either a first name or an initial followed by a dot.
-- A street address consists of an optional apartment specifier,
-  followed by a house number, followed by a street name, followed by an
-  end-of-line.
-- A zip-part consists of a town-name, followed by a comma, followed by
-  a state code, followed by a ZIP-code followed by an end-of-line.
-
-Note that many things (such as the format of a first-name, apartment
-specifier, or ZIP-code) are left unspecified here. If necessary, they
-may be described using additional BNF rules.
-
-There are many variants and extensions of BNF, generally either for the
-sake of simplicity and succinctness, or to adapt it to a specific
-application. One common feature of many variants is the use of regular
-expressions repetition operators such as \* and +. The Extended
-Backus-Naur form we shall use is as follows.
-
-- Non terminal symbols are *italicized*, terminal symbols are written
-  in regular font.
-- Optional items are enclosed in square brackets, e.g., [ *item-x* ].
-- Items repeating 1 or more times are followed by a '+'.
-- Items repeating 0 or more times are followed by a '\*'.
-- Items repeating k times are enclosed in square brackets followed by
-  ':k', e.g., [ *item-x* ]:3.
-- Items repeating n or more times are followed by 'n'.
-- Where items need to be grouped they are enclosed in simple
-  parenthesis.
-- Comments start with a '#' and spread until the end of the line
-
-A. DTD of the Open-PSA Model Exchange Format
-
-The schemas in various formats can be found at https://github.com/open-psa/schemas
