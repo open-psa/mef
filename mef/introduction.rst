@@ -15,7 +15,7 @@ which leave out perhaps critical elements of the actual system under
 study. From all these investigations, some issues related to large
 nuclear PSA models have been raised, which need to be addressed before
 to put new calculation engines or next generation user interfaces into
-place. To address these issues enumerated below, an "Model Exchange
+place. To address these issues enumerated below, a "Model Exchange
 Format", a representation which is independent of all PSA software, must
 be in place. In this perspective software would retain their own
 internal representation for a model; but each software would also be
@@ -24,7 +24,7 @@ Format.
 
 *Quality assurance of calculations:* at the moment, a model built with
 one software, cannot be simply quantified with another software, and
-visa versa; there are too many software dependent features used by
+visa versa; there are too many software-dependent features used by
 modelers to make inter-calculation comparisons a one-step process. The
 Model Exchange Format will allow models to be quantified by several
 calculation engines; therefore quality assuring results in a strong way.
@@ -111,12 +111,12 @@ portable and to be able to cross check calculations.
 large extent. The constructs of the Model Exchange Format should reflect
 what the designer of the model has in mind. Low level constructs would
 help in making the format universal (any model can be eventually
-represented by means of a Fortran or C program, not to speak of a Turing
+represented by means of a FORTRAN or C program, not to speak of a Turing
 machine or a Church lambda term). But constructs which are at too low a
 level would be of little help, and even counter-productive, for model
 review.
 
-*Generality:* it should be possible to cast all of the existing models
+*Generality:* it should be possible to cast all the existing models
 into the Model Exchange Format without rewriting them from scratch. The
 translation of existing models should be automated, at least to a large
 extent. Moreover, any existing tool should be able to use the Model
@@ -129,7 +129,7 @@ of all existing tools.
 developers if they wish to introduce interesting new features in their
 tools. This means that it should be easy to introduce new constructs
 into the Model Exchange Format, even if these constructs are not
-recognized by all of the tools. On the other hand, these new constructs
+recognized by all tools. On the other hand, these new constructs
 should be clearly identified; their semantics should be clear and public
 in such way that any other developer can embed the feature in his own
 tool.
@@ -140,7 +140,7 @@ Choice of XML
 
 To create the Model Exchange Format, we must make formal definitions for
 representing existing PRA models and define a syntax to write them. The
-Model Exchange Format is defined as a XML document type. XML is widely
+Model Exchange Format is defined as an XML document type. XML is widely
 used on the Internet as a common way for programs to share data. It is
 well structured and makes it possible to give explicit name to each
 construct. XML is therefore well suited for structured modeling. By
@@ -150,12 +150,12 @@ results and understanding of the model can be improved.
 
 XML presents another major advantage for tool developers: many
 development teams have more or less already designed its own XML parser
-and many such parsers are anyway freely available on the Internet. Therefore
-the choice of a XML based syntax discharges programmers of PSA tools of
+and many such parsers are anyway freely available on the Internet. Therefore,
+the choice of an XML based syntax discharges programmers of PSA tools of
 the tedious task to design parsers and to perform syntactic checks.
 Moreover, due to their tree-like structure, it is easy to ignore parts
-of a XML description that are not relevant for a particular purpose.
-Therefore tools which do not implement the whole Model Exchange Format
+of an XML description that are not relevant for a particular purpose.
+Therefore, tools which do not implement the whole Model Exchange Format
 can easily pick up what they are able to deal with.
 
 A Four-Plus-One Layers Architecture
@@ -207,17 +207,17 @@ Throughout this document, we shall present a number of syntactic
 constructions such as Boolean formulae, probability distributions, and
 so on. These constructions will be eventually represented by means of
 XML terms. XML is however a bit too verbose to make clear the underlying
-mathematical nature of objects at hand. Therefore we shall use (in a
+mathematical nature of objects at hand. Therefore, we shall use (in a
 rather loose way) the Extended Backus-Naur form to define constructs. A
 presentation of the Extended Backus-Naur form can be found in `Appendix
 A. <#anchor-9>`__.
 
-There are several formal ways to describe a XML grammar. The most
+There are several formal ways to describe an XML grammar. The most
 popular one is probably the XML Document Type Definition (DTD). A DTD is
 associated with an XML document via a Document Type Declaration, which
 is a tag that appears near the start of the XML document. The
 declaration establishes that the document is an instance of the type
-defined by the referenced DTD. DTD are a good verification tools, but
+defined by the referenced DTD. DTD is a good verification tool, but
 hard to interpret by a human. Therefore, we shall present the grammar of
 the Model Exchange Format mainly by means of examples and semi-formal
 descriptions with the Extended Backus Naur form. A formal DTD for the

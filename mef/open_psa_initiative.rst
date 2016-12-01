@@ -3,6 +3,7 @@ The Open-PSA Initiative
 #######################
 
 The Open Initiative for Next Generation of Probabilistic Safety Assessment
+==========================================================================
 
 As we enter a time in which safety and reliability have come to the
 attention of the public, especially in the face of climate change and a
@@ -41,16 +42,16 @@ safety critical PSA models have been raised, which we feel need to be
 addressed before new calculation engines or next generation user
 interfaces are put into place:
 
--  Quality assurance of calculations;
--  Unfounded reliance on numerical approximations and truncation;
--  Portability of the models between different software;
--  Clarity of the models;
--  Completeness of the models;
--  Modeling of human actions;
--  Better visualization of PSA results;
--  Difficulty of different software working with the same PSA model;
--  Lack of data and software backward and forward compatibility;
--  No universal format for industry data.
+-  Quality assurance of calculations
+-  Unfounded reliance on numerical approximations and truncation
+-  Portability of the models between different software
+-  Clarity of the models
+-  Completeness of the models
+-  Modeling of human actions
+-  Better visualization of PSA results
+-  Difficulty of different software working with the same PSA model
+-  Lack of data and software backward and forward compatibility
+-  No universal format for industry data
 
 New calculation engines and user interfaces and a computer
 representation for large, safety critical PSA models, which is

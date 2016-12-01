@@ -352,14 +352,14 @@ parameter is declared more than once, tools should emit a warning and
 consider only the last definition as the good one (the previous ones are
 just ignored). In some circumstances, it is of interest to define
 several fault trees at once by means of a unique set of declarations.
-Therefore the presence of multiple top events should not be prevented.
+Therefore, the presence of multiple top events should not be prevented.
 We shall see what parameters and expressions are in the next chapter.
 
 Figure ‑. A Fault Tree
 
 The semantics of connectives is given `Table Fault Tree
 Layer-1 <#anchor-42>`__. Note that connectives "and", "or", "xor",
-"iff", "nand" and "nor" are associative. Therefore it suffices to give
+"iff", "nand" and "nor" are associative. Therefore, it suffices to give
 their semantics when they take two arguments, i.e., two Boolean formulae
 F and G.
 
@@ -2023,7 +2023,7 @@ In practice, things are less simple:
 -  Some success branches may not be interpreted as the negation of the
    associated fault tree but rather as a bypass. This interpretation of
    success branches is typically tool-dependent: some tools (have
-   options to) ignore success branches; therefore modelers use this
+   options to) ignore success branches; therefore, modelers use this
    "possibility" to "factorize" models.
 -  Branching may have more than two alternatives, or represent
    multi-states, not just success and failure, each alternative being
