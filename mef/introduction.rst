@@ -22,70 +22,71 @@ internal representation for a model; but each software would also be
 able to share models and industry data by means of the Model Exchange
 Format.
 
-*Quality assurance of calculations:* at the moment, a model built with
-one software, cannot be simply quantified with another software, and
-visa versa; there are too many software-dependent features used by
-modelers to make inter-calculation comparisons a one-step process. The
-Model Exchange Format will allow models to be quantified by several
-calculation engines; therefore quality assuring results in a strong way.
+Quality assurance of calculations
+    At the moment, a model built with one software,
+    cannot be simply quantified with another software, and
+    visa versa; there are too many software-dependent features used by
+    modelers to make inter-calculation comparisons a one-step process. The
+    Model Exchange Format will allow models to be quantified by several
+    calculation engines; therefore quality assuring results in a strong way.
 
-*Over reliance on numerical approximations and truncation:* while this
-cannot be solved directly by the Model Exchange Format, as new
-calculation engines are completed, the Model Exchange Format will allow
-new engines to be snapped into new (or existing) user interfaces without
-changing the model or user interface software.
+Over reliance on numerical approximations and truncation
+    While this cannot be solved directly by the Model Exchange Format, as new
+    calculation engines are completed, the Model Exchange Format will allow
+    new engines to be snapped into new (or existing) user interfaces without
+    changing the model or user interface software.
 
-*Portability of the models between different software:* at the moment,
-models are essentially non-portable between calculation engines, as
-pointed out above. The Model Exchange Format allow complete, whole
-models to be shared right now between software; the bonus will be on
-each software to correctly interpret the model representation.
+Portability of the models between different software
+    At the moment, models are essentially non-portable between calculation engines,
+    as pointed out above. The Model Exchange Format allow complete, whole
+    models to be shared right now between software; the bonus will be on
+    each software to correctly interpret the model representation.
 
-*Clarity of the models:* For one who examined a number of large nuclear
-PRA models, it is obvious that just looking at the basic events, gates
-and fault trees/event trees is of little help in understanding the
-"where", "why", and "how" of model elements: common cause failures,
-initiating events, sequence information, alignment information, systems
-and trains, flags, logic of recovery rules, or the dreaded "delete
-terms". The Model Exchange Format employs what is becoming known as
-structured modeling. Structured Modeling takes its name from the
-structured programming movement in the 1970s. Before that time,
-variables, arrays, and other data structures, were used with no
-definitions and explanations. Structured programming techniques forced
-programmers to "declare variables" at the beginning of a program by name
-and also by the type of variable it was: an integer, a real number, and
-so on. In this way the meaning of the program became clearer, and
-calculation speeds were increased. Structured Modeling, as applied to
-PRA models and software, has the same goal of making the meaning of the
-model more clear, more transparent, and to improve the speed and
-accuracy of the calculation. The user interface to create such a model
-is not of concern here. The concern is to discover the distinct model
-elements which are needed to quantify and clarify large PRA models.
+Clarity of the models
+    For one who examined a number of large nuclear PRA models,
+    it is obvious that just looking at the basic events, gates
+    and fault trees/event trees is of little help in understanding the
+    "where", "why", and "how" of model elements: common cause failures,
+    initiating events, sequence information, alignment information, systems
+    and trains, flags, logic of recovery rules, or the dreaded "delete
+    terms". The Model Exchange Format employs what is becoming known as
+    structured modeling. Structured Modeling takes its name from the
+    structured programming movement in the 1970s. Before that time,
+    variables, arrays, and other data structures, were used with no
+    definitions and explanations. Structured programming techniques forced
+    programmers to "declare variables" at the beginning of a program by name
+    and also by the type of variable it was: an integer, a real number, and
+    so on. In this way the meaning of the program became clearer, and
+    calculation speeds were increased. Structured Modeling, as applied to
+    PRA models and software, has the same goal of making the meaning of the
+    model more clear, more transparent, and to improve the speed and
+    accuracy of the calculation. The user interface to create such a model
+    is not of concern here. The concern is to discover the distinct model
+    elements which are needed to quantify and clarify large PRA models.
 
-*Completeness of the models:* without clarity, there can be no knowledge
-of the completeness of the model, since their very size and complexity
-strains the brain. The Model Exchange Format will create more
-survey-able models.
+Completeness of the models
+    Without clarity, there can be no knowledge of the completeness of the model,
+    since their very size and complexity strains the brain.
+    The Model Exchange Format will create more survey-able models.
 
-*Difficulty of different software working with the same PSA model:* as
-more risk applications are being requested (seismic, fire, balance of
-plant assessments, risk monitors, release calculations), difficulties
-are arising because each risk application and major PSA software have
-different internal data formats. The Model Exchange Format will be able
-easily to share model data between applications and specialized software
-would be available for all models.
+Difficulty of different software working with the same PSA model
+    As more risk applications are being requested (seismic, fire, balance of
+    plant assessments, risk monitors, release calculations), difficulties
+    are arising because each risk application and major PSA software have
+    different internal data formats. The Model Exchange Format will be able
+    easily to share model data between applications and specialized software
+    would be available for all models.
 
-*Lack of data and software backward and forward compatibility:* again,
-as more diverse software need to interact, such as safety monitors,
-calculation engines, and fault tree editors, the need to have data and
-programs separate becomes of high importance. The Model Exchange Format
-solves this problem by allowing programs to change without the need for
-the data format to change and for other programs to change their
-operations.
+Lack of data and software backward and forward compatibility
+    Again, as more diverse software need to interact, such as safety monitors,
+    calculation engines, and fault tree editors, the need to have data and
+    programs separate becomes of high importance. The Model Exchange Format
+    solves this problem by allowing programs to change without the need for
+    the data format to change and for other programs to change their operations.
 
-*No universal format for industry data:* The Model Exchange Format will
-be a perfect way to publish industry data such as common cause, failure
-rates, incidents, and initiating event frequencies.
+No universal format for industry data
+    The Model Exchange Format will be a perfect way to publish industry data,
+    such as common cause, failure rates, incidents, and initiating event frequencies.
 
 Requirements for the Model Exchange Format
 ==========================================
@@ -94,45 +95,48 @@ To be acceptable and widely accepted, the Model Exchange Format for PSA
 must fulfill a number of requirements. The following list is an attempt
 to summarize these requirements.
 
-*Soundness:* the Model Exchange Format must be unambiguous. The
-semantics of each construct must be clearly given, in such way that no
-two correct implementations of the Model Exchange Format can differ in
-their interpretation of models (they may differ however, at least to a
-certain extent, in the results they provide if they use different
-calculation methods).
+Soundness
+    The Model Exchange Format must be unambiguous.
+    The semantics of each construct must be clearly given, in such way that no
+    two correct implementations of the Model Exchange Format can differ in
+    their interpretation of models (they may differ however, at least to a
+    certain extent, in the results they provide if they use different
+    calculation methods).
 
-*Completeness:* the Model Exchange Format should cover as much as
-possible; not only all aspects of PSA models, but also references to
-external documentations and format of the results. These issues have to
-be covered by the Model Exchange Format in order to make models actually
-portable and to be able to cross check calculations.
+Completeness
+    The Model Exchange Format should cover as much as possible;
+    not only all aspects of PSA models, but also references to
+    external documentations and format of the results. These issues have to
+    be covered by the Model Exchange Format in order to make models actually
+    portable and to be able to cross check calculations.
 
-*Clarity:* the Model Exchange Format should be self-documenting to a
-large extent. The constructs of the Model Exchange Format should reflect
-what the designer of the model has in mind. Low level constructs would
-help in making the format universal (any model can be eventually
-represented by means of a FORTRAN or C program, not to speak of a Turing
-machine or a Church lambda term). But constructs which are at too low a
-level would be of little help, and even counter-productive, for model
-review.
+Clarity
+    The Model Exchange Format should be self-documenting to a large extent.
+    The constructs of the Model Exchange Format should reflect
+    what the designer of the model has in mind. Low level constructs would
+    help in making the format universal (any model can be eventually
+    represented by means of a FORTRAN or C program, not to speak of a Turing
+    machine or a Church lambda term). But constructs which are at too low a
+    level would be of little help, and even counter-productive, for model review.
 
-*Generality:* it should be possible to cast all the existing models
-into the Model Exchange Format without rewriting them from scratch. The
-translation of existing models should be automated, at least to a large
-extent. Moreover, any existing tool should be able to use the Model
-Exchange Format as its representation language. Indeed, most of the
-tools implement only a subpart of the Model Exchange Format but the
-Model Exchange Format should be a superset of the underlying formalisms
-of all existing tools.
+Generality
+    It should be possible to cast all the existing models
+    into the Model Exchange Format without rewriting them from scratch. The
+    translation of existing models should be automated, at least to a large
+    extent. Moreover, any existing tool should be able to use the Model
+    Exchange Format as its representation language. Indeed, most of the
+    tools implement only a subpart of the Model Exchange Format but the
+    Model Exchange Format should be a superset of the underlying formalisms
+    of all existing tools.
 
-*Extensibility:* the Model Exchange Format should not restrict
-developers if they wish to introduce interesting new features in their
-tools. This means that it should be easy to introduce new constructs
-into the Model Exchange Format, even if these constructs are not
-recognized by all tools. On the other hand, these new constructs
-should be clearly identified; their semantics should be clear and public
-in such way that any other developer can embed the feature in his own
-tool.
+Extensibility
+    The Model Exchange Format should not restrict developers
+    if they wish to introduce interesting new features in their tools.
+    This means that it should be easy to introduce new constructs
+    into the Model Exchange Format, even if these constructs are not
+    recognized by all tools. On the other hand, these new constructs
+    should be clearly identified; their semantics should be clear and public
+    in such way that any other developer can embed the feature in his own tool.
 
 
 Choice of XML

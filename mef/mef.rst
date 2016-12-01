@@ -17,30 +17,33 @@ distributions, initiating events, safety systems, consequences...
 Conceptually, it is convenient to arrange most of these elements into
 one of the three categories: terms, variables and containers.
 
-*Variables:* Variables are named elements. Gates, basic events, house
-events, stochastic parameters, functional events, initiating events and
-consequences are all variables. A variable is always defined, i.e.,
-associated with a term.
+Variables
+    Variables are named elements. Gates, basic events, house
+    events, stochastic parameters, functional events, initiating events and
+    consequences are all variables. A variable is always defined, i.e.,
+    associated with a term.
 
-*Terms:* Terms are built over variables, constants and operators. For
-instance, the Boolean formula "primary-motor-failure or
-no-current-to-motor" is a term built over the basic event
-"primary-motor-failure", the gate "no-current-to-motor" and the Boolean
-operator "or". Similarly, the probability distribution
-"1-exp(-lambda\*t)" is a term built over the numerical constant "1", the
-failure rate "lambda" the time "t", and the three arithmetic operators
-"-", "exp" and "\*" ("lambda" and "t" are variables). Note that
-variables are terms
+Terms
+    Terms are built over variables, constants and operators. For
+    instance, the Boolean formula "primary-motor-failure or
+    no-current-to-motor" is a term built over the basic event
+    "primary-motor-failure", the gate "no-current-to-motor" and the Boolean
+    operator "or". Similarly, the probability distribution
+    "1-exp(-lambda\*t)" is a term built over the numerical constant "1", the
+    failure rate "lambda" the time "t", and the three arithmetic operators
+    "-", "exp" and "\*" ("lambda" and "t" are variables).
+    Note that variables are terms.
 
-*Containers:* According to our terminology, a model is nothing but a set
-of definitions of variables. Since a brute list of such definitions
-would lack of structure, the Model Exchange Format makes it possible to
-group them into containers. Containers have names and can be themselves
-grouped into higher level containers. For instance, a fault tree is a
-container for definitions of gates, house-events, basic events and
-parameters of probability distributions. Similarly, an event tree is a
-container for definitions of initiating events, functional events,
-sequences...
+Containers
+    According to our terminology, a model is nothing but a set
+    of definitions of variables. Since a brute list of such definitions
+    would lack of structure, the Model Exchange Format makes it possible to
+    group them into containers. Containers have names and can be themselves
+    grouped into higher level containers. For instance, a fault tree is a
+    container for definitions of gates, house-events, basic events and
+    parameters of probability distributions. Similarly, an event tree is a
+    container for definitions of initiating events, functional events,
+    sequences...
 
 We are now ready to list the main elements of a model. The exact content
 and role of these different elements will be detailed in the subsequent
@@ -49,11 +52,12 @@ chapters.
 Stochastic Layer
 ~~~~~~~~~~~~~~~~
 
-*Stochastic variables and terms:* Stochastic expressions are terms that
-are used to define probability distributions (associated with basic
-events). Stochastic variables are called parameters. For instance,
-"1-exp(-lambda\*t)" is a stochastic expression built over the two
-parameters "lambda" and "t".
+Stochastic variables and terms
+    Stochastic expressions are terms
+    that are used to define probability distributions (associated with basic events).
+    Stochastic variables are called parameters. For instance,
+    "1-exp(-lambda\*t)" is a stochastic expression built over the two
+    parameters "lambda" and "t".
 
 From a programming viewpoint, it is convenient to group definitions of
 parameters into (stochastic) containers. The stochastic layer is
@@ -62,18 +66,19 @@ populated with stochastic parameters, expressions and containers.
 Fault Tree Layer
 ~~~~~~~~~~~~~~~~
 
-*Boolean formulae, Basic Events, House Events and Gates:* Boolean
-formulae, or formulae for short, are terms built over the usual set of
-constants (true, false), connectives (and, or, not...) and Boolean
-variables, i.e., Basic Events, Gates and House Events. Boolean variables
-are called events, for that's what they represent in the sense of the
-probability theory. Basic events are associated with probability
-distributions, i.e., with (stochastic) expressions. Gates are defined as
-Boolean formulae. House events are special gates that are defined as
-Boolean constants only.
+Boolean formulae, Basic Events, House Events and Gates
+    Boolean formulae, or formulae for short, are terms built over the usual set of
+    constants (true, false), connectives (and, or, not...) and Boolean
+    variables, i.e., Basic Events, Gates and House Events. Boolean variables
+    are called events, for that's what they represent in the sense of the
+    probability theory. Basic events are associated with probability
+    distributions, i.e., with (stochastic) expressions. Gates are defined as
+    Boolean formulae. House events are special gates that are defined as
+    Boolean constants only.
 
-*Fault Trees:* According to what precedes, a fault tree is container for
-definitions of parameters, basic events, house events and gates.
+Fault Trees
+    According to what precedes, a fault tree is container for
+    definitions of parameters, basic events, house events and gates.
 
 The fault tree layer is populated with all elements we have seen so far.
 
@@ -84,18 +89,20 @@ The meta-logical layer contains extra-logical constructs in addition to
 fault trees. These extra-logical constructs are used to handle issues
 that are not easy to handle in a purely declarative and logical way.
 
-*Common Cause Groups:* Common cause groups are sets of basic events that
-are not statistically independent. Several models can be used to
-interpret common cause groups. All these models consist in splitting
-each event of the group into a disjunction of independent basic events.
+Common Cause Groups
+    Common cause groups are sets of basic events that
+    are not statistically independent. Several models can be used to
+    interpret common cause groups. All these models consist in splitting
+    each event of the group into a disjunction of independent basic events.
 
-*Substitutions:* delete terms, exchange events, and recovery rules are
-global and extra-logical constraints that are used to describe
-situations such as physical impossibilities, technical specifications,
-or to modify the probability of a scenario according to some physical
-rules or judgments about human actions. In the Model Exchange Format,
-these extra-logical constructs are all modeled by means of the generic
-notion of substitution.
+Substitutions
+    Delete terms, exchange events, and recovery rules are
+    global and extra-logical constraints that are used to describe
+    situations such as physical impossibilities, technical specifications,
+    or to modify the probability of a scenario according to some physical
+    rules or judgments about human actions. In the Model Exchange Format,
+    these extra-logical constructs are all modeled by means of the generic
+    notion of substitution.
 
 Event Tree Layer
 ~~~~~~~~~~~~~~~~
@@ -104,54 +111,61 @@ As we shall see, event trees must be seen as a (semi-)graphical language
 to describe and to combine sequences. Elements of this language are the
 following.
 
-*Event Trees:* Event Trees define scenarios from an Initiating Event (or
-an Initiating Event Group) to different end-states. In the Model
-Exchange Format, end-states are called Sequences. The same event tree
-can be used for different Initiating Events. Along the scenarios,
-"flavored" copies of fault trees are collected and/or values are
-computed. Flavors are obtained by changing values of house events and
-parameters while walking along the tree. Event Trees are containers
-according to our terminology. They contain definition of functional
-events and states.
+Event Trees
+    Event Trees define scenarios from an Initiating Event (or
+    an Initiating Event Group) to different end-states. In the Model
+    Exchange Format, end-states are called Sequences. The same event tree
+    can be used for different Initiating Events. Along the scenarios,
+    "flavored" copies of fault trees are collected and/or values are
+    computed. Flavors are obtained by changing values of house events and
+    parameters while walking along the tree. Event Trees are containers
+    according to our terminology. They contain definition of functional
+    events and states.
 
-*Initiating Events, Initiating Event Groups:* Initiating Events describe
-the starting point of an accidental sequence. They are always associated
-with an event tree, although they are in general declared outside of
-this event tree. The Model Exchange Format makes it possible to chain
-event trees. Therefore, the end-state of a sequence of an event tree may
-be the initiating event of another event tree. Initiating Events are
-variables, according to our terminology. Initiating event groups are
-sets of initiating events. Despite of their set nature, initiative
-events are also variables, because an initiating event group may contain
-another one (the initiating terms are set operations).
+Initiating Events, Initiating Event Groups
+    Initiating Events describe the starting point of an accidental sequence.
+    They are always associated with an event tree,
+    although they are in general declared outside of this event tree.
+    The Model Exchange Format makes it possible to chain event trees.
+    Therefore, the end-state of a sequence of an event tree may
+    be the initiating event of another event tree. Initiating Events are
+    variables, according to our terminology. Initiating event groups are
+    sets of initiating events. Despite of their set nature, initiative
+    events are also variables, because an initiating event group may contain
+    another one (the initiating terms are set operations).
 
-*Functional Events:* Functional Events describe actions that are taken
-to prevent an accident or to mitigate its consequences (usually by means
-of a fault tree). Depending on the result of such an action, the
-functional event may be in different, e.g., "success" or "failure".
-Functional Events label the columns the graphical representation of
-Event Trees.
+Functional Events
+    Functional Events describe actions that are taken
+    to prevent an accident or to mitigate its consequences (usually by means
+    of a fault tree). Depending on the result of such an action, the
+    functional event may be in different, e.g., "success" or "failure".
+    Functional Events label the columns the graphical representation of
+    Event Trees.
 
-*Sequences, Branches:* Sequences are end-states of branches of event
-trees. Branches are named intermediate states.
+Sequences, Branches
+    Sequences are end-states of branches of event
+    trees. Branches are named intermediate states.
 
-*Instructions, Rules:* Instructions are used to describe the different
-paths of an event tree, to set the states of functional events, to give
-flavors of fault trees that are collected, and to communicate with the
-calculation engine. Rules are (named) groups of Instructions. They
-generalize split-fractions of the event tree linking approach, and
-boundary condition sets of the fault tree linking approach.
+Instructions, Rules
+    Instructions are used to describe the different
+    paths of an event tree, to set the states of functional events, to give
+    flavors of fault trees that are collected, and to communicate with the
+    calculation engine. Rules are (named) groups of Instructions. They
+    generalize split-fractions of the event tree linking approach, and
+    boundary condition sets of the fault tree linking approach.
 
-*Consequences, Consequence groups:* Consequences are couples made of an
-initiating event and a sequence (an event tree end-state). Consequences
-are named and are defined. They are variables according to our
-terminology. Like Initiating Events, Consequences can be grouped to
-study a particular type of accident. Consequence Groups are also
-variables (the consequence terms are set operations).
+Consequences, Consequence groups
+    Consequences are couples made of an
+    initiating event and a sequence (an event tree end-state). Consequences
+    are named and are defined. They are variables according to our
+    terminology. Like Initiating Events, Consequences can be grouped to
+    study a particular type of accident. Consequence Groups are also
+    variables (the consequence terms are set operations).
 
-*Missions, Phases:* In some cases, the mission of the system is split
-into different phase. The Model Exchange Format provides constructs to
-reflect this situation.
+Missions, Phases
+    In some cases, the mission of the system is split
+    into different phase. The Model Exchange Format provides constructs to
+    reflect this situation.
 
 Structure of a model
 --------------------
@@ -221,71 +235,73 @@ tools are in charge of solving potential name conflicts.
 Definitions, Labels and Attributes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Here follows some additional useful elements about the Model Exchange
-Format.
+Here follows some additional useful elements about the Model Exchange Format.
 
-*Definitions versus references:* For the sake of the clarity (and for
-XML specific reasons), it is important to distinguish the
-declaration/definition of an element from references to that element.
-For instance, we have to distinguish the definition of the gate
-"motor-fails-to-start" (as the Boolean formula "primary-motor-failure or
-no-current-to-motor"), from references to that gate into definitions of
-other gates.
+Definitions versus references
+    For the sake of the clarity (and for XML specific reasons),
+    it is important to distinguish the
+    declaration/definition of an element from references to that element.
+    For instance, we have to distinguish the definition of the gate
+    "motor-fails-to-start" (as the Boolean formula "primary-motor-failure or
+    no-current-to-motor"), from references to that gate into definitions of
+    other gates.
 
-In the Model Exchange Format, the definition of a variable or a
-container, for instance a gate, is in the following form.
+    In the Model Exchange Format, the definition of a variable or a
+    container, for instance a gate, is in the following form.
 
-.. code-block:: xml
+    .. code-block:: xml
 
-    <define-gate name="motor-fails-to-start">
-        ...
-    </define-gate>
-
-References to that gate are in the following form.
-
-.. code-block:: xml
-
-    ...
-    <gate name="motor-fails-to-start"/>
-    ...
-
-So, there are two tags for each element (variable or container) of the
-Model Exchange Format: the tag "define-element" to define this element
-and the tag "element" to refer this element. Note that the attribute
-"name" is systematically used to name elements.
-
-*Labels:* It is often convenient to add a comment to the definition of
-an object. The Model Exchange Format defines a special tag "label" to do
-so. The tag label can contain any text. It must be inserted as the first
-child of the definition of the object. E.g.
-
-.. code-block:: xml
-
-    <define-gate name="motor-fails-to-start">
-        <label>Warning: secondary motor failures are not taken into account here.</label>
-        ...
-    </define-gate>
-
-*Attributes:* Attributes can be associated with each element (variable
-or container) of the Model Exchange Format. An attribute is a pair
-(name, value), where both name and value are normally short strings.
-Values are usually scalars, i.e., they are not interpreted. In order to
-allow tools to interpret values, a third field "type" can be optionally
-added to attributes. The tags "attributes" and "attribute" are used to
-set attributes. The former is mandatory, even when only one attribute is
-defined. It must be inserted as the first child of the definition of the
-object, or just after the tag label, if any. E.g.
-
-.. code-block:: xml
-
-    <define-gate name="motor-fails-to-start">
-        <label>Warning: secondary motor failures are not taken into account here.</label>
-        <attributes>
-            <attribute name="zone" value="room33" />
+        <define-gate name="motor-fails-to-start">
             ...
-        </attributes>
+        </define-gate>
+
+    References to that gate are in the following form.
+
+    .. code-block:: xml
+
         ...
-    </define-gate>
+        <gate name="motor-fails-to-start"/>
+        ...
+
+    So, there are two tags for each element (variable or container) of the
+    Model Exchange Format: the tag "define-element" to define this element
+    and the tag "element" to refer this element. Note that the attribute
+    "name" is systematically used to name elements.
+
+Labels
+    It is often convenient to add a comment to the definition of
+    an object. The Model Exchange Format defines a special tag "label" to do
+    so. The tag label can contain any text. It must be inserted as the first
+    child of the definition of the object.
+
+    .. code-block:: xml
+
+        <define-gate name="motor-fails-to-start">
+            <label>Warning: secondary motor failures are not taken into account here.</label>
+            ...
+        </define-gate>
+
+Attributes
+    Attributes can be associated with each element (variable
+    or container) of the Model Exchange Format. An attribute is a pair
+    (name, value), where both name and value are normally short strings.
+    Values are usually scalars, i.e., they are not interpreted. In order to
+    allow tools to interpret values, a third field "type" can be optionally
+    added to attributes. The tags "attributes" and "attribute" are used to
+    set attributes. The former is mandatory, even when only one attribute is
+    defined. It must be inserted as the first child of the definition of the
+    object, or just after the tag label, if any.
+
+    .. code-block:: xml
+
+        <define-gate name="motor-fails-to-start">
+            <label>Warning: secondary motor failures are not taken into account here.</label>
+            <attributes>
+                <attribute name="zone" value="room33" />
+                ...
+            </attributes>
+            ...
+        </define-gate>
 
 The Backus-Naur form for the XML representation of labels and attributes
 is as follows.
@@ -761,23 +777,25 @@ attribute at element level.
 Recommendations
 ~~~~~~~~~~~~~~~
 
-*Layered Models:* In PSA models, fault trees are in general layered,
-i.e., arguments of connectives (and, or...) are always either variables
-or negations of variables. Although there is no reason to force such a
-condition, it is recommended to obey it, for the sake of clarity.
+Layered Models
+    In PSA models, fault trees are in general layered,
+    i.e., arguments of connectives (and, or...) are always either variables
+    or negations of variables. Although there is no reason to force such a
+    condition, it is recommended to obey it, for the sake of clarity.
 
-*Use Portable Identifiers:* In the XML description of fault trees, we
-intentionally did not define identifiers. In many fault tree tools,
-identifiers can be any string. It is however strongly recommended for
-portability issues to use non problematic identifiers, like those of
-programming languages, and to add a description of elements as a
-comment. This means not using lexical entities such as spaces,
-tabulations, "." or "/" in names of elements, as well as realizing that
-some old tools cannot differentiate between capital and small letters.
+Use Portable Identifiers
+    In the XML description of fault trees, we
+    intentionally did not define identifiers. In many fault tree tools,
+    identifiers can be any string. It is however strongly recommended for
+    portability issues to use non problematic identifiers, like those of
+    programming languages, and to add a description of elements as a
+    comment. This means not using lexical entities such as spaces,
+    tabulations, "." or "/" in names of elements, as well as realizing that
+    some old tools cannot differentiate between capital and small letters.
 
-*Role of Parameters, House Events and Basic Events:* Parameters, house
-events and basic events should be always public, in order to facilitate
-their portability from one tool to another.
+Role of Parameters, House Events and Basic Events
+    Parameters, house events and basic events should be always public,
+    in order to facilitate their portability from one tool to another.
 
 Stochastic Layer
 ================
@@ -1029,7 +1047,10 @@ semantics
 Figure ‑. Backus-Naur grammar for XML representation of numerical
 operations
 
-*Example:* Assume for instance we want to associate a negative
+Example
+^^^^^^^
+
+Assume for instance we want to associate a negative
 exponential distribution with a failure rate *λ*\ =1.23e-4/h to the basic
 event "pump-failure". Using primitives defined above, we can encode
 explicitly such probability distribution as follows.
@@ -1134,7 +1155,10 @@ operation is given `Figure Stochastic Layer-14 <#anchor-80>`__.
 Figure ‑. Backus-Naur grammar for XML representation of conditional
 operations
 
-*Example:* Assume for instance we want to give different values to the
+Example
+^^^^^^^
+
+Assume for instance we want to give different values to the
 failure rate "lambda" depending on a global parameter "stress-level":
 
 "lambda"=1.0e-4/h if "stress-level"=1,
@@ -1184,27 +1208,31 @@ added on demand to the Model Exchange Format. Here follows a preliminary
 list of built-ins. `Table Fault Tree Layer-1 <#anchor-42>`__ summarizes
 this preliminary list.
 
-*Exponential with two parameters:* this built-in implements the negative
-exponential distribution. The two parameters are the hourly failure
-rate, usually called *λ*, and the time *t*. It definition is as follows.
+Exponential with two parameters
+    This built-in implements the negative exponential distribution.
+    The two parameters are the hourly failure rate, usually called *λ*, and the time *t*.
+    Its definition is as follows.
 
-*Exponential with four parameters (GLM):* this built-in generalizes the
-previous one. It makes it possible to take into account repairable
-components (through the hourly repairing rate *µ*) and failures on
-demand (through the probability *γ* of such an event). It takes four
-parameters, *γ*, the hourly failure rate *λ*, *µ* and the time *t* (in
-this order). Its definition is as follows.
+Exponential with four parameters (GLM)
+    This built-in generalizes the previous one.
+    It makes it possible to take into account repairable
+    components (through the hourly repairing rate *µ*) and failures on
+    demand (through the probability *γ* of such an event). It takes four
+    parameters, *γ*, the hourly failure rate *λ*, *µ* and the time *t* (in
+    this order). Its definition is as follows.
 
-*Weibull:* this built-in implements the Weibull distribution. It takes
-four parameters: a scale parameter *α*, a shape parameter *β*, a
-time shift *t*\ :sub:`0`, and the time *t* (in this order). Its definition
-is as follows.
+Weibull
+    This built-in implements the Weibull distribution. It takes
+    four parameters: a scale parameter *α*, a shape parameter *β*, a
+    time shift *t*\ :sub:`0`, and the time *t* (in this order). Its definition
+    is as follows.
 
-*Periodic test:* In several applications, it is of interest to introduce
-some specific distributions to describe periodically tested components.
-A further investigation is certainly necessary on this topic. We
-tentatively give here a candidate definition (that is extracted from one
-of the tools we considered).
+Periodic test
+    In several applications, it is of interest to introduce
+    some specific distributions to describe periodically tested components.
+    A further investigation is certainly necessary on this topic. We
+    tentatively give here a candidate definition (that is extracted from one
+    of the tools we considered).
 
 The "periodic-test" built-in would take the following parameters (in order).
 
@@ -1237,17 +1265,16 @@ The "periodic-test" built-in would take the following parameters (in order).
 `Figure Stochastic Layer-15 <#anchor-85>`__ illustrates the meaning of
 the parameters *τ*, *θ* and *π*.
 
-Figure ‑. Meaning of parameters *τ*, *θ* and *π* of the  "periodic-test" built-in.
+Figure ‑. Meaning of parameters *τ*, *θ* and *π* of the "periodic-test" built-in.
 
 There are three phases in the behavior of the component. The first
-phase corresponds to the time from 0 to the date of the first test, i.e.
-*θ*. The second phase is the test phase. It spreads from times
-*θ*\ +n.\ *τ* to *θ*\ +n.\ *τ*\ +\ *π*, with n any positive integer.
-The third phase is the functioning phase. It spreads from times
-*θ*\ +n.\ *τ*\ +\ *π* from *θ*\ +(n+1).\ *τ*.
+phase corresponds to the time from 0 to the date of the first test, i.e. *θ*.
+The second phase is the test phase.
+It spreads from times *θ*\ +n.\ *τ* to *θ*\ +n.\ *τ*\ +\ *π*, with n any positive integer.
+The third phase is the functioning phase.
+It spreads from times *θ*\ +n.\ *τ*\ +\ *π* from *θ*\ +(n+1).\ *τ*.
 
-In the first phase, the distribution is a simple exponential law of
-parameter *λ*.
+In the first phase, the distribution is a simple exponential law of parameter *λ*.
 
 The component may enter in the second phase in three states, either
 working, failed or in repair. In the latter case, the test is not
@@ -1269,30 +1296,33 @@ the component is in repair is the same as in the second phase.
 The Model Exchange Format could provide also two simplified forms for
 the periodic test distribution.
 
-*Periodic-test with 5 arguments:* The first one takes five parameters:
-*λ*, *µ*, *τ*, *θ* and *t*. In that case, the test is assumed to be instantaneous.
-Therefore, parameters *λ*\* (the failure rate during the test) and x
-(indicator of the component availability during the test) are
-meaningless. There other parameters are set as follows.
+Periodic-test with 5 arguments
+    The first one takes five parameters: *λ*, *µ*, *τ*, *θ* and *t*.
+    In that case, the test is assumed to be instantaneous.
+    Therefore, parameters *λ*\* (the failure rate during the test) and x
+    (indicator of the component availability during the test) are
+    meaningless. There other parameters are set as follows.
 
-- *γ* (the probability of failure due to the beginning of the test) is set to 0.
-- *σ* (the probability that the test detects the failure, if any) is set to 1.
-- *ω* (the probability that the component is badly restarted after a test or a repair) is set to 0.
+    - *γ* (the probability of failure due to the beginning of the test) is set to 0.
+    - *σ* (the probability that the test detects the failure, if any) is set to 1.
+    - *ω* (the probability that the component is badly restarted after a test or a repair)
+      is set to 0.
 
-*Periodic-test with 4 arguments:* The second one takes only four
-parameters: *λ*, *τ*, *θ* and t. The repair is assumed to be
-instantaneous (or equivalently the repair rate µ = +∞).
+Periodic-test with 4 arguments
+    The second one takes only four parameters: *λ*, *τ*, *θ* and t.
+    The repair is assumed to be instantaneous (or equivalently the repair rate µ = +∞).
 
-*Extern functions:* The Model Exchange Format should provide a mean to
-call extern functions. This makes it extensible and allows the link the
-PSA assessment tools with complex tools to calculate physical behavior
-(like fire propagation or gas dispersion). This call may take any number
-of arguments and return a single value at once (some interfacing glue
-can be used to handle the case where several values have to be
-returned). It has been also suggested that extern function calls take
-XML terms as input and output. This is probably the best way to handle
-communication between tools, but it would be far too complex too embed
-XML into stochastic expressions.
+Extern functions
+    The Model Exchange Format should provide a mean to
+    call extern functions. This makes it extensible and allows the link the
+    PSA assessment tools with complex tools to calculate physical behavior
+    (like fire propagation or gas dispersion). This call may take any number
+    of arguments and return a single value at once (some interfacing glue
+    can be used to handle the case where several values have to be
+    returned). It has been also suggested that extern function calls take
+    XML terms as input and output. This is probably the best way to handle
+    communication between tools, but it would be far too complex too embed
+    XML into stochastic expressions.
 
 +---------------------+------------+---------------------------------------------------------------------------------------------------------------------------+
 | Built-in            | #arguments | Semantics                                                                                                                 |
@@ -1343,8 +1373,10 @@ Figure ‑. Backus-Naur grammar for XML representation of Built-ins
     Nevertheless, we may switch to this approach
     if the experience shows that the first one proves to be confusing.
 
-|
-| *Example:* The negative exponential distribution can be encoded in a simple way as follows.
+Example
+^^^^^^^
+
+The negative exponential distribution can be encoded in a simple way as follows.
 
 .. code-block:: xml
 
@@ -1391,94 +1423,99 @@ list can be extended on demand.
 Table ‑. Primitive to generate random deviates, their number of
 arguments and their semantics
 
-*Uniform Deviates:* These primitives describe uniform distributions in a
-given range defined by its lower- and upper-bounds. The default value of
-a uniform deviate is the mean of the range, i.e., (lower-bound + upper-bound)/2.
+Uniform Deviates
+    These primitives describe uniform distributions in a
+    given range defined by its lower- and upper-bounds. The default value of
+    a uniform deviate is the mean of the range, i.e., (lower-bound + upper-bound)/2.
 
-*Normal Deviates:* These primitives describe normal distributions
-defined by their mean and their standard deviation (refer to text book
-for a more detailed explanation). By default, the value of a normal
-distribution is its mean.
+Normal Deviates
+    These primitives describe normal distributions
+    defined by their mean and their standard deviation (refer to text book
+    for a more detailed explanation). By default, the value of a normal
+    distribution is its mean.
 
-*Lognormal distribution:* These primitives describe lognormal
-distributions defined by their mean µ and their error factor EF. A
-random variable is distributed according to a lognormal distribution if
-its logarithm is distributed according to a normal distribution. If µ
-and *σ* are respectively the mean and the standard deviation of the
-distribution, the probability density of the random variable is as
-follows.
+Lognormal distribution
+    These primitives describe lognormal
+    distributions defined by their mean µ and their error factor EF. A
+    random variable is distributed according to a lognormal distribution if
+    its logarithm is distributed according to a normal distribution. If µ
+    and *σ* are respectively the mean and the standard deviation of the
+    distribution, the probability density of the random variable is as follows.
 
-Its mean, *E(x)* is defined as follows.
+    Its mean, *E(x)* is defined as follows.
 
-The confidence intervals *[X\ :sub:`0,05`, X\ :sub:`0,95`]* associated
-with a confidence level of *0.95* and the median *X\ :sub:`0,50`* are the following:
+    The confidence intervals *[X\ :sub:`0,05`, X\ :sub:`0,95`]* associated
+    with a confidence level of *0.95* and the median *X\ :sub:`0,50`* are the following:
 
-The error factor *EF* is defined as follows:
+    The error factor *EF* is defined as follows:
 
-with and .
+    with and .
 
-Once the mean and the error factor are known, it is then possible to
-determine the confidence interval and thereby the parameters of the
-lognormal law.
+    Once the mean and the error factor are known, it is then possible to
+    determine the confidence interval and thereby the parameters of the
+    lognormal law.
 
-*Gamma Deviates:* These primitives describe Gamma distributions defined
-by their shape parameter k and their scale parameter *θ*. If k is an
-integer then the distribution represents the sum of k exponentially
-distributed random variables, each of which has mean *θ*.
+Gamma Deviates
+    These primitives describe Gamma distributions defined
+    by their shape parameter k and their scale parameter *θ*. If k is an
+    integer then the distribution represents the sum of k exponentially
+    distributed random variables, each of which has mean *θ*.
 
-The probability density of the gamma distribution can be expressed in
-terms of the gamma function:
+    The probability density of the gamma distribution can be expressed in
+    terms of the gamma function:
 
-The default value of the gamma distribution is its mean, i.e., k.\ *θ*.
+    The default value of the gamma distribution is its mean, i.e., k.\ *θ*.
 
-*Beta Deviates:* These primitives describe Beta distributions defined by
-two shape parameters *α* and *β*.
+Beta Deviates
+    These primitives describe Beta distributions defined by
+    two shape parameters *α* and *β*.
 
-The probability density of the beta distribution can be expressed in
-terms of the B function:
+    The probability density of the beta distribution can be expressed in
+    terms of the B function:
 
-The default value of the gamma distribution is its mean, i.e., *α*/(*α*\ +\ *β*).
+    The default value of the gamma distribution is its mean, i.e., *α*/(*α*\ +\ *β*).
 
-*Histograms:* Histograms are lists of pairs (x:sub:`1`, E\ :sub:`1`)...
-(x:sub:`n`, E\ :sub:`n`) where the x\ :sub:`i`'s are numbers such that
-x\ :sub:`i `\ < x\ :sub:`i+1` for i=1...n-1 and the E\ :sub:`i`'s are
-expressions.
+Histograms
+    Histograms are lists of pairs (x:sub:`1`, E\ :sub:`1`)...
+    (x:sub:`n`, E\ :sub:`n`) where the x\ :sub:`i`'s are numbers such that
+    x\ :sub:`i `\ < x\ :sub:`i+1` for i=1...n-1 and the E\ :sub:`i`'s are
+    expressions.
 
-The x\ :sub:`i`'s represent upper bounds of successive intervals. The
-lower bound of the first interval x\ :sub:`0` is given apart.
+    The x\ :sub:`i`'s represent upper bounds of successive intervals. The
+    lower bound of the first interval x\ :sub:`0` is given apart.
 
-The drawing of a value according to a histogram is a two steps process.
-First, a value z is drawn uniformly in the range [x:sub:`0`,
-x\ :sub:`n`]. Then, a value is drawn at random by means of the
-expression E\ :sub:`i`, where i is the index of the interval such
-x\ :sub:`i-1`\ < z ≤ x\ :sub:`i`.
+    The drawing of a value according to a histogram is a two steps process.
+    First, a value z is drawn uniformly in the range [x:sub:`0`,
+    x\ :sub:`n`]. Then, a value is drawn at random by means of the
+    expression E\ :sub:`i`, where i is the index of the interval such
+    x\ :sub:`i-1`\ < z ≤ x\ :sub:`i`.
 
-By default, the value of a histogram is its mean, i.e.,
+    By default, the value of a histogram is its mean, i.e.,
 
-Both Cumulative Distribution Functions and Density Probability
-Distributions can be translated into histograms.
+    Both Cumulative Distribution Functions and Density Probability
+    Distributions can be translated into histograms.
 
-A Cumulative Distribution Function is a list of pairs (p:sub:`1`,
-v\ :sub:`1`)... (p:sub:`n`, v\ :sub:`n`), where the p\ :sub:`i`'s are such
-that p\ :sub:`i` < p\ :sub:`i+1` for i=1... n and p\ :sub:`n`\ =1. It
-differs from histograms in two ways. First, X axis values are normalized
-(to spread between 0 and 1) and second they are presented in a
-cumulative way. The histogram that corresponds to a Cumulative
-Distribution Function (p:sub:`1`, v\ :sub:`1`)... (p:sub:`n`, v\ :sub:`n`)
-is the list of pairs (x:sub:`1`, v\ :sub:`1`)... (x:sub:`n`, v\ :sub:`n`),
-with the initial value x\ :sub:`0` is 0, x\ :sub:`1` = p\ :sub:`1` and
-x\ :sub:`i` = p\ :sub:`i` - p\ :sub:`i-1` for all i>1.
+    A Cumulative Distribution Function is a list of pairs (p:sub:`1`,
+    v\ :sub:`1`)... (p:sub:`n`, v\ :sub:`n`), where the p\ :sub:`i`'s are such
+    that p\ :sub:`i` < p\ :sub:`i+1` for i=1... n and p\ :sub:`n`\ =1. It
+    differs from histograms in two ways. First, X axis values are normalized
+    (to spread between 0 and 1) and second they are presented in a
+    cumulative way. The histogram that corresponds to a Cumulative
+    Distribution Function (p:sub:`1`, v\ :sub:`1`)... (p:sub:`n`, v\ :sub:`n`)
+    is the list of pairs (x:sub:`1`, v\ :sub:`1`)... (x:sub:`n`, v\ :sub:`n`),
+    with the initial value x\ :sub:`0` is 0, x\ :sub:`1` = p\ :sub:`1` and
+    x\ :sub:`i` = p\ :sub:`i` - p\ :sub:`i-1` for all i>1.
 
-A Discrete Probability Distribution is a list of pairs (d:sub:`1`,
-m\ :sub:`1`)... (d:sub:`n`, m\ :sub:`n`). The d\ :sub:`i`'s are
-probability densities. They could be however any kind of values. The
-m\ :sub:`i`'s are midpoints of intervals and are such that m\ :sub:`1` <
-m\ :sub:`2` < ... < m\ :sub:`n` < 1. The histogram that corresponds to a
-Discrete Probability Distribution (d:sub:`1`, m\ :sub:`1`)... (d:sub:`n`,
-m\ :sub:`n`) is the list of pairs (x:sub:`1`, d\ :sub:`1`)... (x:sub:`n`,
-d\ :sub:`n`), with the initial value x\ :sub:`0` = 0, x\ :sub:`1` =
-2.m\ :sub:`1` and x\ :sub:`i` = x\ :sub:`i-1` +
-2.(m\ :sub:`i`-x:sub:`i-1`).
+    A Discrete Probability Distribution is a list of pairs (d:sub:`1`,
+    m\ :sub:`1`)... (d:sub:`n`, m\ :sub:`n`). The d\ :sub:`i`'s are
+    probability densities. They could be however any kind of values. The
+    m\ :sub:`i`'s are midpoints of intervals and are such that m\ :sub:`1` <
+    m\ :sub:`2` < ... < m\ :sub:`n` < 1. The histogram that corresponds to a
+    Discrete Probability Distribution (d:sub:`1`, m\ :sub:`1`)... (d:sub:`n`,
+    m\ :sub:`n`) is the list of pairs (x:sub:`1`, d\ :sub:`1`)... (x:sub:`n`,
+    d\ :sub:`n`), with the initial value x\ :sub:`0` = 0, x\ :sub:`1` =
+    2.m\ :sub:`1` and x\ :sub:`i` = x\ :sub:`i-1` +
+    2.(m\ :sub:`i`-x:sub:`i-1`).
 
 XML Representation
 ~~~~~~~~~~~~~~~~~~
@@ -1502,7 +1539,10 @@ given
 
 Figure ‑. Backus-Naur grammar for XML representation of random deviates
 
-*Example:* Assume that the parameter "lambda" of a negative exponential
+Example
+^^^^^^^
+
+Assume that the parameter "lambda" of a negative exponential
 distribution is distributed according to a lognormal distribution of
 mean 0.001 and error factor 3 for a confidence level of 95%. The
 parameter "lambda" is then defined as follows.
@@ -1517,7 +1557,10 @@ parameter "lambda" is then defined as follows.
         </lognormal-deviate>
     </define-parameter>
 
-*Example:* Assume that the parameter "lambda" has been sampled outside
+Example
+^^^^^^^
+
+Assume that the parameter "lambda" has been sampled outside
 of the model and is distributed according to the following histogram.
 
 The XML encoding for "lambda" is as follows.
@@ -1603,68 +1646,72 @@ each level (2 components fail, 3 components fail...) are given. The Model
 Exchange Format proposes the three mentioned models plus a fourth one,
 so-called phi-factor, which is a more direct way to set factors.
 
-*Beta-factor:* The *β*-factor model assumes that if a common cause
-occurs then all components of the group fail simultaneously. Components
-can fail independently. Multiple independent failures are neglected. The
-*β*-factor model assumes moreover that all of the components of the
-group have the same probability distribution. It is characterized by
-this probability distribution and the conditional probability *β* that
-all components fail, given that one component failed.
+Beta-factor
+    The *β*-factor model assumes that if a common cause
+    occurs then all components of the group fail simultaneously. Components
+    can fail independently. Multiple independent failures are neglected.
+    The *β*-factor model assumes, moreover, that all of the components of the
+    group have the same probability distribution. It is characterized by
+    this probability distribution and the conditional probability *β* that
+    all components fail, given that one component failed.
 
-Let BE\ :sub:`1`, BE\ :sub:`2`... BE\ :sub:`n` be the *n* basic events
-of a common cause group with a probability distribution Q and a
-beta-factor *β*. Applying the beta-factor model on the fault tree consists
-in following operations.
+    Let BE\ :sub:`1`, BE\ :sub:`2`... BE\ :sub:`n` be the *n* basic events
+    of a common cause group with a probability distribution Q and a
+    beta-factor *β*. Applying the beta-factor model on the fault tree consists
+    in following operations.
 
-#. Create new basic events BE\ :sub:`CCFi` for each BE\ :sub:`i` to
-   represent the independent occurrence of BE\ :sub:`i` and
-   BE\ :sub:`CCFi` to represent the occurrence of all BE\ :sub:`i`
-   together.
-#. Substitute a gate "G\ :sub:`i` = BE\ :sub:`CCFi` or BE\ :sub:`i`\ "
-   for each basic event BE\ :sub:`i`.
-#. Associate the probability distribution (e.g., *β*\ ×Q) with the event BE\ :sub:`CCFi`.
+    #. Create new basic events BE\ :sub:`CCFi` for each BE\ :sub:`i` to
+       represent the independent occurrence of BE\ :sub:`i` and
+       BE\ :sub:`CCFi` to represent the occurrence of all BE\ :sub:`i`
+       together.
+    #. Substitute a gate "G\ :sub:`i` = BE\ :sub:`CCFi` or BE\ :sub:`i`\ "
+       for each basic event BE\ :sub:`i`.
+    #. Associate the probability distribution (e.g., *β*\ ×Q) with the event BE\ :sub:`CCFi`.
 
-*Multiple Greek Letters:* the Multiple Greek Letters (MGL) model
-generalizes the beta-factor model. It considers the cases where
-sub-groups of 1, 2..., n-1 components of the group fail together. This
-model is characterized by the probability distribution of failure of the
-components, and n-1 factors *ρ*\ :sub:`2`..., *ρ*\ :sub:`n`.
-*ρ*\ :sub:`k` denotes the conditional probability that k components of
-the group fail given that k-1 failed.
+Multiple Greek Letters
+    The Multiple Greek Letters (MGL) model
+    generalizes the beta-factor model. It considers the cases where
+    sub-groups of 1, 2..., n-1 components of the group fail together. This
+    model is characterized by the probability distribution of failure of the
+    components, and n-1 factors *ρ*\ :sub:`2`..., *ρ*\ :sub:`n`.
+    *ρ*\ :sub:`k` denotes the conditional probability that k components of
+    the group fail given that k-1 failed.
 
-Let BE\ :sub:`1`, BE\ :sub:`2`... BE\ :sub:`n` be the *n* basic events
-of a common cause group with a probability distribution Q and factors
-*ρ*\ :sub:`2`..., *ρ*\ :sub:`n`. Applying the MGL model on the fault
-tree consists in following operations.
+    Let BE\ :sub:`1`, BE\ :sub:`2`... BE\ :sub:`n` be the *n* basic events
+    of a common cause group with a probability distribution Q and factors
+    *ρ*\ :sub:`2`..., *ρ*\ :sub:`n`. Applying the MGL model on the fault
+    tree consists in following operations.
 
-#. Create a basic event for each combination of basic events of the
-   group (there are 2\ :sup:`*n*`-1 such combinations).
-#. Transform each basic event BE\ :sub:`i` into a OR-gate G\ :sub:`i`
-   over all newly created event basic events that represent a group that
-   contains BE\ :sub:`i`.
-#. Associate the following probability distribution with each newly
-   created basic event representing a group of *k* components (with
-   *ρ*\ :sub:`n+1`\ =0).
+    #. Create a basic event for each combination of basic events of the
+       group (there are 2\ :sup:`*n*`-1 such combinations).
+    #. Transform each basic event BE\ :sub:`i` into a OR-gate G\ :sub:`i`
+       over all newly created event basic events that represent a group that
+       contains BE\ :sub:`i`.
+    #. Associate the following probability distribution with each newly
+       created basic event representing a group of *k* components
+       (with *ρ*\ :sub:`n+1`\ =0).
 
-For instance, for a group of 4 basic events: A, B, C and D, the basic
-event A is transformed into a gate G\ :sub:`A` = A or AB or AC or AD or
-ABC or ABD or ACD or ABDC and the Q\ :sub:`k`\ 's are as follows.
+    For instance, for a group of 4 basic events: A, B, C and D, the basic
+    event A is transformed into a gate G\ :sub:`A` = A or AB or AC or AD or
+    ABC or ABD or ACD or ABDC and the Q\ :sub:`k`\ 's are as follows.
 
-Note that if *ρ*\ :sub:`k`\ =0 then Q\ :sub:`k`, Q\ :sub:`k+1`...are null
-as well. In such a case it is not necessary to create the groups with k
-elements or more.
+    Note that if *ρ*\ :sub:`k`\ =0 then Q\ :sub:`k`, Q\ :sub:`k+1`...are null
+    as well. In such a case it is not necessary to create the groups with k
+    elements or more.
 
-*Alpha-Factor:* the alpha-factor model is the same as the MGL model
-except in the way the factors are given. Here *n* factors
-*α*\ :sub:`1`...\ *α*\ :sub:`n` are given. *α*\ :sub:`k` represents the
-fraction of the total failure probability due to common cause failures
-that impact exactly *k* components. The distribution associated with a
-group of size *k* is as follows:
+Alpha-Factor
+    the alpha-factor model is the same as the MGL model
+    except in the way the factors are given. Here *n* factors
+    *α*\ :sub:`1`...\ *α*\ :sub:`n` are given. *α*\ :sub:`k` represents the
+    fraction of the total failure probability due to common cause failures
+    that impact exactly *k* components. The distribution associated with a
+    group of size *k* is as follows:
 
-*Phi-Factor:* the phi-factor model is the same as MGL and alpha-factor
-models except that factors for each level are given directly.
+Phi-Factor
+    the phi-factor model is the same as MGL and alpha-factor
+    models except that factors for each level are given directly.
 
-Indeed the sum of the *ϕ*\ :sub:`i`'s should equal 1.
+    Indeed the sum of the *ϕ*\ :sub:`i`'s should equal 1.
 
 XML representation
 ~~~~~~~~~~~~~~~~~~
@@ -1713,7 +1760,10 @@ Format.
 
 Figure ‑. Backus-Naur form for the XML representation of CCF-groups
 
-*Example:* Here follows a declaration of a CCF-group with four elements
+Example
+^^^^^^^
+
+Here follows a declaration of a CCF-group with four elements
 under the MGL model.
 
 .. code-block:: xml
@@ -1750,70 +1800,73 @@ Delete Terms, Recovery Rules and Exchange Events
 Description
 ~~~~~~~~~~~
 
-*Delete Terms:* Delete Terms are groups of pair wisely exclusive basic
-events. They are used to model impossible configurations. A typical
-example is the case where:
+Delete Terms
+    Delete Terms are groups of pair wisely exclusive basic
+    events. They are used to model impossible configurations. A typical
+    example is the case where:
 
-- The basic event a can only occur when the equipment A is in maintenance.
-- The basic event b can only occur when the equipment B is in maintenance.
-- Equipment A and B are redundant and cannot be simultaneously in maintenance.
+    - The basic event a can only occur when the equipment A is in maintenance.
+    - The basic event b can only occur when the equipment B is in maintenance.
+    - Equipment A and B are redundant and cannot be simultaneously in maintenance.
 
-In most of the tools, delete terms are considered as a post-processing
-mechanism: minimal cutsets containing two basic events of a delete terms
-are discarded. In order to speed-up calculations, some tools use basic
-events to discard minimal cutsets on the fly, during their generation.
+    In most of the tools, delete terms are considered as a post-processing
+    mechanism: minimal cutsets containing two basic events of a delete terms
+    are discarded. In order to speed-up calculations, some tools use basic
+    events to discard minimal cutsets on the fly, during their generation.
 
-Delete Terms can be handled in several ways. Let G = {e:sub:`1`,
-e\ :sub:`2`, e\ :sub:`3`} be a Delete Term (group).
+    Delete Terms can be handled in several ways. Let G = {e:sub:`1`,
+    e\ :sub:`2`, e\ :sub:`3`} be a Delete Term (group).
 
-- A first way to handle G, is to use it to post-process minimal
-  cutsets, or to discard them on the fly during their generation. If a
-  minimal cutsets contains at least two of the elements of G, it is
-  discarded.
+    - A first way to handle G, is to use it to post-process minimal
+      cutsets, or to discard them on the fly during their generation. If a
+      minimal cutsets contains at least two of the elements of G, it is
+      discarded.
 
-- A global constraint "C\ :sub:`G` = not 2-out-of-3(e\ :sub:`1`,
-  e\ :sub:`2`, e\ :sub:`3`)" is introduced and each top event (or event
-  tree sequences) "top" is rewritten as "top and C\ :sub:`G`\ ".
+    - A global constraint "C\ :sub:`G` = not 2-out-of-3(e\ :sub:`1`,
+      e\ :sub:`2`, e\ :sub:`3`)" is introduced and each top event (or event
+      tree sequences) "top" is rewritten as "top and C\ :sub:`G`\ ".
 
-- As for Common Causes Groups, the e\ :sub:`i`\ 's are locally
-  rewritten in as gates:
+    - As for Common Causes Groups, the e\ :sub:`i`\ 's are locally
+      rewritten in as gates:
 
-    * e\ :sub:`1` is rewritten as a gate ge\ :sub:`1` = e\ :sub:`1` and
-      (not e\ :sub:`2`) and (not e\ :sub:`3`)
-    * e\ :sub:`2` is rewritten as a gate ge\ :sub:`2` = e\ :sub:`2` and
-      (not e\ :sub:`1`) and (not e\ :sub:`3`)
-    * e\ :sub:`3` is rewritten as a gate ge\ :sub:`3` = e\ :sub:`3` and
-      (not e\ :sub:`1`) and (not e\ :sub:`2`)
+        * e\ :sub:`1` is rewritten as a gate ge\ :sub:`1` = e\ :sub:`1` and
+          (not e\ :sub:`2`) and (not e\ :sub:`3`)
+        * e\ :sub:`2` is rewritten as a gate ge\ :sub:`2` = e\ :sub:`2` and
+          (not e\ :sub:`1`) and (not e\ :sub:`3`)
+        * e\ :sub:`3` is rewritten as a gate ge\ :sub:`3` = e\ :sub:`3` and
+          (not e\ :sub:`1`) and (not e\ :sub:`2`)
 
-*Recovery Rules:* Recovery Rules are an extension of Delete Terms. A
-Recovery Rule is a couple (H, e), where H is a set of basic events and e
-is a (fake) basic event. It is used to post-process minimal cutsets: if
-a minimal cutset C contains H, the e is added to C. Recovery Rules are
-used to model actions taken in some specific configurations to mitigate
-the risk (hence their name).
+Recovery Rules
+    Recovery Rules are an extension of Delete Terms.
+    A Recovery Rule is a couple (H, e), where H is a set of basic events and e
+    is a (fake) basic event. It is used to post-process minimal cutsets: if
+    a minimal cutset C contains H, the e is added to C. Recovery Rules are
+    used to model actions taken in some specific configurations to mitigate
+    the risk (hence their name).
 
-Here several remarks can be made.
+    Here several remarks can be made.
 
-- It is possible to mimics Delete Terms by means of recovery rules. To
-  do so, it suffices to assign the basic event e to the value "false"
-  or the probability 0.0.
-- As for Delete Terms, it is possible to give purely logical
-  interpretation to Recovery Rules. The idea is to add a global
-  constraint "H  e", i.e., "not H or e", for each Recovery Rule (H, e).
-- Another definition of Recovery Rules as a post-processing is that the
-  event e is substituted for subset H in the minimal cutset. This
-  definition has however the major drawback to be impossible to
-  interpret in a logical way. No Boolean formula can withdraw events
-  from a configuration.
+    - It is possible to mimics Delete Terms by means of recovery rules. To
+      do so, it suffices to assign the basic event e to the value "false"
+      or the probability 0.0.
+    - As for Delete Terms, it is possible to give purely logical
+      interpretation to Recovery Rules. The idea is to add a global
+      constraint "H  e", i.e., "not H or e", for each Recovery Rule (H, e).
+    - Another definition of Recovery Rules as a post-processing is that the
+      event e is substituted for subset H in the minimal cutset. This
+      definition has however the major drawback to be impossible to
+      interpret in a logical way. No Boolean formula can withdraw events
+      from a configuration.
 
-*Exchange Events:* Exchange Events are very similar to Recovery Rules.
-An Exchange Event (Rule) is a triple (H, e, e'), where H is a set of
-basic events and e and e' are two basic events. Considered as a
-post-processing of minimal cutsets, such a rule is interpreted as
-follows. If the minimal cutset contains both the set H and the basic
-event e, then the basic event e' is substituted for e in the cutset. For
-the same reason as above, Exchange Events cannot be interpreted in a
-logical way.
+Exchange Events
+    Exchange Events are very similar to Recovery Rules.
+    An Exchange Event (Rule) is a triple (H, e, e'), where H is a set of
+    basic events and e and e' are two basic events. Considered as a
+    post-processing of minimal cutsets, such a rule is interpreted as
+    follows. If the minimal cutset contains both the set H and the basic
+    event e, then the basic event e' is substituted for e in the cutset.
+    For the same reason as above,
+    Exchange Events cannot be interpreted in a logical way.
 
 All Extra-Logical Constructs in One: the Notion of Substitution
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1899,7 +1952,10 @@ The Backus-Naur form for the XML description of substitutions is given
 Figure ‑. Backus-Naur form for the XML representation of
 exclusive-groups
 
-*Example:* Assume that Basic Events "failure-pump-A", "failure-pump-B"
+Example
+^^^^^^^
+
+Assume that Basic Events "failure-pump-A", "failure-pump-B"
 and ""failure-pump-C" are pair wisely exclusive (they form a delete
 term) because they can only occur when respectively equipment A, B and C
 are under maintenance and only one equipment can be in maintenance at
@@ -1920,7 +1976,10 @@ once. The representation of such a delete term is as follows.
         </target>
     </define-substitution>
 
-*Example:* Assume that if the valve V is broken and an overpressure is
+Example
+^^^^^^^
+
+Assume that if the valve V is broken and an overpressure is
 detected in pipe P, then a mitigating action A is performed. This is a
 typical Recovery Rule (under the first interpretation), where the
 hypothesis is the conjunction of Basic Events "valve-V-broken" and
@@ -1941,7 +2000,10 @@ It is encoded as follows.
         </target>
     </define-substitution>
 
-*Example:* Assume that if magnitude of the earthquake is 5, 6 or 7, the
+Example
+^^^^^^^
+
+Assume that if magnitude of the earthquake is 5, 6 or 7, the
 size of a leak of a given pipe P get large, while it was small for
 magnitudes below 5. We can use an exchange event rule to model this
 situation.
@@ -2228,7 +2290,10 @@ events
 Figure ‑. Backus-Naur form of the XML representation of event trees and
 sequences
 
-*Example:* Consider again the event tree pictured `Figure Event Tree
+Example
+^^^^^^^
+
+Consider again the event tree pictured `Figure Event Tree
 Layer-23 <#anchor-127>`__. The XML description for this example is given
 `Figure Event Tree Layer-26 <#anchor-137>`__.
 
@@ -2396,7 +2461,10 @@ The Backus-Naur form for the XML representation of instructions is given
 
 Figure ‑. Backus-Naur form for the XML representation of instructions
 
-*Example:* Consider again the event tree pictured `Figure Event Tree
+Example
+^^^^^^^
+
+Consider again the event tree pictured `Figure Event Tree
 Layer-23 <#anchor-127>`__. The XML representation for the structure of
 this tree has been given `Figure Event Tree Layer-26 <#anchor-137>`__.
 Assume that the success branch of the lower fork on system H is a
@@ -2446,7 +2514,7 @@ Figure ‑. XML representation of the branches of the event tree pictured
 This example does not set any house events or flag parameters. To set a
 house event for all subsequent sub-tree exploration (including the next
 fault tree to be collected), it suffices to insert an instruction "set"
-in front of the instruction "collect". E.g.
+in front of the instruction "collect".
 
 .. code-block:: xml
 
@@ -2455,7 +2523,7 @@ in front of the instruction "collect". E.g.
 
 To set the same house event locally for the next fault tree to be
 collected, it suffices to set back its value to "false" after the
-gathering of the fault tree. E.g.
+gathering of the fault tree.
 
 .. code-block:: xml
 
@@ -2470,7 +2538,7 @@ to set the parameters "lambda1" and "lambda2" of some probability
 distributions to "0.001" if the initiating event was "I1" and the
 functional event "G" is in the state failure and to "0.002" otherwise.
 This goal is achieved by means of a "if-then-else" construct and the
-"test-initial-event" expression. E.g.
+"test-initial-event" expression.
 
 .. code-block:: xml
 
@@ -2622,7 +2690,7 @@ heavier.
 The Model Exchange Format proposes another simple mechanism to achieve
 the same goal: the tag include. This tag can be inserted at any place in
 a document. Its effect is to load the content of the given file into the
-model. E.g.
+model.
 
 .. code-block:: xml
 
@@ -3027,11 +3095,11 @@ Backus-Naur form we shall use is as follows.
 
 - Non terminal symbols are *italicized*, terminal symbols are written
   in regular font.
-- Optional items are enclosed in square brackets. E.g. [ *item-x* ].
+- Optional items are enclosed in square brackets, e.g., [ *item-x* ].
 - Items repeating 1 or more times are followed by a '+'.
 - Items repeating 0 or more times are followed by a '\*'.
 - Items repeating k times are enclosed in square brackets followed by
-  ':k'. E.g. [ *item-x* ]:3.
+  ':k', e.g., [ *item-x* ]:3.
 - Items repeating n or more times are followed by 'n'.
 - Where items need to be grouped they are enclosed in simple
   parenthesis.
