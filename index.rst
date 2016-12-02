@@ -35,4 +35,3 @@ Table of Contents
     mef/mef
     mef/references
     mef/appendices
-    mef/mef_ebnf

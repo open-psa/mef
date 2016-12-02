@@ -1,8 +1,9 @@
+*******************************************************
 Backus-Naur form for the Open-PSA Model Exchange Format
-=======================================================
+*******************************************************
 
 Models
-------
+======
 
 .. code-block:: bnf
 
@@ -34,7 +35,7 @@ Models
     include-directive ::= <include file="string" />
 
 Consequence, Consequence Groups, Alignments
--------------------------------------------
+===========================================
 
 .. code-block:: bnf
 
@@ -62,7 +63,7 @@ Consequence, Consequence Groups, Alignments
       </define-alignment>
 
 Initiating events, Initiating event Groups
-------------------------------------------
+==========================================
 
 .. code-block:: bnf
 
@@ -90,7 +91,7 @@ Initiating events, Initiating event Groups
 
 
 Event Trees
------------
+===========
 
 .. code-block:: bnf
 
@@ -133,7 +134,7 @@ Event Trees
     initial-state ::= <initial-state> branch </initial-state>
 
 Instructions, Rules
--------------------
+===================
 
 .. code-block:: bnf
 
@@ -185,7 +186,7 @@ Instructions, Rules
       </define-rule>
 
 CCF-groups, Substitutions
--------------------------
+=========================
 
 .. code-block:: bnf
 
@@ -229,7 +230,7 @@ CCF-groups, Substitutions
       </define-substitution>
 
 Fault Trees, Components
------------------------
+=======================
 
 .. code-block:: bnf
 
@@ -286,7 +287,7 @@ Fault Trees, Components
 
 
 Formulae
---------
+========
 
 .. code-block:: bnf
 
@@ -317,7 +318,7 @@ Formulae
     Boolean-value ::= true | false
 
 Basic Events, Parameters
-------------------------
+========================
 
 .. code-block:: bnf
 
@@ -338,7 +339,7 @@ Basic Events, Parameters
     unit ::= bool | int | float | hours | hours-1 | years | years-1 | demands | fit
 
 Expressions
------------
+===========
 
 .. code-block:: bnf
 
