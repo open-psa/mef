@@ -2,6 +2,11 @@
 The Open-PSA Initiative
 #######################
 
+.. image:: ../images/opsa_logo.jpeg
+    :height: 100px
+    :width: 100px
+    :align: center
+
 The Open Initiative for Next Generation of Probabilistic Safety Assessment
 ==========================================================================
 

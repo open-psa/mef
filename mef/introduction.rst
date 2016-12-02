@@ -166,10 +166,14 @@ A Four-Plus-One Layers Architecture
 ===================================
 
 The Model Exchange Format relies on a four-plus-one layers architecture,
-as pictured `Figure Introduction-1 <#anchor-6>`__. Each layer
+as pictured :numref:`fig_mef_arch`. Each layer
 corresponds to a specific class of objects/mathematical constructs.
 
-Figure -. Architecture of the Model Exchange Format
+.. _fig_mef_arch:
+
+.. figure:: ../images/mef_arch.svg
+
+    Architecture of the Model Exchange Format
 
 - The first, or stochastic, layer is populated with all stochastic
   aspects of models: probability distributions for the failure rates of

@@ -18,5 +18,5 @@ install:
 script:
     - spell -n -o -d en_us.ascii.add.spl mef/introduction.rst mef/mef.rst \
       mef/open_psa_initiative.rst mef/appendices.rst
-    - make html 2> _warnings.txt
+    - make html linkcheck 2> _warnings.txt
     - cat _warnings.txt && [[ ! -s _warnings.txt ]]
