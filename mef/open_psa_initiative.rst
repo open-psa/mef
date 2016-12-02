@@ -2,7 +2,7 @@
 The Open-PSA Initiative
 #######################
 
-.. image:: ../images/opsa_logo.jpeg
+.. image:: ../images/opsa_logo.png
     :height: 100px
     :width: 100px
     :align: center
