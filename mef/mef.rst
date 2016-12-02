@@ -466,7 +466,11 @@ The "periodic-test" built-in would take the following parameters (in order).
 `Figure Stochastic Layer-15 <#anchor-85>`__ illustrates the meaning of
 the parameters *τ*, *θ* and *π*.
 
-Figure -. Meaning of parameters *τ*, *θ* and *π* of the "periodic-test" built-in.
+.. figure:: ../images/periodic_test.png
+    :name: fig_periodic_test
+    :align: center
+
+    Meaning of parameters *τ*, *θ* and *π* of the "periodic-test" built-in
 
 There are three phases in the behavior of the component. The first
 phase corresponds to the time from 0 to the date of the first test, i.e. *θ*.
@@ -482,7 +486,11 @@ working, failed or in repair. In the latter case, the test is not
 performed. The Markov graphs for each of these cases are pictured
 `Figure Stochastic Layer-16 <#anchor-87>`__.
 
-Figure -. Multi-phase Markov graph for the "periodic-test" built-in.
+.. figure:: ../images/multi_phase_markov_graph.png
+    :name: fig_multi_phase_markov_graph
+    :align: center
+
+    Multi-phase Markov graph for the "periodic-test" built-in
 
 Ai's , Fi's, Ri's states correspond respectively to states where the
 component is available, failed and in repair. Dashed lines correspond to
@@ -768,6 +776,9 @@ Example
 
 Assume that the parameter "lambda" has been sampled outside
 of the model and is distributed according to the following histogram.
+
+.. image:: ../images/lambda_histogram.svg
+    :align: center
 
 The XML encoding for "lambda" is as follows.
 
@@ -1245,7 +1256,11 @@ lack of common interpretation for this formalism. To illustrate this
 point, we shall consider the toy example pictured `Figure Event Tree
 Layer-22 <#anchor-123>`__.
 
-Figure -. A Small Event Tree
+.. figure:: ../images/small_event_tree.svg
+    :name: fig_small_event_tree
+    :align: center
+
+    A Small Event Tree
 
 This event tree is made of the following elements.
 
@@ -1347,7 +1362,11 @@ this figure, nodes of the tree are numbered from 1 to 8. The initiating
 event is represented as a fork. Finally, the branch (the sub-tree)
 rooted by the node 2 is named B1.
 
-Figure -. Structure of an Event Tree
+.. figure:: ../images/event_tree_structure.svg
+    :name: fig_event_tree_structure
+    :align: center
+
+    Structure of an Event Tree
 
 Components of the event tree pictured `Figure Event Tree
 Layer-23 <#anchor-127>`__ are the following.
@@ -1919,7 +1938,11 @@ Model Exchange Format introduces also eighteen constructs. `Figure
 Organization of a Model-31 <#anchor-161>`__ shows the containers and the
 constructs they can define.
 
-Figure -. Containers and the constructs they can define
+.. figure:: ../images/containers_and_constructs.svg
+    :name: fig_containers_and_constructs
+    :align: center
+
+    Containers and the constructs they can define
 
 `Figure Organization of a Model-32 <#anchor-163>`__ gives the XML
 representation of models. This representation just collects what has
@@ -2185,10 +2208,3 @@ Layer-35 <#anchor-177>`__.
     unit ::= seconds | hours | ...
 
 Figure -. Backus-Naur for the XML representation of curves
-
-.. |Meaning of parameters *τ*, *θ*\ and *π*\ of the \`\`periodic-test'' built-in.| image:: ../images/image7.png
-.. |Multi-phase Markov graph for the \`\`periodic-test'' built-in.| image:: ../images/image8.png
-.. |image7| image:: ../images/image9.png
-.. |A Small Event Tree| image:: ../images/image10.png
-.. |Structure of an Event Tree| image:: ../images/image11.png
-.. |Containers and the constructs they can define| image:: ../images/image12.png
