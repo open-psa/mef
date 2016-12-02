@@ -405,9 +405,9 @@ Built-ins can be seen as macro arithmetic expressions. They are mainly
 used to simplify the writing of probability distributions. A special
 built-in "extern-function" makes it possible to define externally
 calculated built-ins. As for arithmetic operators, more built-ins can be
-added on demand to the Model Exchange Format. Here follows a preliminary
-list of built-ins. `Table Fault Tree Layer-1 <#anchor-42>`__ summarizes
-this preliminary list.
+added on demand to the Model Exchange Format.
+Here follows a preliminary list of built-ins.
+:numref:`table_built_ins` summarizes this preliminary list.
 
 Exponential with two parameters
     This built-in implements the negative exponential distribution.
@@ -525,29 +525,34 @@ Extern functions
     communication between tools, but it would be far too complex too embed
     XML into stochastic expressions.
 
-+---------------------+------------+---------------------------------------------------------------------------------------------------------------------------+
-| Built-in            | #arguments | Semantics                                                                                                                 |
-+=====================+============+===========================================================================================================================+
-| **exponential**     | 2          | negative exponential distribution with hourly failure rate and time                                                       |
-+---------------------+------------+---------------------------------------------------------------------------------------------------------------------------+
-| **exponential**     | 4          | negative exponential distribution with probability of failure on demand, hourly failure rate, hourly repair rate and time |
-+---------------------+------------+---------------------------------------------------------------------------------------------------------------------------+
-| **Weibull**         | 4          | Weibull distribution with scale and shape parameters, a time shift and the time                                           |
-+---------------------+------------+---------------------------------------------------------------------------------------------------------------------------+
-| **periodic-test**   | 11, 5 or 4 | Distributions to describe periodically tested components                                                                  |
-+---------------------+------------+---------------------------------------------------------------------------------------------------------------------------+
-| **extern-function** | any        | call to an extern routine                                                                                                 |
-+---------------------+------------+---------------------------------------------------------------------------------------------------------------------------+
 
-Table -. Built-ins, their number of arguments and their semantics
+.. table:: Built-ins, their number of arguments and their semantics
+    :name: table_built_ins
+
+    +---------------------+------------+---------------------------------------------------------------------------------------------------------------------------+
+    | Built-in            | #arguments | Semantics                                                                                                                 |
+    +=====================+============+===========================================================================================================================+
+    | **exponential**     | 2          | negative exponential distribution with hourly failure rate and time                                                       |
+    +---------------------+------------+---------------------------------------------------------------------------------------------------------------------------+
+    | **exponential**     | 4          | negative exponential distribution with probability of failure on demand, hourly failure rate, hourly repair rate and time |
+    +---------------------+------------+---------------------------------------------------------------------------------------------------------------------------+
+    | **Weibull**         | 4          | Weibull distribution with scale and shape parameters, a time shift and the time                                           |
+    +---------------------+------------+---------------------------------------------------------------------------------------------------------------------------+
+    | **periodic-test**   | 11, 5 or 4 | Distributions to describe periodically tested components                                                                  |
+    +---------------------+------------+---------------------------------------------------------------------------------------------------------------------------+
+    | **extern-function** | any        | call to an extern routine                                                                                                 |
+    +---------------------+------------+---------------------------------------------------------------------------------------------------------------------------+
+
 
 XML Representation
 ~~~~~~~~~~~~~~~~~~
 
 The Backus-Naur grammar for the XML representation of built-ins is given
-`Figure Stochastic Layer-17 <#anchor-91>`__.
+:numref:`bnf_built_ins`.
 
 .. code-block:: bnf
+    :name: bnf_built_ins
+    :caption: Backus-Naur grammar for XML representation of Built-ins
 
     built-in ::=
           <exponential> [ expression ]:2 </exponential>
@@ -558,9 +563,9 @@ The Backus-Naur grammar for the XML representation of built-ins is given
         | <periodic-test> [ expression ]:4 </periodic-test>
         | <extern-function name="name" > expression* </extern-function>
 
-Figure -. Backus-Naur grammar for XML representation of Built-ins
 
-.. note:: **Positional versus named arguments.**
+.. admonition:: Positional versus Named Arguments
+
     We adopted a positional definition of arguments.
     For instance, in the negative exponential distribution,
     we assumed that the failure rate is always the first argument
@@ -573,6 +578,7 @@ Figure -. Backus-Naur grammar for XML representation of Built-ins
     and it is not sure that it helps a lot the understanding of the built-ins.
     Nevertheless, we may switch to this approach
     if the experience shows that the first one proves to be confusing.
+
 
 Example
 ^^^^^^^
@@ -789,8 +795,7 @@ whether a given initiating event occurred and whether a given functional
 event is in a given state. The meaning of these directives will be
 further explained Section `VII.3 <#anchor-103>`__.
 
-`Table Fault Tree Layer-1 <#anchor-42>`__ presents these directives and
-their arguments.
+:numref:`table_boolean_connectives` presents these directives and their arguments.
 
 +---------------------------+------------+-----------------------------------------------------------------------------------------------------------------------------------+
 | Built-in                  | #arguments | Semantics                                                                                                                         |
@@ -2181,7 +2186,6 @@ Layer-35 <#anchor-177>`__.
 
 Figure -. Backus-Naur for the XML representation of curves
 
-.. |A Fault Tree with Three Components| image:: ../images/image6.png
 .. |Meaning of parameters *τ*, *θ*\ and *π*\ of the \`\`periodic-test'' built-in.| image:: ../images/image7.png
 .. |Multi-phase Markov graph for the \`\`periodic-test'' built-in.| image:: ../images/image8.png
 .. |image7| image:: ../images/image9.png

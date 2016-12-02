@@ -65,8 +65,8 @@ We shall see what parameters and expressions are in the next chapter.
 
     A Fault Tree
 
-The semantics of connectives is given `Table Fault Tree
-Layer-1 <#anchor-42>`__. Note that connectives "and", "or", "xor",
+The semantics of connectives is given :numref:`table_boolean_connectives`.
+Note that connectives "and", "or", "xor",
 "iff", "nand" and "nor" are associative. Therefore, it suffices to give
 their semantics when they take two arguments, i.e., two Boolean formulae
 F and G.
@@ -101,54 +101,57 @@ F and G.
 
     Boolean-constant ::= constant (true | false)
 
-+-----------------+-----------------------------------------------------------------------------------------------+
-| Connective      | Semantics                                                                                     |
-+=================+===============================================================================================+
-| **and**         | F and G is true if both F and G are true, and false otherwise                                 |
-+-----------------+-----------------------------------------------------------------------------------------------+
-| **or**          | F or G is true if either F or G is true, and false otherwise                                  |
-+-----------------+-----------------------------------------------------------------------------------------------+
-| **not**         | not F is true if its F is false, and false otherwise                                          |
-+-----------------+-----------------------------------------------------------------------------------------------+
-| **xor**         | F xor G is equivalent to (F and not G) or (not F and G)                                       |
-+-----------------+-----------------------------------------------------------------------------------------------+
-| **iff**         | F iff G is equivalent to (F and G) or (not F and not G)                                       |
-+-----------------+-----------------------------------------------------------------------------------------------+
-| **nand**        | F nand G is equivalent to not (F and G)                                                       |
-+-----------------+-----------------------------------------------------------------------------------------------+
-| **nor**         | F nor G is equivalent to not (F or G)                                                         |
-+-----------------+-----------------------------------------------------------------------------------------------+
-| **atleast**     | true if at least **k** out of the Boolean formulae given as arguments are true,               |
-|                 | and false otherwise. This connective is also called *k-out-of-n*,                             |
-|                 | where **k** is the integer and **n** is the Boolean formulae given in arguments               |
-+-----------------+-----------------------------------------------------------------------------------------------+
-| **cardinality** | true if at least **l** and at most **h** of the Boolean formulae given as arguments are true, |
-|                 | and false otherwise. **l** and **h** are the two integers (in order) given as arguments.      |
-+-----------------+-----------------------------------------------------------------------------------------------+
-| **imply**       | F implies G is equivalent to not F and G                                                      |
-+-----------------+-----------------------------------------------------------------------------------------------+
 
-Table -. Semantics of Boolean connectives
+.. table:: Semantics of Boolean connectives
+    :name: table_boolean_connectives
 
-+---------------+---------------------------------------------------------------------------------------+
-| Dynamic Gates | In a second step, it would be of interest to incorporate to the Model Exchange Format |
-|               | "inhibit" gates, "priority" gates and "triggers"                                      |
-|               | (like in Boolean Driven Markov processes).                                            |
-|               | All of these dynamic gates can be interpreted as "and" gates in a Boolean framework.  |
-|               | In more general frameworks (like Markovian frameworks),                               |
-|               | they can be interpreted in a different way,                                           |
-|               | and provide mechanisms to model in an accurate way backup systems,                    |
-|               | limited amount of resources...                                                        |
-|               | The complexity of the assessment of this kind of model is indeed much higher          |
-|               | than the one of Boolean models (which is already at least NP-hard or #P-hard).        |
-+---------------+---------------------------------------------------------------------------------------+
+    +-----------------+-----------------------------------------------------------------------------------------------+
+    | Connective      | Semantics                                                                                     |
+    +=================+===============================================================================================+
+    | **and**         | F and G is true if both F and G are true, and false otherwise                                 |
+    +-----------------+-----------------------------------------------------------------------------------------------+
+    | **or**          | F or G is true if either F or G is true, and false otherwise                                  |
+    +-----------------+-----------------------------------------------------------------------------------------------+
+    | **not**         | not F is true if its F is false, and false otherwise                                          |
+    +-----------------+-----------------------------------------------------------------------------------------------+
+    | **xor**         | F xor G is equivalent to (F and not G) or (not F and G)                                       |
+    +-----------------+-----------------------------------------------------------------------------------------------+
+    | **iff**         | F iff G is equivalent to (F and G) or (not F and not G)                                       |
+    +-----------------+-----------------------------------------------------------------------------------------------+
+    | **nand**        | F nand G is equivalent to not (F and G)                                                       |
+    +-----------------+-----------------------------------------------------------------------------------------------+
+    | **nor**         | F nor G is equivalent to not (F or G)                                                         |
+    +-----------------+-----------------------------------------------------------------------------------------------+
+    | **atleast**     | true if at least **k** out of the Boolean formulae given as arguments are true,               |
+    |                 | and false otherwise. This connective is also called *k-out-of-n*,                             |
+    |                 | where **k** is the integer and **n** is the Boolean formulae given in arguments               |
+    +-----------------+-----------------------------------------------------------------------------------------------+
+    | **cardinality** | true if at least **l** and at most **h** of the Boolean formulae given as arguments are true, |
+    |                 | and false otherwise. **l** and **h** are the two integers (in order) given as arguments.      |
+    +-----------------+-----------------------------------------------------------------------------------------------+
+    | **imply**       | F implies G is equivalent to not F and G                                                      |
+    +-----------------+-----------------------------------------------------------------------------------------------+
+
+
+.. admonition:: Dynamic Gates
+
+    In a second step, it would be of interest to incorporate to the Model Exchange Format
+    "inhibit" gates, "priority" gates and "triggers"
+    (like in Boolean Driven Markov processes).
+    All of these dynamic gates can be interpreted as "and" gates in a Boolean framework.
+    In more general frameworks (like Markovian frameworks),
+    they can be interpreted in a different way,
+    and provide mechanisms to model in an accurate way backup systems,
+    limited amount of resources...
+    The complexity of the assessment of this kind of model is indeed much higher
+    than the one of Boolean models (which is already at least NP-hard or #P-hard).
+
 
 XML Representation
 ==================
 
 The Backus-Naur form for the XML description of fault trees is given
-`Figure Fault Tree Layer-5 <#anchor-46>`__ and `Figure Fault Tree
-Layer-6 <#anchor-47>`__.
+:numref:`bnf_xml_fault_tree` and :numref:`bnf_xml_boolean_formulae`.
 
 This description deserves some comments.
 
@@ -172,6 +175,8 @@ This description deserves some comments.
   will be explained in the next section.
 
 .. code-block:: bnf
+    :name: bnf_xml_fault_tree
+    :caption: Backus-Naur form of XML description of Fault Trees
 
     fault-tree-definition ::=
         <define-fault-tree name="identifier" >
@@ -218,9 +223,10 @@ This description deserves some comments.
             [ expression ]
         </define-basic-event>
 
-Figure -. Backus-Naur form of XML description of Fault Trees
 
 .. code-block:: bnf
+    :name: bnf_xml_boolean_formulae
+    :caption: Backus-Naur grammar of the XML representation of Boolean formulae
 
     formula ::=
           event
@@ -248,9 +254,6 @@ Figure -. Backus-Naur form of XML description of Fault Trees
 
     Boolean-value ::= true | false
 
-Figure -. Backus-Naur grammar of the XML representation of Boolean
-formulae.
-
 The attribute "role" is used to declare whether an element is public or
 private, i.e., whether it can be referred by its name everywhere in the
 model or only within its inner most container. This point will be
@@ -258,12 +261,14 @@ further explained in the next section. This attribute is optional for by
 default all elements are public.
 
 The fault tree pictured :numref:`fig_fault_tree` is
-described `Figure Fault Tree Layer-7 <#anchor-51>`__. In this
+described :numref:`xml_fault_tree`. In this
 representation, the house event "h1" has by default the value "true".
 Basic events are not declared for it is not necessary, so no probability
 distributions they are not associated with a probability distribution.
 
 .. code-block:: xml
+    :name: xml_fault_tree
+    :caption: XML description of Fault Tree pictured :numref:`fig_fault_tree`
 
     <?xml version="1.0" ?>
     <!DOCTYPE opsa-mef>
@@ -309,7 +314,6 @@ distributions they are not associated with a probability distribution.
         </define-fault-tree>
     </opsa-mef>
 
-Figure -. XML description of Fault Tree pictured :numref:`fig_fault_tree`.
 
 Extra Logical Constructs and Recommendations
 ============================================
@@ -334,18 +338,26 @@ container for declarations of events and parameters. It has a name and
 may contain other components. The use of components is illustrated by
 the following example.
 
-`Figure Fault Tree Layer-8 <#anchor-55>`__ shows a fault tree FT with
-three components A, B and C. The component B is nested into the
-component A. The XML representation for this Fault Tree is given `Figure
-Fault Tree Layer-9 <#anchor-56>`__. With a little anticipation, we
-declared basic events. Note that components and fault trees may also
+:numref:`fault_tree_with_components` shows a fault tree FT with
+three components A, B and C. The component B is nested into the component A.
+The XML representation for this Fault Tree
+is given :numref:`xml_fault_tree_with_components`.
+With a little anticipation, we declared basic events.
+Note that components and fault trees may also
 contain definitions of parameters. Note also that the basic event BE1,
 which is declared in the component A, is used outside of this component
 (namely in the sibling component C).
 
-Figure -. A Fault Tree with Three Components
+.. figure:: ../images/fault_tree_with_components.svg
+    :name: fault_tree_with_components
+    :align: center
+
+    A Fault Tree with Three Components
+
 
 .. code-block:: xml
+    :name: xml_fault_tree_with_components
+    :caption: XML Representation for the Fault Tree pictured :numref:`fault_tree_with_components`
 
     <define-fault-tree name="FT">
         <define-gate name="TOP">
@@ -393,17 +405,15 @@ Figure -. A Fault Tree with Three Components
         </define-component>
     </define-fault-tree>
 
-Figure -. XML Representation for the Fault Tree pictured `Figure Fault
-Tree Layer-8 <#anchor-55>`__
 
 Solving Name Conflicts: Public versus Private Elements
 ------------------------------------------------------
 
 By default, all of the elements of a model are public: they are visible
-everywhere in the model and they can be referred by their name. For
-instance, the basic event "BE1" of the fault tree pictured `Figure Fault
-Tree Layer-9 <#anchor-56>`__ can be just referred as "BE1". This
-principle is fairly simple. It may cause however some problem for large
+everywhere in the model and they can be referred by their name.
+For instance, the basic event "BE1" of the fault tree
+pictured :numref:`xml_fault_tree_with_components` can be just referred as "BE1".
+This principle is fairly simple. It may cause however some problem for large
 models, developed by several persons: it is hard to prevent the same
 name to be used twice, especially for what concerns gates (some software
 allow actually this possibility).
@@ -411,14 +421,14 @@ allow actually this possibility).
 The Model Exchange Format makes it possible to declare elements of fault
 trees either as public or as private (to their inner most container).
 Unless declared otherwise, an element is public if its innermost
-container is public and private otherwise. For instance, if the
-component "A" of the fault tree pictured `Figure Fault Tree
-Layer-9 <#anchor-56>`__ is declared as private, then the component "B"
-(and its two basic events "BE2" and "BE3"), the gates "G1" and "G2" and
-the basic event "BE1" are private by default. There is no difference
-between public and private elements except that two private elements of
-two different containers may have the same name, while public elements
-must be uniquely defined.
+container is public and private otherwise.
+For instance, if the component "A" of the fault tree
+pictured :numref:`xml_fault_tree_with_components` is declared as private,
+then the component "B" (and its two basic events "BE2" and "BE3"),
+the gates "G1" and "G2" and the basic event "BE1" are private by default.
+There is no difference between public and private elements
+except that two private elements of two different containers
+may have the same name, while public elements must be uniquely defined.
 
 There is actually three ways to refer an element:
 
