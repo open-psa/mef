@@ -33,6 +33,7 @@ Table of Contents
     mef/open_psa_initiative
     mef/introduction
     mef/anatomy
+    mef/fault_tree_layer
     mef/mef
     mef/references
     mef/appendices

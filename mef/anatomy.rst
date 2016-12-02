@@ -1,15 +1,16 @@
+####################################
 Anatomy of the Model Exchange Format
-====================================
+####################################
 
 This chapter presents the anatomy of the Model Exchange Format, i.e., the
 main components of a model and their relationships. We assume the reader
 is familiar with the fault tree/event tree methodology.
 
-Elements of a model
--------------------
+Elements of a Model
+===================
 
 Variables, Terms and Containers
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------------
 
 Elements of a model are, as expected, components of fault trees/event
 trees, namely basic events, gates, house events, probability
@@ -50,7 +51,7 @@ and role of these different elements will be detailed in the subsequent
 chapters.
 
 Stochastic Layer
-~~~~~~~~~~~~~~~~
+----------------
 
 Stochastic variables and terms
     Stochastic expressions are terms
@@ -64,7 +65,7 @@ parameters into (stochastic) containers. The stochastic layer is
 populated with stochastic parameters, expressions and containers.
 
 Fault Tree Layer
-~~~~~~~~~~~~~~~~
+----------------
 
 Boolean formulae, Basic Events, House Events and Gates
     Boolean formulae, or formulae for short, are terms built over the usual set of
@@ -83,7 +84,7 @@ Fault Trees
 The fault tree layer is populated with all elements we have seen so far.
 
 Meta-Logical Layer
-~~~~~~~~~~~~~~~~~~
+------------------
 
 The meta-logical layer contains extra-logical constructs in addition to
 fault trees. These extra-logical constructs are used to handle issues
@@ -105,7 +106,7 @@ Substitutions
     notion of substitution.
 
 Event Tree Layer
-~~~~~~~~~~~~~~~~
+----------------
 
 As we shall see, event trees must be seen as a (semi-)graphical language
 to describe and to combine sequences. Elements of this language are the
@@ -167,11 +168,11 @@ Missions, Phases
     into different phase. The Model Exchange Format provides constructs to
     reflect this situation.
 
-Structure of a model
---------------------
+Structure of a Model
+====================
 
 Relationships between elements of a model
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------------------------
 
 The elements of a model, their layer and their dependencies are pictured
 are pictured :numref:`fig_mef_anatomy`.
@@ -183,15 +184,14 @@ terms). The three container categories, namely models, event trees and
 fault trees are represented by dashed rectangles. Dependencies among
 categories are represented by arrows.
 
-.. _fig_mef_anatomy:
-
 .. figure:: ../images/anatomy.svg
+    :name: fig_mef_anatomy
     :align: center
 
     The main elements of a model, their layers and their dependencies
 
 Giving more structure to a model
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------------
 
 A model (like a fault tree or an event tree) is a list of declarations.
 The Model Exchange Format does not require structuring these
@@ -216,7 +216,7 @@ It can be used extensively to perform calculations or changes on a
 particular subset of elements.
 
 Containers as name spaces
-~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------
 
 Once declared, elements are visible and accessible everywhere in the
 model. This visibility means in turn that an object of a given type,
@@ -237,7 +237,7 @@ as well. In that case, they are not visible outside the container, and
 tools are in charge of solving potential name conflicts.
 
 Definitions, Labels and Attributes
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+----------------------------------
 
 Here follows some additional useful elements about the Model Exchange Format.
 

@@ -169,9 +169,8 @@ The Model Exchange Format relies on a four-plus-one layers architecture,
 as pictured :numref:`fig_mef_arch`. Each layer
 corresponds to a specific class of objects/mathematical constructs.
 
-.. _fig_mef_arch:
-
 .. figure:: ../images/architecture.svg
+    :name: fig_mef_arch
     :align: center
 
     Architecture of the Model Exchange Format
