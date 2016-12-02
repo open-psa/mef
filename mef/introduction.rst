@@ -171,7 +171,8 @@ corresponds to a specific class of objects/mathematical constructs.
 
 .. _fig_mef_arch:
 
-.. figure:: ../images/mef_arch.svg
+.. figure:: ../images/architecture.svg
+    :align: center
 
     Architecture of the Model Exchange Format
 
