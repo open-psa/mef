@@ -51,12 +51,14 @@ Stochastic expressions are made of the following elements:
   through the notion of histogram.
 - Directives to test the status of initial and functional events
 
-`Figure Stochastic Layer-10 <#anchor-64>`__ sketches the Backus-Naur
+:numref:`bnf_stochastic_layer` sketches the Backus-Naur
 form for the constructs of the stochastic layer. Note that, conversely
 to variables (events) of the Fault Tree layer, parameters have to be
 defined (there is no equivalent to Basic Events).
 
 .. code-block:: bnf
+    :name: bnf_stochastic_layer
+    :caption: Backus-Naur form for the constructs of the stochastic layer (sketch)
 
     basic-event-declaration ::= basic-event = expression
     parameter-declaration ::= parameter = expression
@@ -95,13 +97,11 @@ defined (there is no equivalent to Basic Events).
           test-initial-event name
         | test-functional-event name state
 
-Figure -. Backus-Naur form for the constructs of the stochastic layer
-(sketch)
-
 The XML representation of the stochastic layer just reflects these
 different constructs.
 
 .. code-block:: bnf
+    :caption: Backus-Naur grammar for XML representation of expressions (main)
 
     parameter-definition ::=
         <define-parameter name="identifier"
@@ -127,9 +127,6 @@ different constructs.
     operation ::=
         numerical-operation | Boolean-operation | conditional-operation
 
-Figure -. Backus-Naur grammar for XML representation of expressions
-(main)
-
 Operations, built-ins and random deviates will be described in the
 following sections.
 
@@ -149,72 +146,74 @@ Operations
 Numerical Operation
 ~~~~~~~~~~~~~~~~~~~
 
-`Table Stochastic Layer-2 <#anchor-69>`__ gives the list of arithmetic
+:numref:`table_numerical_operations` gives the list of arithmetic
 operators proposed by the Model Exchange Format. Their XML
-representation is given `Figure Stochastic Layer-12 <#anchor-70>`__.
+representation is given :numref:`bnf_numerical_operations`.
 
-+-----------+------------+-----------------------------------------+
-| Operator  | #arguments | Semantics                               |
-+===========+============+=========================================+
-| **neg**   | 1          | unary minus                             |
-+-----------+------------+-----------------------------------------+
-| **add**   | >1         | addition                                |
-+-----------+------------+-----------------------------------------+
-| **sub**   | >1         | subtraction                             |
-+-----------+------------+-----------------------------------------+
-| **mul**   | >1         | multiplication                          |
-+-----------+------------+-----------------------------------------+
-| **div**   | >1         | division                                |
-+-----------+------------+-----------------------------------------+
-| **pi**    | 0          | 3.1415926535...                         |
-+-----------+------------+-----------------------------------------+
-| **abs**   | 1          | absolute value                          |
-+-----------+------------+-----------------------------------------+
-| **acos**  | 1          | arc cosine of the argument in radians   |
-+-----------+------------+-----------------------------------------+
-| **asin**  | 1          | arc sine of the argument in radians     |
-+-----------+------------+-----------------------------------------+
-| **atan**  | 1          | arc tangent of the argument in radians  |
-+-----------+------------+-----------------------------------------+
-| **cos**   | 1          | cosine                                  |
-+-----------+------------+-----------------------------------------+
-| **cosh**  | 1          | hyperbolic cosine                       |
-+-----------+------------+-----------------------------------------+
-| **exp**   | 1          | exponential                             |
-+-----------+------------+-----------------------------------------+
-| **log**   | 1          | (Napierian) logarithm                   |
-+-----------+------------+-----------------------------------------+
-| **log10** | 1          | decimal logarithm                       |
-+-----------+------------+-----------------------------------------+
-| **mod**   | 2          | modulo                                  |
-+-----------+------------+-----------------------------------------+
-| **pow**   | 1          | power                                   |
-+-----------+------------+-----------------------------------------+
-| **sin**   | 1          | sine                                    |
-+-----------+------------+-----------------------------------------+
-| **sinh**  | 1          | hyperbolic sine                         |
-+-----------+------------+-----------------------------------------+
-| **tan**   | 1          | tangent                                 |
-+-----------+------------+-----------------------------------------+
-| **tanh**  | 1          | hyperbolic tangent                      |
-+-----------+------------+-----------------------------------------+
-| **sqrt**  | 1          | square root                             |
-+-----------+------------+-----------------------------------------+
-| **ceil**  | 1          | first integer greater than the argument |
-+-----------+------------+-----------------------------------------+
-| **floor** | 1          | first integer smaller than the argument |
-+-----------+------------+-----------------------------------------+
-| **min**   | >1         | minimum                                 |
-+-----------+------------+-----------------------------------------+
-| **max**   | >1         | maximum                                 |
-+-----------+------------+-----------------------------------------+
-| **mean**  | >1         | mean                                    |
-+-----------+------------+-----------------------------------------+
+.. table:: Numerical Operations, their number of arguments and their semantics
+    :name: table_numerical_operations
 
-Table -. Numerical Operations, their number of arguments and their
-semantics
+    +-----------+------------+-----------------------------------------+
+    | Operator  | #arguments | Semantics                               |
+    +===========+============+=========================================+
+    | **neg**   | 1          | unary minus                             |
+    +-----------+------------+-----------------------------------------+
+    | **add**   | >1         | addition                                |
+    +-----------+------------+-----------------------------------------+
+    | **sub**   | >1         | subtraction                             |
+    +-----------+------------+-----------------------------------------+
+    | **mul**   | >1         | multiplication                          |
+    +-----------+------------+-----------------------------------------+
+    | **div**   | >1         | division                                |
+    +-----------+------------+-----------------------------------------+
+    | **pi**    | 0          | 3.1415926535...                         |
+    +-----------+------------+-----------------------------------------+
+    | **abs**   | 1          | absolute value                          |
+    +-----------+------------+-----------------------------------------+
+    | **acos**  | 1          | arc cosine of the argument in radians   |
+    +-----------+------------+-----------------------------------------+
+    | **asin**  | 1          | arc sine of the argument in radians     |
+    +-----------+------------+-----------------------------------------+
+    | **atan**  | 1          | arc tangent of the argument in radians  |
+    +-----------+------------+-----------------------------------------+
+    | **cos**   | 1          | cosine                                  |
+    +-----------+------------+-----------------------------------------+
+    | **cosh**  | 1          | hyperbolic cosine                       |
+    +-----------+------------+-----------------------------------------+
+    | **exp**   | 1          | exponential                             |
+    +-----------+------------+-----------------------------------------+
+    | **log**   | 1          | (Napierian) logarithm                   |
+    +-----------+------------+-----------------------------------------+
+    | **log10** | 1          | decimal logarithm                       |
+    +-----------+------------+-----------------------------------------+
+    | **mod**   | 2          | modulo                                  |
+    +-----------+------------+-----------------------------------------+
+    | **pow**   | 1          | power                                   |
+    +-----------+------------+-----------------------------------------+
+    | **sin**   | 1          | sine                                    |
+    +-----------+------------+-----------------------------------------+
+    | **sinh**  | 1          | hyperbolic sine                         |
+    +-----------+------------+-----------------------------------------+
+    | **tan**   | 1          | tangent                                 |
+    +-----------+------------+-----------------------------------------+
+    | **tanh**  | 1          | hyperbolic tangent                      |
+    +-----------+------------+-----------------------------------------+
+    | **sqrt**  | 1          | square root                             |
+    +-----------+------------+-----------------------------------------+
+    | **ceil**  | 1          | first integer greater than the argument |
+    +-----------+------------+-----------------------------------------+
+    | **floor** | 1          | first integer smaller than the argument |
+    +-----------+------------+-----------------------------------------+
+    | **min**   | >1         | minimum                                 |
+    +-----------+------------+-----------------------------------------+
+    | **max**   | >1         | maximum                                 |
+    +-----------+------------+-----------------------------------------+
+    | **mean**  | >1         | mean                                    |
+    +-----------+------------+-----------------------------------------+
 
 .. code-block:: bnf
+    :name: bnf_numerical_operations
+    :caption: Backus-Naur grammar for XML representation of numerical operations
 
     numerical-operation ::=
           <neg> expression </neg>
@@ -244,9 +243,6 @@ semantics
         | <min> expression+ </min>
         | <max> expression+ </max>
         | <mean> expression+ </mean>
-
-Figure -. Backus-Naur grammar for XML representation of numerical
-operations
 
 Example
 ^^^^^^^
@@ -278,36 +274,38 @@ explicitly such probability distribution as follows.
 Boolean Operations
 ~~~~~~~~~~~~~~~~~~
 
-`Table Stochastic Layer-3 <#anchor-75>`__ gives the list of Boolean
+:numref:`table_boolean_operators` gives the list of Boolean
 operators proposed by the Model Exchange Format. Their XML
-representation is given `Figure Stochastic Layer-13 <#anchor-76>`__.
+representation is given :numref:`bnf_boolean_operations`.
 
-+----------+------------+-------------+
-| Operator | #arguments | Semantics   |
-+==========+============+=============+
-| **and**  | > 1        | Boolean and |
-+----------+------------+-------------+
-| **or**   | >1         | Boolean or  |
-+----------+------------+-------------+
-| **not**  | 1          | Boolean not |
-+----------+------------+-------------+
-| **eq**   | 2          | =           |
-+----------+------------+-------------+
-| **df**   | 2          |  ≠          |
-+----------+------------+-------------+
-| **lt**   | 2          | <           |
-+----------+------------+-------------+
-| **gt**   | 2          | >           |
-+----------+------------+-------------+
-| **leq**  | 2          |  ≤          |
-+----------+------------+-------------+
-| **geq**  | 2          |  ≥          |
-+----------+------------+-------------+
+.. table:: Boolean operators, their number of arguments and their semantics
+    :name: table_boolean_operators
 
-Table -. Boolean operators, their number of arguments and their
-semantics
+    +----------+------------+-------------+
+    | Operator | #arguments | Semantics   |
+    +==========+============+=============+
+    | **and**  | > 1        | Boolean and |
+    +----------+------------+-------------+
+    | **or**   | >1         | Boolean or  |
+    +----------+------------+-------------+
+    | **not**  | 1          | Boolean not |
+    +----------+------------+-------------+
+    | **eq**   | 2          | =           |
+    +----------+------------+-------------+
+    | **df**   | 2          |  ≠          |
+    +----------+------------+-------------+
+    | **lt**   | 2          | <           |
+    +----------+------------+-------------+
+    | **gt**   | 2          | >           |
+    +----------+------------+-------------+
+    | **leq**  | 2          |  ≤          |
+    +----------+------------+-------------+
+    | **geq**  | 2          |  ≥          |
+    +----------+------------+-------------+
 
 .. code-block:: bnf
+    :name: bnf_boolean_operations
+    :caption: Backus-Naur grammar for XML representation of Boolean operations
 
     Boolean-operation ::=
           <not> expression </not>
@@ -319,9 +317,6 @@ semantics
         | <gt> expression expression </gt>
         | <leq> expression expression </leq>
         | <geq> expression expression </geq>
-
-Figure -. Backus-Naur grammar for XML representation of Boolean
-operations
 
 Conditional Operations
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -335,9 +330,11 @@ returned. Otherwise, the next pair is considered.
 
 The list ends with an expression, in order to be sure that the switch
 has always a possible value. The XML representation for conditional
-operation is given `Figure Stochastic Layer-14 <#anchor-80>`__.
+operation is given :numref:`bnf_conditional_operations`.
 
 .. code-block:: bnf
+    :name: bnf_conditional_operations
+    :caption: Backus-Naur grammar for XML representation of conditional operations
 
     conditional-operation ::=
         if-then-else-operation | switch-operation
@@ -353,12 +350,8 @@ operation is given `Figure Stochastic Layer-14 <#anchor-80>`__.
 
     case-operation ::= <case> expression expression </case>
 
-Figure -. Backus-Naur grammar for XML representation of conditional
-operations
-
 Example
 ^^^^^^^
-
 Assume for instance we want to give different values to the
 failure rate "lambda" depending on a global parameter "stress-level":
 
@@ -368,7 +361,7 @@ failure rate "lambda" depending on a global parameter "stress-level":
     "lambda"=2.5e-4/h if "stress-level"=2, and finally
     "lambda"=1.0e-3/h if "stress-level"=3.
 
-The value of "stress-level"will be modified while walking along the
+The value of "stress-level" will be modified while walking along the
 sequences of events trees or depending on the initiating event. Using
 primitives defined so far, we can encode the definition of "lambda" as
 follows.
@@ -463,8 +456,7 @@ The "periodic-test" built-in would take the following parameters (in order).
 | **t**         | the mission time.                                                                     |
 +---------------+---------------------------------------------------------------------------------------+
 
-`Figure Stochastic Layer-15 <#anchor-85>`__ illustrates the meaning of
-the parameters *τ*, *θ* and *π*.
+:numref:`fig_periodic_test` illustrates the meaning of the parameters *τ*, *θ* and *π*.
 
 .. figure:: ../images/periodic_test.png
     :name: fig_periodic_test
@@ -484,7 +476,7 @@ In the first phase, the distribution is a simple exponential law of parameter *�
 The component may enter in the second phase in three states, either
 working, failed or in repair. In the latter case, the test is not
 performed. The Markov graphs for each of these cases are pictured
-`Figure Stochastic Layer-16 <#anchor-87>`__.
+:numref:`fig_multi_phase_markov_graph`.
 
 .. figure:: ../images/multi_phase_markov_graph.png
     :name: fig_multi_phase_markov_graph
@@ -492,7 +484,7 @@ performed. The Markov graphs for each of these cases are pictured
 
     Multi-phase Markov graph for the "periodic-test" built-in
 
-Ai's , Fi's, Ri's states correspond respectively to states where the
+Ai's, Fi's, Ri's states correspond respectively to states where the
 component is available, failed and in repair. Dashed lines correspond to
 immediate transitions. Initial states are respectively A1, F1 and R1.
 
@@ -614,29 +606,29 @@ they return a default value (typically their mean value). When used to
 perform Monte-Carlo simulations, they return a number drawn at
 pseudo-random according their type. The Model Exchange Format includes
 two types of random deviates: built-in deviates like uniform, normal or
-lognormal and histograms that are user defined discrete distributions. A
-preliminary list of distributions which is summarized `Table Stochastic
-Layer-5 <#anchor-95>`__. As for arithmetic operators and built-ins, this
+lognormal, and histograms that are user defined discrete distributions. A
+preliminary list of distributions is summarized in :numref:`table_random_deviates`.
+As for arithmetic operators and built-ins, this
 list can be extended on demand.
 
-+-----------------------+------------+------------------------------------------------------------------------------------------------------------+
-| Distribution          | #arguments | Semantics                                                                                                  |
-+=======================+============+============================================================================================================+
-| **uniform-deviate**   | 2          | uniform distribution between a lower and an upper bounds                                                   |
-+-----------------------+------------+------------------------------------------------------------------------------------------------------------+
-| **normal-deviate**    | 2          | normal (Gaussian) distribution defined by its mean and its standard deviation                              |
-+-----------------------+------------+------------------------------------------------------------------------------------------------------------+
-| **lognormal-deviate** | 3          | lognormal distribution defined by its mean, its error factor and the confidence level of this error factor |
-+-----------------------+------------+------------------------------------------------------------------------------------------------------------+
-| **gamma-deviate**     | 2          | gamma distributions defined by a shape and a scale factors                                                 |
-+-----------------------+------------+------------------------------------------------------------------------------------------------------------+
-| **beta-deviate**      | 2          | beta distributions defined by two shape parameters *α* and *β*                                             |
-+-----------------------+------------+------------------------------------------------------------------------------------------------------------+
-| **histograms**        | any        | discrete distributions defined by means of a list of pairs                                                 |
-+-----------------------+------------+------------------------------------------------------------------------------------------------------------+
+.. table:: Primitive to generate random deviates, their number of arguments and their semantics
+    :name: table_random_deviates
 
-Table -. Primitive to generate random deviates, their number of
-arguments and their semantics
+    +-----------------------+------------+------------------------------------------------------------------------------------------------------------+
+    | Distribution          | #arguments | Semantics                                                                                                  |
+    +=======================+============+============================================================================================================+
+    | **uniform-deviate**   | 2          | uniform distribution between a lower and an upper bounds                                                   |
+    +-----------------------+------------+------------------------------------------------------------------------------------------------------------+
+    | **normal-deviate**    | 2          | normal (Gaussian) distribution defined by its mean and its standard deviation                              |
+    +-----------------------+------------+------------------------------------------------------------------------------------------------------------+
+    | **lognormal-deviate** | 3          | lognormal distribution defined by its mean, its error factor and the confidence level of this error factor |
+    +-----------------------+------------+------------------------------------------------------------------------------------------------------------+
+    | **gamma-deviate**     | 2          | gamma distributions defined by a shape and a scale factors                                                 |
+    +-----------------------+------------+------------------------------------------------------------------------------------------------------------+
+    | **beta-deviate**      | 2          | beta distributions defined by two shape parameters *α* and *β*                                             |
+    +-----------------------+------------+------------------------------------------------------------------------------------------------------------+
+    | **histograms**        | any        | discrete distributions defined by means of a list of pairs                                                 |
+    +-----------------------+------------+------------------------------------------------------------------------------------------------------------+
 
 Uniform Deviates
     These primitives describe uniform distributions in a
@@ -734,10 +726,10 @@ Histograms
 XML Representation
 ~~~~~~~~~~~~~~~~~~
 
-The Backus-Naur grammar for the XML representation of random deviates is
-given
+The Backus-Naur grammar for the XML representation of random deviates is given
 
 .. code-block:: bnf
+    :caption: Backus-Naur grammar for XML representation of random deviates
 
     random-deviate ::=
           <uniform-deviate> [ expression ]:2 </uniform-deviate>
@@ -750,8 +742,6 @@ given
     histogram ::= <histogram > expression /bin/+ </histogram>
 
     bin ::= <bin> expression expression </bin>
-
-Figure -. Backus-Naur grammar for XML representation of random deviates
 
 Example
 ^^^^^^^
@@ -806,34 +796,34 @@ whether a given initiating event occurred and whether a given functional
 event is in a given state. The meaning of these directives will be
 further explained Section `VII.3 <#anchor-103>`__.
 
-:numref:`table_boolean_connectives` presents these directives and their arguments.
+:numref:`table_test_event` presents these directives and their arguments.
 
-+---------------------------+------------+-----------------------------------------------------------------------------------------------------------------------------------+
-| Built-in                  | #arguments | Semantics                                                                                                                         |
-+===========================+============+===================================================================================================================================+
-| **test-initiating-event** | 1          | <test-initiating-event name="name" /> returns true if the initiating event of the given name occurred.                            |
-+---------------------------+------------+-----------------------------------------------------------------------------------------------------------------------------------+
-| **test-functional-event** | 2          | <test-functional-event name="name" state="state" /> returns true if the functional event of the given name is in the given state. |
-+---------------------------+------------+-----------------------------------------------------------------------------------------------------------------------------------+
+.. table:: Directives to test the status of initiating and functional events
+    :name: table_test_event
 
-Table -. Directives to test the status of initiating and functional
-events
+    +---------------------------+------------+-----------------------------------------------------------------------------------------------------------------------------------+
+    | Built-in                  | #arguments | Semantics                                                                                                                         |
+    +===========================+============+===================================================================================================================================+
+    | **test-initiating-event** | 1          | <test-initiating-event name="name" /> returns true if the initiating event of the given name occurred.                            |
+    +---------------------------+------------+-----------------------------------------------------------------------------------------------------------------------------------+
+    | **test-functional-event** | 2          | <test-functional-event name="name" state="state" /> returns true if the functional event of the given name is in the given state. |
+    +---------------------------+------------+-----------------------------------------------------------------------------------------------------------------------------------+
 
 XML Representation
 ~~~~~~~~~~~~~~~~~~
 
 The XML representation for directives to test the status of initiating
-and functional events is given `Figure Stochastic
-Layer-19 <#anchor-106>`__.
+and functional events is given :numref:`bnf_test_event`.
 
 .. code-block:: bnf
+    :name: bnf_test_event
+    :caption: Backus-Naur grammar for XML representation of directives
+              to test the status of initiating and functional events
 
     test-event ::=
           <test-initiating-event name="name" />
         | <test-functional-event name="name" state="identifier" />
 
-Figure -. Backus-Naur grammar for XML representation of directives to
-test the status of initiating and functional events
 
 Meta-Logical Layer
 ==================
@@ -933,7 +923,7 @@ XML representation
 ~~~~~~~~~~~~~~~~~~
 
 The Backus-Naur form for the XML description of Common Cause Failure
-Groups is given `Figure Meta-Logical Layer-20 <#anchor-112>`__. Note
+Groups is given :numref:`bnf_ccf_groups`. Note
 that the number of factors depends on the model. Tools are in charge of
 checking that there is the good number of factors. Note also that each
 created basic event is associated with a factor that depends on the
@@ -943,6 +933,8 @@ equal to 1, although this is not strictly required by the Model Exchange
 Format.
 
 .. code-block:: bnf
+    :name: bnf_ccf_groups
+    :caption: Backus-Naur form for the XML representation of CCF-groups
 
     CCF-group-definition ::=
         <define-CCF-group name="identifier" model="CCF-model" >
@@ -974,7 +966,6 @@ Format.
 
     CCF-model ::= beta-factor | MGL | alpha-factor | phi-factor
 
-Figure -. Backus-Naur form for the XML representation of CCF-groups
 
 Example
 ^^^^^^^
@@ -1152,10 +1143,12 @@ XML Representation
 ~~~~~~~~~~~~~~~~~~
 
 The Backus-Naur form for the XML description of substitutions is given
-`Figure Meta-Logical Layer-21 <#anchor-119>`__. The optional attribute
+:numref:`bnf_substitution`. The optional attribute
 "type" is used to help tools that implement "traditional" substitutions.
 
 .. code-block:: bnf
+    :name: bnf_substitution
+    :caption: Backus-Naur form for the XML representation of exclusive-groups
 
     substitution-definition ::=
         <define-substitution [ name="identifier" ] [ type="identifier" ] >
@@ -1165,14 +1158,12 @@ The Backus-Naur form for the XML description of substitutions is given
             <target> basic-event+ | Boolean-constant </target>
         </define-substitution>
 
-Figure -. Backus-Naur form for the XML representation of
-exclusive-groups
 
 Example
 ^^^^^^^
 
 Assume that Basic Events "failure-pump-A", "failure-pump-B"
-and ""failure-pump-C" are pair wisely exclusive (they form a delete
+and "failure-pump-C" are pair wisely exclusive (they form a delete
 term) because they can only occur when respectively equipment A, B and C
 are under maintenance and only one equipment can be in maintenance at
 once. The representation of such a delete term is as follows.
@@ -1253,8 +1244,7 @@ there is a general agreement on how to interpret fault trees and
 probability distributions. The Event Tree layer is much more delicate to
 handle. The reason stands in the dynamic nature of event trees and the
 lack of common interpretation for this formalism. To illustrate this
-point, we shall consider the toy example pictured `Figure Event Tree
-Layer-22 <#anchor-123>`__.
+point, we shall consider the toy example pictured :numref:`fig_small_event_tree`.
 
 .. figure:: ../images/small_event_tree.svg
     :name: fig_small_event_tree
@@ -1352,12 +1342,12 @@ occurrence of this event and the occurrence of ... no event). In the Model
 Exchange Format, alternatives of the fork are called paths. Paths are
 labeled by state of the functional event that labels the fork.
 
-Let us consider again the event tree pictured `Figure Event Tree
-Layer-22 <#anchor-123>`__. Assume that end states S1 and S3 on the one
+Let us consider again the event tree pictured
+:numref:`fig_small_event_tree`. Assume that end states S1 and S3 on the one
 hand, S2 and S4 and the other hand are identical and that we merge the
 corresponding sub-trees. Assume moreover that the lowest success branch
 of the functional event H is actually a bypass. Then, the structure of
-the tree is pictured `Figure Event Tree Layer-23 <#anchor-127>`__. On
+the tree is pictured :numref:`fig_event_tree_structure`. On
 this figure, nodes of the tree are numbered from 1 to 8. The initiating
 event is represented as a fork. Finally, the branch (the sub-tree)
 rooted by the node 2 is named B1.
@@ -1368,8 +1358,7 @@ rooted by the node 2 is named B1.
 
     Structure of an Event Tree
 
-Components of the event tree pictured `Figure Event Tree
-Layer-23 <#anchor-127>`__ are the following.
+Components of the event tree pictured :numref:`fig_event_tree_structure` are the following.
 
 - The initiating event I
 - The three functional events F, G and H
@@ -1392,39 +1381,40 @@ The states of functional events at a node depend on the path that has
 been followed from the root node to this node. By default, functional
 events are in an unspecified state, i.e., that the predicate
 "test-functional-event" (see section `V.5 <#anchor-100>`__) returns
-false in any case. `Table Event Tree Layer-7 <#anchor-129>`__ gives the
+false in any case. :numref:`table_event_tree_structure_paths` gives the
 states of functional events for all of the possible paths starting from
-the root node of the event tree pictured `Figure Event Tree
-Layer-23 <#anchor-127>`__. Empty cells correspond to unspecified states.
+the root node of the event tree pictured :numref:`fig_event_tree_structure`.
+Empty cells correspond to unspecified states.
 
-+---------+---------+---------+---------+
-| path    | F       | G       | H       |
-+=========+=========+=========+=========+
-| 1       |         |         |         |
-+---------+---------+---------+---------+
-| 1-2     | success |         |         |
-+---------+---------+---------+---------+
-| 1-2-3   | success |         | success |
-+---------+---------+---------+---------+
-| 1-2-4   | success |         | failure |
-+---------+---------+---------+---------+
-| 1-5     | failure |         |         |
-+---------+---------+---------+---------+
-| 1-5-2   | failure | success |         |
-+---------+---------+---------+---------+
-| 1-5-2-3 | failure | success | success |
-+---------+---------+---------+---------+
-| 1-5-2-4 | failure | success | failure |
-+---------+---------+---------+---------+
-| 1-5-6   | failure | failure |         |
-+---------+---------+---------+---------+
-| 1-5-6-7 | failure | failure | bypass  |
-+---------+---------+---------+---------+
-| 1-5-6-8 | failure | failure | failure |
-+---------+---------+---------+---------+
+.. table:: States of Functional Events for the different paths
+           of the Event Tree of :numref:`fig_event_tree_structure`
+    :name: table_event_tree_structure_paths
 
-Table -. States of Functional Events for the different paths of the
-Event Tree of `Figure Event Tree Layer-23 <#anchor-127>`__
+    +---------+---------+---------+---------+
+    | path    | F       | G       | H       |
+    +=========+=========+=========+=========+
+    | 1       |         |         |         |
+    +---------+---------+---------+---------+
+    | 1-2     | success |         |         |
+    +---------+---------+---------+---------+
+    | 1-2-3   | success |         | success |
+    +---------+---------+---------+---------+
+    | 1-2-4   | success |         | failure |
+    +---------+---------+---------+---------+
+    | 1-5     | failure |         |         |
+    +---------+---------+---------+---------+
+    | 1-5-2   | failure | success |         |
+    +---------+---------+---------+---------+
+    | 1-5-2-3 | failure | success | success |
+    +---------+---------+---------+---------+
+    | 1-5-2-4 | failure | success | failure |
+    +---------+---------+---------+---------+
+    | 1-5-6   | failure | failure |         |
+    +---------+---------+---------+---------+
+    | 1-5-6-7 | failure | failure | bypass  |
+    +---------+---------+---------+---------+
+    | 1-5-6-8 | failure | failure | failure |
+    +---------+---------+---------+---------+
 
 As mentioned above, an event tree may be parametric: the same tree can
 be used for several initiating events. To implement this idea, the Model
@@ -1438,15 +1428,17 @@ XML Representation
 ~~~~~~~~~~~~~~~~~~
 
 We are now ready to explicitly define the XML grammar of the structure
-of event trees. Its Backus-Naur form is given `Figure Event Tree
-Layer-24 <#anchor-133>`__ and `Figure Event Tree
-Layer-25 <#anchor-134>`__. In these figures, we leave instructions
-unspecified, for they don't concern the structure of the tree and are
+of event trees. Its Backus-Naur form is given
+:numref:`bnf_initiating_events` and :numref:`bnf_event_tree`.
+In these figures, we leave instructions unspecified,
+for they don't concern the structure of the tree and are
 the subject of the next section. Note that branches and functional
 events cannot be declared (nor referred to) outside event trees, for
 there would be no meaning in doing so.
 
 .. code-block:: bnf
+    :name: bnf_initiating_events
+    :caption: Backus-Naur form of the XML representation of initiating events
 
     initiating-event-definition ::=
         <define-initiating-event name="identifier" [ event-tree="identifier"] >
@@ -1466,10 +1458,10 @@ there would be no meaning in doing so.
           <initiating-event name="identifier" />
         | <initiating-event-group name="identifier" />
 
-Figure -. Backus-Naur form of the XML representation of initiating
-events
 
 .. code-block:: bnf
+    :name: bnf_event_tree
+    :caption: Backus-Naur form of the XML representation of event trees and sequences
 
     event-tree-definition ::=
         <define-event-tree name="identifier">
@@ -1516,17 +1508,17 @@ events
           <sequence name="identifier" />
         | <branch name="identifier" />
 
-Figure -. Backus-Naur form of the XML representation of event trees and
-sequences
 
 Example
 ^^^^^^^
 
-Consider again the event tree pictured `Figure Event Tree
-Layer-23 <#anchor-127>`__. The XML description for this example is given
-`Figure Event Tree Layer-26 <#anchor-137>`__.
+Consider again the event tree pictured :numref:`fig_event_tree_structure`.
+The XML description for this example is given :numref:`xml_event_tree_structure`.
 
 .. code-block:: xml
+    :name: xml_event_tree_structure
+    :caption: XML representation for the structure
+              of the Event Tree pictured :numref:`fig_event_tree_structure`
 
     <define-event-tree name="my-first-event-tree">
         <define-functional-event name="F"/>
@@ -1572,8 +1564,6 @@ Layer-23 <#anchor-127>`__. The XML description for this example is given
         </initial-state>
     </define-event-tree>
 
-Figure -. XML representation for the structure of the Event Tree
-pictured `Figure Event Tree Layer-23 <#anchor-127>`__
 
 Instructions
 ------------
@@ -1581,7 +1571,7 @@ Instructions
 Description
 ~~~~~~~~~~~
 
-`Figure Event Tree Layer-26 <#anchor-137>`__ gives the XML
+:numref:`fig_event_tree_structure` gives the XML
 representation for the structure of an event tree. This structure makes
 it possible to walk along the sequences, but not to construct the
 Boolean formulae associated with each sequences. To do so, we need to
@@ -1636,9 +1626,11 @@ XML Representation
 ~~~~~~~~~~~~~~~~~~
 
 The Backus-Naur form for the XML representation of instructions is given
-`Figure Event Tree Layer-27 <#anchor-144>`__.
+:numref:`bnf_instructions`.
 
 .. code-block:: bnf
+    :name: bnf_instructions
+    :caption: Backus-Naur form for the XML representation of instructions
 
     instruction ::= set | collect | if-then-else | block | rule | link
 
@@ -1688,20 +1680,21 @@ The Backus-Naur form for the XML representation of instructions is given
             instruction+
         </define-rule>
 
-Figure -. Backus-Naur form for the XML representation of instructions
-
 Example
 ^^^^^^^
 
-Consider again the event tree pictured `Figure Event Tree
-Layer-23 <#anchor-127>`__. The XML representation for the structure of
-this tree has been given `Figure Event Tree Layer-26 <#anchor-137>`__.
+Consider again the event tree pictured :numref:`fig_event_tree_structure`.
+The XML representation for the structure of
+this tree has been given :numref:`xml_event_tree_structure`.
 Assume that the success branch of the lower fork on system H is a
 bypass. The XML description for the branches of this example is given
-`Figure Event Tree Layer-28 <#anchor-146>`__. It is easy to verify by
+:numref:`xml_event_tree_branches`. It is easy to verify by
 traversing this tree by hand so that it produces the expected semantics.
 
 .. code-block:: xml
+    :name: xml_event_tree_branches
+    :caption: XML representation of the branches
+              of the event tree pictured :numref:`fig_event_tree_structure`
 
     <define-event-tree name="my-first-event-tree">
         ...
@@ -1736,9 +1729,6 @@ traversing this tree by hand so that it produces the expected semantics.
             </fork>
         </initial-state>
     </define-event-tree>
-
-Figure -. XML representation of the branches of the event tree pictured
-`Figure Event Tree Layer-23 <#anchor-127>`__
 
 This example does not set any house events or flag parameters. To set a
 house event for all subsequent sub-tree exploration (including the next
@@ -1821,10 +1811,11 @@ event for this event tree and a particular sequence (end-state) of the
 same tree. Consequences are given a name. Groups of consequences can be
 defined as well. They are also given a name, and can include sub-groups.
 The Backus-Naur form for the XML representation of declarations of
-groups of consequences is given `Figure Organization of a
-Model-29 <#anchor-154>`__.
+groups of consequences is given :numref:`bnf_consequence_groups`.
 
 .. code-block:: bnf
+    :name: bnf_consequence_groups
+    :caption: Backus-Naur form of the XML representation of consequence groups
 
     consequence-definition ::=
         <define-consequence name="identifier" >
@@ -1845,9 +1836,6 @@ Model-29 <#anchor-154>`__.
 
     consequence-group ::= <consequence-group name="identifier" />
 
-Figure -. Backus-Naur form of the XML representation of consequence
-groups
-
 Note that consequences and consequences groups can be used as initiating
 events (see section `VII.2.2 <#anchor-131>`__). This mechanism makes it
 possible to link event trees.
@@ -1860,10 +1848,11 @@ which the plant spends a fraction of the mission time. Phases are
 grouped into missions. The time fractions of the phases of a mission
 should sum to 1. House events and parameters may be given values
 different values in each phase. The Backus-Naur form for the XML
-representation of declarations of phases is given `Figure Organization
-of a Model-30 <#anchor-157>`__.
+representation of declarations of phases is given :numref:`bnf_mission_phase`.
 
 .. code-block:: bnf
+    :name: bnf_mission_phase
+    :caption: Backus-Naur form of the XML representation of Missions and Phases
 
     mission-definition ::=
         <define-mission name="identifier" >
@@ -1879,8 +1868,6 @@ of a Model-30 <#anchor-157>`__.
             instruction*
         </define-phase>
 
-Figure -. Backus-Naur form of the XML representation of Missions and
-Phases
 
 Splitting the Model into Several Files
 --------------------------------------
@@ -1934,9 +1921,9 @@ Organization of a Model
 
 The Model Exchange Format introduces five types of containers: models at
 the top level, event trees, fault trees, components and model-data. The
-Model Exchange Format introduces also eighteen constructs. `Figure
-Organization of a Model-31 <#anchor-161>`__ shows the containers and the
-constructs they can define.
+Model Exchange Format introduces also eighteen constructs.
+:numref:`fig_containers_and_constructs` shows the containers
+and the constructs they can define.
 
 .. figure:: ../images/containers_and_constructs.svg
     :name: fig_containers_and_constructs
@@ -1944,11 +1931,12 @@ constructs they can define.
 
     Containers and the constructs they can define
 
-`Figure Organization of a Model-32 <#anchor-163>`__ gives the XML
-representation of models. This representation just collects what has
-been defined so far.
+:numref:`bnf_containers` gives the XML representation of models.
+This representation just collects what has been defined so far.
 
 .. code-block:: bnf
+    :name: bnf_containers
+    :caption: Backus-Naur form for the XML representation of containers
 
     model ::=
         <?xml version="1.0" ?>
@@ -2015,7 +2003,6 @@ been defined so far.
             (house-event-definition | basic-event-definition | parameter-definition)*
         </model-data>
 
-Figure -. Backus-Naur form for the XML representation of containers
 
 Report Layer
 ============
@@ -2115,11 +2102,13 @@ However, it is often convenient to attach some information to each
 product, which is not possible with the formulae of the Model Exchange
 Format. An alternative XML representation for sums of products (sets of
 minimal cut sets are a specific type of sums of products) is given
-`Figure Report Layer-33 <#anchor-171>`__. More attributes can be added
+:numref:`bnf_sum_of_products`. More attributes can be added
 to tags "sum-of-products" and "product" to carry the relevant
 information.
 
 .. code-block:: bnf
+    :name: bnf_sum_of_products
+    :caption: Backus-Naur form for the XML representation of sums-of-products
 
     sum-of-products ::=
         <sum-of-products
@@ -2140,8 +2129,6 @@ information.
           <basic-event name="identifier" />
         | <not> <basic-event name="identifier" /> </not>
 
-Figure -. Backus-Naur form for the XML representation of
-sums-of-products
 
 Statistical measures
 ~~~~~~~~~~~~~~~~~~~~
@@ -2150,10 +2137,11 @@ Statistical measures are typically produced by sensitivity analyses.
 They are the result, in general, of Monte-Carlo simulations on the
 values of some parameter. Such a measure can come with moments (mean,
 standard deviation), confidence ranges, error factors, quantiles... The
-XML representation for statistical measure is given `Figure Report
-Layer-34 <#anchor-174>`__.
+XML representation for statistical measure is given :numref:`bnf_statistial_measure`.
 
 .. code-block:: bnf
+    :name: bnf_statistial_measure
+    :caption: Backus-Naur form for the XML representation of statistical measures
 
     measure ::=
         <measure
@@ -2181,19 +2169,17 @@ Layer-34 <#anchor-174>`__.
             [ lower-bound="float" ]
             [ upper-bound="float" ] />
 
-Figure -. Backus-Naur form for the XML representation of statistical
-measures
-
 Curves
 ~~~~~~
 
 Two or three dimensional curves are often produced in PSA studies. A
 typical example is indeed to study the evolution of the system
 unavailability through the time. The XML representation of curves
-suggested by the Model Exchange Format is given `Figure Report
-Layer-35 <#anchor-177>`__.
+suggested by the Model Exchange Format is given :numref:`bnf_curves`.
 
 .. code-block:: bnf
+    :name: bnf_curves
+    :caption: Backus-Naur for the XML representation of curves
 
     curve ::=
         <curve
@@ -2206,5 +2192,3 @@ Layer-35 <#anchor-177>`__.
         </curve>
 
     unit ::= seconds | hours | ...
-
-Figure -. Backus-Naur for the XML representation of curves
