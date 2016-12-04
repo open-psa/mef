@@ -38,7 +38,7 @@ The corresponding set of equations is as follows.
 
 On the figure, basic events are surrounded with a circle. Basic events
 are in general associated with a probability distribution (see Chapter
-`V <#anchor-15>`__).
+`V`_).
 
 House events (surrounded by a house shape frame on the figure) are
 represented as variables but are actually constants: when the tree is
@@ -167,7 +167,7 @@ This description deserves some comments.
   attribute.
 - By default, the value of a house is event is "false". So it is not
   necessary to associate a value with a house event when declaring it.
-  We shall see section `VII.3 <#anchor-48>`__ how to change the value
+  We shall see section `VII.3`_ how to change the value
   of a house event.
 - Although events are typed (they are either gates, house events or
   basic events), two different events cannot have the same name (within
@@ -323,7 +323,7 @@ Model-Data and Components
 
 The Model Exchange Format provides a number of extra-logical constructs
 to document and structure models. Labels and attributes are introduced
-Section `III.2.4 <#anchor-36>`__. They can be associated with declared
+Section `III.2.4`_. They can be associated with declared
 element in order to document this element. Fault trees are a first mean
 to structure models. A fault tree groups any number of declarations of
 gates, house events, basic event and parameters.
