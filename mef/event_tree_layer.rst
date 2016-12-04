@@ -372,7 +372,7 @@ The flavor given to fault trees, as well as what is collected, may
 depend on the initial event and the current state of functional events.
 To do so, the Model Exchange Format provides an if-then-else instruction
 (the "else" part is optional) and the two expressions
-"test-initial-event" and "test-functional-event". These two instructions
+"test-initiating-event" and "test-functional-event". These two instructions
 have been introduced Section `V.3`_. Since the then- and
 else-branches of the "if-then-else" may contain several instructions,
 the Model Exchange Format introduces the notion of block of
@@ -523,13 +523,13 @@ to set the parameters "lambda1" and "lambda2" of some probability
 distributions to "0.001" if the initiating event was "I1" and the
 functional event "G" is in the state failure and to "0.002" otherwise.
 This goal is achieved by means of a "if-then-else" construct and the
-"test-initial-event" expression.
+"test-initiating-event" expression.
 
 .. code-block:: xml
 
     <if>
         <and>
-            <test-initial-event name="I1"/>
+            <test-initiating-event name="I1"/>
             <test-functional-event name="G" state="failure"/>
         </and>
         <block>
@@ -550,7 +550,7 @@ otherwise. The definition of the sequence S1 would be as follows.
 
     <define-sequence name="S1">
         <if>
-            <test-initial-event name="I1"/>
+            <test-initiating-event name="I1"/>
             <event-tree name="ET2"/>
             <event-tree name="ET3"/>
         </if>

@@ -95,7 +95,7 @@ defined (there is no equivalent to Basic Events).
         ...
 
     test-event ::=
-          test-initial-event name
+          test-initiating-event name
         | test-functional-event name state
 
 The XML representation of the stochastic layer just reflects these
