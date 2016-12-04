@@ -65,3 +65,35 @@ reST Style
 - Prefer `Semantic Linefeeds`_ (i.e., one sentence per line)
 
 .. _Semantic Linefeeds: http://rhodesmill.org/brandon/2012/one-sentence-per-line/
+
+
+Reference Naming Conventions
+----------------------------
+
+Prepend a reference name with the type of the object (a la the Hungarian notation)
+for clarity and consistency of in-text references.
+
+For example, an image (figure), table, XML description,
+BNF description of the fault tree specification:
+
+.. code-block:: rst
+
+    .. figure:: images/fault_tree.svg
+        :name: fig_fault_tree
+
+        ...
+
+    .. table:: The fault tree specifiction
+        :name: table_fault_tree
+
+        ...
+
+    .. code-block:: bnf
+        :name: bnf_fault_tree
+
+        ...
+
+    .. code-block:: xml
+        :name: xml_fault_tree
+
+        ...
