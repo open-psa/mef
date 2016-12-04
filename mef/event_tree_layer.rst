@@ -1,3 +1,5 @@
+.. _event_tree_layer:
+
 ################
 Event Tree Layer
 ################
@@ -146,7 +148,7 @@ events.
 The states of functional events at a node depend on the path that has
 been followed from the root node to this node. By default, functional
 events are in an unspecified state, i.e., that the predicate
-"test-functional-event" (see section `V.5 <#anchor-100>`_) returns
+"test-functional-event" (see section :ref:`test_event`) returns
 false in any case. :numref:`table_event_tree_structure_paths` gives the
 states of functional events for all of the possible paths starting from
 the root node of the event tree pictured :numref:`fig_event_tree_structure`.
@@ -189,6 +191,9 @@ initiating events. Such a group has a name and may contain sub-groups.
 Groups of initiating events may be freely defined inside or outside
 event trees. There is one condition however: an initiating event can be
 used in only one tree.
+
+
+.. _event_tree_structure_xml_representation:
 
 XML Representation
 ------------------
@@ -331,6 +336,8 @@ The XML description for this example is given :numref:`xml_event_tree_structure`
     </define-event-tree>
 
 
+.. _instructions:
+
 Instructions
 ============
 
@@ -373,7 +380,7 @@ depend on the initial event and the current state of functional events.
 To do so, the Model Exchange Format provides an if-then-else instruction
 (the "else" part is optional) and the two expressions
 "test-initiating-event" and "test-functional-event". These two instructions
-have been introduced Section `V.3`_. Since the then- and
+have been introduced in Section :ref:`test_event`. Since the then- and
 else-branches of the "if-then-else" may contain several instructions,
 the Model Exchange Format introduces the notion of block of
 instructions.

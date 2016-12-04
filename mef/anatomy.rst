@@ -1,3 +1,5 @@
+.. _mef_anatomy:
+
 ####################################
 Anatomy of the Model Exchange Format
 ####################################
@@ -235,6 +237,9 @@ containers, as name spaces. By default, objects defined in a container
 are global. But it is possible to declare them as local to the container
 as well. In that case, they are not visible outside the container, and
 tools are in charge of solving potential name conflicts.
+
+
+.. _definitions_labels_attributes:
 
 Definitions, Labels and Attributes
 ----------------------------------

@@ -72,6 +72,8 @@ Reference Naming Conventions
 
 Prepend a reference name with the type of the object (a la the Hungarian notation)
 for clarity and consistency of in-text references.
+If there's no prefix in a reference,
+the target is assumed to be the specification or section itself.
 
 For example, an image (figure), table, XML description,
 BNF description of the fault tree specification:
@@ -81,19 +83,37 @@ BNF description of the fault tree specification:
     .. figure:: images/fault_tree.svg
         :name: fig_fault_tree
 
-        ...
+        Fault tree diagram
+
 
     .. table:: The fault tree specifiction
         :name: table_fault_tree
 
-        ...
+        +-------+------+
+        | Fault | Tree |
+        +=======+======+
+
 
     .. code-block:: bnf
         :name: bnf_fault_tree
 
-        ...
+        fault_tree ::= graph
+
 
     .. code-block:: xml
         :name: xml_fault_tree
 
-        ...
+        <define-fault-tree/>
+
+
+To reference the fault tree specification itself:
+
+.. code-block:: rst
+
+    .. _fault_tree:
+
+    ##########
+    Fault Tree
+    ##########
+
+    The fault tree specification, description, text, ...

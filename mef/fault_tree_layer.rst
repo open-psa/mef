@@ -1,3 +1,5 @@
+.. _fault_tree_layer:
+
 ################
 Fault Tree Layer
 ################
@@ -37,8 +39,8 @@ The corresponding set of equations is as follows.
     G4 = BE3 or BE4
 
 On the figure, basic events are surrounded with a circle. Basic events
-are in general associated with a probability distribution (see Chapter
-`V`_).
+are in general associated with a probability distribution
+(see Chapter :ref:`stochastic_layer`).
 
 House events (surrounded by a house shape frame on the figure) are
 represented as variables but are actually constants: when the tree is
@@ -167,7 +169,7 @@ This description deserves some comments.
   attribute.
 - By default, the value of a house is event is "false". So it is not
   necessary to associate a value with a house event when declaring it.
-  We shall see section `VII.3`_ how to change the value
+  We shall see in section :ref:`instructions` how to change the value
   of a house event.
 - Although events are typed (they are either gates, house events or
   basic events), two different events cannot have the same name (within
@@ -322,10 +324,11 @@ Model-Data and Components
 -------------------------
 
 The Model Exchange Format provides a number of extra-logical constructs
-to document and structure models. Labels and attributes are introduced
-Section `III.2.4`_. They can be associated with declared
-element in order to document this element. Fault trees are a first mean
-to structure models. A fault tree groups any number of declarations of
+to document and structure models. Labels and attributes are introduced in
+Section :ref:`definitions_labels_attributes`.
+They can be associated with a declared element in order to document this element.
+Fault trees are a first mean to structure models.
+A fault tree groups any number of declarations of
 gates, house events, basic event and parameters.
 
 It is sometimes convenient to group definitions of house events, basic

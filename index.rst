@@ -41,4 +41,14 @@ Table of Contents
     mef/model_organization
     mef/report_layer
     mef/references
-    mef/appendices
+
+
+Appendices
+----------
+
+.. toctree::
+    :maxdepth: 1
+
+    mef/ebnf_presentation
+    mef/mef_schema
+    mef/mef_ebnf

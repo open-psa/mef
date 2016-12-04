@@ -1,3 +1,5 @@
+.. _model_organization:
+
 #######################
 Organization of a Model
 #######################
@@ -46,8 +48,8 @@ groups of consequences is given :numref:`bnf_consequence_groups`.
     consequence-group ::= <consequence-group name="identifier" />
 
 Note that consequences and consequences groups can be used as initiating
-events (see section `VII.2.2`_). This mechanism makes it
-possible to link event trees.
+events (see section :ref:`event_tree_structure_xml_representation`).
+This mechanism makes it possible to link event trees.
 
 Missions, Phases
 ----------------

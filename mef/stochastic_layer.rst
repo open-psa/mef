@@ -1,3 +1,5 @@
+.. _stochastic_layer:
+
 ################
 Stochastic Layer
 ################
@@ -10,7 +12,7 @@ probability distributions associated with basic events (in the event
 tree linking approach, functional events also can be associated with
 such a distribution). Probability distributions are described by
 (stochastic) expressions, which are terms, according to the terminology
-of Chapter `III`_. These expressions may depend on
+of Chapter :ref:`mef_anatomy`. These expressions may depend on
 parameters (variables), so the stochastic layer can be seen a set of
 stochastic equations.
 
@@ -388,6 +390,7 @@ follows.
             <float value="1.0e-3"/>
         </switch>
     </define-parameter>
+
 
 Built-Ins
 =========
@@ -786,6 +789,9 @@ The XML encoding for "lambda" is as follows.
         </histogram>
     </define-parameter>
 
+
+.. _test_event:
+
 Directives to Test the Status of Initiating and Functional Events
 =================================================================
 
@@ -795,7 +801,7 @@ Description
 The Model Exchange Format provides two special directives to test
 whether a given initiating event occurred and whether a given functional
 event is in a given state. The meaning of these directives will be
-further explained Section `VII.3 <#anchor-103>`_.
+further explained in Section :ref:`instructions`.
 
 :numref:`table_test_event` presents these directives and their arguments.
 

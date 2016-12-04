@@ -216,9 +216,9 @@ constructions such as Boolean formulae, probability distributions, and
 so on. These constructions will be eventually represented by means of
 XML terms. XML is however a bit too verbose to make clear the underlying
 mathematical nature of objects at hand. Therefore, we shall use (in a
-rather loose way) the Extended Backus-Naur form to define constructs. A
-presentation of the Extended Backus-Naur form can be found in `Appendix
-A.`_.
+rather loose way) the Extended Backus-Naur form to define constructs.
+A presentation of the Extended Backus-Naur form
+can be found in :ref:`ebnf_presentation`.
 
 There are several formal ways to describe an XML grammar. The most
 popular one is probably the XML Document Type Definition (DTD). A DTD is
@@ -229,9 +229,9 @@ defined by the referenced DTD. DTD is a good verification tool, but
 hard to interpret by a human. Therefore, we shall present the grammar of
 the Model Exchange Format mainly by means of examples and semi-formal
 descriptions with the Extended Backus Naur form. A formal DTD for the
-whole Model Exchange Format is given `Appendix B. <#anchor-10>`_. A
+whole Model Exchange Format is given :ref:`mef_schema`. A
 semi-formal Backus-Naur form for the Model Exchange Format is given
-`Appendix C.`_.
+:ref:`mef_bnf`.
 
 It is worth noting that the XML descriptions we are giving here can be
 extended in any way to fulfill the needs of a particular tool. In
@@ -246,29 +246,28 @@ corresponding to an introductory overview, one chapter per layer of the
 architecture of the Model Exchange Format and one additional chapter for
 models as a whole.
 
-- Chapter `III`_ gives an overview of main elements of a
+- Chapter :ref:`mef_anatomy` gives an overview of main elements of a
   model and shows how these elements are organized. It discusses how to
   split a description into several files, how to solve naming
   conflicts...
-- Chapter `IV`_ presents the fault tree layer. The fault
+- Chapter :ref:`fault_tree_layer` presents the fault tree layer. The fault
   tree layer is not the lowest one in the hierarchy. However, fault
   trees are the most basic and the central concept of PSA models. For
   this reason, we put it in front.
-- Chapter `V`_ present the stochastic layer, i.e., all the
+- Chapter :ref:`stochastic_layer` present the stochastic layer, i.e., all the
   mechanisms to associate probability distributions to basic events.
-- Chapter `VI`_ presents the meta-logical layer.
-- Chapter `VII`_ presents the event tree layer.
-- Chapter `VIII`_ discusses the organization of models.
+- Chapter :ref:`meta_logical_layer` presents the meta-logical layer.
+- Chapter :ref:`event_tree_layer` presents the event tree layer.
+- Chapter :ref:`model_organization` discusses the organization of models.
 - Finally, chapter presents the report/results layer, i.e., the
   normalized format for results of assessment of PSA models.
 
 Three appendices give additional details or summarize the contents of
 these six chapters.
 
-- `Appendix A.`_ presents the Backus-Naur form we use
+- :ref:`ebnf_presentation` presents the Backus-Naur form we use
   throughout this document to describe both the mathematical structure
   of the constructs and their XML representation.
-- `Appendix B.`_ gives the Document Type Definition (DTD)
+- :ref:`mef_schema` gives the Document Type Definition (DTD)
   of the full Model Exchange Format.
-- `Appendix C.`_ gives the Backus-Naur form of the Model
-  Exchange Format.
+- :ref:`mef_bnf` gives the Backus-Naur form of the Model Exchange Format.

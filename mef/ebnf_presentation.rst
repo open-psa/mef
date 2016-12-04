@@ -1,6 +1,4 @@
-##########
-Appendices
-##########
+.. _ebnf_presentation:
 
 *************************
 Extended Backus-Naur Form
@@ -83,12 +81,3 @@ Backus-Naur form we shall use is as follows.
 - Where items need to be grouped they are enclosed in simple
   parenthesis.
 - Comments start with a '#' and spread until the end of the line
-
-
-*********************************************
-The DTD of the Open-PSA Model Exchange Format
-*********************************************
-
-The schemas in various formats can be found at https://github.com/open-psa/schemas
-
-.. include:: mef_ebnf.rst
