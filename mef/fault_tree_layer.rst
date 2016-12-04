@@ -1,8 +1,8 @@
 .. _fault_tree_layer:
 
-################
+****************
 Fault Tree Layer
-################
+****************
 
 The Fault Tree layer is populated with logical components of Fault
 Trees. It includes the stochastic layer, which contains itself the

@@ -1,8 +1,8 @@
 .. _model_organization:
 
-#######################
+***********************
 Organization of a Model
-#######################
+***********************
 
 This chapter discusses the organizations of models. It includes the
 definition of two additional constructs: the notions of consequence,

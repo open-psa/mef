@@ -1,8 +1,8 @@
 .. _mef_anatomy:
 
-####################################
+************************************
 Anatomy of the Model Exchange Format
-####################################
+************************************
 
 This chapter presents the anatomy of the Model Exchange Format, i.e., the
 main components of a model and their relationships. We assume the reader

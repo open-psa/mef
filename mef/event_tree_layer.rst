@@ -1,8 +1,8 @@
 .. _event_tree_layer:
 
-################
+****************
 Event Tree Layer
-################
+****************
 
 Preliminary Discussion
 ======================

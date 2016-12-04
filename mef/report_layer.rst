@@ -1,8 +1,9 @@
+************
 Report Layer
-============
+************
 
 Preliminary Discussion
-----------------------
+======================
 
 The report layer is populated with constructs to save results of
 calculations. These constructs fall into two categories:
@@ -29,7 +30,7 @@ textual): it would be much easier for these tools to extract the
 information they need from the XML result files.
 
 Information about calculations
-------------------------------
+==============================
 
 Here follows a non exhaustive list of information about how the results
 have been obtained that can be relevant and other special or unique
@@ -74,7 +75,7 @@ features of the model.
     * ...
 
 Format of Results
------------------
+=================
 
 PSA tools produce many different kinds of results. Some are common to
 most of the tools (e.g., probability/frequency of some group of
@@ -88,7 +89,7 @@ files.
 - Curves
 
 Minimal Cut Sets
-~~~~~~~~~~~~~~~~
+----------------
 
 A first (and good) way to encode minimal cut sets consists in using the
 representation of formulae defined by the Model Exchange Format.
@@ -125,7 +126,7 @@ information.
 
 
 Statistical measures
-~~~~~~~~~~~~~~~~~~~~
+--------------------
 
 Statistical measures are typically produced by sensitivity analyses.
 They are the result, in general, of Monte-Carlo simulations on the
@@ -164,7 +165,7 @@ XML representation for statistical measure is given :numref:`bnf_statistial_meas
             [ upper-bound="float" ] />
 
 Curves
-~~~~~~
+------
 
 Two or three dimensional curves are often produced in PSA studies. A
 typical example is indeed to study the evolution of the system

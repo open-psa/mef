@@ -1,8 +1,8 @@
 .. _meta_logical_layer:
 
-##################
+******************
 Meta-Logical Layer
-##################
+******************
 
 The meta-logical layer is populated constructs like common cause groups,
 delete terms, recovery rules, and exchange events that are used to give
