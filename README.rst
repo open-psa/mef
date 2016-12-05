@@ -50,7 +50,7 @@ To generate a PDF document:
 reST Style
 ==========
 
-- Title ``#`` overlined and underlined
+- Part ``#`` overlined and underlined
 - Chapter ``*`` overlined and underlined
 - Section underlining and order ``=``, ``-``, ``~``, ``^``, ``+``
 - Point nesting and order ``-``, ``*``, ``+``
@@ -112,8 +112,8 @@ To reference the fault tree specification itself:
 
     .. _fault_tree:
 
-    ##########
+    **********
     Fault Tree
-    ##########
+    **********
 
     The fault tree specification, description, text, ...

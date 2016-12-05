@@ -31,7 +31,7 @@ Table of Contents
     :maxdepth: 2
     :numbered:
 
-    mef/open_psa_initiative
+    The Open-PSA Initiative <mef/open_psa_initiative>
     mef/introduction
     mef/anatomy
     mef/fault_tree_layer

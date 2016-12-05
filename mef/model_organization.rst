@@ -4,9 +4,9 @@
 Organization of a Model
 ***********************
 
-This chapter discusses the organizations of models. It includes the
-definition of two additional constructs: the notions of consequence,
-consequence group and alignment.
+This chapter discusses the organizations of models.
+It includes the definition of two additional constructs:
+the notions of consequence, consequence group and alignment.
 
 Additional Constructs
 =====================
@@ -14,15 +14,17 @@ Additional Constructs
 Consequences and Consequence Groups
 -----------------------------------
 
-It is often convenient to group sequences of event trees into bins of
-sequences with similar physical consequences (e.g., Core Melt). The Model
-Exchange Format provides the notion of consequence to do so. A
-consequence is characterized by an event tree, a particular initiating
-event for this event tree and a particular sequence (end-state) of the
-same tree. Consequences are given a name. Groups of consequences can be
-defined as well. They are also given a name, and can include sub-groups.
-The Backus-Naur form for the XML representation of declarations of
-groups of consequences is given :numref:`bnf_consequence_groups`.
+It is often convenient to group sequences of event trees
+into bins of sequences with similar physical consequences (e.g., Core Melt).
+The Model Exchange Format provides the notion of consequence to do so.
+A consequence is characterized by
+an event tree, a particular initiating event for this event tree,
+and a particular sequence (end-state) of the same tree.
+Consequences are given a name.
+Groups of consequences can be defined as well.
+They are also given a name, and can include sub-groups.
+The Backus-Naur form for the XML representation of declarations of groups of consequences
+is given in :numref:`bnf_consequence_groups`.
 
 .. code-block:: bnf
     :name: bnf_consequence_groups
@@ -47,19 +49,20 @@ groups of consequences is given :numref:`bnf_consequence_groups`.
 
     consequence-group ::= <consequence-group name="identifier" />
 
-Note that consequences and consequences groups can be used as initiating
-events (see section :ref:`event_tree_structure_xml_representation`).
+Note that consequences and consequences groups can be used as initiating events
+(see section :ref:`event_tree_structure_xml_representation`).
 This mechanism makes it possible to link event trees.
 
 Missions, Phases
 ----------------
 
-Phases are physical configurations (like operation, maintenance...) in
-which the plant spends a fraction of the mission time. Phases are
-grouped into missions. The time fractions of the phases of a mission
-should sum to 1. House events and parameters may be given values
-different values in each phase. The Backus-Naur form for the XML
-representation of declarations of phases is given :numref:`bnf_mission_phase`.
+Phases are physical configurations (like operation and maintenance)
+in which the plant spends a fraction of the mission time.
+Phases are grouped into missions.
+The time fractions of the phases of a mission should sum to 1.
+House events and parameters may be given different values in each phase.
+The Backus-Naur form for the XML representation of phase declarations
+is given in :numref:`bnf_mission_phase`.
 
 .. code-block:: bnf
     :name: bnf_mission_phase
@@ -83,25 +86,24 @@ representation of declarations of phases is given :numref:`bnf_mission_phase`.
 Splitting the Model into Several Files
 ======================================
 
-So far, we have written as if the model fits completely into a single
-file. For even medium size PSA models this assumption not compatible
-with Quality Control. Moreover, such a monolithic organization of data
-would be very hard to manage when several persons work together on the
-same model.
+So far, we have written as if the model fits completely into a single file.
+For even medium size PSA models this assumption not compatible with Quality Control.
+Moreover, such a monolithic organization of data would be very hard to manage
+when several persons work together on the same model.
 
-A first way to split the model into several files is to use the XML
-notion of entities: in any XML file it is possible to declare file
-entities in the preamble and to include them in the body of the
-document. This mechanism is exemplified below.
+A first way to split the model into several files is to use the XML notion of entities:
+in any XML file, it is possible to declare file entities in the preamble,
+and to include them in the body of the document.
+This mechanism is exemplified below.
 
 .. code-block:: xml
 
     <?xml version="1.0" ?>
 
-    <!DOCTYPE SMRF
-    [!ENTITY file1 SYSTEM "file1.xml"
-    ENTITY file2 SYSTEM "file2.xml"
-    >
+    <!DOCTYPE SMRF [
+    <!ENTITY file1 SYSTEM "file1.xml">
+    <!ENTITY file2 SYSTEM "file2.xml">
+    ]>
     <smrf>
         ...
         &file1;
@@ -110,14 +112,14 @@ document. This mechanism is exemplified below.
         ...
     </smrf>
 
-This mechanism has however the drawback that XML tools have to include
-actually the files into the document, hence making its manipulation
-heavier.
+This mechanism, however, has the drawback
+that XML tools have to actually include the files into the document,
+hence, making its manipulation heavier.
 
-The Model Exchange Format proposes another simple mechanism to achieve
-the same goal: the tag include. This tag can be inserted at any place in
-a document. Its effect is to load the content of the given file into the
-model.
+The Model Exchange Format proposes another simple mechanism to achieve the same goal:
+the tag include.
+This tag can be inserted at any place in a document.
+Its effect is to load the content of the given file into the model.
 
 .. code-block:: xml
 
@@ -130,11 +132,10 @@ model.
 Organization of a Model
 =======================
 
-The Model Exchange Format introduces five types of containers: models at
-the top level, event trees, fault trees, components and model-data. The
-Model Exchange Format introduces also eighteen constructs.
-:numref:`fig_containers_and_constructs` shows the containers
-and the constructs they can define.
+The Model Exchange Format introduces five types of containers:
+models at the top level, event trees, fault trees, components and model-data.
+The Model Exchange Format introduces also eighteen constructs.
+:numref:`fig_containers_and_constructs` shows the containers and the constructs they can define.
 
 .. figure:: ../images/containers_and_constructs.svg
     :name: fig_containers_and_constructs
