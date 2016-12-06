@@ -18,23 +18,23 @@ Elements of a model are, as expected, components of fault trees/event trees,
 namely basic events, gates, house events, probability distributions,
 initiating events, safety systems, consequences, etc.
 Conceptually, it is convenient to arrange most of these elements
-into one of the three categories: terms, variables and containers.
+into one of the three categories: terms, variables, and containers.
 
 Variables
     Variables are named elements.
     Gates, basic events, house events, stochastic parameters, functional events,
-    initiating events and consequences are all variables.
+    initiating events, and consequences are all variables.
     A variable is always defined, i.e., associated with a term.
 
 Terms
-    Terms are built over variables, constants and operators.
+    Terms are built over variables, constants, and operators.
     For instance, the Boolean formula "primary-motor-failure or no-current-to-motor"
     is a term built over the basic event "primary-motor-failure",
-    the gate "no-current-to-motor" and the Boolean operator "or".
+    the gate "no-current-to-motor", and the Boolean operator "or".
     Similarly, the probability distribution "1-exp(-lambda\*t)"
     is a term built over the numerical constant "1",
     the failure rate "lambda", the time "t",
-    and the three arithmetic operators "-", "exp" and "\*"
+    and the three arithmetic operators "-", "exp", and "\*"
     ("lambda" and "t" are variables).
     Note that variables are terms.
 
@@ -46,7 +46,7 @@ Containers
     Containers have names and can be themselves grouped into higher level containers.
     For instance, a fault tree is a container
     for definitions of gates, house-events,
-    basic events and parameters of probability distributions.
+    basic events, and parameters of probability distributions.
     Similarly, an event tree is a container
     for definitions of initiating events, functional events, sequences, etc.
 
@@ -66,15 +66,15 @@ Stochastic variables and terms
 
 From a programming viewpoint,
 it is convenient to group definitions of parameters into (stochastic) containers.
-The stochastic layer is populated with stochastic parameters, expressions and containers.
+The stochastic layer is populated with stochastic parameters, expressions, and containers.
 
 Fault Tree Layer
 ----------------
 
-Boolean formulae, Basic Events, House Events and Gates
+Boolean formulae, Basic Events, House Events, and Gates
     Boolean formulae, or formulae for short, are terms built over the usual set of
-    constants (true, false), connectives (and, or, not, etc.) and Boolean variables,
-    i.e., Basic Events, Gates and House Events.
+    constants (true, false), connectives (and, or, not, etc.), and Boolean variables,
+    i.e., Basic Events, Gates, and House Events.
     Boolean variables are called events,
     for that's what they represent in the sense of the probability theory.
     Basic events are associated with probability distributions,
@@ -85,7 +85,7 @@ Boolean formulae, Basic Events, House Events and Gates
 
 Fault Trees
     According to what precedes, a fault tree is container for
-    definitions of parameters, basic events, house events and gates.
+    definitions of parameters, basic events, house events, and gates.
 
 The fault tree layer is populated with all elements we have seen so far.
 
@@ -168,7 +168,7 @@ Instructions, Rules
 
 Consequences, Consequence groups
     Consequences are couples made of an initiating event and a sequence (an event tree end-state).
-    Consequences are named and are defined.
+    Consequences are named and defined.
     They are variables according to our terminology.
     Like Initiating Events, Consequences can be grouped to study a particular type of accident.
     Consequence Groups are also variables (the consequence terms are set operations).
@@ -184,13 +184,13 @@ Structure of a Model
 Relationships between elements of a model
 -----------------------------------------
 
-The elements of a model, their layer and their dependencies
+The elements of a model, their layer, and their dependencies
 are pictured in :numref:`fig_mef_anatomy`.
 This schema illustrates the description given in the previous section.
 Term categories are represented by rectangles.
 Variables categories are represented by rounded rectangles.
 A variable category is always included in a term category (for variables are terms).
-The three container categories, namely models, event trees and fault trees
+The three container categories, namely models, event trees, and fault trees,
 are represented by dashed rectangles.
 Dependencies among categories are represented by arrows.
 
@@ -198,7 +198,7 @@ Dependencies among categories are represented by arrows.
     :name: fig_mef_anatomy
     :align: center
 
-    The main elements of a model, their layers and their dependencies
+    The main elements of a model, their layers, and their dependencies
 
 Giving more structure to a model
 --------------------------------
@@ -251,8 +251,8 @@ and tools are in charge of solving potential name conflicts.
 
 .. _definitions_labels_attributes:
 
-Definitions, Labels and Attributes
-----------------------------------
+Definitions, Labels, and Attributes
+-----------------------------------
 
 Here follows some additional useful elements about the Model Exchange Format.
 

@@ -25,7 +25,7 @@ pictured in :numref:`fig_small_event_tree`.
 This event tree is made of the following elements.
 
 - An initiating event I
-- Three functional events F, G and H
+- Three functional events F, G, and H
 - Six sequences ending in six (a priori) different states S1 to S6
 
 The numbered black dots should be ignored for now.
@@ -112,7 +112,7 @@ In the Model Exchange Format, alternatives of the fork are called paths.
 Paths are labeled by the state of the functional event that labels the fork.
 
 Let us consider again the event tree pictured in :numref:`fig_small_event_tree`.
-Assume that end states S1 and S3 on the one hand, S2 and S4 and the other hand, are identical,
+Assume that end states S1 and S3 on the one hand, S2 and S4 on the other hand, are identical,
 and that we merge the corresponding sub-trees.
 Assume moreover that the lowest success branch of the functional event H is actually a bypass.
 Then, the structure of the tree is pictured in :numref:`fig_event_tree_structure`.
@@ -129,8 +129,8 @@ Finally, the branch (the sub-tree) rooted by the node 2 is named B1.
 Components of the event tree pictured in :numref:`fig_event_tree_structure` are the following.
 
 - The initiating event I
-- The three functional events F, G and H
-- The end states S1, S2, S5 and S6
+- The three functional events F, G, and H
+- The end states S1, S2, S5, and S6
 - The branch B1
 - The tree rooted by the initial node (here the node 1)
 
@@ -363,9 +363,9 @@ In the Model Exchange Format,
 the operation is performed by means of the instruction "collect-expression".
 
 To give flavors to fault trees,
-i.e., to change the values of gates, house events, basic events and parameters,
+i.e., to change the values of gates, house events, basic events, and parameters,
 the Model Exchange Format introduces the four corresponding instruction:
-"set-gate", "set-house-event", "set-basic-event" and "set-parameter".
+"set-gate", "set-house-event", "set-basic-event", and "set-parameter".
 
 Sequences are walked from left to right.
 Therefore, when a value of an element is changed,

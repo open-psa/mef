@@ -48,7 +48,7 @@ Portability of the models between different software
 
 Clarity of the models
     For one who examined a number of large nuclear PRA models, it is obvious
-    that just looking at the basic events, gates and fault trees/event trees
+    that just looking at the basic events, gates, and fault trees/event trees
     is of little help in understanding the "where", "why", and "how" of model elements:
     common cause failures, initiating events, sequence information, alignment information,
     systems and trains, flags, logic of recovery rules, or the dreaded "delete terms".
@@ -198,7 +198,7 @@ Each layer corresponds to a specific class of objects/mathematical constructs.
   like common cause groups, delete terms, and recovery rules
   that are used to give flavors to fault trees.
 - The fourth, or event tree, layer is populated with event trees,
-  initiating events and consequences.
+  initiating events, and consequences.
   The Model Exchange Format sees event trees as (graphical) programs.
   The execution of such a program produces a set of sequences,
   i.e., a set (a disjunction) of Boolean formulae.

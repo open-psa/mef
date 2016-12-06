@@ -23,7 +23,7 @@ Common cause groups are groups of basic events
 whose failure are not independent from a statistical view point.
 They may occur either independently or dependently due to a common cause failure.
 So far, existing tools embed three models for common cause failures (CCF):
-the beta-factor model, the Multiple Greek letters (MGL) model and the alpha-factor model.
+the beta-factor model, the Multiple Greek letters (MGL) model, and the alpha-factor model.
 Alpha-factor and MGL models differ only in the way
 the factors for each level (2 components fail, 3 components fail, etc.) are given.
 The Model Exchange Format proposes the three mentioned models plus a fourth one,
@@ -81,9 +81,9 @@ Multiple Greek Letters
         Q_k = \frac{1}{\binom{n-1}{k-1}} \times \left(\prod_{i=2}^{k}\rho_i \right) \times
             (1 - \rho_{k+1}) \times Q
 
-    For instance, for a group of 4 basic events: A, B, C and D,
+    For instance, for a group of 4 basic events: A, B, C, and D,
     the basic event A is transformed into a gate
-    :math:`G_A = A \lor AB \lor AC \lor AD \lor ABC \lor ABD \lor ACD \lor ABDC`
+    :math:`G_A = A \lor AB \lor AC \lor AD \lor ABC \lor ABD \lor ACD \lor ABDC`,
     and the :math:`Q_k`'s are as follows.
 
     .. math::
@@ -199,8 +199,8 @@ Here follows a declaration of a CCF-group with four elements under the MGL model
         </distribution>
     </define-CCF-group>
 
-Delete Terms, Recovery Rules and Exchange Events
-================================================
+Delete Terms, Recovery Rules, and Exchange Events
+=================================================
 
 Description
 -----------
@@ -242,7 +242,7 @@ Delete Terms
 Recovery Rules
     Recovery Rules are an extension of Delete Terms.
     A Recovery Rule is a couple :math:`(H, e)`,
-    where :math:`H` is a set of basic events and :math:`e` is a (fake) basic event.
+    where :math:`H` is a set of basic events, and :math:`e` is a (fake) basic event.
     It is used to post-process minimal cut sets:
     if a minimal cut set :math:`C` contains :math:`H`, the :math:`e` is added to :math:`C`.
     Recovery Rules are used to model actions taken in some specific configurations
@@ -320,7 +320,7 @@ If :math:`t` is the constant "false",
 adding :math:`t` to :math:`C` is equivalent to discard :math:`C`.
 
 This notion of substitution generalizes
-the notions of Delete Terms, Recovery Rules and Exchange Events:
+the notions of Delete Terms, Recovery Rules, and Exchange Events:
 
 - Let :math:`D = \{e_1, e_2, \ldots, e_n\}`
   be a group of pairwise exclusive events (a Delete Term).
@@ -365,10 +365,10 @@ The optional attribute "type" is used to help tools that implement "traditional"
 Example
 ~~~~~~~
 
-Assume that Basic Events "failure-pump-A", "failure-pump-B" and "failure-pump-C"
+Assume that Basic Events "failure-pump-A", "failure-pump-B", and "failure-pump-C"
 are pairwise exclusive (they form a delete term)
 because they can only occur
-when, respectively, equipment A, B and C are under maintenance
+when, respectively, equipment A, B, and C are under maintenance
 and only one equipment can be in maintenance at once.
 The representation of such a delete term is as follows.
 
@@ -390,7 +390,7 @@ The representation of such a delete term is as follows.
 Example
 ~~~~~~~
 
-Assume that if the valve V is broken and an overpressure is detected in pipe P,
+Assume that if the valve V is broken, and an overpressure is detected in pipe P,
 then a mitigating action A is performed.
 This is a typical Recovery Rule (under the first interpretation),
 where the hypothesis is the conjunction of Basic Events "valve-V-broken" and "overpressure-pipe-P",

@@ -6,7 +6,7 @@ Organization of a Model
 
 This chapter discusses the organizations of models.
 It includes the definition of two additional constructs:
-the notions of consequence, consequence group and alignment.
+the notions of consequence, consequence group, and alignment.
 
 Additional Constructs
 =====================
@@ -56,7 +56,7 @@ This mechanism makes it possible to link event trees.
 Missions, Phases
 ----------------
 
-Phases are physical configurations (like operation and maintenance)
+Phases are physical configurations (e.g., operation and maintenance)
 in which the plant spends a fraction of the mission time.
 Phases are grouped into missions.
 The time fractions of the phases of a mission should sum to 1.
@@ -133,7 +133,7 @@ Organization of a Model
 =======================
 
 The Model Exchange Format introduces five types of containers:
-models at the top level, event trees, fault trees, components and model-data.
+models at the top level, event trees, fault trees, components, and model-data.
 The Model Exchange Format introduces also eighteen constructs.
 :numref:`fig_containers_and_constructs` shows the containers and the constructs they can define.
 

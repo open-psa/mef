@@ -8,7 +8,7 @@ Preliminary Discussion
 The report layer is populated with constructs to save results of calculations.
 These constructs fall into two categories:
 
-- Constructs to tell which software, algorithm(s) and option(s) were used to produce the results
+- Constructs to tell which software, algorithm(s), and option(s) were used to produce the results
 - The results themselves
 
 It is almost impossible and probably not even desirable to normalize fully the report layer.

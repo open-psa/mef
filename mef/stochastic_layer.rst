@@ -133,7 +133,7 @@ The XML representation of the stochastic layer just reflects these different con
     operation ::=
         numerical-operation | Boolean-operation | conditional-operation
 
-Operations, built-ins and random deviates will be described in the following sections.
+Operations, built-ins, and random deviates will be described in the following sections.
 
 We believe that the formalism to define stochastic equations
 should be as large and as open as possible for at least two reasons:
@@ -155,7 +155,7 @@ Numerical Operation
 proposed by the Model Exchange Format.
 Their XML representation is given in :numref:`bnf_numerical_operations`.
 
-.. table:: Numerical Operations, their number of arguments and their semantics
+.. table:: Numerical Operations, their number of arguments, and their semantics
     :name: table_numerical_operations
 
     +-----------+------------+-----------------------------------------+
@@ -285,7 +285,7 @@ Boolean Operations
 proposed by the Model Exchange Format.
 Their XML representation is given in :numref:`bnf_boolean_operations`.
 
-.. table:: Boolean operators, their number of arguments and their semantics
+.. table:: Boolean operators, their number of arguments, and their semantics
     :name: table_boolean_operators
 
     +----------+------------+---------------+
@@ -333,7 +333,7 @@ an "if-then-else" operation and a "switch/case" operation.
 The latter is a list of pairs of expressions introduced by the tag "case".
 The first expression of the pair should be a Boolean condition.
 If this condition is realized,
-then the second expression is evaluated and its value returned.
+then the second expression is evaluated, and its value returned.
 Otherwise, the next pair is considered.
 
 The list ends with an expression
@@ -428,7 +428,7 @@ Exponential with four parameters (Generalized Linear Model or GLM)
     and failures on demand (through the probability :math:`\gamma` of such an event).
     It takes four parameters,
     :math:`\gamma`, the hourly failure rate :math:`\lambda`,
-    :math:`\mu` and the time :math:`t` (in this order).
+    :math:`\mu`, and the time :math:`t` (in this order).
 
 .. math::
 
@@ -512,9 +512,9 @@ The Markov graphs for each of these cases are pictured in :numref:`fig_multi_pha
     Multi-phase Markov graph for the "periodic-test" built-in
 
 Ai's, Fi's, Ri's states correspond respectively to states
-where the component is available, failed and in repair.
+where the component is available, failed, and in repair.
 Dashed lines correspond to immediate transitions.
-Initial states are respectively A1, F1 and R1.
+Initial states are respectively A1, F1, and R1.
 
 The situation is simpler in the third phase.
 If the component enters available this phase,
@@ -561,7 +561,7 @@ Extern functions
     but it would be far too complex to embed XML into stochastic expressions.
 
 
-.. table:: Built-ins, their number of arguments and their semantics
+.. table:: Built-ins, their number of arguments, and their semantics
     :name: table_built_ins
 
     +---------------------+------------+---------------------------------------------------------------------------------------------------------------------------+
@@ -603,7 +603,7 @@ is given in :numref:`bnf_built_ins`.
 
     We adopted a positional definition of arguments.
     For instance, in the negative exponential distribution,
-    we assumed that the failure rate is always the first argument
+    we assumed that the failure rate is always the first argument,
     and the mission time is always the second.
     An alternative way would be to name arguments,
     i.e., to enclose them into tags explicating their role.
@@ -646,24 +646,24 @@ and histograms that are user defined discrete distributions.
 A preliminary list of distributions is summarized in :numref:`table_random_deviates`.
 As for arithmetic operators and built-ins, this list can be extended on demand.
 
-.. table:: Primitive to generate random deviates, their number of arguments and their semantics
+.. table:: Primitive to generate random deviates, their number of arguments, and their semantics
     :name: table_random_deviates
 
-    +-----------------------+------------+------------------------------------------------------------------------------------------------------------+
-    | Distribution          | #arguments | Semantics                                                                                                  |
-    +=======================+============+============================================================================================================+
-    | **uniform-deviate**   | 2          | uniform distribution between a lower and an upper bounds                                                   |
-    +-----------------------+------------+------------------------------------------------------------------------------------------------------------+
-    | **normal-deviate**    | 2          | normal (Gaussian) distribution defined by its mean and its standard deviation                              |
-    +-----------------------+------------+------------------------------------------------------------------------------------------------------------+
-    | **lognormal-deviate** | 3          | lognormal distribution defined by its mean, its error factor and the confidence level of this error factor |
-    +-----------------------+------------+------------------------------------------------------------------------------------------------------------+
-    | **gamma-deviate**     | 2          | gamma distributions defined by a shape and a scale factors                                                 |
-    +-----------------------+------------+------------------------------------------------------------------------------------------------------------+
-    | **beta-deviate**      | 2          | beta distributions defined by two shape parameters :math:`\alpha` and :math:`\beta`                        |
-    +-----------------------+------------+------------------------------------------------------------------------------------------------------------+
-    | **histograms**        | any        | discrete distributions defined by means of a list of pairs                                                 |
-    +-----------------------+------------+------------------------------------------------------------------------------------------------------------+
+    +-----------------------+------------+-------------------------------------------------------------------------------------------------------------+
+    | Distribution          | #arguments | Semantics                                                                                                   |
+    +=======================+============+=============================================================================================================+
+    | **uniform-deviate**   | 2          | uniform distribution between a lower and an upper bounds                                                    |
+    +-----------------------+------------+-------------------------------------------------------------------------------------------------------------+
+    | **normal-deviate**    | 2          | normal (Gaussian) distribution defined by its mean and its standard deviation                               |
+    +-----------------------+------------+-------------------------------------------------------------------------------------------------------------+
+    | **lognormal-deviate** | 3          | lognormal distribution defined by its mean, its error factor, and the confidence level of this error factor |
+    +-----------------------+------------+-------------------------------------------------------------------------------------------------------------+
+    | **gamma-deviate**     | 2          | gamma distributions defined by a shape and a scale factors                                                  |
+    +-----------------------+------------+-------------------------------------------------------------------------------------------------------------+
+    | **beta-deviate**      | 2          | beta distributions defined by two shape parameters :math:`\alpha` and :math:`\beta`                         |
+    +-----------------------+------------+-------------------------------------------------------------------------------------------------------------+
+    | **histograms**        | any        | discrete distributions defined by means of a list of pairs                                                  |
+    +-----------------------+------------+-------------------------------------------------------------------------------------------------------------+
 
 Uniform Deviates
     These primitives describe uniform distributions in a given range

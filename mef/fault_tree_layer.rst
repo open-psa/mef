@@ -74,7 +74,7 @@ We shall see what parameters and expressions are in the next chapter.
     A Fault Tree
 
 The semantics of connectives is given in :numref:`table_boolean_connectives`.
-Note that connectives "and", "or", "xor", "iff", "nand" and "nor" are associative.
+Note that connectives "and", "or", "xor", "iff", "nand", and "nor" are associative.
 Therefore, it suffices to give their semantics when they take two arguments,
 i.e., two Boolean formulae F and G.
 
@@ -143,7 +143,7 @@ i.e., two Boolean formulae F and G.
 .. admonition:: Dynamic Gates
 
     In a second step, it would be of interest to incorporate to the Model Exchange Format
-    "inhibit" gates, "priority" gates and "triggers"
+    "inhibit" gates, "priority" gates, and "triggers"
     (like in Boolean Driven Markov processes).
     All of these dynamic gates can be interpreted as "and" gates in a Boolean framework.
     In more general frameworks (like Markovian frameworks),
@@ -329,10 +329,10 @@ Labels and attributes are introduced in Section :ref:`definitions_labels_attribu
 They can be associated with a declared element in order to document this element.
 Fault trees are a first mean to structure models.
 A fault tree groups any number of declarations of
-gates, house events, basic event and parameters.
+gates, house events, basic event, and parameters.
 
 It is sometimes convenient
-to group definitions of house events, basic events and parameters outside fault trees.
+to group definitions of house events, basic events, and parameters outside fault trees.
 The Model Exchange Format provides the container "model-data" to do so.
 
 The Model Exchange Format makes it possible
@@ -341,7 +341,7 @@ A component is just a container for declarations of events and parameters.
 It has a name and may contain other components.
 The use of components is illustrated by the following example.
 
-:numref:`fault_tree_with_components` shows a fault tree FT with three components A, B and C.
+:numref:`fault_tree_with_components` shows a fault tree FT with three components A, B, and C.
 The component B is nested into the component A.
 The XML representation for this Fault Tree is given in :numref:`xml_fault_tree_with_components`.
 With a little anticipation, we declared basic events.
@@ -429,7 +429,7 @@ For instance, if the component "A" of the fault tree
 pictured in :numref:`xml_fault_tree_with_components`
 is declared as private,
 then the component "B" (and its two basic events "BE2" and "BE3"),
-the gates "G1" and "G2" and the basic event "BE1" are private by default.
+the gates "G1" and "G2", and the basic event "BE1" are private by default.
 There is no difference between public and private elements
 except that two private elements of two different containers may have the same name,
 while public elements must be uniquely defined.
@@ -499,6 +499,6 @@ Use Portable Identifiers
     not using lexical entities, such as spaces, tabulations, "." or "/", in names of elements,
     as well as realizing that some old tools cannot differentiate between capital and small letters.
 
-Role of Parameters, House Events and Basic Events
-    Parameters, house events and basic events should be always public,
+Role of Parameters, House Events, and Basic Events
+    Parameters, house events, and basic events should be always public,
     in order to facilitate their portability from one tool to another.
