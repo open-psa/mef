@@ -18,7 +18,9 @@ install:
     - pip install sphinx sphinx_rtd_theme
 
 script:
-    - spell -n -o -d en_us.ascii.add.spl mef/* | grep -v 'references.rst' > _warnings
-    - grep -P -n "[^[:ascii:]]" mef/* | grep -v 'references.rst' >> _warnings
+    - spell -n -o -d en_us.ascii.add.spl mef/* | grep -v 'references.rst' > _warnings \
+        || echo "no spelling errors!"
+    - grep -P -n "[^[:ascii:]]" mef/* | grep -v 'references.rst' >> _warnings \
+        || echo "no non-ASCII chars!"
     - make html linkcheck 2>> _warnings
     - cat _warnings && [[ ! -s _warnings ]]
