@@ -32,13 +32,14 @@ if sys.version[0] == '2':
 
 # If your documentation needs a minimal Sphinx version, state it here.
 #
-needs_sphinx = '1.4'
+needs_sphinx = '1.5'
 
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'sphinx.ext.imgmath',
+    # 'sphinx.ext.imgmath',
+    'sphinx.ext.mathjax',
     'sphinx.ext.githubpages',
 ]
 
@@ -86,7 +87,7 @@ version_date = '2007-08-1'
 #
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
-language = None
+language = 'en'
 
 # There are two options for replacing |today|: either, you set today to some
 # non-false value, then it is used:
@@ -263,6 +264,7 @@ htmlhelp_basename = 'TheOpen-PSAModelExchangeFormatdoc'
 
 # -- Options for LaTeX output ---------------------------------------------
 
+latex_engine = 'xelatex'
 latex_elements = {
      # The paper size ('letterpaper' or 'a4paper').
      #
@@ -274,7 +276,7 @@ latex_elements = {
 
      # Additional stuff for the LaTeX preamble.
      #
-     # 'preamble': '',
+     'preamble': r'\usepackage{siunitx}',
 
      # Latex figure (float) alignment
      #
@@ -285,14 +287,15 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'TheOpen-PSAModelExchangeFormat.tex', u'The Open-PSA Model Exchange Format Documentation',
+    (master_doc, 'TheOpen-PSAModelExchangeFormat.tex',
+     u'The Open-PSA Model Exchange Format',
      u'The Open-PSA Initiative', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
 # the title page.
 #
-# latex_logo = None
+latex_logo = 'images/opsa_logo.png'
 
 # For "manual" documents, if this is true, then toplevel headings are parts,
 # not chapters.

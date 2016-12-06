@@ -19,10 +19,14 @@ so the stochastic layer can be seen a set of stochastic equations.
 Stochastic equations associated with basic events actually play two roles:
 
 - They are applied to calculate probability distributions of each basic event,
-  i.e., for a given mission time t,
-  the probability Q(t) that the given basic event occurs before t.
+  i.e., for a given mission time :math:`t`,
+  the probability :math:`Q(t)` that the given basic event occurs before :math:`t`.
   The probability distribution associated with a basic event
-  is typically a negative exponential distribution of parameter *λ*:
+  is typically a negative exponential distribution of parameter :math:`\lambda`:
+
+.. math::
+
+    Q(t) = 1 - e ^ {- \lambda t}
 
 Note that, for the sake of the clarity,
 the Model Exchange Format represents explicitly the mission time as a parameter of a special type.
@@ -31,7 +35,7 @@ the Model Exchange Format represents explicitly the mission time as a parameter 
   Sensitivity analyses, such as Monte-Carlo simulations,
   are thus performed to study the change in risk due to this uncertainty.
   Expressions, therefore, are used to describe distributions of parameters.
-  Typically, the parameter *λ* of a negative exponential distribution
+  Typically, the parameter :math:`\lambda` of a negative exponential distribution
   will be itself distributed according to a lognormal law of mean 0.001 and error factor 3.
 
 Stochastic expressions are made of the following elements:
@@ -249,7 +253,8 @@ Example
 ~~~~~~~
 
 Assume, for instance,
-we want to associate a negative exponential distribution with a failure rate *λ*\ =1.23e-4/h
+we want to associate a negative exponential distribution
+with a failure rate :math:`\lambda = {1.23 \times 10^{-4}}h^{-1}`
 to the basic event "pump-failure".
 Using primitives defined above,
 we can encode explicitly such probability distribution as follows.
@@ -283,27 +288,27 @@ Their XML representation is given in :numref:`bnf_boolean_operations`.
 .. table:: Boolean operators, their number of arguments and their semantics
     :name: table_boolean_operators
 
-    +----------+------------+-------------+
-    | Operator | #arguments | Semantics   |
-    +==========+============+=============+
-    | **and**  | > 1        | Boolean and |
-    +----------+------------+-------------+
-    | **or**   | >1         | Boolean or  |
-    +----------+------------+-------------+
-    | **not**  | 1          | Boolean not |
-    +----------+------------+-------------+
-    | **eq**   | 2          | =           |
-    +----------+------------+-------------+
-    | **df**   | 2          |  ≠          |
-    +----------+------------+-------------+
-    | **lt**   | 2          | <           |
-    +----------+------------+-------------+
-    | **gt**   | 2          | >           |
-    +----------+------------+-------------+
-    | **leq**  | 2          |  ≤          |
-    +----------+------------+-------------+
-    | **geq**  | 2          |  ≥          |
-    +----------+------------+-------------+
+    +----------+------------+---------------+
+    | Operator | #arguments | Semantics     |
+    +==========+============+===============+
+    | **and**  | > 1        | :math:`\land` |
+    +----------+------------+---------------+
+    | **or**   | >1         | :math:`\lor`  |
+    +----------+------------+---------------+
+    | **not**  | 1          | :math:`\lnot` |
+    +----------+------------+---------------+
+    | **eq**   | 2          | :math:`=`     |
+    +----------+------------+---------------+
+    | **df**   | 2          | :math:`\neq`  |
+    +----------+------------+---------------+
+    | **lt**   | 2          | :math:`\lt`   |
+    +----------+------------+---------------+
+    | **gt**   | 2          | :math:`\gt`   |
+    +----------+------------+---------------+
+    | **leq**  | 2          | :math:`\leq`  |
+    +----------+------------+---------------+
+    | **geq**  | 2          | :math:`\geq`  |
+    +----------+------------+---------------+
 
 .. code-block:: bnf
     :name: bnf_boolean_operations
@@ -409,24 +414,37 @@ Here follows a preliminary list of built-ins.
 
 Exponential with two parameters
     This built-in implements the negative exponential distribution.
-    The two parameters are the hourly failure rate, usually called *λ*, and the time *t*.
-    Its definition is as follows.
+    The two parameters are the hourly failure rate, usually called :math:`\lambda`,
+    and the time :math:`t`.
 
-Exponential with four parameters (GLM)
+.. math::
+
+    P(t;\lambda) = 1 - e ^ {- \lambda t}
+
+Exponential with four parameters (Generalized Linear Model or GLM)
     This built-in generalizes the previous one.
     It makes it possible to take into account
-    repairable components (through the hourly repairing rate *µ*)
-    and failures on demand (through the probability *γ* of such an event).
+    repairable components (through the hourly repairing rate :math:`\mu`)
+    and failures on demand (through the probability :math:`\gamma` of such an event).
     It takes four parameters,
-    *γ*, the hourly failure rate *λ*, *µ* and the time *t* (in this order).
-    Its definition is as follows.
+    :math:`\gamma`, the hourly failure rate :math:`\lambda`,
+    :math:`\mu` and the time :math:`t` (in this order).
+
+.. math::
+
+    P(t;\gamma,\lambda,\mu) =
+        \frac{\lambda}{\lambda + \mu} -
+        \frac{\lambda - \gamma(\lambda + \mu)}{\lambda + \mu} \times e^{-(\lambda + \mu) t}
 
 Weibull
     This built-in implements the Weibull distribution.
     It takes four parameters:
-    a scale parameter *α*, a shape parameter *β*,
-    a time shift *t*\ :sub:`0`, and the time *t* (in this order).
-    Its definition is as follows.
+    a scale parameter :math:`\alpha`, a shape parameter :math:`\beta`,
+    a time shift :math:`t_0`, and the time :math:`t` (in this order).
+
+.. math::
+
+    P(t;\alpha,\beta,t_0) = 1 - \exp \left[ -\left(\dfrac{t - t_0}{\alpha}\right) ^ \beta \right]
 
 Periodic test
     In several applications,
@@ -438,48 +456,49 @@ Periodic test
 
 The "periodic-test" built-in would take the following parameters (in order).
 
-+---------------+---------------------------------------------------------------------------------------+
-| **Parameter** | **Description**                                                                       |
-+===============+=======================================================================================+
-| **λ**         | failure rate when the component is working.                                           |
-+---------------+---------------------------------------------------------------------------------------+
-| **λ**\*       | failure rate when the component is tested.                                            |
-+---------------+---------------------------------------------------------------------------------------+
-| **µ**         | repair rate (once the test showed that the component is failed).                      |
-+---------------+---------------------------------------------------------------------------------------+
-| **τ**         | delay between two consecutive tests.                                                  |
-+---------------+---------------------------------------------------------------------------------------+
-| **θ**         | delay before the first test.                                                          |
-+---------------+---------------------------------------------------------------------------------------+
-| **γ**         | probability of failure due to the (beginning of the) test.                            |
-+---------------+---------------------------------------------------------------------------------------+
-| **π**         | duration of the test.                                                                 |
-+---------------+---------------------------------------------------------------------------------------+
-| **x**         | indicator of the component availability during the test (1 available, 0 unavailable). |
-+---------------+---------------------------------------------------------------------------------------+
-| **σ**         | test covering: probability that the test detects the failure, if any.                 |
-+---------------+---------------------------------------------------------------------------------------+
-| **ω**         | probability that the component is badly restarted after a test or a repair.           |
-+---------------+---------------------------------------------------------------------------------------+
-| **t**         | the mission time.                                                                     |
-+---------------+---------------------------------------------------------------------------------------+
++-------------------+---------------------------------------------------------------------------------------+
+| :math:`\lambda`   | failure rate when the component is working.                                           |
++-------------------+---------------------------------------------------------------------------------------+
+| :math:`\lambda*`  | failure rate when the component is tested.                                            |
++-------------------+---------------------------------------------------------------------------------------+
+| :math:`\mu`       | repair rate (once the test showed that the component is failed).                      |
++-------------------+---------------------------------------------------------------------------------------+
+| :math:`\tau`      | delay between two consecutive tests.                                                  |
++-------------------+---------------------------------------------------------------------------------------+
+| :math:`\theta`    | delay before the first test.                                                          |
++-------------------+---------------------------------------------------------------------------------------+
+| :math:`\gamma`    | probability of failure due to the (beginning of the) test.                            |
++-------------------+---------------------------------------------------------------------------------------+
+| :math:`\pi`       | duration of the test.                                                                 |
++-------------------+---------------------------------------------------------------------------------------+
+| :math:`x`         | indicator of the component availability during the test (1 available, 0 unavailable). |
++-------------------+---------------------------------------------------------------------------------------+
+| :math:`\sigma`    | test covering: probability that the test detects the failure, if any.                 |
++-------------------+---------------------------------------------------------------------------------------+
+| :math:`\omega`    | probability that the component is badly restarted after a test or a repair.           |
++-------------------+---------------------------------------------------------------------------------------+
+| :math:`t`         | the mission time.                                                                     |
++-------------------+---------------------------------------------------------------------------------------+
 
-:numref:`fig_periodic_test` illustrates the meaning of the parameters *τ*, *θ* and *π*.
+:numref:`fig_periodic_test` illustrates the meaning of the parameters
+:math:`\tau`, :math:`\theta`, and :math:`\pi`.
 
 .. figure:: ../images/periodic_test.png
     :name: fig_periodic_test
     :align: center
 
-    Meaning of parameters *τ*, *θ* and *π* of the "periodic-test" built-in
+    Meaning of parameters :math:`\tau`, :math:`\theta`, and :math:`\pi`
+    of the "periodic-test" built-in
 
 There are three phases in the behavior of the component.
-The first phase corresponds to the time from 0 to the date of the first test, i.e. *θ*.
+The first phase corresponds to the time from 0 to the date of the first test, i.e. :math:`\theta`.
 The second phase is the test phase.
-It spreads from times *θ*\ +n.\ *τ* to *θ*\ +n.\ *τ*\ +\ *π*, with n any positive integer.
+It spreads from times :math:`\theta + n\tau` to :math:`\theta + n\tau + \pi`,
+with *n* any positive integer.
 The third phase is the functioning phase.
-It spreads from times *θ*\ +n.\ *τ*\ +\ *π* from *θ*\ +(n+1).\ *τ*.
+It spreads from times :math:`\theta + n\tau + \pi` to :math:`\theta + (n + 1)\tau`.
 
-In the first phase, the distribution is a simple exponential law of parameter *λ*.
+In the first phase, the distribution is a simple exponential law of parameter :math:`\lambda`.
 
 The component may enter in the second phase in three states,
 either working, failed or in repair.
@@ -499,7 +518,7 @@ Initial states are respectively A1, F1 and R1.
 
 The situation is simpler in the third phase.
 If the component enters available this phase,
-the distribution follows an exponential law of parameter *λ*.
+the distribution follows an exponential law of parameter :math:`\lambda`.
 If the component enters failed in this phase,
 it remains phase up to the next test.
 Finally, the Markov graph for the case where the component is in repair
@@ -509,22 +528,26 @@ The Model Exchange Format could also provide
 two simplified forms for the periodic test distribution.
 
 Periodic-test with 5 arguments
-    The first one takes five parameters: *λ*, *µ*, *τ*, *θ* and *t*.
+    The first one takes five parameters:
+    :math:`\lambda`, :math:`\mu`, :math:`\tau`, :math:`\theta`, and :math:`t`.
     In that case, the test is assumed to be instantaneous.
-    Therefore, parameters *λ*\* (the failure rate during the test)
-    and x (indicator of the component availability during the test) are meaningless.
+    Therefore, parameters :math:`\lambda*` (the failure rate during the test)
+    and :math:`x` (indicator of the component availability during the test) are meaningless.
     There other parameters are set as follows.
 
-    - *γ* (the probability of failure due to the beginning of the test)
+    - :math:`\gamma` (the probability of failure due to the beginning of the test)
       is set to 0.
-    - *σ* (the probability that the test detects the failure, if any)
+    - :math:`\sigma` (the probability that the test detects the failure, if any)
       is set to 1.
-    - *ω* (the probability that the component is badly restarted after a test or a repair)
+    - :math:`\omega`
+      (the probability that the component is badly restarted after a test or a repair)
       is set to 0.
 
 Periodic-test with 4 arguments
-    The second one takes only four parameters: *λ*, *τ*, *θ* and t.
-    The repair is assumed to be instantaneous (or equivalently the repair rate µ = +∞).
+    The second one takes only four parameters:
+    :math:`\lambda`, :math:`\tau`, :math:`\theta`, and :math:`t`.
+    The repair is assumed to be instantaneous
+    (or equivalently the repair rate :math:`\mu = {+\infty}`).
 
 Extern functions
     The Model Exchange Format should provide a mean to call extern functions.
@@ -629,7 +652,7 @@ As for arithmetic operators and built-ins, this list can be extended on demand.
     +-----------------------+------------+------------------------------------------------------------------------------------------------------------+
     | Distribution          | #arguments | Semantics                                                                                                  |
     +=======================+============+============================================================================================================+
-    | **uniform-deviate**   | 2          | uniform distribution between lower and an upper bounds                                                     |
+    | **uniform-deviate**   | 2          | uniform distribution between a lower and an upper bounds                                                   |
     +-----------------------+------------+------------------------------------------------------------------------------------------------------------+
     | **normal-deviate**    | 2          | normal (Gaussian) distribution defined by its mean and its standard deviation                              |
     +-----------------------+------------+------------------------------------------------------------------------------------------------------------+
@@ -637,7 +660,7 @@ As for arithmetic operators and built-ins, this list can be extended on demand.
     +-----------------------+------------+------------------------------------------------------------------------------------------------------------+
     | **gamma-deviate**     | 2          | gamma distributions defined by a shape and a scale factors                                                 |
     +-----------------------+------------+------------------------------------------------------------------------------------------------------------+
-    | **beta-deviate**      | 2          | beta distributions defined by two shape parameters *α* and *β*                                             |
+    | **beta-deviate**      | 2          | beta distributions defined by two shape parameters :math:`\alpha` and :math:`\beta`                        |
     +-----------------------+------------+------------------------------------------------------------------------------------------------------------+
     | **histograms**        | any        | discrete distributions defined by means of a list of pairs                                                 |
     +-----------------------+------------+------------------------------------------------------------------------------------------------------------+
@@ -646,7 +669,7 @@ Uniform Deviates
     These primitives describe uniform distributions in a given range
     defined by its lower- and upper-bounds.
     The default value of a uniform deviate
-    is the mean of the range, i.e., (lower-bound + upper-bound)/2.
+    is the mean of the range, i.e., ``(lower-bound + upper-bound)/2``.
 
 Normal Deviates
     These primitives describe normal distributions
@@ -656,20 +679,42 @@ Normal Deviates
 
 Lognormal distribution
     These primitives describe lognormal distributions
-    defined by their mean *µ* and their error factor EF.
+    defined by their mean :math:`\mu` and their error factor :math:`EF`.
     A random variable is distributed according to a lognormal distribution
     if its logarithm is distributed according to a normal distribution.
-    If *µ* and *σ* are respectively the mean and the standard deviation of the distribution,
+    If :math:`\mu` and :math:`\sigma` are respectively
+    the mean and the standard deviation of the distribution,
     the probability density of the random variable is as follows.
 
-    Its mean, *E(x)* is defined as follows.
+    .. math::
 
-    The confidence intervals [X\ :sub:`0,05`, X\ :sub:`0,95`]
-    associated with a confidence level of *0.95* and the median X\ :sub:`0,50` are the following:
+        f(x) = \frac{1}{\sigma x \sqrt{2\pi}} \times
+            \left[-\frac{1}{2}\left(\frac{\log x - \mu}{\sigma} \right)^2\right]
 
-    The error factor *EF* is defined as follows:
+    Its mean, :math:`E(x)`, is defined as follows.
 
-    with and .
+    .. math::
+
+        E(x) = \exp\left[\mu + \frac{\sigma^2}{2}\right]
+
+    The confidence intervals :math:`[X_{0.05}, X_{0.95}]`
+    associated with a confidence level of *0.95* and the median :math:`X_{0.50}` are the following:
+
+    .. math::
+
+        X_{0.05} = \exp[\mu - 1.645\sigma]
+
+        X_{0.95} = \exp[\mu + 1.645\sigma]
+
+        X_{0.50} = \sqrt{X_{0.05} \times X_{0.95}} = e^\mu
+
+    The error factor :math:`EF` is defined as follows:
+
+    .. math::
+
+        EF = \sqrt{\frac{X_{0.95}}{X_{0.05}}} = e^{1.645\sigma}
+
+    with :math:`\sigma = \frac{\log EF}{1.645}` and :math:`\mu = \log E(x) - \frac{\sigma^2}{2}`.
 
     Once the mean and the error factor are known,
     it is then possible to determine the confidence interval
@@ -677,70 +722,85 @@ Lognormal distribution
 
 Gamma Deviates
     These primitives describe Gamma distributions
-    defined by their shape parameter k and their scale parameter *θ*.
-    If *k* is an integer,
-    then the distribution represents the sum of *k* exponentially distributed random variables,
-    each of which has mean *θ*.
+    defined by their shape parameter k and their scale parameter :math:`\theta`.
+    If :math:`k` is an integer,
+    then the distribution represents
+    the sum of :math:`k` exponentially distributed random variables,
+    each of which has mean :math:`\theta`.
 
     The probability density of the gamma distribution
     can be expressed in terms of the gamma function:
 
-    The default value of the gamma distribution is its mean, i.e., k.\ *θ*.
+    .. math::
+
+        f(x) = x^{k-1} \frac{e^{-x/\theta}}{\theta^k \Gamma(k)}
+
+    The default value of the gamma distribution is its mean, i.e., :math:`k\theta`.
 
 Beta Deviates
     These primitives describe Beta distributions
-    defined by two shape parameters *α* and *β*.
+    defined by two shape parameters :math:`\alpha` and :math:`\beta`.
 
     The probability density of the beta distribution
     can be expressed in terms of the B function:
 
-    The default value of the beta distribution is its mean, i.e., *α*/(*α*\ +\ *β*).
+    .. math::
+
+        f(x;\alpha,\beta) = \frac{1}{B(\alpha,\beta)}x^{\alpha-1} (1 - x)^{\beta-1}
+
+        B(x, y) = \int_{0}^{1} t^{x-1} (1 - t^{y-1}) dt
+
+
+    The default value of the beta distribution is its mean, i.e., :math:`\alpha/(\alpha + \beta)`.
 
 Histograms
-    Histograms are lists of pairs (x\ :sub:`1`, E\ :sub:`1`)...  (x\ :sub:`n`, E\ :sub:`n`),
-    where the x\ :sub:`i`'s are numbers
-    such that x\ :sub:`i` < x\ :sub:`i+1` for i=1...n-1
-    and the E\ :sub:`i`'s are expressions.
+    Histograms are lists of pairs :math:`(x_1, E_1), \ldots, (x_n, E_n)`,
+    where the :math:`x_i`'s are numbers
+    such that :math:`x_i < x_{i+1} \text{ for } i=1, \ldots, n-1`
+    and the :math:`E_i`'s are expressions.
 
-    The x\ :sub:`i`'s represent upper bounds of successive intervals.
-    The lower bound of the first interval x\ :sub:`0` is given apart.
+    The :math:`x_i`'s represent upper bounds of successive intervals.
+    The lower bound of the first interval :math:`x_0` is given apart.
 
     The drawing of a value according to a histogram is a two-step process.
-    First, a value z is drawn uniformly in the range [x\ :sub:`0`, x\ :sub:`n`].
-    Then, a value is drawn at random by means of the expression E\ :sub:`i`,
-    where *i* is the index of the interval
-    such that x\ :sub:`i-1` < z ≤ x\ :sub:`i`.
+    First, a value :math:`z` is drawn uniformly in the range :math:`[x_0, x_n]`.
+    Then, a value is drawn at random by means of the expression :math:`E_i`,
+    where :math:`i` is the index of the interval
+    such that :math:`x_{i-1} < z \leq x_i`.
 
     By default, the value of a histogram is its mean, i.e.,
+
+    .. math::
+
+        \mathbf{E}(X) = \frac{1}{x_n - x_0} \times \sum_{i=1}^{n}(x_i - x_{i-1})\mathbf{E}(E_i)
 
     Both Cumulative Distribution Functions
     and Density Probability Distributions can be translated into histograms.
 
     A Cumulative Distribution Function is a list of pairs
-    (p\ :sub:`1`, v\ :sub:`1`)... (p\ :sub:`n`, v\ :sub:`n`),
-    where the p\ :sub:`i`'s are
-    such that p\ :sub:`i` < p\ :sub:`i+1` for i=1...n and p\ :sub:`n`\ =1.
+    :math:`(p_1, v_1), \ldots, (p_n, v_n)`,
+    where the :math:`p_i`'s are
+    such that :math:`p_i < p_{i+1} \text{ for } i=1, \ldots, n \text{ and } p_n=1`.
     It differs from histograms in two ways.
-    First, X axis values are normalized (to spread between 0 and 1);
+    First, :math:`X` axis values are normalized (to spread between 0 and 1);
     second, they are presented in a cumulative way.
     The histogram that corresponds to a Cumulative Distribution Function
-    (p\ :sub:`1`, v\ :sub:`1`)... (p\ :sub:`n`, v\ :sub:`n`)
-    is the list of pairs (x\ :sub:`1`, v\ :sub:`1`)... (x\ :sub:`n`, v\ :sub:`n`),
-    with the initial value x\ :sub:`0` is 0, x\ :sub:`1` = p\ :sub:`1` and
-    x\ :sub:`i` = p\ :sub:`i` - p\ :sub:`i-1` for all i>1.
+    :math:`(p_1, v_1), \ldots, (p_n, v_n)`
+    is the list of pairs :math:`(x_1, v_1), \ldots, (x_n, v_n)`,
+    with the initial value
+    :math:`x_0 = 0, x_1 = p_1, \text{ and } x_i = p_i - p_{i-1} \text{ for all } i>1`.
 
     A Discrete Probability Distribution is a list of pairs
-    (d\ :sub:`1`, m\ :sub:`1`)... (d\ :sub:`n`, m\ :sub:`n`).
-    The d\ :sub:`i`'s are probability densities.
+    :math:`(d_1, m_1), \ldots, (d_n, m_n)`.
+    The :math:`d_i`'s are probability densities.
     However, they could be any kind of values.
-    The m\ :sub:`i`'s are midpoints of intervals
-    and are such that m\ :sub:`1` < m\ :sub:`2` < ... < m\ :sub:`n` < 1.
+    The :math:`m_i`'s are midpoints of intervals
+    and are such that :math:`m_1 < m_2 < \ldots < m_n < 1`.
     The histogram that corresponds to a Discrete Probability Distribution
-    (d\ :sub:`1`, m\ :sub:`1`)... (d\ :sub:`n`, m\ :sub:`n`)
-    is the list of pairs (x\ :sub:`1`, d\ :sub:`1`)... (x\ :sub:`n`, d\ :sub:`n`),
-    with the initial value x\ :sub:`0` = 0,
-    x\ :sub:`1` = 2.m\ :sub:`1`
-    and x\ :sub:`i` = x\ :sub:`i-1` + 2.(m\ :sub:`i`-x\ :sub:`i-1`).
+    :math:`(d_1, m_1), \ldots, (d_n, m_n)`
+    is the list of pairs :math:`(x_1, d_1), \ldots, (x_n, d_n)`,
+    with the initial value
+    :math:`x_0 = 0, x_1 = 2m_1, \text{ and } x_i = x_{i-1} + 2(m_i - x_{i-1})`.
 
 
 XML Representation

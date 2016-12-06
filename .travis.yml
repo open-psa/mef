@@ -1,12 +1,14 @@
 language: python
 python:
     - 2.7
-    - 3.3
+    - 3.4
+
+git:
+    depth: 1000
 
 addons:
     apt:
         packages:
-            - dvipng
             - texlive
             - texlive-fonts-recommended
             - texlive-latex-extra
@@ -16,6 +18,7 @@ install:
     - pip install sphinx sphinx_rtd_theme
 
 script:
-    - spell -n -o -d en_us.ascii.add.spl mef/* | grep -v '^mef/references.rst'
-    - make html linkcheck 2> _warnings.txt
-    - cat _warnings.txt && [[ ! -s _warnings.txt ]]
+    - spell -n -o -d en_us.ascii.add.spl mef/* | grep -v 'references.rst' > _warnings
+    - grep -P -n "[^[:ascii:]]" mef/* | grep -v 'references.rst' >> _warnings
+    - make html linkcheck 2>> _warnings
+    - cat _warnings && [[ ! -s _warnings ]]

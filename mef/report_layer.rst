@@ -132,10 +132,10 @@ Statistical measures are typically produced by sensitivity analyses.
 They are the result, in general, of Monte-Carlo simulations on the values of some parameter.
 Such a measure can come with
 moments (mean, standard deviation), confidence ranges, error factors, quantiles, ...
-The XML representation for statistical measure is given in :numref:`bnf_statistial_measure`.
+The XML representation for statistical measure is given in :numref:`bnf_statistical_measure`.
 
 .. code-block:: bnf
-    :name: bnf_statistial_measure
+    :name: bnf_statistical_measure
     :caption: Backus-Naur form for the XML representation of statistical measures
 
     measure ::=

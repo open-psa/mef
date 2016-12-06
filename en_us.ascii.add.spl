@@ -20,7 +20,6 @@ min
 bool
 SMRF
 smrf
-CCFi
 GLM
 
 AB
@@ -81,3 +80,19 @@ jpeg
 px
 ebnf
 rst
+ac
+binom
+ccf
+dfrac
+dt
+gma
+infty
+ldots
+lnot
+lor
+markov
+mathbf
+neq
+Rightarrow
+rt
+varnothing

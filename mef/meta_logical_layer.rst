@@ -23,79 +23,100 @@ Common cause groups are groups of basic events
 whose failure are not independent from a statistical view point.
 They may occur either independently or dependently due to a common cause failure.
 So far, existing tools embed three models for common cause failures (CCF):
-the beta-factor model, the multiple Greek letters (MGL) model and the alpha-factor model.
+the beta-factor model, the Multiple Greek letters (MGL) model and the alpha-factor model.
 Alpha-factor and MGL models differ only in the way
 the factors for each level (2 components fail, 3 components fail, ...) are given.
 The Model Exchange Format proposes the three mentioned models plus a fourth one,
 so-called phi-factor, which is a more direct way to set factors.
 
 Beta-factor
-    The *β*-factor model assumes
+    The :math:`\beta`-factor model assumes
     that if a common cause occurs,
     then all components of the group fail simultaneously.
     Components can fail independently.
     Multiple independent failures are neglected.
-    The *β*-factor model assumes, moreover,
+    The :math:`\beta`-factor model assumes, moreover,
     that all the components of the group
     have the same probability distribution.
     It is characterized by this probability distribution
-    and the conditional probability *β* that all components fail, given that one component failed.
+    and the conditional probability :math:`\beta`
+    that all components fail, given that one component failed.
 
-    Let BE\ :sub:`1`, BE\ :sub:`2`... BE\ :sub:`n` be the *n* basic events of a common cause group
-    with a probability distribution Q and a beta-factor *β*.
+    Let :math:`BE_1, BE_2, \ldots, BE_n` be the :math:`n` basic events of a common cause group
+    with a probability distribution :math:`Q` and a beta-factor :math:`\beta`.
     Applying the beta-factor model on the fault tree consists in following operations.
 
-    #. Create new basic events BE\ :sub:`CCFi` for each BE\ :sub:`i`
-       to represent the independent occurrence of BE\ :sub:`i`
-       and BE\ :sub:`CCFi` to represent the occurrence of all BE\ :sub:`i` together.
-    #. Substitute a gate "G\ :sub:`i` = BE\ :sub:`CCFi` or BE\ :sub:`i`\ "
-       for each basic event BE\ :sub:`i`.
-    #. Associate the probability distribution (e.g., *β*\ ×Q) with the event BE\ :sub:`CCFi`.
+    #. Create new basic events :math:`BE_{CCF_i}` for each :math:`BE_i`
+       to represent the independent occurrence of :math:`BE_i`
+       and :math:`BE_{CCF_i}` to represent the occurrence of all :math:`BE_i` together.
+    #. Substitute a gate :math:`G_i = BE_{CCF_i} \lor BE_i`
+       for each basic event :math:`BE_i`.
+    #. Associate the probability distribution (e.g., :math:`\beta \times Q`)
+       with the event :math:`BE_{CCF_i}`.
 
 Multiple Greek Letters
     The Multiple Greek Letters (MGL) model generalizes the beta-factor model.
     It considers the cases
-    where sub-groups of 1, 2, ..., n-1 components of the group fail together.
+    where sub-groups of :math:`1, 2, \ldots, n-1` components of the group fail together.
     This model is characterized by the probability distribution of failure of the components,
-    and n-1 factors *ρ*\ :sub:`2`..., *ρ*\ :sub:`n`.
-    *ρ*\ :sub:`k` denotes the conditional probability
-    that k components of the group fail given that k-1 failed.
+    and :math:`n-1` factors :math:`\rho_2, \ldots, \rho_n`,
+    :math:`\rho_k` denotes the conditional probability
+    that :math:`k` components of the group fail given that :math:`k-1` failed.
 
-    Let BE\ :sub:`1`, BE\ :sub:`2`... BE\ :sub:`n` be the *n* basic events of a common cause group
-    with a probability distribution Q and factors *ρ*\ :sub:`2`..., *ρ*\ :sub:`n`.
+    Let :math:`BE_1, BE_2, \ldots, BE_n` be the :math:`n` basic events of a common cause group
+    with a probability distribution :math:`Q` and factors :math:`\rho_2, \ldots, \rho_n`.
     Applying the MGL model on the fault tree consists in following operations.
 
     #. Create a basic event for each combination of basic events of the group
-       (there are 2\ :sup:`*n*`-1 such combinations).
-    #. Transform each basic event BE\ :sub:`i` into a OR-gate G\ :sub:`i`
+       (there are :math:`2^n-1` such combinations).
+    #. Transform each basic event :math:`BE_i` into an OR-gate :math:`G_i`
        over all newly created event basic events
-       that represent a group that contains BE\ :sub:`i`.
+       that represent a group that contains :math:`BE_i`.
     #. Associate the following probability distribution
-       with each newly created basic event representing a group of *k* components
-       (with *ρ*\ :sub:`n+1`\ =0).
+       with each newly created basic event representing a group of :math:`k` components
+       (with :math:`\rho_{n+1} = 0`).
+
+    .. math::
+
+        Q_k = \frac{1}{\binom{n-1}{k-1}} \times \left(\prod_{i=2}^{k}\rho_i \right) \times
+            (1 - \rho_{k+1}) \times Q
 
     For instance, for a group of 4 basic events: A, B, C and D,
     the basic event A is transformed into a gate
-    G\ :sub:`A` = A or AB or AC or AD or ABC or ABD or ACD or ABDC
-    and the Q\ :sub:`k`\ 's are as follows.
+    :math:`G_A = A \lor AB \lor AC \lor AD \lor ABC \lor ABD \lor ACD \lor ABDC`
+    and the :math:`Q_k`'s are as follows.
 
-    Note that if *ρ*\ :sub:`k`\ =0,
-    then Q\ :sub:`k`, Q\ :sub:`k+1`...are null as well.
+    .. math::
+
+        Q_1 = (1 - \rho_2) \times Q
+
+        Q_2 = \frac{1}{3} \times \rho_2 \times (1 - \rho_3) \times Q
+
+        Q_3 = \frac{1}{3} \times \rho_2 \times \rho_3  \times (1 - \rho_4) \times Q
+
+        Q_4 = \rho_2 \times \rho_3 \times \rho_4 \times Q
+
+    Note that if :math:`\rho_k = 0`,
+    then :math:`Q_k, Q_{k+1}, \ldots` are null as well.
     In such a case it is not necessary to create the groups with k elements or more.
 
 Alpha-Factor
     The alpha-factor model is the same as the MGL model
     except in the way the factors are given.
-    Here *n* factors *α*\ :sub:`1`...\ *α*\ :sub:`n` are given.
-    *α*\ :sub:`k` represents the fraction of the total failure probability
-    due to common cause failures that impact exactly *k* components.
-    The distribution associated with a group of size *k* is as follows:
+    Here :math:`n` factors :math:`\alpha_1, \ldots, \alpha_n` are given.
+    :math:`\alpha_k` represents the fraction of the total failure probability
+    due to common cause failures that impact exactly :math:`k` components.
+    The distribution associated with a group of size :math:`k` is as follows:
+
+    .. math::
+
+        Q_k = \frac{k}{\binom{n-1}{k-1}} \times \frac{\alpha_k}{\sum_{i=1}^{n}i\alpha_i} \times Q
 
 Phi-Factor
     The phi-factor model is the same as MGL and alpha-factor models
     except that factors for each level are given directly.
 
-    Indeed, the sum of the *ϕ*\ :sub:`i`'s should equal 1.
+    Indeed, the sum of the :math:`\phi_i`'s should equal 1.
 
 XML representation
 ------------------
@@ -199,32 +220,31 @@ Delete Terms
     some tools use basic events to discard minimal cut sets on the fly, during their generation.
 
     Delete Terms can be handled in several ways.
-    Let G = {e\ :sub:`1`, e\ :sub:`2`, e\ :sub:`3`} be a Delete Term (group).
+    Let :math:`G = \{e_1, e_2, e_3\}` be a Delete Term (group).
 
-    - A first way to handle G, is to use it to post-process minimal cut sets,
+    - A first way to handle :math:`G`, is to use it to post-process minimal cut sets,
       or to discard them on the fly during their generation.
-      If a minimal cut set contains at least two of the elements of G,
+      If a minimal cut set contains at least two of the elements of :math:`G`,
       it is discarded.
 
-    - A global constraint "C\ :sub:`G` = not 2-out-of-3(e\ :sub:`1`, e\ :sub:`2`, e\ :sub:`3`)"
-      is introduced,
-      and each top event (or event tree sequences) "top" is rewritten as "top and C\ :sub:`G`\ ".
+    - A global constraint :math:`C_G = \text{not 2-out-of-3}(e_1, e_2, e_3)` is introduced,
+      and each top event (or event tree sequences) "top" is rewritten as :math:`top \land C_G`.
 
-    - As for Common Causes Groups, the e\ :sub:`i`\ 's are locally rewritten in as gates:
+    - As for Common Causes Groups, the :math:`e_i`'s are locally rewritten in as gates:
 
-        * e\ :sub:`1` is rewritten as
-          a gate ge\ :sub:`1` = e\ :sub:`1` and (not e\ :sub:`2`) and (not e\ :sub:`3`)
-        * e\ :sub:`2` is rewritten as
-          a gate ge\ :sub:`2` = e\ :sub:`2` and (not e\ :sub:`1`) and (not e\ :sub:`3`)
-        * e\ :sub:`3` is rewritten as
-          a gate ge\ :sub:`3` = e\ :sub:`3` and (not e\ :sub:`1`) and (not e\ :sub:`2`)
+        * :math:`e_1` is rewritten as
+          a gate :math:`ge_1 = e_1 \land \lnot e_2 \land \lnot e_3`
+        * :math:`e_2` is rewritten as
+          a gate :math:`ge_2 = e_2 \land \lnot e_1 \land \lnot e_3`
+        * :math:`e_3` is rewritten as
+          a gate :math:`ge_3 = e_3 \land \lnot e_1 \land \lnot e_2`
 
 Recovery Rules
     Recovery Rules are an extension of Delete Terms.
-    A Recovery Rule is a couple (H, e),
-    where H is a set of basic events and e is a (fake) basic event.
+    A Recovery Rule is a couple :math:`(H, e)`,
+    where :math:`H` is a set of basic events and :math:`e` is a (fake) basic event.
     It is used to post-process minimal cut sets:
-    if a minimal cut set C contains H, the e is added to C.
+    if a minimal cut set :math:`C` contains :math:`H`, the :math:`e` is added to :math:`C`.
     Recovery Rules are used to model actions taken in some specific configurations
     to mitigate the risk (hence their name).
 
@@ -234,23 +254,23 @@ Recovery Rules
       To do so, it suffices to assign the basic event e to the value "false" or the probability 0.0.
     - As for Delete Terms,
       it is possible to give purely logical interpretation to Recovery Rules.
-      The idea is to add a global constraint "H → e", i.e., "not H or e",
-      for each Recovery Rule (H, e).
+      The idea is to add a global constraint :math:`H \Rightarrow e`, i.e., :math:`\lnot H \lor e`,
+      for each Recovery Rule :math:`(H, e)`.
     - Another definition of Recovery Rules as a post-processing
-      is that the event e is substituted for subset H in the minimal cut set.
+      is that the event :math:`e` is substituted for subset :math:`H` in the minimal cut set.
       This definition, however, has the major drawback
       by being impossible to interpret with a Boolean logic.
       No Boolean formula can withdraw events from a configuration.
 
 Exchange Events
     Exchange Events are very similar to Recovery Rules.
-    An Exchange Event (Rule) is a triple (H, e, e'),
-    where H is a set of basic events,
-    and e and e' are two basic events.
+    An Exchange Event (Rule) is a triple :math:`(H, e, e')`,
+    where :math:`H` is a set of basic events,
+    and :math:`e` and :math:`e'` are two basic events.
     Considered as a post-processing of minimal cut sets,
     such a rule is interpreted as follows.
-    If the minimal cut set contains both the set H and the basic event e,
-    then the basic event e' is substituted for e in the cut set.
+    If the minimal cut set contains both the set :math:`H` and the basic event :math:`e`,
+    then the basic event :math:`e'` is substituted for :math:`e` in the cut set.
     For the same reason as above,
     Exchange Events cannot be interpreted with a Boolean logic.
 
@@ -269,8 +289,8 @@ Nevertheless, Recovery Rules and Exchange Events are useful and broadly used in 
 Fortunately, Exchange Events (considered as a post processing mechanism)
 can be avoided in many cases by using the instructions
 that give flavors to fault trees while walking along event tree sequences:
-in a given sequence, one may decide to substitute the event e' for the event e
-(or the parameter p' for the parameter p) in the Fault Trees collected so far.
+in a given sequence, one may decide to substitute the event :math:`e'` for the event :math:`e`
+(or the parameter :math:`p'` for the parameter :math:`p`) in the Fault Trees collected so far.
 This mechanism is perfectly acceptable
 because it applies while creating the Boolean formula to be assessed.
 
@@ -281,44 +301,46 @@ This has to be checked on real-life models.
 To represent Delete Term, Recovery Rules and Exchange Events,
 the Model Exchange Format introduces a unique construct: the notion of substitution.
 
-A substitution is a triple (H, S, t) where:
+A substitution is a triple :math:`(H, S, t)` where:
 
-- H, the hypothesis, is a (simple) Boolean formula built over basic events.
-- S, the source, is also a possibly empty set of basic events.
-- t, the target, is either a basic event or a constant.
+- :math:`H`, the hypothesis, is a (simple) Boolean formula built over basic events.
+- :math:`S`, the source, is also a possibly empty set of basic events.
+- :math:`t`, the target, is either a basic event or a constant.
 
-Let C be a minimal cut set, i.e., a set of basic events.
-The substitution (H, S, t) is applicable on C
-if C satisfies H (i.e., if H is true when C is realized).
-The application of (H, S, t) on C consists in
-removing from C all the basic events of S and in adding to C the target t.
+Let :math:`C` be a minimal cut set, i.e., a set of basic events.
+The substitution :math:`(H, S, t)` is applicable on :math:`C`
+if :math:`C` satisfies :math:`H` (i.e., if :math:`H` is true when :math:`C` is realized).
+The application of :math:`(H, S, t)` on :math:`C` consists
+in removing from :math:`C` all the basic events of :math:`S`
+and in adding to :math:`C` the target :math:`t`.
 
 Note that if t is the constant "true",
-adding t to C is equivalent to add nothing.
-If t is the constant "false",
-adding t to C is equivalent to discard C.
+adding t to :math:`C` is equivalent to adding nothing.
+If :math:`t` is the constant "false",
+adding :math:`t` to :math:`C` is equivalent to discard :math:`C`.
 
 This notion of substitution generalizes
 the notions of Delete Terms, Recovery Rules and Exchange Events:
 
-- Let D = {e\ :sub:`1`, e\ :sub:`2`\ ..., e\ :sub:`n`}
+- Let :math:`D = \{e_1, e_2, \ldots, e_n\}`
   be a group of pairwise exclusive events (a Delete Term).
-  Then D is represented as the substitution
-  (2-out-of-n(e\ :sub:`1`, e\ :sub:`2`\ ..., e\ :sub:`n`), ∅, false).
-- Let (H, e) be a Recovery Rule, under the first interpretation,
-  where H = {e\ :sub:`1`, e\ :sub:`2`\ ..., e\ :sub:`n`}.
-  Then, (H, e) is represented by the substitution
-  (e\ :sub:`1` and e\ :sub:`2` and, ..., and e\ :sub:`n`, ∅, e).
-- Let (H, e) be a Recovery Rule, under the second interpretation,
-  where H = {e\ :sub:`1`, e\ :sub:`2`\ ..., e\ :sub:`n`}.
-  Then (H, e) is represented by the substitution
-  (e\ :sub:`1` and e\ :sub:`2` and, ..., and e\ :sub:`n`, H, e).
-- Finally, let (H, e, e') be an Exchange Event Rule,
-  where H = {e\ :sub:`1`, e\ :sub:`2`\ ..., e\ :sub:`n`}.
-  Then (H, e, e') is represented by the substitution
-  (e\ :sub:`1` and e\ :sub:`2` and, ..., and e\ :sub:`n` and e, {e}, e').
+  Then :math:`D` is represented as the substitution
+  :math:`(2-out-of-n(e_1, e_2, \ldots, e_n), \varnothing, \text{false})`.
+- Let :math:`(H, e)` be a Recovery Rule, under the first interpretation,
+  where :math:`H = \{e_1, e_2, \ldots, e_n\}`.
+  Then, :math:`(H, e)` is represented by the substitution
+  :math:`(e_1 \land e_2 \land \ldots \land e_n, \varnothing, e)`.
+- Let :math:`(H, e)` be a Recovery Rule, under the second interpretation,
+  where :math:`H = \{e_1, e_2, \ldots, e_n\}`.
+  Then :math:`(H, e)` is represented by the substitution
+  :math:`(e_1 \land e_2 \land \ldots \land e_n, H, e)`.
+- Finally, let :math:`(H, e, e')` be an Exchange Event Rule,
+  where :math:`H = \{e_1, e_2, \ldots, e_n\}`.
+  Then :math:`(H, e, e')` is represented by the substitution
+  :math:`(e_1 \land e_2 \land \ldots \land e_n \land e, {e}, e')`.
 
-Note that a substitution (H, ∅, t) can always be interpreted as the global constraint "H → t".
+Note that a substitution :math:`(H, \varnothing, t)`
+can always be interpreted as the global constraint :math:`H \Rightarrow t`.
 
 XML Representation
 ------------------

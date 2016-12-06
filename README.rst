@@ -19,10 +19,9 @@ A list of dependencies:
 Package                Minimum Version
 ====================   ===============
 Python                 2.7 or 3.3+
-Sphinx                 1.4.3
+Sphinx                 1.5
 sphinx_rtd_theme       0.1.8
 LaTeX
-DVI-to-PNG             1.14
 git
 ====================   ===============
 
@@ -31,7 +30,7 @@ To install all the dependencies with ``apt`` and ``pip``
 
 .. code-block:: bash
 
-    sudo apt-get install dvipng texlive texlive-fonts-recommended texlive-latex-extra
+    sudo apt-get install texlive{,-{fonts-recommended,latex-extra,xetex}}
     sudo pip install sphinx sphinx_rtd_theme
 
 To generate HTML files (the website at the *gh-pages* branch):
@@ -63,6 +62,7 @@ reST Style
 - One blank line after a header before its body
 - Prefer two blank lines between sections with bodies
 - Prefer `Semantic Linefeeds`_ (i.e., one sentence per line)
+- Prefer inline math to UTF-8 math characters or symbols
 
 .. _Semantic Linefeeds: http://rhodesmill.org/brandon/2012/one-sentence-per-line/
 
