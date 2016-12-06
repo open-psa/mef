@@ -76,7 +76,7 @@ Boolean formulae, Basic Events, House Events, and Gates
     constants (true, false), connectives (and, or, not, etc.), and Boolean variables,
     i.e., Basic Events, Gates, and House Events.
     Boolean variables are called events,
-    for that's what they represent in the sense of the probability theory.
+    for that is what they represent in the sense of the probability theory.
     Basic events are associated with probability distributions,
     i.e., with (stochastic) expressions.
     Gates are defined as Boolean formulae.

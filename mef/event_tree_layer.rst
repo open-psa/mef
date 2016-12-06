@@ -202,7 +202,7 @@ XML Representation
 We are now ready to explicitly define the XML grammar of the structure of event trees.
 Its Backus-Naur form is given in :numref:`bnf_initiating_events` and :numref:`bnf_event_tree`.
 In these figures, we leave instructions unspecified,
-for they don't concern the structure of the tree and are the subject of the next section.
+for they do not concern the structure of the tree and are the subject of the next section.
 Note that branches and functional events cannot be declared (nor referred to) outside event trees,
 for there would be no meaning in doing so.
 
