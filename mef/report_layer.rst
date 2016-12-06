@@ -39,7 +39,7 @@ and other special or unique features of the model.
 - Software
 
     * Version
-    * Contact organization (editor, vendor, ...)
+    * Contact organization (editor, vendor, etc.)
     * ...
 
 - Calculated quantities
@@ -53,9 +53,9 @@ and other special or unique features of the model.
 
     * Name
     * Limits (e.g., number of basic events, of sequences, of cut sets)
-    * Preprocessing techniques (modularization, rewritings, ...)
+    * Preprocessing techniques (modularization, rewritings, etc.)
     * Handling of success terms
-    * Cutoffs, if any (absolute, relative, dynamic, ...)
+    * Cutoffs, if any (absolute, relative, dynamic, etc.)
     * Are delete terms, recovery rules or exchange events applied?
     * Extra-logical methods used
     * Secondary software necessary
@@ -131,7 +131,7 @@ Statistical measures
 Statistical measures are typically produced by sensitivity analyses.
 They are the result, in general, of Monte-Carlo simulations on the values of some parameter.
 Such a measure can come with
-moments (mean, standard deviation), confidence ranges, error factors, quantiles, ...
+moments (mean, standard deviation), confidence ranges, error factors, quantiles, etc.
 The XML representation for statistical measure is given in :numref:`bnf_statistical_measure`.
 
 .. code-block:: bnf

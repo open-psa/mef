@@ -62,7 +62,7 @@ In practice, things are less simple:
   some gates or basic events may be negated;
   some parameters of probability distributions may be impacted.
 - The flavor given to a fault tree may depend on what has happened so far in the sequence:
-  initiating event, value of house events, ...
+  initiating event, value of house events, etc.
 - Some success branches may not be interpreted as the negation of the associated fault tree
   but rather as a bypass.
   This interpretation of success branches is typically tool-dependent:

@@ -25,7 +25,7 @@ They may occur either independently or dependently due to a common cause failure
 So far, existing tools embed three models for common cause failures (CCF):
 the beta-factor model, the Multiple Greek letters (MGL) model and the alpha-factor model.
 Alpha-factor and MGL models differ only in the way
-the factors for each level (2 components fail, 3 components fail, ...) are given.
+the factors for each level (2 components fail, 3 components fail, etc.) are given.
 The Model Exchange Format proposes the three mentioned models plus a fourth one,
 so-called phi-factor, which is a more direct way to set factors.
 

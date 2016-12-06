@@ -16,7 +16,7 @@ Variables, Terms and Containers
 
 Elements of a model are, as expected, components of fault trees/event trees,
 namely basic events, gates, house events, probability distributions,
-initiating events, safety systems, consequences, ...
+initiating events, safety systems, consequences, etc.
 Conceptually, it is convenient to arrange most of these elements
 into one of the three categories: terms, variables and containers.
 
@@ -48,7 +48,7 @@ Containers
     for definitions of gates, house-events,
     basic events and parameters of probability distributions.
     Similarly, an event tree is a container
-    for definitions of initiating events, functional events, sequences, ...
+    for definitions of initiating events, functional events, sequences, etc.
 
 We are now ready to list the main elements of a model.
 The exact content and role of these different elements
@@ -73,7 +73,7 @@ Fault Tree Layer
 
 Boolean formulae, Basic Events, House Events and Gates
     Boolean formulae, or formulae for short, are terms built over the usual set of
-    constants (true, false), connectives (and, or, not, ...) and Boolean variables,
+    constants (true, false), connectives (and, or, not, etc.) and Boolean variables,
     i.e., Basic Events, Gates and House Events.
     Boolean variables are called events,
     for that's what they represent in the sense of the probability theory.

@@ -188,15 +188,15 @@ Each layer corresponds to a specific class of objects/mathematical constructs.
 
 - The first, or stochastic, layer is populated with all stochastic aspects of models:
   probability distributions for the failure rates of basic events,
-  parameters of these distributions and distributions of these parameters, flags, ...
+  parameters of these distributions and distributions of these parameters, flags, etc.
 - The second, or fault tree layer, is populated with logical components of fault trees
   (gates, basic events, house events).
   This layer is the core of PSA models.
   The two first layers can be used in isolation.
   Some existing tools implement them only.
 - The third, or meta-logical, layer is populated with constructs
-  like common cause groups, delete terms, recovery rules
-  that are used to give flavors to fault trees, ...
+  like common cause groups, delete terms, and recovery rules
+  that are used to give flavors to fault trees.
 - The fourth, or event tree, layer is populated with event trees,
   initiating events and consequences.
   The Model Exchange Format sees event trees as (graphical) programs.
@@ -206,7 +206,7 @@ Each layer corresponds to a specific class of objects/mathematical constructs.
 - The fifth, or report layer, is populated with constructs to store results of calculations.
   This includes constructs to describe calculations
   (version of the model, used engine, used cutoffs,
-  targeted group of consequences, calculated quantities, ...)
+  targeted group of consequences, calculated quantities, etc.)
   as well as minimal cut sets and other results.
 
 This five-layer architecture helps to understand
@@ -261,7 +261,7 @@ and one additional chapter for models as a whole.
 - Chapter :ref:`mef_anatomy` gives an overview of main elements of a model
   and shows how these elements are organized.
   It discusses how to split a description into several files,
-  how to solve naming conflicts, ...
+  how to solve naming conflicts, etc.
 - Chapter :ref:`fault_tree_layer` presents the fault tree layer.
   The fault tree layer is not the lowest one in the hierarchy.
   However, fault trees are the most basic and the central concept of PSA models.

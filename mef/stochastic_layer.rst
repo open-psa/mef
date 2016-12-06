@@ -43,10 +43,10 @@ Stochastic expressions are made of the following elements:
 - Boolean and numerical constants
 - Stochastic variables, i.e., parameters,
   including the special variable to represent the mission time
-- Boolean and arithmetic operations (sums, differences, products, ...)
+- Boolean and arithmetic operations (sums, differences, products, etc.)
 - Built-in expressions that can be seen as macro-expressions
   that are used to simplify and shorten the writing of probability distributions
-  (e.g., exponential, Weibull, ...)
+  (exponential, Weibull, etc.)
 - Primitives to generate numbers at pseudo-random
   according to some probability distribution.
   The base primitive makes it possible

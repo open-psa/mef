@@ -15,7 +15,7 @@ Description
 Constituents of fault trees are
 Boolean variables (gates, basic events, and house events),
 Boolean constants (true and false)
-and connectives (and, or, k-out-of-n, not ...).
+and connectives (and, or, k-out-of-n, not, etc.).
 Despite of their name,
 fault trees have in general a directed acyclic graph structure (and not a tree-like structure)
 because variables can be referenced more than once.
@@ -148,7 +148,7 @@ i.e., two Boolean formulae F and G.
     All of these dynamic gates can be interpreted as "and" gates in a Boolean framework.
     In more general frameworks (like Markovian frameworks),
     they can have different interpretations,
-    and provide mechanisms to accurately model backup systems, limited amount of resources, ...
+    and provide mechanisms to accurately model backup systems, limited amount of resources, etc.
     The complexity of the assessment of this kind of model is indeed much higher
     than the one of Boolean models (which is already at least NP-hard or #P-hard).
 
@@ -483,7 +483,7 @@ Recommendations
 
 Layered Models
     In PSA models, fault trees are in general layered,
-    i.e., arguments of connectives (and, or, ...)
+    i.e., arguments of connectives (and, or, etc.)
     are always either variables or negations of variables.
     Although there is no reason to force such a condition,
     it is recommended to obey it for the sake of clarity.
