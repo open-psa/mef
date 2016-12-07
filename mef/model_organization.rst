@@ -137,7 +137,7 @@ models at the top level, event trees, fault trees, components, and model-data.
 The Model Exchange Format introduces also eighteen constructs.
 :numref:`fig_containers_and_constructs` shows the containers and the constructs they can define.
 
-.. figure:: ../images/containers_and_constructs.svg
+.. figure:: ../images/containers_and_constructs.*
     :name: fig_containers_and_constructs
     :align: center
 

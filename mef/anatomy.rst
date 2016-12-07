@@ -194,7 +194,7 @@ The three container categories, namely models, event trees, and fault trees,
 are represented by dashed rectangles.
 Dependencies among categories are represented by arrows.
 
-.. figure:: ../images/anatomy.svg
+.. figure:: ../images/anatomy.*
     :name: fig_mef_anatomy
     :align: center
 

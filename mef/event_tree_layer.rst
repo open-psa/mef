@@ -16,7 +16,7 @@ and the lack of common interpretation for this formalism.
 To illustrate this point, we shall consider the toy example
 pictured in :numref:`fig_small_event_tree`.
 
-.. figure:: ../images/small_event_tree.svg
+.. figure:: ../images/small_event_tree.*
     :name: fig_small_event_tree
     :align: center
 
@@ -120,7 +120,7 @@ On this figure, nodes of the tree are numbered from 1 to 8.
 The initiating event is represented as a fork.
 Finally, the branch (the sub-tree) rooted by the node 2 is named B1.
 
-.. figure:: ../images/event_tree_structure.svg
+.. figure:: ../images/event_tree_structure.*
     :name: fig_event_tree_structure
     :align: center
 

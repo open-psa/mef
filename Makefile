@@ -1,5 +1,10 @@
 # Makefile for Sphinx documentation
 #
+# Setup automatic svg conversion for LaTeX
+SOURCEDIR     = .
+IMAGEDIRS     = images
+SVG2PDF       = inkscape
+SVG2PDF_FLAGS =
 
 # You can set these variables from the command line.
 SPHINXOPTS    =
@@ -44,9 +49,22 @@ help:
 	@echo "  coverage   to run coverage check of the documentation (if enabled)"
 	@echo "  dummy      to check syntax errors of document sources"
 
+# Pattern rule for converting SVG to PDF
+%.pdf : %.svg
+	$(SVG2PDF) -f $< -A $@
+
+# Build a list of SVG files to convert to PDFs
+PDFs := $(foreach dir, $(IMAGEDIRS), $(patsubst %.svg,%.pdf,$(wildcard $(SOURCEDIR)/$(dir)/*.svg)))
+
+# Make a rule to build the PDFs
+images: $(PDFs)
+
 .PHONY: clean
 clean:
 	rm -rf $(BUILDDIR)/*
+
+.PHONY: cleanpdf
+	rm $(PDFs)
 
 .PHONY: html
 html:
@@ -127,7 +145,7 @@ epub3:
 	@echo "Build finished. The epub3 file is in $(BUILDDIR)/epub3."
 
 .PHONY: latex
-latex:
+latex: $(PDFs)
 	$(SPHINXBUILD) -b latex $(ALLSPHINXOPTS) $(BUILDDIR)/latex
 	@echo
 	@echo "Build finished; the LaTeX files are in $(BUILDDIR)/latex."
@@ -135,10 +153,10 @@ latex:
 	      "(use \`make latexpdf' here to do that automatically)."
 
 .PHONY: latexpdf
-latexpdf:
+latexpdf: $(PDFs)
 	$(SPHINXBUILD) -b latex $(ALLSPHINXOPTS) $(BUILDDIR)/latex
 	@echo "Running LaTeX files through pdflatex..."
-	$(MAKE) -C $(BUILDDIR)/latex all-pdf
+	$(MAKE) PDFLATEX=xelatex LATEXOPTS='-interaction=nonstopmode' -C $(BUILDDIR)/latex all-pdf
 	@echo "pdflatex finished; the PDF files are in $(BUILDDIR)/latex."
 
 .PHONY: latexpdfja

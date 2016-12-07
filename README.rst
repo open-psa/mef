@@ -18,10 +18,11 @@ A list of dependencies:
 ====================   ===============
 Package                Minimum Version
 ====================   ===============
-Python                 2.7 or 3.3+
+Python                 2.7 or 3.4
 Sphinx                 1.5
 sphinx_rtd_theme       0.1.8
 LaTeX
+Inkscape
 git
 ====================   ===============
 
@@ -30,7 +31,7 @@ To install all the dependencies with ``apt`` and ``pip``
 
 .. code-block:: bash
 
-    sudo apt-get install texlive{,-{fonts-recommended,latex-extra,xetex}}
+    sudo apt-get install texlive{,-{fonts-recommended,latex-extra,xetex}} inkscape
     sudo pip install sphinx sphinx_rtd_theme
 
 To generate HTML files (the website at the *gh-pages* branch):

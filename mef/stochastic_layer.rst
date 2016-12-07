@@ -847,7 +847,7 @@ Example
 Assume that the parameter "lambda" has been sampled outside of the model
 and is distributed according to the following histogram.
 
-.. image:: ../images/lambda_histogram.svg
+.. image:: ../images/lambda_histogram.*
     :align: center
 
 The XML encoding for "lambda" is as follows.

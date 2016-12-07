@@ -12,6 +12,8 @@ addons:
             - texlive
             - texlive-fonts-recommended
             - texlive-latex-extra
+            - texlive-xetex
+            - inkscape
 
 install:
     - sudo apt-get install spell
@@ -23,4 +25,5 @@ script:
     - grep -P -n "[^[:ascii:]]" mef/* | grep -v 'references.rst' >> _warnings \
         || echo "no non-ASCII chars!"
     - make html linkcheck 2>> _warnings
+    - make clean latexpdf 2>> _warnings
     - cat _warnings && [[ ! -s _warnings ]]

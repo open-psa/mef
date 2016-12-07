@@ -276,7 +276,7 @@ latex_elements = {
 
      # Additional stuff for the LaTeX preamble.
      #
-     'preamble': r'\usepackage{siunitx}',
+     # 'preamble': r'',
 
      # Latex figure (float) alignment
      #
@@ -314,7 +314,7 @@ latex_logo = 'images/opsa_logo.png'
 #
 # latex_appendices = []
 
-# It false, will not define \strong, \code, 	itleref, \crossref ... but only
+# It false, will not define \strong, \code, itleref, \crossref ... but only
 # \sphinxstrong, ..., \sphinxtitleref, ... To help avoid clash with user added
 # packages.
 #

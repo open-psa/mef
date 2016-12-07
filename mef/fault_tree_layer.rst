@@ -67,7 +67,7 @@ by means of a unique set of declarations.
 Therefore, the presence of multiple top events should not be prevented.
 We shall see what parameters and expressions are in the next chapter.
 
-.. figure:: ../images/fault_tree.svg
+.. figure:: ../images/fault_tree.*
     :name: fig_fault_tree
     :align: center
 
@@ -349,7 +349,7 @@ Note that components and fault trees may also contain definitions of parameters.
 Note also that the basic event BE1, which is declared in the component A,
 is used outside of this component (namely in the sibling component C).
 
-.. figure:: ../images/fault_tree_with_components.svg
+.. figure:: ../images/fault_tree_with_components.*
     :name: fault_tree_with_components
     :align: center
 
