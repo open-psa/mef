@@ -23,6 +23,7 @@ The redaction of this representation format is a shared effort.
 The following persons contributed to various extents
 to the current version of the document: |contributors|.
 
+:download:`Download PDF version <build/latex/mef.pdf>`
 
 Table of Contents
 =================

@@ -265,7 +265,7 @@ html_last_updated_fmt = ''
 html_secnumber_suffix = " "
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'TheOpen-PSAModelExchangeFormatdoc'
+htmlhelp_basename = 'mefdoc'
 
 # -- Options for LaTeX output ---------------------------------------------
 
@@ -303,8 +303,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    ('toc', 'TheOpen-PSAModelExchangeFormat.tex',
-     project, author, 'manual', True),
+    ('toc', 'mef.tex', project, author, 'manual', True),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
