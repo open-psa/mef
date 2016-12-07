@@ -13,6 +13,11 @@ This repository hosts source text files for the Open-PSA Model Exchange Format.
 Building
 ========
 
+Note that no dependency is required to edit the text source of the standard;
+a basic text editor suffices to work with the source files.
+All building is done automatically on Travis-CI upon your pull request
+to verify successful generations in various target formats.
+
 A list of dependencies:
 
 ====================   ===============
@@ -118,3 +123,13 @@ To reference the fault tree specification itself:
     **********
 
     The fault tree specification, description, text, ...
+
+
+Helpful Resources
+-----------------
+
+- `Sphinx reStructuredText Primer <http://www.sphinx-doc.org/en/latest/rest.html>`_
+- `reStructuredText User Documentation <http://docutils.sourceforge.net/rst.html>`_
+- `reST Cheat Sheet <http://docutils.sourceforge.net/docs/user/rst/cheatsheet.txt>`_
+- `reST Quick Reference <http://docutils.sourceforge.net/docs/user/rst/quickref.html>`_
+- `Short Math Guide for LaTeX <http://www.math.ucsd.edu/~jeggers/latex/short-math-guide.pdf>`_
