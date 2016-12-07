@@ -41,14 +41,14 @@ while lower branches represent its failure.
 Applying the so-called fault tree linking approach,
 we obtain the following interpretation for the sequences.
 
-::
+.. math::
 
-    S1 = I and not F and not H
-    S2 = I and not F and H
-    S3 = I and F and not G and not H
-    S4 = I and F and not G and H
-    S5 = I and F and G and not F
-    S6 = I and F and G and H
+    S1& = I \land \lnot F \land \lnot H\\
+    S2& = I \land \lnot F \land H\\
+    S3& = I \land F \land \lnot G \land \lnot H\\
+    S4& = I \land F \land \lnot G \land H\\
+    S5& = I \land F \land G \land \lnot F\\
+    S6& = I \land F \land G \land H
 
 In practice, things are less simple:
 

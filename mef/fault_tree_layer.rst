@@ -34,13 +34,13 @@ i.e., gates must be uniquely defined.
 :numref:`fig_fault_tree` shows a Fault Tree.
 The corresponding set of equations is as follows.
 
-::
+.. math::
 
-    TOP = G1 or G2
-    G1 = H1 and G3 and G4
-    G2 = not H1 and BE2 and G4
-    G3 = BE1 or BE3
-    G4 = BE3 or BE4
+    TOP& = G1 \lor G2\\
+    G1& = H1 \land G3 \land G4\\
+    G2& = \lnot H1 \land BE2 \land G4\\
+    G3& = BE1 \lor BE3\\
+    G4& = BE3 \lor BE4
 
 On the figure, basic events are surrounded with a circle.
 Basic events are in general associated with a probability distribution

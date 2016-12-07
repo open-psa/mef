@@ -887,11 +887,9 @@ The meaning of these directives will be further explained in Section :ref:`instr
     +---------------------------+------------+-------------------------------------------------------------------------------+
     | Built-in                  | #arguments | Semantics                                                                     |
     +===========================+============+===============================================================================+
-    | **test-initiating-event** | 1          | :code:`<test-initiating-event name="name" />`                                 |
-    |                           |            | returns true if the initiating event of the given name occurred.              |
+    | **test-initiating-event** | 1          | returns true if the initiating event of the given name occurred.              |
     +---------------------------+------------+-------------------------------------------------------------------------------+
-    | **test-functional-event** | 2          | :code:`<test-functional-event name="name" state="state" />`                   |
-    |                           |            | returns true if the functional event of the given name is in the given state. |
+    | **test-functional-event** | 2          | returns true if the functional event of the given name is in the given state. |
     +---------------------------+------------+-------------------------------------------------------------------------------+
 
 XML Representation

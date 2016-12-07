@@ -29,7 +29,7 @@ the factors for each level (2 components fail, 3 components fail, etc.) are give
 The Model Exchange Format proposes the three mentioned models plus a fourth one,
 so-called phi-factor, which is a more direct way to set factors.
 
-Beta-factor
+Beta-Factor
     The :math:`\beta`-factor model assumes
     that if a common cause occurs,
     then all components of the group fail simultaneously.
@@ -107,7 +107,8 @@ Alpha-Factor
 
     .. math::
 
-        Q_k = \frac{k}{\binom{n-1}{k-1}} \times \frac{\alpha_k}{\sum_{i=1}^{n}i\alpha_i} \times Q
+        Q_k = \frac{k}{\binom{n-1}{k-1}} \times
+            \frac{\alpha_k}{\sum_{i=1}^{n}i\cdot\alpha_i} \times Q
 
 Phi-Factor
     The phi-factor model is the same as MGL and alpha-factor models
@@ -224,7 +225,7 @@ Delete Terms
       If a minimal cut set contains at least two of the elements of :math:`G`,
       it is discarded.
 
-    - A global constraint :math:`C_G = \text{not 2-out-of-3}(e_1, e_2, e_3)` is introduced,
+    - A global constraint :math:`C_G = \lnot \binom{3}{2}(e_1, e_2, e_3)` is introduced,
       and each top event (or event tree sequences) "top" is rewritten as :math:`top \land C_G`.
 
     - As for Common Causes Groups, the :math:`e_i`'s are locally rewritten in as gates:
@@ -322,7 +323,7 @@ the notions of Delete Terms, Recovery Rules, and Exchange Events:
 - Let :math:`D = \{e_1, e_2, \ldots, e_n\}`
   be a group of pairwise exclusive events (a Delete Term).
   Then :math:`D` is represented as the substitution
-  :math:`(2-out-of-n(e_1, e_2, \ldots, e_n), \varnothing, \text{false})`.
+  :math:`(\binom{n}{2}(e_1, e_2, \ldots, e_n), \varnothing, \text{false})`.
 - Let :math:`(H, e)` be a Recovery Rule, under the first interpretation,
   where :math:`H = \{e_1, e_2, \ldots, e_n\}`.
   Then, :math:`(H, e)` is represented by the substitution
