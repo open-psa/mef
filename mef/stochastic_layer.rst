@@ -702,11 +702,9 @@ Lognormal distribution
 
     .. math::
 
-        X_{0.05} = \exp[\mu - 1.645\sigma]
-
-        X_{0.95} = \exp[\mu + 1.645\sigma]
-
-        X_{0.50} = \sqrt{X_{0.05} \times X_{0.95}} = e^\mu
+        X_{0.05}& = \exp[\mu - 1.645\sigma]\\
+        X_{0.95}& = \exp[\mu + 1.645\sigma]\\
+        X_{0.50}& = \sqrt{X_{0.05} \times X_{0.95}} = e^\mu
 
     The error factor :math:`EF` is defined as follows:
 
@@ -746,9 +744,8 @@ Beta Deviates
 
     .. math::
 
-        f(x;\alpha,\beta) = \frac{1}{B(\alpha,\beta)}x^{\alpha-1} (1 - x)^{\beta-1}
-
-        B(x, y) = \int_{0}^{1} t^{x-1} (1 - t^{y-1}) dt
+        f(x;\alpha,\beta)& = \frac{1}{B(\alpha,\beta)}x^{\alpha-1} (1 - x)^{\beta-1}\\
+        B(x, y)& = \int_{0}^{1} t^{x-1} (1 - t^{y-1}) dt
 
 
     The default value of the beta distribution is its mean, i.e., :math:`\alpha/(\alpha + \beta)`.

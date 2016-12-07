@@ -88,13 +88,10 @@ Multiple Greek Letters
 
     .. math::
 
-        Q_1 = (1 - \rho_2) \times Q
-
-        Q_2 = \frac{1}{3} \times \rho_2 \times (1 - \rho_3) \times Q
-
-        Q_3 = \frac{1}{3} \times \rho_2 \times \rho_3  \times (1 - \rho_4) \times Q
-
-        Q_4 = \rho_2 \times \rho_3 \times \rho_4 \times Q
+        Q_1& = (1 - \rho_2) \times Q\\
+        Q_2& = \tfrac{1}{3} \times \rho_2 \times (1 - \rho_3) \times Q\\
+        Q_3& = \tfrac{1}{3} \times \rho_2 \times \rho_3  \times (1 - \rho_4) \times Q\\
+        Q_4& = \rho_2 \times \rho_3 \times \rho_4 \times Q
 
     Note that if :math:`\rho_k = 0`,
     then :math:`Q_k, Q_{k+1}, \ldots` are null as well.

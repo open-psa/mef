@@ -24,6 +24,6 @@ script:
         || echo "no spelling errors!"
     - grep -P -n "[^[:ascii:]]" mef/* | grep -v 'references.rst' >> _warnings \
         || echo "no non-ASCII chars!"
+    - make latexpdf
     - make html linkcheck 2>> _warnings
-    - make clean latexpdf 2>> _warnings
     - cat _warnings && [[ ! -s _warnings ]]
