@@ -1,11 +1,13 @@
-**************************************************************************
-The Open Initiative for Next Generation of Probabilistic Safety Assessment
-**************************************************************************
+***********************
+The Open-PSA Initiative
+***********************
 
 .. image:: ../images/opsa_logo.png
     :height: 100px
     :width: 100px
     :align: center
+
+.. rubric:: The Open Initiative for Next Generation of Probabilistic Safety Assessment
 
 As we enter a time in which safety and reliability have come to the attention of the public,
 especially in the face of climate change and a nuclear renaissance,

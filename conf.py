@@ -259,6 +259,11 @@ html_last_updated_fmt = ''
 #
 # html_search_scorer = 'scorer.js'
 
+# supresses the last dot in section numbers
+# changes "1. Introduction" -> "1 Introduction"
+# default string is ". "
+html_secnumber_suffix = " "
+
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'TheOpen-PSAModelExchangeFormatdoc'
 
@@ -266,30 +271,40 @@ htmlhelp_basename = 'TheOpen-PSAModelExchangeFormatdoc'
 
 latex_engine = 'xelatex'
 latex_elements = {
-     # The paper size ('letterpaper' or 'a4paper').
-     #
-     # 'papersize': 'letterpaper',
+    # The paper size ('letterpaper' or 'a4paper').
+    #
+    # 'papersize': 'letterpaper',
 
-     # The font size ('10pt', '11pt' or '12pt').
-     #
-     # 'pointsize': '10pt',
+    # The font size ('10pt', '11pt' or '12pt').
+    #
+    # 'pointsize': '12pt',
+    # 'classoptions': ',english,lof,lot',
 
-     # Additional stuff for the LaTeX preamble.
-     #
-     # 'preamble': r'',
+    # Additional stuff for the LaTeX preamble.
+    #
+    # 'preamble': r'\usepackage{sphinx}',
 
-     # Latex figure (float) alignment
-     #
-     # 'figure_align': 'htbp',
+    # disable font inclusion
+    'fontpkg': '',
+    'fontenc': '',
+    'inputenc': '',
+    'utf8extra': '',
+    # 'maketitle': '',
+
+    # 'tableofcontents': '',
+    'fncychap': '',
+    # Latex figure (float) alignment
+    #
+    # 'figure_align': 'htbp',
+    'printindex': '',
 }
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'TheOpen-PSAModelExchangeFormat.tex',
-     u'The Open-PSA Model Exchange Format',
-     u'The Open-PSA Initiative', 'manual'),
+    ('toc', 'TheOpen-PSAModelExchangeFormat.tex',
+     project, author, 'manual', True),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -312,7 +327,7 @@ latex_logo = 'images/opsa_logo.png'
 
 # Documents to append as an appendix to all manuals.
 #
-# latex_appendices = []
+latex_appendices = ['mef/ebnf_presentation', 'mef/mef_schema', 'mef/mef_ebnf']
 
 # It false, will not define \strong, \code, itleref, \crossref ... but only
 # \sphinxstrong, ..., \sphinxtitleref, ... To help avoid clash with user added
@@ -323,45 +338,3 @@ latex_logo = 'images/opsa_logo.png'
 # If false, no module index is generated.
 #
 # latex_domain_indices = True
-
-
-# -- Options for manual page output ---------------------------------------
-
-# One entry per manual page. List of tuples
-# (source start file, name, description, authors, manual section).
-man_pages = [
-    (master_doc, 'theopen-psamodelexchangeformat', u'The Open-PSA Model Exchange Format Documentation',
-     [author], 1)
-]
-
-# If true, show URL addresses after external links.
-#
-# man_show_urls = False
-
-
-# -- Options for Texinfo output -------------------------------------------
-
-# Grouping the document tree into Texinfo files. List of tuples
-# (source start file, target name, title, author,
-#  dir menu entry, description, category)
-texinfo_documents = [
-    (master_doc, 'TheOpen-PSAModelExchangeFormat', u'The Open-PSA Model Exchange Format Documentation',
-     author, 'TheOpen-PSAModelExchangeFormat', 'One line description of project.',
-     'Miscellaneous'),
-]
-
-# Documents to append as an appendix to all manuals.
-#
-# texinfo_appendices = []
-
-# If false, no module index is generated.
-#
-# texinfo_domain_indices = True
-
-# How to display URL addresses: 'footnote', 'no', or 'inline'.
-#
-# texinfo_show_urls = 'footnote'
-
-# If true, do not generate a @detailmenu in the "Top" node's menu.
-#
-# texinfo_no_detailmenu = False
