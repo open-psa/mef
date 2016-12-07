@@ -109,6 +109,7 @@ i.e., two Boolean formulae F and G.
     Boolean-constant ::= constant (true | false)
 
 
+.. tabularcolumns:: |l|L|
 .. table:: Semantics of Boolean connectives
     :name: table_boolean_connectives
 

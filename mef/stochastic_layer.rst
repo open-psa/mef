@@ -561,6 +561,7 @@ Extern functions
     but it would be far too complex to embed XML into stochastic expressions.
 
 
+.. tabularcolumns:: |l|l|L|
 .. table:: Built-ins, their number of arguments, and their semantics
     :name: table_built_ins
 
@@ -646,6 +647,7 @@ and histograms that are user defined discrete distributions.
 A preliminary list of distributions is summarized in :numref:`table_random_deviates`.
 As for arithmetic operators and built-ins, this list can be extended on demand.
 
+.. tabularcolumns:: |l|l|L|
 .. table:: Primitive to generate random deviates, their number of arguments, and their semantics
     :name: table_random_deviates
 
@@ -878,16 +880,19 @@ The meaning of these directives will be further explained in Section :ref:`instr
 
 :numref:`table_test_event` presents these directives and their arguments.
 
+.. tabularcolumns:: |l|l|L|
 .. table:: Directives to test the status of initiating and functional events
     :name: table_test_event
 
-    +---------------------------+------------+-----------------------------------------------------------------------------------------------------------------------------------+
-    | Built-in                  | #arguments | Semantics                                                                                                                         |
-    +===========================+============+===================================================================================================================================+
-    | **test-initiating-event** | 1          | <test-initiating-event name="name" /> returns true if the initiating event of the given name occurred.                            |
-    +---------------------------+------------+-----------------------------------------------------------------------------------------------------------------------------------+
-    | **test-functional-event** | 2          | <test-functional-event name="name" state="state" /> returns true if the functional event of the given name is in the given state. |
-    +---------------------------+------------+-----------------------------------------------------------------------------------------------------------------------------------+
+    +---------------------------+------------+-------------------------------------------------------------------------------+
+    | Built-in                  | #arguments | Semantics                                                                     |
+    +===========================+============+===============================================================================+
+    | **test-initiating-event** | 1          | :code:`<test-initiating-event name="name" />`                                 |
+    |                           |            | returns true if the initiating event of the given name occurred.              |
+    +---------------------------+------------+-------------------------------------------------------------------------------+
+    | **test-functional-event** | 2          | :code:`<test-functional-event name="name" state="state" />`                   |
+    |                           |            | returns true if the functional event of the given name is in the given state. |
+    +---------------------------+------------+-------------------------------------------------------------------------------+
 
 XML Representation
 ------------------

@@ -266,7 +266,7 @@ and one additional chapter for models as a whole.
   The fault tree layer is not the lowest one in the hierarchy.
   However, fault trees are the most basic and the central concept of PSA models.
   For this reason, we put it in front.
-- Chapter :ref:`stochastic_layer` present the stochastic layer,
+- Chapter :ref:`stochastic_layer` presents the stochastic layer,
   i.e., all the mechanisms to associate probability distributions to basic events.
 - Chapter :ref:`meta_logical_layer` presents the meta-logical layer.
 - Chapter :ref:`event_tree_layer` presents the event tree layer.

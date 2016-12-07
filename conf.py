@@ -273,11 +273,11 @@ latex_engine = 'xelatex'
 latex_elements = {
     # The paper size ('letterpaper' or 'a4paper').
     #
-    # 'papersize': 'letterpaper',
+    'papersize': 'a4paper',
 
     # The font size ('10pt', '11pt' or '12pt').
     #
-    # 'pointsize': '12pt',
+    'pointsize': '12pt',
     # 'classoptions': ',english,lof,lot',
 
     # Additional stuff for the LaTeX preamble.
@@ -296,6 +296,7 @@ latex_elements = {
     # Latex figure (float) alignment
     #
     # 'figure_align': 'htbp',
+    'figure_align': 'H',
     'printindex': '',
 }
 
