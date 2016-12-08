@@ -4,7 +4,7 @@
         \centering
         \pagenumbering{gobble}
         \vspace*{0cm}
-        \includegraphics[width=0.15\textwidth]{opsa_logo.png}\par\vspace{0.5cm}
+        \includegraphics[width=0.15\textwidth]{opsa_logo.pdf}\par\vspace{0.5cm}
         {\scshape\Large The Open-PSA Initiative\par}
         \vspace{5cm}
         {\huge\bfseries Open-PSA Model Exchange Format\par}{\Large
