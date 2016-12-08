@@ -141,6 +141,10 @@ i.e., two Boolean formulae F and G.
     +-----------------+-----------------------------------------------------------------------------------------------+
 
 
+.. raw:: latex
+
+    \begin{minipage}{\textwidth}
+
 .. admonition:: Dynamic Gates
 
     In a second step, it would be of interest to incorporate to the Model Exchange Format
@@ -152,6 +156,10 @@ i.e., two Boolean formulae F and G.
     and provide mechanisms to accurately model backup systems, limited amount of resources, etc.
     The complexity of the assessment of this kind of model is indeed much higher
     than the one of Boolean models (which is already at least NP-hard or #P-hard).
+
+.. raw:: latex
+
+    \end{minipage}
 
 
 XML Representation

@@ -1,42 +1,59 @@
-##################################
-The Open-PSA Model Exchange Format
-##################################
+.. raw:: latex
 
-+--------------------------+----------------------------------+
-| Title                    | Open-PSA Model Exchange Format   |
-+--------------------------+----------------------------------+
-| Version                  | |release|                        |
-+--------------------------+----------------------------------+
-| Creation date            | |version_date|                   |
-+--------------------------+----------------------------------+
-| Last modification date   | |commit_date|                    |
-+--------------------------+----------------------------------+
-| Editors                  | Epstein Steven, Rauzy Antoine    |
-+--------------------------+----------------------------------+
+    \begin{titlepage}
+        \centering
+        \pagenumbering{gobble}
+        \vspace*{0cm}
+        \includegraphics[width=0.15\textwidth]{opsa_logo.png}\par\vspace{0.5cm}
+        {\scshape\Large The Open-PSA Initiative\par}
+        \vspace{5cm}
+        {\huge\bfseries Open-PSA Model Exchange Format\par}{\Large
 
+.. only:: latex
 
-Contributors
-============
+    |release|
 
-This document presents the "Open-PSA Model Exchange Format".
-The redaction of this representation format is a shared effort.
-The following persons contributed to various extents
-to the current version of the document: |contributors|.
+.. raw:: latex
 
-:download:`Download PDF version <build/latex/mef.pdf>`
+        }\vfill
+        {\small \today\par}
+    \end{titlepage}
 
-Table of Contents
-=================
+.. only:: latex
+
+    .. include:: stamp.rst
+
+.. raw:: latex
+
+    \pagenumbering{roman}
+    \pagestyle{plain}
+    \begingroup
+        \tableofcontents
+        \listoftables
+        \listoffigures
+    \endgroup
+    \clearpage
+    \pagenumbering{arabic}
+    \pagestyle{normal}
+
+#########
+|project|
+#########
+
+.. only:: html
+
+    .. include:: stamp.rst
+
+    :download:`Download PDF version <build/latex/opsa_mef.pdf>`
 
 .. include:: toc.rst
 
+.. only:: html
 
-Appendices
-----------
+    .. toctree::
+        :caption: Appendices
+        :maxdepth: 1
 
-.. toctree::
-    :maxdepth: 1
-
-    mef/ebnf_presentation
-    mef/mef_schema
-    mef/mef_ebnf
+        mef/ebnf_presentation
+        mef/mef_schema
+        mef/mef_ebnf

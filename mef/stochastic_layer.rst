@@ -599,6 +599,9 @@ is given in :numref:`bnf_built_ins`.
         | <periodic-test> [ expression ]:4 </periodic-test>
         | <extern-function name="name" > expression* </extern-function>
 
+.. raw:: latex
+
+    \begin{minipage}{\textwidth}
 
 .. admonition:: Positional versus Named Arguments
 
@@ -614,6 +617,10 @@ is given in :numref:`bnf_built_ins`.
     and it is not sure that it helps a lot the understanding of the built-ins.
     Nevertheless, we may switch to this approach
     if the experience shows that the first one proves to be confusing.
+
+.. raw:: latex
+
+    \end{minipage}
 
 
 Example

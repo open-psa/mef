@@ -136,6 +136,7 @@ pygments_style = 'sphinx'
 todo_include_todos = False
 
 rst_epilog = u"""
+.. |project| replace:: %(project)s
 .. |contributors| replace:: %(contributors)s
 .. |version_date| replace:: %(version_date)s
 .. |commit_date| replace:: %(commit_date)s
@@ -161,16 +162,16 @@ html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 # The name for this set of Sphinx documents.
 # "<project> v<release> documentation" by default.
 #
-# html_title = u'The Open-PSA Model Exchange Format v2.0d'
+html_title = '%(project)s %(version)s' % locals()
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
 #
-# html_short_title = None
+html_short_title = project
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
 #
-# html_logo = None
+html_logo = 'images/full_opsa_logo.png'
 
 # The name of an image file (relative to this directory) to use as a favicon of
 # the docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
@@ -265,7 +266,7 @@ html_last_updated_fmt = ''
 html_secnumber_suffix = " "
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'mefdoc'
+htmlhelp_basename = 'opsa_mef_doc'
 
 # -- Options for LaTeX output ---------------------------------------------
 
@@ -279,19 +280,20 @@ latex_elements = {
     #
     'pointsize': '12pt',
     # 'classoptions': ',english,lof,lot',
+    'extraclassoptions': 'openany',
 
     # Additional stuff for the LaTeX preamble.
     #
-    # 'preamble': r'\usepackage{sphinx}',
+    # 'preamble': r'',
 
     # disable font inclusion
     'fontpkg': '',
     'fontenc': '',
     'inputenc': '',
     'utf8extra': '',
-    # 'maketitle': '',
+    'maketitle': '',
 
-    # 'tableofcontents': '',
+    'tableofcontents': '',
     'fncychap': '',
     # Latex figure (float) alignment
     #
@@ -304,13 +306,13 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    ('toc', 'mef.tex', project, author, 'manual', True),
+    ('index', 'opsa_mef.tex', project, author, 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
 # the title page.
 #
-latex_logo = 'images/opsa_logo.png'
+# latex_logo = 'images/opsa_logo.png'
 
 # For "manual" documents, if this is true, then toplevel headings are parts,
 # not chapters.
@@ -328,6 +330,7 @@ latex_logo = 'images/opsa_logo.png'
 # Documents to append as an appendix to all manuals.
 #
 latex_appendices = ['mef/ebnf_presentation', 'mef/mef_schema', 'mef/mef_ebnf']
+latex_additional_files = ['images/opsa_logo.png']
 
 # It false, will not define \strong, \code, itleref, \crossref ... but only
 # \sphinxstrong, ..., \sphinxtitleref, ... To help avoid clash with user added
