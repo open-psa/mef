@@ -63,6 +63,8 @@ To generate a PDF document:
 reST Style
 ==========
 
+- `Semantic Linefeeds`_ (i.e., one sentence per line)
+- No UTF-8 math characters or symbols (use inline LaTeX math instead)
 - Part ``#`` overlined and underlined
 - Chapter ``*`` overlined and underlined
 - Section underlining and order ``=``, ``-``, ``~``, ``^``, ``+``
@@ -75,8 +77,6 @@ reST Style
 - No excessive blank lines at the end of files
 - One blank line after a header before its body
 - Prefer two blank lines between sections with bodies
-- Prefer `Semantic Linefeeds`_ (i.e., one sentence per line)
-- Prefer inline math to UTF-8 math characters or symbols
 
 .. _Semantic Linefeeds: http://rhodesmill.org/brandon/2012/one-sentence-per-line/
 
@@ -136,8 +136,36 @@ To reference the fault tree specification itself:
 Helpful Resources
 -----------------
 
-- `Sphinx reStructuredText Primer <http://www.sphinx-doc.org/en/latest/rest.html>`_
+- `Sphinx reStructuredText Primer <http://www.sphinx-doc.org/en/stable/rest.html>`_
+- `Spinx reST Miscellaneous <http://www.sphinx-doc.org/en/stable/markup/misc.html>`_
 - `reStructuredText User Documentation <http://docutils.sourceforge.net/rst.html>`_
 - `reST Cheat Sheet <http://docutils.sourceforge.net/docs/user/rst/cheatsheet.txt>`_
 - `reST Quick Reference <http://docutils.sourceforge.net/docs/user/rst/quickref.html>`_
 - `Short Math Guide for LaTeX <http://www.math.ucsd.edu/~jeggers/latex/short-math-guide.pdf>`_
+
+
+Workflow
+========
+
+#. Start by forking this repository and setting it as the upstream repository.
+#. Create your **topic** branch from the **master** branch.
+#. Keep in sync your **origin** master branch with the **upstream** master branch.
+#. Keep your **topic** branch in sync with the **master** branch
+   by merging or rebasing your **topic** branch on top of the **master**.
+   Rebasing is highly recommended for streamlining the history.
+   However, **DO NOT** rebase any commits
+   that have been pulled/pushed anywhere else other than your own fork.
+#. Submit your [pull request] from **your topic** branch to the **upstream master** branch.
+#. Your pull request will be reviewed by another editor before merging.
+
+[pull request]: https://help.github.com/articles/using-pull-requests/
+
+
+Git Resources and Best Practices
+--------------------------------
+
+- `Git SCM <http://git-scm.com/>`_
+- `Writing Good Commit Messages <https://github.com/erlang/otp/wiki/Writing-good-commit-messages>`_
+- `On Commit Messages <http://who-t.blogspot.com/2009/12/on-commit-messages.html>`_
+- `Atomic Commit <https://en.wikipedia.org/wiki/Atomic_commit#Atomic_commit_convention>`_
+- `Branching Model <http://nvie.com/posts/a-successful-git-branching-model/>`_
