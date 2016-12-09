@@ -44,7 +44,7 @@ The corresponding set of equations is as follows.
 
 On the figure, basic events are surrounded with a circle.
 Basic events are in general associated with a probability distribution
-(see Chapter :ref:`stochastic_layer`).
+(see :numref:`Chapter %s <stochastic_layer>`).
 
 House events (surrounded by a house shape frame on the figure)
 are represented as variables but are actually constants:
@@ -180,7 +180,7 @@ This description deserves some comments.
   possibly without a "type" attribute.
 - By default, the value of a house is event is "false".
   So it is not necessary to associate a value with a house event when declaring it.
-  We shall see in Section :ref:`instructions` how to change the value of a house event.
+  We shall see in :numref:`instructions` how to change the value of a house event.
 - Although events are typed (they are either gates, house events or basic events),
   two different events cannot have the same name (within the same name space),
   even if they are of different types.
@@ -334,7 +334,7 @@ Model-Data and Components
 
 The Model Exchange Format provides a number of extra-logical constructs
 to document and structure models.
-Labels and attributes are introduced in Section :ref:`definitions_labels_attributes`.
+Labels and attributes are introduced in :numref:`definitions_labels_attributes`.
 They can be associated with a declared element in order to document this element.
 Fault trees are a first mean to structure models.
 A fault tree groups any number of declarations of

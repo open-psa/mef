@@ -62,12 +62,16 @@
     mef/report_layer
     mef/references
 
+
 .. only:: html
 
     .. toctree::
         :caption: Appendices
-        :maxdepth: 1
+        :maxdepth: 2
+        :numbered:
 
         mef/ebnf_presentation
         mef/mef_schema
         mef/mef_ebnf
+
+.. TODO Section numbering with letters instead of numbers.

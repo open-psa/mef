@@ -12,7 +12,7 @@ failure probabilities or failure probability distributions associated with basic
 (in the event tree linking approach,
 functional events also can be associated with such a distribution).
 Probability distributions are described by (stochastic) expressions,
-which are terms, according to the terminology of Chapter :ref:`mef_anatomy`.
+which are terms, according to the terminology of :numref:`Chapter %s <mef_anatomy>`.
 These expressions may depend on parameters (variables),
 so the stochastic layer can be seen a set of stochastic equations.
 
@@ -883,7 +883,7 @@ Description
 The Model Exchange Format provides two special directives
 to test whether a given initiating event occurred
 and whether a given functional event is in a given state.
-The meaning of these directives will be further explained in Section :ref:`instructions`.
+The meaning of these directives will be further explained in :numref:`instructions`.
 
 :numref:`table_test_event` presents these directives and their arguments.
 

@@ -21,6 +21,7 @@ import sys
 from subprocess import check_output
 # sys.path.insert(0, os.path.abspath('.'))
 
+
 import sphinx_rtd_theme
 
 if sys.version[0] == '2':

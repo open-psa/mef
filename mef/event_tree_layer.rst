@@ -147,7 +147,7 @@ may depend on the initiating event and the states of functional events.
 The states of functional events at a node depend on the path
 that has been followed from the root node to this node.
 By default, functional events are in an unspecified state,
-i.e., that the predicate "test-functional-event" (see section :ref:`test_event`)
+i.e., that the predicate "test-functional-event" (see :numref:`test_event`)
 returns false in any case.
 :numref:`table_event_tree_structure_paths` gives the states of functional events
 for all the possible paths starting from the root node of the event tree
@@ -379,7 +379,7 @@ may depend on the initial event and the current state of functional events.
 To do so, the Model Exchange Format provides
 an if-then-else instruction (the "else" part is optional)
 and the two expressions "test-initiating-event" and "test-functional-event".
-These two instructions have been introduced in Section :ref:`test_event`.
+These two instructions have been introduced in :numref:`test_event`.
 Since the then- and else-branches of the "if-then-else" may contain several instructions,
 the Model Exchange Format introduces the notion of block of instructions.
 
