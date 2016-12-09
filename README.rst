@@ -155,10 +155,10 @@ Workflow
    Rebasing is highly recommended for streamlining the history.
    However, **DO NOT** rebase any commits
    that have been pulled/pushed anywhere else other than your own fork.
-#. Submit your [pull request] from **your topic** branch to the **upstream master** branch.
+#. Submit your `pull request`_ from **your topic** branch to the **upstream master** branch.
 #. Your pull request will be reviewed by another editor before merging.
 
-[pull request]: https://help.github.com/articles/using-pull-requests/
+.. _pull request: https://help.github.com/articles/using-pull-requests/
 
 
 Git Resources and Best Practices

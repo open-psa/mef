@@ -12,6 +12,10 @@
 | Editors                  | Epstein Steven, Rauzy Antoine    |
 +--------------------------+----------------------------------+
 
+.. raw:: latex
+
+    \clearpage
+
 .. rubric:: Contributors
 
 This document presents the "Open-PSA Model Exchange Format".
