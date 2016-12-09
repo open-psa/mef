@@ -295,7 +295,7 @@ latex_elements = {
     'maketitle': '',
 
     'tableofcontents': '',
-    'fncychap': '',
+    'fncychap': r'\usepackage[Rejne]{fncychap}',
     # Latex figure (float) alignment
     #
     # 'figure_align': 'htbp',
@@ -307,7 +307,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    ('index', 'opsa_mef.tex', project, author, 'manual'),
+    (master_doc, 'opsa_mef.tex', project, author, 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of

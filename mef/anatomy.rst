@@ -184,6 +184,10 @@ Structure of a Model
 Relationships between elements of a model
 -----------------------------------------
 
+.. raw:: latex
+
+    \begin{minipage}{\textwidth}
+
 The elements of a model, their layer, and their dependencies
 are pictured in :numref:`fig_mef_anatomy`.
 This schema illustrates the description given in the previous section.
@@ -196,9 +200,14 @@ Dependencies among categories are represented by arrows.
 
 .. figure:: ../images/anatomy.*
     :name: fig_mef_anatomy
+    :scale: 80%
     :align: center
 
     The main elements of a model, their layers, and their dependencies
+
+.. raw:: latex
+
+    \end{minipage}
 
 Giving more structure to a model
 --------------------------------
