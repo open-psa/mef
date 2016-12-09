@@ -60,7 +60,7 @@
     mef/event_tree_layer
     mef/model_organization
     mef/report_layer
-    mef/references
+    mef/bibliography
 
 
 .. only:: html
