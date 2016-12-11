@@ -1,10 +1,15 @@
 .. _mef_schema:
 
-*********************************************
-The DTD of the Open-PSA Model Exchange Format
-*********************************************
+****************************************************************
+The RelaxNG Compact Schema of the Open-PSA Model Exchange Format
+****************************************************************
 
-The schemas in various formats can be found at https://github.com/open-psa/schemas
+The specification for RelaxNG Compact
+can be found at http://relaxng.org/compact-20021121.html
 
-.. literalinclude:: ../schemas/2.0d/mef.dtd
-    :language: dtd
+The MEF XML schemas in various other formats
+can be found at https://github.com/open-psa/schemas.
+These schemas are auto-generated from the RNC schema in this specification.
+
+
+.. literalinclude:: ../schemas/2.0d/mef.rnc

@@ -234,16 +234,19 @@ A presentation of the Extended Backus-Naur form
 can be found in :numref:`Appendix %s<ebnf_presentation>`.
 
 There are several formal ways to describe an XML grammar.
-The most popular one is probably the XML Document Type Definition (DTD).
-A DTD is associated with an XML document via a Document Type Declaration,
-which is a tag that appears near the start of the XML document.
-The declaration establishes
-that the document is an instance of the type defined by the referenced DTD.
-DTD is a good verification tool,
-but hard to interpret by a human.
-Therefore, we shall present the grammar of the Model Exchange Format
+The most popular approach is to use one of XML schema languages,
+such as the XML Document Type Definition (DTD), XML Schema Definition (XSD), RelaxNG, Schematron.
+The Model Exchange Format used to use the DTD for its formal schema;
+however, mainly due to the DTD's lack of maintainability, age,
+and limitations (a lack of context awareness),
+`RelaxNG Compact`_ (RNC) has been chosen as a modern replacement.
+The RNC leverages regular expression operators
+(similar to the Extended Backus Naur form)
+and is structured in a very concise and human-readable form,
+and unlike the DTD, the RNC is feature-rich enough to support the MEF grammar.
+However, we shall present the grammar of the Model Exchange Format
 mainly by means of examples and semi-formal descriptions with the Extended Backus Naur form.
-A formal DTD for the whole Model Exchange Format is given in :numref:`Appendix %s <mef_schema>`.
+A formal schema for the whole Model Exchange Format is given in :numref:`Appendix %s <mef_schema>`.
 A semi-formal Backus-Naur form for the Model Exchange Format
 is given in :numref:`Appendix %s <mef_bnf>`.
 
@@ -251,6 +254,9 @@ It is worth noting that the XML descriptions we are giving here
 can be extended in any way to fulfill the needs of a particular tool.
 In particular, comments and pointers to documentation
 should be added here and there to the model.
+
+.. _RelaxNG Compact: http://relaxng.org/compact-20021121.html
+
 
 Organization of the document
 ============================
@@ -282,5 +288,5 @@ or summarize the contents of these six chapters.
 - :numref:`Appendix %s <ebnf_presentation>` presents the Backus-Naur form
   we use throughout this document to describe
   both the mathematical structure of the constructs and their XML representation.
-- :numref:`Appendix %s <mef_schema>` gives the Document Type Definition (DTD) of the full Model Exchange Format.
+- :numref:`Appendix %s <mef_schema>` gives the RelaxNG Compact schema of the full Model Exchange Format.
 - :numref:`Appendix %s <mef_bnf>` gives the Backus-Naur form of the Model Exchange Format.
