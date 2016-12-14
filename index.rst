@@ -70,7 +70,6 @@
         :maxdepth: 2
         :numbered:
 
-        mef/ebnf_presentation
         mef/mef_schema
         mef/mef_ebnf
 

@@ -230,8 +230,6 @@ These constructions will eventually be represented by means of XML terms.
 However, XML is a bit too verbose
 to make clear the underlying mathematical nature of objects at hand.
 Therefore, we shall use (in a rather loose way) the Extended Backus-Naur form to define constructs.
-A presentation of the Extended Backus-Naur form
-can be found in :numref:`Appendix %s<ebnf_presentation>`.
 
 There are several formal ways to describe an XML grammar.
 The most popular approach is to use one of XML schema languages,
@@ -290,8 +288,5 @@ and one additional chapter for models as a whole.
 Three appendices give additional details
 or summarize the contents of these six chapters.
 
-- :numref:`Appendix %s <ebnf_presentation>` presents the Backus-Naur form
-  we use throughout this document to describe
-  both the mathematical structure of the constructs and their XML representation.
 - :numref:`Appendix %s <mef_schema>` gives the RelaxNG Compact schema of the full Model Exchange Format.
 - :numref:`Appendix %s <mef_bnf>` gives the Backus-Naur form of the Model Exchange Format.
