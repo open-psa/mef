@@ -1,0 +1,44 @@
+formula =
+  event
+  | Boolean-constant
+  | element and { formula+ }
+  | element or { formula+ }
+  | element not { formula }
+  | element xor { formula+ }
+  | element iff { formula+ }
+  | element nand { formula+ }
+  | element nor { formula+ }
+  | element atleast {
+      attribute min { xsd:nonNegativeInteger },
+      formula+
+    }
+  | element cardinality {
+      attribute min { xsd:nonNegativeInteger },
+      attribute max { xsd:nonNegativeInteger },
+      formula+
+    }
+  | element imply { formula, formula }
+
+event =
+  element event {
+    reference,
+    attribute type { event-type }?
+  }
+  | gate
+  | house-event
+  | basic-event
+
+event-type = "gate" | "basic-event" | "house-event"
+
+gate = element gate { reference }
+
+house-event = element house-event { reference }
+
+basic-event = element basic-event { reference }
+
+Boolean-constant =
+  element constant {
+    attribute value { Boolean-value }
+  }
+
+Boolean-value = "true" | "false"

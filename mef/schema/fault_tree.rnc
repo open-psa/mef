@@ -1,0 +1,52 @@
+fault-tree-definition =
+  element define-fault-tree {
+    name,
+    label?,
+    attributes?,
+    (substitution-definition
+     | CCF-group-definition
+     | event-definition
+     | component-definition
+     | parameter-definition
+     | include-directive)*
+  }
+
+component-definition =
+  element define-component {
+    name,
+    role?,
+    label?,
+    attributes?,
+    (substitution-definition
+     | CCF-group-definition
+     | event-definition
+     | component-definition
+     | parameter-definition
+     | include-directive)*
+  }
+
+role = attribute role { "private" | "public" }
+
+model-data =
+  element model-data {
+    (house-event-definition
+     | basic-event-definition
+     | parameter-definition
+     | include-directive)*
+  }
+
+event-definition =
+  gate-definition | house-event-definition | basic-event-definition
+
+gate-definition =
+  element define-gate { name, role?, label?, attributes?, formula }
+
+house-event-definition =
+  element define-house-event {
+    name, role?, label?, attributes?, Boolean-constant?
+  }
+
+basic-event-definition =
+  element define-basic-event {
+    name, role?, label?, attributes?, expression?
+  }
