@@ -1,0 +1,13 @@
+alignment-definition =
+  element define-alignment {
+    name, label?, attributes?, phase-definition+
+  }
+
+phase-definition =
+  element define-phase {
+    name,
+    attribute time-fraction { xsd:float },
+    label?,
+    attributes?,
+    instruction*
+  }

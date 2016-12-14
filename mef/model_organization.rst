@@ -23,31 +23,12 @@ and a particular sequence (end-state) of the same tree.
 Consequences are given a name.
 Groups of consequences can be defined as well.
 They are also given a name, and can include sub-groups.
-The Backus-Naur form for the XML representation of declarations of groups of consequences
-is given in :numref:`bnf_consequence_groups`.
+The RNC schema for the XML representation of declarations of groups of consequences
+is given in :numref:`schema_consequence_groups`.
 
-.. code-block:: bnf
-    :name: bnf_consequence_groups
-    :caption: Backus-Naur form of the XML representation of consequence groups
-
-    consequence-definition ::=
-        <define-consequence name="identifier" >
-            [ label ]
-            [ attributes ]
-            <initiating-event name="identifier" />
-            <sequence name="identifier" />
-        </define-consequence>
-
-    consequence-group-definition ::=
-        <define-consequence-group name="identifier" >
-            [ label ]
-            [ attributes ]
-            consequence | consequence-group
-        </define-consequence-group>
-
-    consequence ::= <consequence name="identifier" />
-
-    consequence-group ::= <consequence-group name="identifier" />
+.. literalinclude:: schema/consequence_groups.rnc
+    :name: schema_consequence_groups
+    :caption: The RNC schema of the XML representation of consequence groups
 
 Note that consequences and consequences groups can be used as initiating events
 (see :numref:`event_tree_structure_xml_representation`).
@@ -61,26 +42,12 @@ in which the plant spends a fraction of the mission time.
 Phases are grouped into missions.
 The time fractions of the phases of a mission should sum to 1.
 House events and parameters may be given different values in each phase.
-The Backus-Naur form for the XML representation of phase declarations
-is given in :numref:`bnf_mission_phase`.
+The RNC schema for the XML representation of phase declarations
+is given in :numref:`schema_mission_phase`.
 
-.. code-block:: bnf
-    :name: bnf_mission_phase
-    :caption: Backus-Naur form of the XML representation of Missions and Phases
-
-    mission-definition ::=
-        <define-mission name="identifier" >
-            [ label ]
-            [ attributes ]
-            define-phase+
-        </define-alignment>
-
-    phase-definition ::=
-        <define-phase name="identifier" time-fraction="float" >
-            [ label ]
-            [ attributes ]
-            instruction*
-        </define-phase>
+.. literalinclude:: schema/mission_phase.rnc
+    :name: schema_mission_phase
+    :caption: The RNC schema of the XML representation of Missions and Phases
 
 
 Splitting the Model into Several Files
@@ -143,74 +110,8 @@ The Model Exchange Format introduces also eighteen constructs.
 
     Containers and the constructs they can define
 
-:numref:`bnf_containers` gives the XML representation of models.
-This representation just collects what has been defined so far.
+:numref:`schema_model` gives the RNC schema of the XML representation of a model.
 
-.. code-block:: bnf
-    :name: bnf_containers
-    :caption: Backus-Naur form for the XML representation of containers
-
-    model ::=
-        <?xml version="1.0" ?>
-        <!DOCTYPE opsa-mef >
-        <opsa-mef>
-            [ label ]
-            [ attributes ]
-            (
-                  mission-definition
-                | consequence-group-definition
-                | consequence-definition
-                | event-tree-definition
-                | rule-definition
-                | initiating-event-group-definition
-                | initiating-event-definition
-                | fault-tree-definition
-                | substitution-definition
-                | CCF-group-definition
-            )*
-        </opsa-mef>
-
-    event-tree-definition ::=
-        <define-event-tree name="identifier">
-            [ label ]
-            [ attributes ]
-            functional-event-definition*
-            sequence-definition*
-            branch-definition*
-            initial-state
-        </define-event-tree>
-
-    fault-tree-definition ::=
-        <define-fault-tree name="identifier">
-            [ label ]
-            [ attributes ]
-            (
-                 substitution-definition
-                | CCF-group-definition
-                | component-definition
-                | gate-definition
-                | house-event-definition
-                | basic-event-definition
-                | parameter-definition
-            )*
-        </define-fault-tree>
-
-    component-definition ::=
-        <define-component name="identifier">
-            [ label ]
-            [ attributes ]
-            (
-                  substitution-definition
-                | CCF-group-definition
-                | component-definition
-                | gate-definition
-                | house-event-definition
-                | basic-event-definition
-                | parameter-definition
-            )*
-        </define-component>
-
-    model-data ::=
-        <model-data>
-            (house-event-definition | basic-event-definition | parameter-definition)*
-        </model-data>
+.. literalinclude:: schema/model.rnc
+    :name: schema_model
+    :caption: The RNC schema for the XML representation of a model
