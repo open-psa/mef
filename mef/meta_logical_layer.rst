@@ -119,8 +119,8 @@ Phi-Factor
 XML representation
 ------------------
 
-The Backus-Naur form for the XML description of Common Cause Failure Groups
-is given in :numref:`bnf_ccf_groups`.
+The RNC schema for the XML description of Common Cause Failure Groups
+is given in :numref:`schema_ccf_groups`.
 Note that the number of factors depends on the model.
 Tools are in charge of checking that there is the good number of factors.
 Note also that each created basic event is associated with a factor
@@ -129,40 +129,9 @@ The sum of the factors
 associated with basic events of a member of the CCF group should be equal to 1;
 although, this is not strictly required by the Model Exchange Format.
 
-.. code-block:: bnf
-    :name: bnf_ccf_groups
-    :caption: Backus-Naur form for the XML representation of CCF-groups
-
-    CCF-group-definition ::=
-        <define-CCF-group name="identifier" model="CCF-model" >
-            [ label ]
-            [ attributes ]
-            members
-            distribution
-            factors
-        </define-CCF-group>
-
-    members ::=
-        <members>
-            <basic-event name="identifier" />+
-        </members>
-
-    factors ::=
-          <factors> factor+ </factors>
-        | factor
-
-    factor ::=
-        <factor [ level="integer" ] >
-            expression
-        </factor>
-
-    distribution ::=
-        <distribution>
-            expression
-        </distribution>
-
-    CCF-model ::= beta-factor | MGL | alpha-factor | phi-factor
-
+.. literalinclude:: schema/ccf_groups.rnc
+    :name: schema_ccf_groups
+    :caption: The RNC schema for the XML representation of CCF-groups
 
 Example
 ~~~~~~~
@@ -343,22 +312,13 @@ can always be interpreted as the global constraint :math:`H \Rightarrow t`.
 XML Representation
 ------------------
 
-The Backus-Naur form for the XML description of substitutions
-is given in :numref:`bnf_substitution`.
+The RNC schema for the XML description of substitutions
+is given in :numref:`schema_substitution`.
 The optional attribute "type" is used to help tools that implement "traditional" substitutions.
 
-.. code-block:: bnf
-    :name: bnf_substitution
-    :caption: Backus-Naur form for the XML representation of exclusive-groups
-
-    substitution-definition ::=
-        <define-substitution [ name="identifier" ] [ type="identifier" ] >
-            [ label ] [ attributes ]
-            <hypothesis> Boolean-formula </hypothesis>
-            [ <source> basic-event+ </source> ]
-            <target> basic-event+ | Boolean-constant </target>
-        </define-substitution>
-
+.. literalinclude:: schema/substitution.rnc
+    :name: schema_substitution
+    :caption: The RNC schema for the XML representation of exclusive-groups
 
 Example
 ~~~~~~~
