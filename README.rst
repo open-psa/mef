@@ -108,10 +108,10 @@ BNF description of the fault tree specification:
         +=======+======+
 
 
-    .. code-block:: bnf
-        :name: bnf_fault_tree
+    .. code-block:: rnc
+        :name: schema_fault_tree
 
-        fault_tree ::= graph
+        fault_tree = graph
 
 
     .. code-block:: xml
