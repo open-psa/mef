@@ -71,6 +71,5 @@
         :numbered:
 
         mef/mef_schema
-        mef/mef_ebnf
 
 .. TODO Section numbering with letters instead of numbers.

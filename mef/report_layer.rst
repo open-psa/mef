@@ -1,3 +1,5 @@
+.. _report_layer:
+
 ************
 Report Layer
 ************

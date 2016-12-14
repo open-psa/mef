@@ -229,7 +229,7 @@ such as Boolean formulae, probability distributions, and so on.
 These constructions will eventually be represented by means of XML terms.
 However, XML is a bit too verbose
 to make clear the underlying mathematical nature of objects at hand.
-Therefore, we shall use (in a rather loose way) the Extended Backus-Naur form to define constructs.
+Therefore, we shall use an XML schema language to define constructs.
 
 There are several formal ways to describe an XML grammar.
 The most popular approach is to use one of XML schema languages,
@@ -240,17 +240,15 @@ however, mainly due to the DTD's lack of maintainability, age,
 and limitations (a lack of context awareness),
 `RELAX NG Compact`_ (RNC) has been chosen as a modern replacement.
 The RNC has a non-XML syntax and leverages regular expression operators
-(similar to the DTD and Extended Backus Naur form)
+(similar to the DTD and Extended Backus Naur Form)
 and is structured in a very concise and human-readable form,
 and unlike the DTD, the RNC is feature-rich enough to support the MEF grammar.
 Even though the RNC language is very self-descriptive,
 please consult with `RELAX NG Compact Tutorial`_ and the specification
 to gain familiarity.
-However, we shall present the grammar of the Model Exchange Format
-mainly by means of examples and semi-formal descriptions with the Extended Backus Naur form.
+In addition to the schema,
+we shall present the grammar of the Model Exchange Format by means of examples.
 A formal schema for the whole Model Exchange Format is given in :numref:`Appendix %s <mef_schema>`.
-A semi-formal Backus-Naur form for the Model Exchange Format
-is given in :numref:`Appendix %s <mef_bnf>`.
 
 It is worth noting that the XML descriptions we are giving here
 can be extended in any way to fulfill the needs of a particular tool.
@@ -282,11 +280,11 @@ and one additional chapter for models as a whole.
 - :numref:`Chapter %s <meta_logical_layer>` presents the meta-logical layer.
 - :numref:`Chapter %s <event_tree_layer>` presents the event tree layer.
 - :numref:`Chapter %s <model_organization>` discusses the organization of models.
-- Finally, chapter presents the report/results layer,
+- Finally, :numref:`Chapter %s <report_layer>` presents the report/results layer,
   i.e., the normalized format for results of assessment of PSA models.
 
-Three appendices give additional details
+The appendices give additional details
 or summarize the contents of these six chapters.
 
-- :numref:`Appendix %s <mef_schema>` gives the RelaxNG Compact schema of the full Model Exchange Format.
-- :numref:`Appendix %s <mef_bnf>` gives the Backus-Naur form of the Model Exchange Format.
+- :numref:`Appendix %s <mef_schema>`
+  gives the RELAX NG Compact schema of the full Model Exchange Format.
