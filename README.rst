@@ -142,6 +142,7 @@ Helpful Resources
 - `reST Cheat Sheet <http://docutils.sourceforge.net/docs/user/rst/cheatsheet.txt>`_
 - `reST Quick Reference <http://docutils.sourceforge.net/docs/user/rst/quickref.html>`_
 - `Short Math Guide for LaTeX <http://www.math.ucsd.edu/~jeggers/latex/short-math-guide.pdf>`_
+- `RELAX NG Compact Tutorial <http://relaxng.org/compact-tutorial-20030326.html>`_
 
 
 Workflow

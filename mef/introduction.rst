@@ -235,15 +235,19 @@ can be found in :numref:`Appendix %s<ebnf_presentation>`.
 
 There are several formal ways to describe an XML grammar.
 The most popular approach is to use one of XML schema languages,
-such as the XML Document Type Definition (DTD), XML Schema Definition (XSD), RelaxNG, Schematron.
+such as the XML Document Type Definition (DTD), XML Schema Definition (XSD),
+RELAX NG (REgular LAnguage for XML Next Generation), Schematron.
 The Model Exchange Format used to use the DTD for its formal schema;
 however, mainly due to the DTD's lack of maintainability, age,
 and limitations (a lack of context awareness),
-`RelaxNG Compact`_ (RNC) has been chosen as a modern replacement.
-The RNC leverages regular expression operators
-(similar to the Extended Backus Naur form)
+`RELAX NG Compact`_ (RNC) has been chosen as a modern replacement.
+The RNC has a non-XML syntax and leverages regular expression operators
+(similar to the DTD and Extended Backus Naur form)
 and is structured in a very concise and human-readable form,
 and unlike the DTD, the RNC is feature-rich enough to support the MEF grammar.
+Even though the RNC language is very self-descriptive,
+please consult with `RELAX NG Compact Tutorial`_ and the specification
+to gain familiarity.
 However, we shall present the grammar of the Model Exchange Format
 mainly by means of examples and semi-formal descriptions with the Extended Backus Naur form.
 A formal schema for the whole Model Exchange Format is given in :numref:`Appendix %s <mef_schema>`.
@@ -255,7 +259,8 @@ can be extended in any way to fulfill the needs of a particular tool.
 In particular, comments and pointers to documentation
 should be added here and there to the model.
 
-.. _RelaxNG Compact: http://relaxng.org/compact-20021121.html
+.. _RELAX NG Compact Tutorial: http://relaxng.org/compact-tutorial-20030326.html
+.. _RELAX NG Compact: http://relaxng.org/compact-20021121.html
 
 
 Organization of the document
