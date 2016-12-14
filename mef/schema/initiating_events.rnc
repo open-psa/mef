@@ -1,0 +1,23 @@
+initiating-event-definition =
+  element define-initiating-event {
+    name,
+    attribute event-tree { Identifier }?,
+    label?,
+    attributes?,
+    (collected-item | consequence | consequence-group)?
+  }
+
+initiating-event-group-definition =
+  element define-initiating-event-group {
+    name,
+    attribute event-tree { Identifier }?,
+    label?,
+    attributes?,
+    initiating-event+
+  }
+
+initiating-event =
+  element initiating-event { name }
+  | element initiating-event-group { name }
+
+collected-item = basic-event | gate | parameter
