@@ -1,0 +1,57 @@
+parameter-definition =
+  element define-parameter {
+    name,
+    role?,
+    attribute unit { units }?,
+    label?,
+    attributes?,
+    expression
+  }
+
+units =
+  "bool"
+  | "int"
+  | "float"
+  | "hours"
+  | "hours-1"
+  | "years"
+  | "years-1"
+  | "fit"
+  | "demands"
+
+expression =
+  constant
+  | parameter
+  | operation
+  | built-in
+  | random-deviate
+  | test-event
+
+constant = bool | int | float
+
+bool =
+  element bool {
+    attribute value { Boolean-value }
+  }
+
+int =
+  element int {
+    attribute value { xsd:integer }
+  }
+
+float =
+  element float {
+    attribute value { xsd:float }
+  }
+
+parameter =
+  element parameter {
+    reference,
+    attribute unit { units }?
+  }
+  | element system-mission-time {
+      attribute unit { units }?
+    }
+
+operation =
+  numerical-operation | Boolean-operation | conditional-operation

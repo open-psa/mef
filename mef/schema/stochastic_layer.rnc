@@ -1,0 +1,33 @@
+expression =
+  constant
+  | parameter
+  | operation
+  | built-in
+  | random-deviate
+  | test-event
+
+constant = bool | int | float
+
+parameter =
+  element parameter {
+    reference,
+    attribute unit { units }?
+  }
+  | element system-mission-time {
+      attribute unit { units }?
+    }
+
+operation =
+  numerical-operation | Boolean-operation | conditional-operation
+
+built-in = exponential | GLM | Weibull | periodic-test | extern-function
+
+random-deviate =
+  uniform-deviate
+  | normal-deviate
+  | lognormal-deviate
+  | gamma-deviate
+  | beta-deviate
+  | histogram
+
+test-event = test-initiating-event | test-functional-event

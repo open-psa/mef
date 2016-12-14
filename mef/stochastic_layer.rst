@@ -57,82 +57,20 @@ Stochastic expressions are made of the following elements:
   through the notion of histogram.
 - Directives to test the status of initial and functional events
 
-:numref:`bnf_stochastic_layer` sketches the Backus-Naur form
+:numref:`schema_stochastic_layer` presents the RNC schema
 for the constructs of the stochastic layer.
 Note that, conversely to variables (events) of the Fault Tree layer,
 parameters have to be defined
 (there is no equivalent to Basic Events).
 
-.. code-block:: bnf
-    :name: bnf_stochastic_layer
-    :caption: Backus-Naur form for the constructs of the stochastic layer (sketch)
-
-    basic-event-declaration ::= basic-event = expression
-    parameter-declaration ::= parameter = expression
-    expression ::=
-        constant | parameter | operation | built-in | random-deviate | test-event
-    constant ::= bool | integer | float
-    parameter ::= regular-parameter | system-mission-time
-    operation ::=
-         and expression+
-        | or expression+
-        | not expression
-        | eq expression expression
-        | df expression expression
-        ...
-        | neg expression
-        | add expression+
-        | sub expression+
-        | mul expression+
-        | div expression+
-        | pow expression expression
-        ...
-        | if expression then expression else expression
-
-    built-in ::=
-          exponential expression expression
-        | Weibull expression expression expression expression
-        ...
-
-    random-deviate ::=
-          uniform-deviate expression expression
-        | lognormal-deviate expression expression expression
-        | lognormal-deviate expression expression
-        | histogram
-        ...
-
-    test-event ::=
-          test-initiating-event name
-        | test-functional-event name state
+.. literalinclude:: schema/stochastic_layer.rnc
+    :name: schema_stochastic_layer
+    :caption: The RNC schema for the constructs of the stochastic layer
 
 The XML representation of the stochastic layer just reflects these different constructs.
 
-.. code-block:: bnf
-    :caption: Backus-Naur grammar for XML representation of expressions (main)
-
-    parameter-definition ::=
-        <define-parameter name="identifier"
-            [ role="private|public" ] [ unit="unit" ]>
-            [ label ] [ attributes ]
-            expression
-        </define-parameter>
-
-    unit ::= bool | int | float | hours | hours-1 | years | years-1| demands | fit
-
-    expression ::=
-        constant | parameter | operation | built-in | random-deviate | test-event
-
-    constant ::=
-          <bool value="Boolean-value" />
-        | <int value="integer" />
-        | <float value="float" />
-
-    parameter ::=
-          <parameter name="identifier" [ unit="unit" ] />
-        | <system-mission-time [ unit="unit" ] />
-
-    operation ::=
-        numerical-operation | Boolean-operation | conditional-operation
+.. literalinclude:: schema/expressions.rnc
+    :caption: The RNC schema for XML representation of expressions (main)
 
 Operations, built-ins, and random deviates will be described in the following sections.
 
@@ -152,12 +90,12 @@ Operations
 Numerical Operation
 -------------------
 
-:numref:`table_numerical_operations` gives the list of arithmetic operators
+:numref:`table_numerical_operation` gives the list of arithmetic operators
 proposed by the Model Exchange Format.
-Their XML representation is given in :numref:`bnf_numerical_operations`.
+Their XML representation is given in :numref:`schema_numerical_operation`.
 
 .. table:: Numerical Operations, their number of arguments, and their semantics
-    :name: table_numerical_operations
+    :name: table_numerical_operation
 
     +-----------+------------+-----------------------------------------+
     | Operator  | #arguments | Semantics                               |
@@ -217,38 +155,9 @@ Their XML representation is given in :numref:`bnf_numerical_operations`.
     | **mean**  | >1         | mean                                    |
     +-----------+------------+-----------------------------------------+
 
-.. code-block:: bnf
-    :name: bnf_numerical_operations
-    :caption: Backus-Naur grammar for XML representation of numerical operations
-
-    numerical-operation ::=
-          <neg> expression </neg>
-        | <add> expression+ </add>
-        | <sub> expression+ </sub>
-        | <mul> expression+ </mul>
-        | <div> expression+ </div>
-        | <pi />
-        | <abs> expression </abs>
-        | <acos> expression </acos>
-        | <asin> expression </asin>
-        | <atan> expression </atan>
-        | <cos> expression </cos>
-        | <cosh> expression </cosh>
-        | <exp> expression </exp>
-        | <log> expression </log>
-        | <log10> expression </log10>
-        | <mod> expression expression </mod>
-        | <pow> expression expression </pow>
-        | <sin> expression </sin>
-        | <sinh> expression </sinh>
-        | <tan> expression </tan>
-        | <tanh> expression </tanh>
-        | <sqrt> expression </sqrt>
-        | <ceil> expression </ceil>
-        | <floor> expression </floor>
-        | <min> expression+ </min>
-        | <max> expression+ </max>
-        | <mean> expression+ </mean>
+.. literalinclude:: schema/numerical_operation.rnc
+    :name: schema_numerical_operation
+    :caption: The RNC schema for XML representation of numerical operations
 
 Example
 ~~~~~~~
@@ -284,7 +193,7 @@ Boolean Operations
 
 :numref:`table_boolean_operators` gives the list of Boolean operators
 proposed by the Model Exchange Format.
-Their XML representation is given in :numref:`bnf_boolean_operations`.
+Their XML representation is given in :numref:`schema_boolean_operation`.
 
 .. table:: Boolean operators, their number of arguments, and their semantics
     :name: table_boolean_operators
@@ -311,20 +220,9 @@ Their XML representation is given in :numref:`bnf_boolean_operations`.
     | **geq**  | 2          | :math:`\geq`  |
     +----------+------------+---------------+
 
-.. code-block:: bnf
-    :name: bnf_boolean_operations
-    :caption: Backus-Naur grammar for XML representation of Boolean operations
-
-    Boolean-operation ::=
-          <not> expression </not>
-        | <and> expression+ </and>
-        | <or> expression+ </or>
-        | <eq> expression expression </eq>
-        | <df> expression expression </df>
-        | <lt> expression expression </lt>
-        | <gt> expression expression </gt>
-        | <leq> expression expression </leq>
-        | <geq> expression expression </geq>
+.. literalinclude:: schema/boolean_operation.rnc
+    :name: schema_boolean_operation
+    :caption: The RNC schema for XML representation of Boolean operations
 
 Conditional Operations
 ----------------------
@@ -339,25 +237,12 @@ Otherwise, the next pair is considered.
 
 The list ends with an expression
 in order to be sure that the switch has always a possible value.
-The XML representation for conditional operation is given in :numref:`bnf_conditional_operations`.
+The XML representation for conditional operation is given in :numref:`schema_conditional_operation`.
 
-.. code-block:: bnf
-    :name: bnf_conditional_operations
-    :caption: Backus-Naur grammar for XML representation of conditional operations
+.. literalinclude:: schema/conditional_operation.rnc
+    :name: schema_conditional_operation
+    :caption: The RNC schema for XML representation of conditional operations
 
-    conditional-operation ::=
-        if-then-else-operation | switch-operation
-
-    if-then-else-operation ::=
-        <ite> expression expression expression </ite>
-
-    switch-operation ::=
-        <switch>
-            case-operation*
-            expression
-        </switch>
-
-    case-operation ::= <case> expression expression </case>
 
 Example
 ~~~~~~~
@@ -584,21 +469,12 @@ Extern functions
 XML Representation
 ------------------
 
-The Backus-Naur grammar for the XML representation of built-ins
-is given in :numref:`bnf_built_ins`.
+The RNC schema for the XML representation of built-ins
+is given in :numref:`schema_built_ins`.
 
-.. code-block:: bnf
-    :name: bnf_built_ins
-    :caption: Backus-Naur grammar for XML representation of Built-ins
-
-    built-in ::=
-          <exponential> [ expression ]:2 </exponential>
-        | <GLM> [ expression ]:4 </GLM>
-        | <Weibull> [ expression ]:3 </Weibull>
-        | <periodic-test> [ expression ]:11 </periodic-test>
-        | <periodic-test> [ expression ]:5 </periodic-test>
-        | <periodic-test> [ expression ]:4 </periodic-test>
-        | <extern-function name="name" > expression* </extern-function>
+.. literalinclude:: schema/built_ins.rnc
+    :name: schema_built_ins
+    :caption: The RNC schema for XML representation of Built-ins
 
 .. raw:: latex
 
@@ -835,23 +711,10 @@ Histograms
 XML Representation
 ------------------
 
-The Backus-Naur grammar for the XML representation of random deviates is given
+The RNC schema for the XML representation of random deviates is given
 
-.. code-block:: bnf
-    :caption: Backus-Naur grammar for XML representation of random deviates
-
-    random-deviate ::=
-          <uniform-deviate> [ expression ]:2 </uniform-deviate>
-        | <normal-deviate> [ expression ]:2 </normal-deviate>
-        | <lognormal-deviate> [ expression ]:3 </lognormal-deviate>
-        | <lognormal-deviate> [ expression ]:2 </lognormal-deviate>
-        | <gamma-deviate> [ expression ]:2 </gamma-deviate>
-        | <beta-deviate> [ expression ]:2 </beta-deviate>
-        | histogram
-
-    histogram ::= <histogram > expression /bin/+ </histogram>
-
-    bin ::= <bin> expression expression </bin>
+.. literalinclude:: schema/random_deviate.rnc
+    :caption: The RNC schema for XML representation of random deviates
 
 Example
 ~~~~~~~
@@ -927,13 +790,9 @@ XML Representation
 ------------------
 
 The XML representation for directives to test the status of initiating and functional events
-is given in :numref:`bnf_test_event`.
+is given in :numref:`schema_test_event`.
 
-.. code-block:: bnf
-    :name: bnf_test_event
-    :caption: Backus-Naur grammar for XML representation of directives
+.. literalinclude:: schema/test_events.rnc
+    :name: schema_test_event
+    :caption: The RNC schema for XML representation of directives
               to test the status of initiating and functional events
-
-    test-event ::=
-          <test-initiating-event name="name" />
-        | <test-functional-event name="name" state="identifier" />

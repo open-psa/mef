@@ -1,0 +1,7 @@
+test-initiating-event = element test-initiating-event { name }
+
+test-functional-event =
+  element test-functional-event {
+    name,
+    attribute state { Identifier }
+  }
