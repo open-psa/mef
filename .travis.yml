@@ -23,8 +23,8 @@ install:
 
 script:
     - grep -P -n "(\t|\s$)" *.rst mef/*.rst >> _warnings || echo "Great, no tabs or trailing spaces!"
-    - spell -n -o -d en_us.ascii.add.spl mef/* | grep -v 'bibliography' > _warnings || echo "no spelling errors!"
-    - grep -P -n "[^[:ascii:]]" mef/* | grep -v 'bibliography' >> _warnings || echo "no non-ASCII chars!"
+    - spell -n -o -d en_us.ascii.add.spl mef/*.rst | grep -v 'bibliography' > _warnings || echo "no spelling errors!"
+    - grep -P -n "[^[:ascii:]]" mef/*.rst | grep -v 'bibliography' >> _warnings || echo "no non-ASCII chars!"
     - make latexpdf > /dev/null || echo "Outdated LaTeX on Ubuntu 14.04 :("
     - PYTHONOPTIMIZE=1 make html linkcheck 2>> _warnings
     - cat _warnings && [[ ! -s _warnings ]]

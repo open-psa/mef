@@ -5,9 +5,6 @@ lognormal
 DTD
 Naur
 EOL
-BNF
-BNFs
-bnf
 jr
 XML
 xml
@@ -78,7 +75,6 @@ svg
 png
 jpeg
 px
-ebnf
 rst
 ac
 binom
@@ -96,7 +92,7 @@ neq
 Rightarrow
 rt
 varnothing
-Wikipedia
+
 cdot
 dtd
 literalinclude
@@ -115,3 +111,15 @@ TR
 UTF
 www
 xmlschema
+rnc
+RNC
+NG
+http
+relaxng
+org
+html
+DTD's
+LAnguage
+XSD
+REgular
+Schematron
