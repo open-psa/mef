@@ -1,0 +1,18 @@
+sum-of-products =
+  element sum-of-products {
+    name?,
+    attribute description { text }?,
+    attribute basic-events { xsd:nonNegativeInteger }?,
+    attribute products { xsd:nonNegativeInteger }?,
+    product*
+  }
+
+product =
+  element product {
+    attribute order { xsd:nonNegativeInteger }?,
+    literal*
+  }
+
+literal =
+  element basic-event { name }
+  | element not { element basic-event { name } }
