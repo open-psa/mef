@@ -6,17 +6,6 @@ expression =
   | random-deviate
   | test-event
 
-constant = bool | int | float
-
-parameter =
-  element parameter {
-    reference,
-    attribute unit { units }?
-  }
-  | element system-mission-time {
-      attribute unit { units }?
-    }
-
 operation =
   numerical-operation | Boolean-operation | conditional-operation
 

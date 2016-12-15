@@ -1,4 +1,4 @@
-name = attribute { Identifier }
+name = attribute name { Identifier }
 
 label = element label { text }
 

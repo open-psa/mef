@@ -8,6 +8,15 @@ parameter-definition =
     expression
   }
 
+parameter =
+  element parameter {
+    reference,
+    attribute unit { units }?
+  }
+  | element system-mission-time {
+      attribute unit { units }?
+    }
+
 units =
   "bool"
   | "int"
@@ -18,14 +27,6 @@ units =
   | "years-1"
   | "fit"
   | "demands"
-
-expression =
-  constant
-  | parameter
-  | operation
-  | built-in
-  | random-deviate
-  | test-event
 
 constant = bool | int | float
 
@@ -43,15 +44,3 @@ float =
   element float {
     attribute value { xsd:float }
   }
-
-parameter =
-  element parameter {
-    reference,
-    attribute unit { units }?
-  }
-  | element system-mission-time {
-      attribute unit { units }?
-    }
-
-operation =
-  numerical-operation | Boolean-operation | conditional-operation
