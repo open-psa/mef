@@ -39,14 +39,6 @@ To install all the dependencies with ``apt`` and ``pip``
     sudo apt-get install texlive{,-{fonts-recommended,latex-extra,xetex}} inkscape
     sudo pip install sphinx sphinx_rtd_theme
 
-
-The repository includes the schemas as a submodule,
-so it must be initialized/updated:
-
-.. code-block:: bash
-
-    git submodule update --init --recursive
-
 To generate HTML files (the website at the *gh-pages* branch):
 
 .. code-block:: bash
