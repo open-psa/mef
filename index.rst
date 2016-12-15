@@ -44,7 +44,9 @@
 
     .. include:: stamp.rst
 
-    :download:`Download PDF version <build/latex/opsa_mef.pdf>`
+    :download:`Download the PDF version <build/latex/opsa_mef.pdf>`
+
+    :download:`Download all the RELAX NG Compact schema <build/mef_schema.zip>`
 
 .. toctree::
     :caption: Contents
