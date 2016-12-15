@@ -333,7 +333,7 @@ latex_documents = [
 
 # Documents to append as an appendix to all manuals.
 #
-latex_appendices = ['mef/mef_schema']
+latex_appendices = []
 latex_additional_files = ['images/opsa_logo.png']
 
 # It false, will not define \strong, \code, itleref, \crossref ... but only

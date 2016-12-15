@@ -61,15 +61,3 @@
     mef/model_organization
     mef/report_layer
     mef/bibliography
-
-
-.. only:: html
-
-    .. toctree::
-        :caption: Appendices
-        :maxdepth: 2
-        :numbered:
-
-        mef/mef_schema
-
-.. TODO Section numbering with letters instead of numbers.

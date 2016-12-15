@@ -248,7 +248,12 @@ please consult with `RELAX NG Compact Tutorial`_ and the specification
 to gain familiarity.
 In addition to the schema,
 we shall present the grammar of the Model Exchange Format by means of examples.
-A formal schema for the whole Model Exchange Format is given in :numref:`Appendix %s <mef_schema>`.
+
+The RNC schemas describing the Model Exchange Format
+can be combined into the main schema for validation purposes.
+The MEF XML schemas in various other formats
+are provided at `the MEF schemas repository <https://github.com/open-psa/schemas>`_.
+These schemas are auto-generated from the RNC schema in this specification.
 
 It is worth noting that the XML descriptions we are giving here
 can be extended in any way to fulfill the needs of a particular tool.
@@ -282,9 +287,3 @@ and one additional chapter for models as a whole.
 - :numref:`Chapter %s <model_organization>` discusses the organization of models.
 - Finally, :numref:`Chapter %s <report_layer>` presents the report/results layer,
   i.e., the normalized format for results of assessment of PSA models.
-
-The appendices give additional details
-or summarize the contents of these six chapters.
-
-- :numref:`Appendix %s <mef_schema>`
-  gives the RELAX NG Compact schema of the full Model Exchange Format.
