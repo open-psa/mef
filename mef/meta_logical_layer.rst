@@ -132,6 +132,7 @@ although, this is not strictly required by the Model Exchange Format.
 .. literalinclude:: schema/ccf_groups.rnc
     :name: schema_ccf_groups
     :caption: The RNC schema for the XML representation of CCF-groups
+    :language: rnc
 
 Example
 ~~~~~~~
@@ -319,6 +320,7 @@ The optional attribute "type" is used to help tools that implement "traditional"
 .. literalinclude:: schema/substitution.rnc
     :name: schema_substitution
     :caption: The RNC schema for the XML representation of exclusive-groups
+    :language: rnc
 
 Example
 ~~~~~~~

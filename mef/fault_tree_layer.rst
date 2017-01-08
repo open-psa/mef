@@ -158,10 +158,12 @@ This description deserves some comments.
 .. literalinclude:: schema/fault_tree.rnc
     :name: schema_fault_tree
     :caption: The RNC schema of XML description of Fault Trees
+    :language: rnc
 
 .. literalinclude:: schema/formula.rnc
     :name: schema_boolean_formulae
     :caption: The RNC schema of the XML representation of Boolean formulae
+    :language: rnc
 
 The attribute "role" is used to declare whether an element is public or private,
 i.e., whether it can be referred by its name everywhere in the model

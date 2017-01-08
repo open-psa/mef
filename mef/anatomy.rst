@@ -335,3 +335,4 @@ Attributes
 The RNC schema for the XML representation of labels and attributes is as follows.
 
 .. literalinclude:: schema/label_and_attributes.rnc
+    :language: rnc

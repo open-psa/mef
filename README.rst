@@ -24,8 +24,9 @@ A list of dependencies:
 Package                Minimum Version
 ====================   ===============
 Python                 2.7 or 3.4
-Sphinx                 1.5
+Sphinx                 1.5.1
 sphinx_rtd_theme       0.1.10
+Pygments               2.2
 LaTeX
 Inkscape
 git

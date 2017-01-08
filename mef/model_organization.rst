@@ -29,6 +29,7 @@ is given in :numref:`schema_consequence_groups`.
 .. literalinclude:: schema/consequence_groups.rnc
     :name: schema_consequence_groups
     :caption: The RNC schema of the XML representation of consequence groups
+    :language: rnc
 
 Note that consequences and consequences groups can be used as initiating events
 (see :numref:`event_tree_structure_xml_representation`).
@@ -48,6 +49,7 @@ is given in :numref:`schema_mission_phase`.
 .. literalinclude:: schema/mission_phase.rnc
     :name: schema_mission_phase
     :caption: The RNC schema of the XML representation of Missions and Phases
+    :language: rnc
 
 
 Splitting the Model into Several Files
@@ -115,3 +117,4 @@ The Model Exchange Format introduces also eighteen constructs.
 .. literalinclude:: schema/model.rnc
     :name: schema_model
     :caption: The RNC schema for the XML representation of a model
+    :language: rnc

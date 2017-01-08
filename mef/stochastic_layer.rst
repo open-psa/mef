@@ -66,11 +66,13 @@ parameters have to be defined
 .. literalinclude:: schema/stochastic_layer.rnc
     :name: schema_stochastic_layer
     :caption: The RNC schema for the constructs of the stochastic layer
+    :language: rnc
 
 The XML representation of the stochastic layer just reflects these different constructs.
 
 .. literalinclude:: schema/expressions.rnc
     :caption: The RNC schema for XML representation of expressions (main)
+    :language: rnc
 
 Operations, built-ins, and random deviates will be described in the following sections.
 
@@ -158,6 +160,7 @@ Their XML representation is given in :numref:`schema_numerical_operation`.
 .. literalinclude:: schema/numerical_operation.rnc
     :name: schema_numerical_operation
     :caption: The RNC schema for XML representation of numerical operations
+    :language: rnc
 
 Example
 ~~~~~~~
@@ -223,6 +226,7 @@ Their XML representation is given in :numref:`schema_boolean_operation`.
 .. literalinclude:: schema/boolean_operation.rnc
     :name: schema_boolean_operation
     :caption: The RNC schema for XML representation of Boolean operations
+    :language: rnc
 
 Conditional Operations
 ----------------------
@@ -242,6 +246,7 @@ The XML representation for conditional operation is given in :numref:`schema_con
 .. literalinclude:: schema/conditional_operation.rnc
     :name: schema_conditional_operation
     :caption: The RNC schema for XML representation of conditional operations
+    :language: rnc
 
 
 Example
@@ -475,6 +480,7 @@ is given in :numref:`schema_built_ins`.
 .. literalinclude:: schema/built_ins.rnc
     :name: schema_built_ins
     :caption: The RNC schema for XML representation of Built-ins
+    :language: rnc
 
 .. raw:: latex
 
@@ -715,6 +721,7 @@ The RNC schema for the XML representation of random deviates is given
 
 .. literalinclude:: schema/random_deviate.rnc
     :caption: The RNC schema for XML representation of random deviates
+    :language: rnc
 
 Example
 ~~~~~~~
@@ -796,3 +803,4 @@ is given in :numref:`schema_test_event`.
     :name: schema_test_event
     :caption: The RNC schema for XML representation of directives
               to test the status of initiating and functional events
+    :language: rnc

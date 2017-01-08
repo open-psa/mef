@@ -209,10 +209,12 @@ for there would be no meaning in doing so.
 .. literalinclude:: schema/initiating_events.rnc
     :name: schema_initiating_events
     :caption: The RNC schema of the XML representation of initiating events
+    :language: rnc
 
 .. literalinclude:: schema/event_tree.rnc
     :name: schema_event_tree
     :caption: The RNC schema of the XML representation of event trees and sequences
+    :language: rnc
 
 Example
 ~~~~~~~
@@ -336,6 +338,7 @@ is given in :numref:`schema_instructions`.
 .. literalinclude:: schema/instructions.rnc
     :name: schema_instructions
     :caption: The RNC schema for the XML representation of instructions
+    :language: rnc
 
 Example
 ~~~~~~~

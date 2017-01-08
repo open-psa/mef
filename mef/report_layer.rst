@@ -106,6 +106,7 @@ to carry the relevant information.
 .. literalinclude:: schema/sum_of_products.rnc
     :name: schema_sum_of_products
     :caption: The RNC schema for the XML representation of sums-of-products
+    :language: rnc
 
 Statistical measures
 --------------------
@@ -119,6 +120,7 @@ The XML representation for statistical measure is given in :numref:`schema_stati
 .. literalinclude:: schema/statistical_measure.rnc
     :name: schema_statistical_measure
     :caption: The RNC schema for the XML representation of statistical measures
+    :language: rnc
 
 Curves
 ------
@@ -132,3 +134,4 @@ is given in :numref:`schema_curves`.
 .. literalinclude:: schema/curves.rnc
     :name: schema_curves
     :caption: The RNC schema the XML representation of curves
+    :language: rnc
