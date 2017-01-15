@@ -137,7 +137,7 @@ i.e., two Boolean formulae F and G.
     | **cardinality** | true if at least **l** and at most **h** of the Boolean formulae given as arguments are true, |
     |                 | and false otherwise. **l** and **h** are the two integers (in order) given as arguments.      |
     +-----------------+-----------------------------------------------------------------------------------------------+
-    | **imply**       | F implies G is equivalent to not F and G                                                      |
+    | **imply**       | F implies G is equivalent to (not F or G)                                                     |
     +-----------------+-----------------------------------------------------------------------------------------------+
 
 
