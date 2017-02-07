@@ -688,16 +688,17 @@ Normal Deviates
 
 Lognormal distribution
     These primitives describe lognormal distributions
-    defined by their mean :math:`\mu` and their error factor :math:`EF`.
+    defined by their mean :math:`E(x)` and their error factor :math:`EF`.
     A random variable is distributed according to a lognormal distribution
     if its logarithm is distributed according to a normal distribution.
     If :math:`\mu` and :math:`\sigma` are respectively
-    the mean and the standard deviation of the distribution,
+    the mean and the standard deviation of the associated normal distribution
+    (the variable's natural logarithm),
     the probability density of the random variable is as follows.
 
     .. math::
 
-        f(x) = \frac{1}{\sigma x \sqrt{2\pi}} \times
+        f(x;\mu,\sigma) = \frac{1}{\sigma x \sqrt{2\pi}} \times
             \left[-\frac{1}{2}\left(\frac{\log x - \mu}{\sigma} \right)^2\right]
 
     Its mean, :math:`E(x)`, is defined as follows.
@@ -706,26 +707,41 @@ Lognormal distribution
 
         E(x) = \exp\left[\mu + \frac{\sigma^2}{2}\right]
 
-    The confidence intervals :math:`[X_{0.05}, X_{0.95}]`
-    associated with a confidence level of *0.95* and the median :math:`X_{0.50}` are the following:
+    The error factor :math:`EF` for confidence level :math:`\alpha`
+    is defined as follows:
 
     .. math::
 
+        EF_\alpha& = \sqrt{\frac{X_\alpha}{X_{1-\alpha}}} = \exp[z_\alpha\cdot\sigma]\\
+
+    Where :math:`X_\alpha` is a left-tailed, upper bound
+    corresponding to the :math:`\alpha` percentile,
+    and :math:`z_\alpha` is the left-tailed z-score of the standard normal distribution
+    for the :math:`\alpha` confidence level.
+    Note that one-sided limits do not form confidence intervals.
+
+    .. math::
+
+        z_\alpha& = \sqrt{2} \cdot erf^{-1}(2\alpha - 1)\\
+        X_\alpha& = \exp[\mu + z_\alpha\cdot\sigma]\\
+        X_{0.50}& = e^\mu
+
+    For example, the error factor for a confidence level of :math:`0.95`:
+
+    .. math::
+
+        z_{0.95}& = -z_{0.05} = 1.645\\
         X_{0.05}& = \exp[\mu - 1.645\sigma]\\
         X_{0.95}& = \exp[\mu + 1.645\sigma]\\
-        X_{0.50}& = \sqrt{X_{0.05} \times X_{0.95}} = e^\mu
+        EF_{0.95}& = \sqrt{\frac{X_{0.95}}{X_{0.05}}} = \exp[1.645\sigma]
 
-    The error factor :math:`EF` is defined as follows:
+    Once the mean and error factor are known for a certain confidence level,
+    it is then possible to determine the distribution parameters of the lognormal law.
 
     .. math::
 
-        EF = \sqrt{\frac{X_{0.95}}{X_{0.05}}} = e^{1.645\sigma}
-
-    with :math:`\sigma = \frac{\log EF}{1.645}` and :math:`\mu = \log E(x) - \frac{\sigma^2}{2}`.
-
-    Once the mean and the error factor are known,
-    it is then possible to determine the confidence interval
-    and thereby the parameters of the lognormal law.
+        \sigma& = \frac{\log EF_\alpha}{z_\alpha}\\
+        \mu& = \log E(x) - \frac{\sigma^2}{2}
 
 Gamma Deviates
     These primitives describe Gamma distributions
