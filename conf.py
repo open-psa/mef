@@ -64,7 +64,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'The Open-PSA Model Exchange Format'
-copyright = u'2016, The Open-PSA Initiative'
+copyright = u'2007-2017, The Open-PSA Initiative'
 author = u'The Open-PSA Initiative'
 # Assumes sanitized, sorted, one-name-per-line, 3-or-more-names input
 contributors = [x.strip() for x in open('CONTRIBUTORS')]
