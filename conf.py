@@ -287,7 +287,8 @@ latex_elements = {
 
     # Additional stuff for the LaTeX preamble.
     #
-    'preamble': r'\renewcommand{\sphinxstylethead}{\textbf}',
+    'passoptionstopackages': r'\PassOptionsToPackage{table}{xcolor}',
+    'preamble': r'\protected\def\sphinxstylethead{\cellcolor{lightgray}\textbf}',
 
     # disable font inclusion
     'fontpkg': '',
