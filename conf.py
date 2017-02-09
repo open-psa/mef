@@ -285,7 +285,7 @@ latex_elements = {
 
     # Additional stuff for the LaTeX preamble.
     #
-    # 'preamble': r'',
+    'preamble': r'\renewcommand{\sphinxstylethead}{\textbf}',
 
     # disable font inclusion
     'fontpkg': '',
