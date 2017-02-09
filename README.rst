@@ -25,7 +25,7 @@ Package                Minimum Version
 ====================   ===============
 Python                 2.7 or 3.4
 Sphinx                 1.5
-sphinx_rtd_theme       0.1.8
+sphinx_rtd_theme       0.1.10
 LaTeX
 Inkscape
 git
