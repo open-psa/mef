@@ -491,23 +491,62 @@ Recommendations
 ---------------
 
 Layered Models
-    In PSA models, fault trees are in general layered,
-    i.e., arguments of connectives (and, or, etc.)
-    are always either variables or negations of variables.
-    Although there is no reason to force such a condition,
-    it is recommended to obey it for the sake of clarity.
+~~~~~~~~~~~~~~
+
+In PSA models, fault trees are in general layered,
+i.e., arguments of connectives (and, or, etc.)
+are always either variables or negations of variables.
+Although there is no reason to force such a condition,
+it is recommended to obey it for the sake of clarity.
+
 
 Use Portable Identifiers
-    In the XML description of fault trees,
-    we intentionally did not define identifiers.
-    In many fault tree tools, identifiers can be any string.
-    It is, however, strongly recommended for portability issues to use non problematic identifiers,
-    like those of programming languages,
-    and to add a description of elements as a comment.
-    This means
-    not using lexical entities, such as spaces, tabulations, "." or "/", in names of elements,
-    as well as realizing that some old tools cannot differentiate between capital and small letters.
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+In the XML description of fault trees,
+we intentionally did not define identifiers.
+In many fault tree tools, identifiers can be any string.
+It is, however, strongly recommended for portability issues to use non problematic identifiers,
+like those of programming languages,
+and to add a description of elements as a comment.
+This means
+not using lexical entities, such as spaces, tabulations, "." or "/", in names of elements,
+as well as realizing that some old tools cannot differentiate between capital and small letters.
+
+The following is a general, recommended format
+that is likely to produce portable identifiers.
+
+- Consistent with XML NCName datatype
+  (XML Schema Part 2: Datatypes Second Edition, Derived datatypes, `Section 3.3.7`__)
+
+    * The first character must be alphabetic.
+    * May contain alphanumeric characters and special characters like ``_``, ``-``.
+    * No whitespace or other special characters like ``:``, ``,``, ``/``, etc.
+
+- No double dashes ``--``
+- No trailing dash
+- No periods ``.`` (reserved for references)
+
+.. __: https://www.w3.org/TR/xmlschema-2/#NCName
+
+References to constructs, such as gates, events, and parameters,
+may include names of fault trees or components to access public or private members.
+This feature requires a period ``.`` between names;
+thus references may follow the pattern ``fault_tree.component.event``.
+
+In addition to the identifier format,
+the following is a set of recommendations for conforming tools
+to maximize the input acceptability:
+
+- Avoid restricting the word character set (e.g., ASCII-only, English-only)
+- Support popular character encodings (e.g., UTF-8, UTF-16)
+- Provide case-sensitive identifier processing (e.g., no capital-letters-only restrictions)
+- Sanitize input leading and trailing whitespace characters
+  (i.e., insensitive to noise)
+
 
 Role of Parameters, House Events, and Basic Events
-    Parameters, house events, and basic events should be always public,
-    in order to facilitate their portability from one tool to another.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Parameters, house events, and basic events should be always public,
+in order to facilitate their portability from one tool to another.
