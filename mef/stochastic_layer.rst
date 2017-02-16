@@ -97,6 +97,7 @@ parameters have to be defined
     random-deviate ::=
           uniform-deviate expression expression
         | lognormal-deviate expression expression expression
+        | lognormal-deviate expression expression
         | histogram
         ...
 
@@ -665,7 +666,7 @@ As for arithmetic operators and built-ins, this list can be extended on demand.
     +-----------------------+------------+-------------------------------------------------------------------------------------------------------------+
     | **normal-deviate**    | 2          | normal (Gaussian) distribution defined by its mean and its standard deviation                               |
     +-----------------------+------------+-------------------------------------------------------------------------------------------------------------+
-    | **lognormal-deviate** | 3          | lognormal distribution defined by its mean, its error factor, and the confidence level of this error factor |
+    | **lognormal-deviate** | 3 or 2     | lognormal distribution defined by its mean, its error factor, and the confidence level of this error factor |
     +-----------------------+------------+-------------------------------------------------------------------------------------------------------------+
     | **gamma-deviate**     | 2          | gamma distributions defined by a shape and a scale factors                                                  |
     +-----------------------+------------+-------------------------------------------------------------------------------------------------------------+
@@ -742,6 +743,12 @@ Lognormal distribution
 
         \sigma& = \frac{\log EF_\alpha}{z_\alpha}\\
         \mu& = \log E(x) - \frac{\sigma^2}{2}
+
+    Alternatively, these parameters (:math:`\mu`, :math:`\sigma`)
+    of the underlying normal distribution can be supplied directly
+    instead of the log-normal mean, error factor, and confidence level.
+    These two parametrization schemes are distinguished by the number of parameters,
+    i.e., 2 instead of 3.
 
 Gamma Deviates
     These primitives describe Gamma distributions
@@ -837,6 +844,7 @@ The Backus-Naur grammar for the XML representation of random deviates is given
           <uniform-deviate> [ expression ]:2 </uniform-deviate>
         | <normal-deviate> [ expression ]:2 </normal-deviate>
         | <lognormal-deviate> [ expression ]:3 </lognormal-deviate>
+        | <lognormal-deviate> [ expression ]:2 </lognormal-deviate>
         | <gamma-deviate> [ expression ]:2 </gamma-deviate>
         | <beta-deviate> [ expression ]:2 </beta-deviate>
         | histogram
