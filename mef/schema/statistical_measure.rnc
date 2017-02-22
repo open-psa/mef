@@ -1,0 +1,41 @@
+statistical-measure =
+  element measure {
+    name?,
+    attribute description { text }?,
+    element mean {
+      attribute value { xsd:double }
+    }?,
+    element standard-deviation {
+      attribute value { xsd:double }
+    }?,
+    element confidence-range {
+      attribute percentage {
+        xsd:double { minExclusive = "0" maxExclusive = "100" }
+      },
+      attribute lower-bound { xsd:double },
+      attribute upper-bound { xsd:double }
+    }?,
+    element error-factor {
+      attribute percentage {
+        xsd:double { minExclusive = "0" maxExclusive = "100" }
+      },
+      attribute value {
+        xsd:double { minExclusive = "0" }
+      }
+    }?,
+    quantiles?,
+  }
+
+quantiles =
+  element quantiles {
+    attribute number { xsd:nonNegativeInteger },
+    quantile+
+  }
+
+quantile = element quantile { bin-data }
+
+bin-data =
+  attribute number { xsd:nonNegativeInteger },
+  attribute mean { xsd:double }?,
+  attribute lower-bound { xsd:double }?,
+  attribute upper-bound { xsd:double }?

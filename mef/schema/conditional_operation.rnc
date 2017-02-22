@@ -1,0 +1,8 @@
+conditional-operation = if-then-else-operation | switch-operation
+
+if-then-else-operation =
+  element ite { expression, expression, expression }
+
+switch-operation = element switch { case-operation*, expression }
+
+case-operation = element case { expression, expression }

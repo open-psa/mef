@@ -1,0 +1,50 @@
+instruction = set | collect | if-then-else | block | rule | link
+
+set = set-gate | set-house-event | set-basic-event | set-parameter
+
+set-gate =
+  element set-gate {
+    name,
+    attribute direction { direction }?,
+    formula
+  }
+
+set-house-event =
+  element set-house-event {
+    name,
+    attribute direction { direction }?,
+    Boolean-constant
+  }
+
+set-basic-event =
+  element set-basic-event {
+    name,
+    attribute direction { direction }?,
+    expression
+  }
+
+set-parameter =
+  element set-parameter {
+    name,
+    attribute direction { direction }?,
+    expression
+  }
+
+direction = "forward" | "backward" | "both"
+
+if-then-else = element if { expression, instruction, instruction? }
+
+collect = collect-formula | collect-expression
+
+collect-formula = element collect-formula { formula }
+
+collect-expression = element collect-expression { expression }
+
+block = element block { instruction* }
+
+rule = element rule { name }
+
+link = element event-tree { name }
+
+rule-definition =
+  element define-rule { name, label?, attributes?, instruction+ }

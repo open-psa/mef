@@ -332,10 +332,7 @@ Attributes
             ...
         </define-gate>
 
-The Backus-Naur form for the XML representation of labels and attributes is as follows.
+The RNC schema for the XML representation of labels and attributes is as follows.
 
-.. code-block:: bnf
-
-    label ::= <label> any text </label>
-    attributes ::= <attributes> attribute+ </attributes>
-    attribute ::= <attribute name="identifier" value="string" [ type="string" ] />
+.. literalinclude:: schema/label_and_attributes.rnc
+    :language: rnc

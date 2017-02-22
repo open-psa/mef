@@ -24,8 +24,9 @@ A list of dependencies:
 Package                Minimum Version
 ====================   ===============
 Python                 2.7 or 3.4
-Sphinx                 1.5
+Sphinx                 1.5.1
 sphinx_rtd_theme       0.1.10
+Pygments               2.2
 LaTeX
 Inkscape
 git
@@ -38,14 +39,6 @@ To install all the dependencies with ``apt`` and ``pip``
 
     sudo apt-get install texlive{,-{fonts-recommended,latex-extra,xetex}} inkscape
     sudo pip install sphinx sphinx_rtd_theme
-
-
-The repository includes the schemas as a submodule,
-so it must be initialized/updated:
-
-.. code-block:: bash
-
-    git submodule update --init --recursive
 
 To generate HTML files (the website at the *gh-pages* branch):
 
@@ -108,10 +101,10 @@ BNF description of the fault tree specification:
         +=======+======+
 
 
-    .. code-block:: bnf
-        :name: bnf_fault_tree
+    .. code-block:: rnc
+        :name: schema_fault_tree
 
-        fault_tree ::= graph
+        fault_tree = graph
 
 
     .. code-block:: xml
@@ -142,6 +135,7 @@ Helpful Resources
 - `reST Cheat Sheet <http://docutils.sourceforge.net/docs/user/rst/cheatsheet.txt>`_
 - `reST Quick Reference <http://docutils.sourceforge.net/docs/user/rst/quickref.html>`_
 - `Short Math Guide for LaTeX <http://www.math.ucsd.edu/~jeggers/latex/short-math-guide.pdf>`_
+- `RELAX NG Compact Tutorial <http://relaxng.org/compact-tutorial-20030326.html>`_
 
 
 Workflow

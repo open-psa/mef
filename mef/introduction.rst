@@ -229,28 +229,40 @@ such as Boolean formulae, probability distributions, and so on.
 These constructions will eventually be represented by means of XML terms.
 However, XML is a bit too verbose
 to make clear the underlying mathematical nature of objects at hand.
-Therefore, we shall use (in a rather loose way) the Extended Backus-Naur form to define constructs.
-A presentation of the Extended Backus-Naur form
-can be found in :numref:`Appendix %s<ebnf_presentation>`.
+Therefore, we shall use an XML schema language to define constructs.
 
 There are several formal ways to describe an XML grammar.
-The most popular one is probably the XML Document Type Definition (DTD).
-A DTD is associated with an XML document via a Document Type Declaration,
-which is a tag that appears near the start of the XML document.
-The declaration establishes
-that the document is an instance of the type defined by the referenced DTD.
-DTD is a good verification tool,
-but hard to interpret by a human.
-Therefore, we shall present the grammar of the Model Exchange Format
-mainly by means of examples and semi-formal descriptions with the Extended Backus Naur form.
-A formal DTD for the whole Model Exchange Format is given in :numref:`Appendix %s <mef_schema>`.
-A semi-formal Backus-Naur form for the Model Exchange Format
-is given in :numref:`Appendix %s <mef_bnf>`.
+The most popular approach is to use one of XML schema languages,
+such as the XML Document Type Definition (DTD), XML Schema Definition (XSD),
+RELAX NG (REgular LAnguage for XML Next Generation), Schematron.
+The Model Exchange Format used to use the DTD for its formal schema;
+however, mainly due to the DTD's lack of maintainability, age,
+and limitations (a lack of context awareness),
+`RELAX NG Compact`_ (RNC) has been chosen as a modern replacement.
+The RNC has a non-XML syntax and leverages regular expression operators
+(similar to the DTD and Extended Backus Naur Form)
+and is structured in a very concise and human-readable form,
+and unlike the DTD, the RNC is feature-rich enough to support the MEF grammar.
+Even though the RNC language is very self-descriptive,
+please consult with `RELAX NG Compact Tutorial`_ and the specification
+to gain familiarity.
+In addition to the schema,
+we shall present the grammar of the Model Exchange Format by means of examples.
+
+The RNC schemas describing the Model Exchange Format
+can be combined into the main schema for validation purposes.
+The MEF XML schemas in various other formats
+are provided at `the MEF schemas repository <https://github.com/open-psa/schemas>`_.
+These schemas are auto-generated from the RNC schema in this specification.
 
 It is worth noting that the XML descriptions we are giving here
 can be extended in any way to fulfill the needs of a particular tool.
 In particular, comments and pointers to documentation
 should be added here and there to the model.
+
+.. _RELAX NG Compact Tutorial: http://relaxng.org/compact-tutorial-20030326.html
+.. _RELAX NG Compact: http://relaxng.org/compact-20021121.html
+
 
 Organization of the document
 ============================
@@ -273,14 +285,5 @@ and one additional chapter for models as a whole.
 - :numref:`Chapter %s <meta_logical_layer>` presents the meta-logical layer.
 - :numref:`Chapter %s <event_tree_layer>` presents the event tree layer.
 - :numref:`Chapter %s <model_organization>` discusses the organization of models.
-- Finally, chapter presents the report/results layer,
+- Finally, :numref:`Chapter %s <report_layer>` presents the report/results layer,
   i.e., the normalized format for results of assessment of PSA models.
-
-Three appendices give additional details
-or summarize the contents of these six chapters.
-
-- :numref:`Appendix %s <ebnf_presentation>` presents the Backus-Naur form
-  we use throughout this document to describe
-  both the mathematical structure of the constructs and their XML representation.
-- :numref:`Appendix %s <mef_schema>` gives the Document Type Definition (DTD) of the full Model Exchange Format.
-- :numref:`Appendix %s <mef_bnf>` gives the Backus-Naur form of the Model Exchange Format.

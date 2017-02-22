@@ -1,0 +1,14 @@
+uniform-deviate = element uniform-deviate { expression, expression }
+
+normal-deviate = element normal-deviate { expression, expression }
+
+lognormal-deviate =
+  element lognormal-deviate { expression, expression, expression? }
+
+gamma-deviate = element gamma-deviate { expression, expression }
+
+beta-deviate = element beta-deviate { expression, expression }
+
+histogram = element histogram { expression, bin+ }
+
+bin = element bin { expression, expression }

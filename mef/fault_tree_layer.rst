@@ -54,8 +54,8 @@ By default, house events take the value false.
 Negated house events (gates, basic events)
 are represented by adding a small circle over their symbol.
 
-A semi-formal description of constructs of Fault Trees
-is given under the Backus-Naur form in :numref:`bnf_fault_tree`.
+A formal description of constructs of Fault Trees
+is given under the RNC schema in :numref:`schema_fault_tree`.
 This description allows loops (in the sense defined above),
 multiple definitions and trees with multiple top events.
 The presence of loops must be detected by a specific check procedure.
@@ -77,37 +77,6 @@ The semantics of connectives is given in :numref:`table_boolean_connectives`.
 Note that connectives "and", "or", "xor", "iff", "nand", and "nor" are associative.
 Therefore, it suffices to give their semantics when they take two arguments,
 i.e., two Boolean formulae F and G.
-
-.. code-block:: bnf
-    :name: bnf_fault_tree
-    :caption: Backus-Naur presentation of constructs of Fault Trees
-
-    fault-tree-definition ::=
-        fault-tree identifier (event-definition | parameter-definition)
-
-    event-definition ::=
-          gate = formula
-        | basic-event = expression
-        | house-event = Boolean-constant
-
-    formula ::=
-          event
-        | Boolean-constant
-        | and formula+
-        | or formula+
-        | not formula
-        | xor formula+
-        | iff formula+
-        | nand formula+
-        | nor formula+
-        | atleast integer formula+
-        | cardinality integer integer formula+
-        | imply formula formula
-
-    event ::= gate | basic-event | house-event
-
-    Boolean-constant ::= constant (true | false)
-
 
 .. tabularcolumns:: |l|L|
 .. table:: Semantics of Boolean connectives
@@ -165,8 +134,8 @@ i.e., two Boolean formulae F and G.
 XML Representation
 ==================
 
-The Backus-Naur form for the XML description of fault trees
-is given in :numref:`bnf_xml_fault_tree` and :numref:`bnf_xml_boolean_formulae`.
+The RNC schema for the XML description of fault trees
+is given in :numref:`schema_fault_tree` and :numref:`schema_boolean_formulae`.
 
 This description deserves some comments.
 
@@ -186,85 +155,15 @@ This description deserves some comments.
   even if they are of different types.
   This point will be explained in the next section.
 
-.. code-block:: bnf
-    :name: bnf_xml_fault_tree
-    :caption: Backus-Naur form of XML description of Fault Trees
+.. literalinclude:: schema/fault_tree.rnc
+    :name: schema_fault_tree
+    :caption: The RNC schema of XML description of Fault Trees
+    :language: rnc
 
-    fault-tree-definition ::=
-        <define-fault-tree name="identifier" >
-            [ label ]
-            [ attributes ]
-            (event-definition | parameter-definition |component-definition)*
-        </define-fault-tree >
-
-    component-definition ::=
-        <define-component name="identifier" [ role="private|public" ] >
-            [ label ]
-            [ attributes ]
-            (event-definition | parameter-definition | component-definition)*
-        </define-component>
-
-     model-data ::=
-        <model-data>
-            (house-event-definition | basic-event-definition | parameter-definition)*
-        </model-data>
-
-    event-definition ::=
-          gate-definition
-        | house-event-definition
-        | basic-event-definition
-
-    gate-definition ::=
-        <define-gate name="identifier" [ role="private|public" ] >
-            [ label ]
-            [ attributes ]
-            formula
-        </define-gate>
-
-    house-event-definition ::=
-        <define-house-event name="identifier" [ role="private|public" ] >
-            [ label ]
-            [ attributes ]
-            [ Boolean -constant ]
-        </define-house-event>
-
-    basic-event-definition ::=
-        <define-basic-event name="identifier" [ role="private|public" ] >
-            [ label ]
-            [ attributes ]
-            [ expression ]
-        </define-basic-event>
-
-
-.. code-block:: bnf
-    :name: bnf_xml_boolean_formulae
-    :caption: Backus-Naur grammar of the XML representation of Boolean formulae
-
-    formula ::=
-          event
-        | Boolean-constant
-        | <and> formula+ </and>
-        | <or> formula+ </or>
-        | <not> formula </not>
-        | <xor> formula+ </xor>
-        | <iff> formula+ </iff>
-        | <nand> formula+ </nand>
-        | <nor> formula+ </nor>
-        | <atleast min="integer" > formula+ </atleast>
-        | <cardinality min="integer" max="integer" > formula+  </cardinality>
-        | <imply> formula formula </imply>
-
-    event ::=
-          <event name="identifier" [ type="event-type" ] />
-        | <gate name="identifier" />
-        | <house-event name="identifier" />
-        | <basic-event name="identifier" />
-
-    event-type ::= gate | basic-event | house-event
-
-    Boolean-constant ::= <constant value="Boolean-value" />
-
-    Boolean-value ::= true | false
+.. literalinclude:: schema/formula.rnc
+    :name: schema_boolean_formulae
+    :caption: The RNC schema of the XML representation of Boolean formulae
+    :language: rnc
 
 The attribute "role" is used to declare whether an element is public or private,
 i.e., whether it can be referred by its name everywhere in the model

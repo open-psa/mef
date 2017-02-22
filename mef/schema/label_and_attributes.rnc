@@ -1,0 +1,12 @@
+name = attribute name { Identifier }
+
+label = element label { text }
+
+attributes =
+  element attributes {
+    element attribute {
+      name,
+      attribute value { xsd:string },
+      attribute type { xsd:string }?
+    }+
+  }

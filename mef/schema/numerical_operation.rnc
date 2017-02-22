@@ -1,0 +1,28 @@
+numerical-operation =
+  element neg { expression }
+  | element add { expression+ }
+  | element sub { expression+ }
+  | element mul { expression+ }
+  | element div { expression+ }
+  | element pi { empty }
+  | element abs { expression }
+  | element acos { expression }
+  | element asin { expression }
+  | element atan { expression }
+  | element cos { expression }
+  | element cosh { expression }
+  | element exp { expression }
+  | element log { expression }
+  | element log10 { expression }
+  | element mod { expression, expression }
+  | element pow { expression, expression }
+  | element sin { expression }
+  | element sinh { expression }
+  | element tan { expression }
+  | element tanh { expression }
+  | element sqrt { expression }
+  | element ceil { expression }
+  | element floor { expression }
+  | element min { expression+ }
+  | element max { expression+ }
+  | element mean { expression+ }

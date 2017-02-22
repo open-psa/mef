@@ -1,3 +1,5 @@
+.. _report_layer:
+
 ************
 Report Layer
 ************
@@ -97,33 +99,14 @@ However, it is often convenient to attach some information to each product,
 which is not possible with the formulae of the Model Exchange Format.
 An alternative XML representation for sums of products
 (sets of minimal cut sets are a specific type of sums of products)
-is given in :numref:`bnf_sum_of_products`.
+is given in :numref:`schema_sum_of_products`.
 More attributes can be added to tags "sum-of-products" and "product"
 to carry the relevant information.
 
-.. code-block:: bnf
-    :name: bnf_sum_of_products
-    :caption: Backus-Naur form for the XML representation of sums-of-products
-
-    sum-of-products ::=
-        <sum-of-products
-            [ name="identifier" ]
-            [ description="text" ]
-            [ basic-events="integer" ]
-            [ products="integer" ]
-        >
-            product*
-        </sum-of-products>
-
-    product ::=
-        <product [ order="integer" ] >
-            literal*
-        </product>
-
-    literal ::=
-          <basic-event name="identifier" />
-        | <not> <basic-event name="identifier" /> </not>
-
+.. literalinclude:: schema/sum_of_products.rnc
+    :name: schema_sum_of_products
+    :caption: The RNC schema for the XML representation of sums-of-products
+    :language: rnc
 
 Statistical measures
 --------------------
@@ -132,37 +115,12 @@ Statistical measures are typically produced by sensitivity analyses.
 They are the result, in general, of Monte-Carlo simulations on the values of some parameter.
 Such a measure can come with
 moments (mean, standard deviation), confidence ranges, error factors, quantiles, etc.
-The XML representation for statistical measure is given in :numref:`bnf_statistical_measure`.
+The XML representation for statistical measure is given in :numref:`schema_statistical_measure`.
 
-.. code-block:: bnf
-    :name: bnf_statistical_measure
-    :caption: Backus-Naur form for the XML representation of statistical measures
-
-    measure ::=
-        <measure
-            [ name="identifier" ]
-            [ description="text" ]
-        >
-            [ <mean value="float" /> ]
-            [ <standard-deviation value="float" /> ]
-            [ <confidence-range
-                percentage="float"
-                lower-bound="float"
-                upper-bound="float" /> ]
-            [ <error-factor percentage="float" value="float" /> ]
-            [ quantiles ]
-        </measure>
-
-    quantiles ::=
-        <quantiles number="integer" >
-            quantile+
-        </quantiles>
-
-    quantile ::=
-        <quantile number="integer"
-            [ mean="float" ]
-            [ lower-bound="float" ]
-            [ upper-bound="float" ] />
+.. literalinclude:: schema/statistical_measure.rnc
+    :name: schema_statistical_measure
+    :caption: The RNC schema for the XML representation of statistical measures
+    :language: rnc
 
 Curves
 ------
@@ -171,20 +129,9 @@ Two or three dimensional curves are often produced in PSA studies.
 A typical example is indeed
 to study the evolution of the system unavailability through the time.
 The XML representation of curves suggested by the Model Exchange Format
-is given in :numref:`bnf_curves`.
+is given in :numref:`schema_curves`.
 
-.. code-block:: bnf
-    :name: bnf_curves
-    :caption: Backus-Naur for the XML representation of curves
-
-    curve ::=
-        <curve
-            [ name="identifier" ]
-            [ description="text" ]
-            [ X-title="string" Y-title="string" [ Z-title="string" ] ]
-            [ X-unit="unit" Y-unit="unit" [ Z-unit="unit" ] ]
-        >
-            <point X="float" Y="float" [ Z="float" ] />*
-        </curve>
-
-    unit ::= seconds | hours | ...
+.. literalinclude:: schema/curves.rnc
+    :name: schema_curves
+    :caption: The RNC schema the XML representation of curves
+    :language: rnc

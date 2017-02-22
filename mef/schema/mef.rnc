@@ -1,0 +1,38 @@
+start = model
+
+Identifier = xsd:NCName { pattern = "[^\-.]+(-[^\-.]+)*" }
+
+reference =
+  attribute name {
+    xsd:NCName { pattern = "([^\-.]+(-[^\-.]+)*)(\.\i[^\-.]*(-[^\-.]+)*)*" }
+  }
+
+include-directive =
+  element include {
+    attribute file { xsd:string }
+  }
+
+include "model.rnc"
+include "label_and_attributes.rnc"
+
+include "consequence_groups.rnc"
+include "mission_phase.rnc"
+
+include "initiating_events.rnc"
+include "event_tree.rnc"
+include "instructions.rnc"
+
+include "ccf_groups.rnc"
+include "substitution.rnc"
+
+include "fault_tree.rnc"
+include "formula.rnc"
+
+include "stochastic_layer.rnc"
+include "expressions.rnc"
+include "numerical_operation.rnc"
+include "boolean_operation.rnc"
+include "conditional_operation.rnc"
+include "built_ins.rnc"
+include "random_deviate.rnc"
+include "test_events.rnc"

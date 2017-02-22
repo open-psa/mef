@@ -66,8 +66,11 @@ clean:
 .PHONY: cleanpdf
 	rm $(PDFs)
 
+build/mef_schema.zip: mef/schema/*
+	zip build/mef_schema.zip mef/schema/*
+
 .PHONY: html
-html:
+html: build/mef_schema.zip
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
 	@echo
 	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html."

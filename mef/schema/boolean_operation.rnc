@@ -1,0 +1,10 @@
+Boolean-operation =
+  element not { expression }
+  | element and { expression+ }
+  | element or { expression+ }
+  | element eq { expression, expression }
+  | element df { expression, expression }
+  | element lt { expression, expression }
+  | element gt { expression, expression }
+  | element leq { expression, expression }
+  | element geq { expression, expression }

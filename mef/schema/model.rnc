@@ -1,0 +1,18 @@
+model =
+  element opsa-mef {
+    name?,
+    label?,
+    attributes?,
+    (event-tree-definition
+     | alignment-definition
+     | consequence-group-definition
+     | consequence-definition
+     | rule-definition
+     | initiating-event-group-definition
+     | initiating-event-definition
+     | fault-tree-definition
+     | substitution-definition
+     | CCF-group-definition
+     | include-directive)*,
+    model-data?
+  }

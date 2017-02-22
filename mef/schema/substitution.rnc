@@ -1,0 +1,10 @@
+substitution-definition =
+  element define-substitution {
+    name?,
+    attribute type { xsd:string }?,
+    label?,
+    attributes?,
+    element hypothesis { formula },
+    element source { basic-event+ }?,
+    element target { basic-event+ | Boolean-constant }
+  }

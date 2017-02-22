@@ -44,7 +44,9 @@
 
     .. include:: stamp.rst
 
-    :download:`Download PDF version <build/latex/opsa_mef.pdf>`
+    :download:`Download the PDF version <build/latex/opsa_mef.pdf>`
+
+    :download:`Download all the RELAX NG Compact schema <build/mef_schema.zip>`
 
 .. toctree::
     :caption: Contents
@@ -61,17 +63,3 @@
     mef/model_organization
     mef/report_layer
     mef/bibliography
-
-
-.. only:: html
-
-    .. toctree::
-        :caption: Appendices
-        :maxdepth: 2
-        :numbered:
-
-        mef/ebnf_presentation
-        mef/mef_schema
-        mef/mef_ebnf
-
-.. TODO Section numbering with letters instead of numbers.

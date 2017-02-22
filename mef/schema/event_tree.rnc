@@ -1,0 +1,39 @@
+event-tree-definition =
+  element define-event-tree {
+    name,
+    label?,
+    attributes?,
+    functional-event-definition*,
+    sequence-definition*,
+    branch-definition*,
+    initial-state
+  }
+
+functional-event-definition =
+  element define-functional-event { name, label?, attributes? }
+
+sequence-definition =
+  element define-sequence { name, label?, attributes?, instruction+ }
+
+branch-definition =
+  element define-branch { name, label?, attributes?, branch }
+
+initial-state = element initial-state { branch }
+
+branch = instruction*, (fork | end-state)
+
+fork =
+  element fork {
+    attribute functional-event { Identifier },
+    path+
+  }
+
+path =
+  element path {
+    attribute state { Identifier },
+    branch
+  }
+
+end-state =
+  element sequence { name }
+  | element branch { name }

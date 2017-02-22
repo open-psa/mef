@@ -1,0 +1,26 @@
+CCF-group-definition =
+  element define-CCF-group {
+    name,
+    attribute model { CCF-model },
+    label?,
+    attributes?,
+    members,
+    distribution,
+    factors
+  }
+
+members = element members { basic-event+ }
+
+factors =
+  element factors { factor+ }
+  | factor
+
+factor =
+  element factor {
+    attribute level { xsd:nonNegativeInteger }?,
+    expression
+  }
+
+distribution = element distribution { expression }
+
+CCF-model = "beta-factor" | "MGL" | "alpha-factor" | "phi-factor"

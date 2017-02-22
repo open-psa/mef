@@ -1,0 +1,17 @@
+consequence-definition =
+  element define-consequence {
+    name,
+    label?,
+    attributes?,
+    element initiating-event { name },
+    element sequence { name }
+  }
+
+consequence-group-definition =
+  element define-consequence-group {
+    name, label?, attributes?, (consequence | consequence-group)
+  }
+
+consequence = element consequence { name }
+
+consequence-group = element consequence-group { name }

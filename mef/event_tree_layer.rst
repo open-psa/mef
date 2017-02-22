@@ -200,84 +200,21 @@ XML Representation
 ------------------
 
 We are now ready to explicitly define the XML grammar of the structure of event trees.
-Its Backus-Naur form is given in :numref:`bnf_initiating_events` and :numref:`bnf_event_tree`.
+Its RNC schema is given in :numref:`schema_initiating_events` and :numref:`schema_event_tree`.
 In these figures, we leave instructions unspecified,
 for they do not concern the structure of the tree and are the subject of the next section.
 Note that branches and functional events cannot be declared (nor referred to) outside event trees,
 for there would be no meaning in doing so.
 
-.. code-block:: bnf
-    :name: bnf_initiating_events
-    :caption: Backus-Naur form of the XML representation of initiating events
+.. literalinclude:: schema/initiating_events.rnc
+    :name: schema_initiating_events
+    :caption: The RNC schema of the XML representation of initiating events
+    :language: rnc
 
-    initiating-event-definition ::=
-        <define-initiating-event name="identifier" [ event-tree="identifier"] >
-            [ label ]
-            [ attributes ]
-            instruction*
-        </define-initiating-event>
-
-    initiating-event-group-definition::=
-        <define-initiating-event-group name="identifier" [ event-tree="identifier" ] >
-            [ label ]
-            [ attributes ]
-            initiating-event+
-        </define-initiating-event-group>
-
-    initiating-event ::=
-          <initiating-event name="identifier" />
-        | <initiating-event-group name="identifier" />
-
-
-.. code-block:: bnf
-    :name: bnf_event_tree
-    :caption: Backus-Naur form of the XML representation of event trees and sequences
-
-    event-tree-definition ::=
-        <define-event-tree name="identifier">
-            [ label ]
-            [ attributes ]
-            functional-event-definition*
-            sequence-definition*
-            branch-definition*
-            initial-state
-        </define-event-tree>
-
-    functional-event-definition ::=
-        <define-functional-event name="identifier">
-            [ label ]
-            [ attributes ]
-        </define-functional-event>
-
-    sequence-definition ::=
-        <define-sequence name="identifier">
-            [ label ]
-            [ attributes ]
-            instruction+
-        </define-sequence>
-
-    branch-definition ::=
-        <define-branch name="identifier">
-            [ label ]
-            [ attributes ]
-            branch
-        </define-branch>
-
-    initial-state ::=
-        <initial-state>
-            branch
-        </initial-state>
-
-    branch ::= instruction* (fork | end-state)
-
-    fork ::= <fork functional-event="identifier"> path+ </fork>
-
-    path ::= <path state="identifier"> branch </path>
-
-    end-state ::=
-          <sequence name="identifier" />
-        | <branch name="identifier" />
-
+.. literalinclude:: schema/event_tree.rnc
+    :name: schema_event_tree
+    :caption: The RNC schema of the XML representation of event trees and sequences
+    :language: rnc
 
 Example
 ~~~~~~~
@@ -395,60 +332,13 @@ The Model Exchange Format refers it as a rule, for it is a sequence of instructi
 XML Representation
 ------------------
 
-The Backus-Naur form for the XML representation of instructions
-is given in :numref:`bnf_instructions`.
+The RNC schema for the XML representation of instructions
+is given in :numref:`schema_instructions`.
 
-.. code-block:: bnf
-    :name: bnf_instructions
-    :caption: Backus-Naur form for the XML representation of instructions
-
-    instruction ::= set | collect | if-then-else | block | rule | link
-
-    set ::= set-gate | set-house-event | set-basic-event | set-parameter
-
-    set-gate ::=
-        <set-gate name="identifier" [ direction="direction" ] >
-            formula
-        </set-gate>
-
-    set-house-event ::=
-        <set-house-event name="identifier" [ direction="direction" ] >
-            Boolean-constant
-        </set-house-event>
-
-    set-basic-event ::=
-        <set-basic-event name="identifier" [ direction="direction" ] >
-            expression
-        </set-basic-event>
-
-    set-parameter ::=
-        <set-parameter name="identifier" [ direction="direction" ] >
-            expression
-        </set-parameter>
-
-    direction ::= forward | backward | both
-
-    if-then-else ::=
-        <if> expression instruction [ instruction ] </if>
-
-    collect ::= collect-formula | collect-expression
-
-    collect-formula ::= <collect-formula> formula </collect-formula>
-
-    collect-expression ::= <collect-expression> expression </collect-expression>
-
-    block ::= <block> instruction* </block>
-
-    rule ::= <rule name="identifier" />
-
-    link ::= <event-tree name="name" />
-
-    rule-definition ::=
-        <define-rule name="identifier" >
-            [ label ]
-            [ attributes ]
-            instruction+
-        </define-rule>
+.. literalinclude:: schema/instructions.rnc
+    :name: schema_instructions
+    :caption: The RNC schema for the XML representation of instructions
+    :language: rnc
 
 Example
 ~~~~~~~

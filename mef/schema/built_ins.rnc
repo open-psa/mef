@@ -1,0 +1,9 @@
+exponential = element exponential { expression, expression }
+
+GLM = element GLM { expression, expression, expression, expression }
+
+Weibull = element Weibull { expression, expression, expression, expression }
+
+periodic-test = element periodic-test { expression+ }
+
+extern-function = element extern-function { name, expression* }
