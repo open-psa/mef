@@ -31,7 +31,7 @@ is given in :numref:`schema_consequence_groups`.
     :caption: The RNC schema of the XML representation of consequence groups
     :language: rnc
 
-Note that consequences and consequences groups can be used as initiating events
+Note that consequences and consequence groups can be used as initiating events
 (see :numref:`event_tree_structure_xml_representation`).
 This mechanism makes it possible to link event trees.
 

@@ -30,6 +30,7 @@ Pygments               2.2
 LaTeX
 Inkscape
 git
+zip
 ====================   ===============
 
 To install all the dependencies with ``apt`` and ``pip``
@@ -40,17 +41,17 @@ To install all the dependencies with ``apt`` and ``pip``
     sudo apt-get install texlive{,-{fonts-recommended,latex-extra,xetex}} inkscape
     sudo pip install sphinx sphinx_rtd_theme
 
-To generate HTML files (the website at the *gh-pages* branch):
-
-.. code-block:: bash
-
-    make html
-
 To generate a PDF document:
 
 .. code-block:: bash
 
     make latexpdf
+
+To generate HTML files (the website at the *gh-pages* branch):
+
+.. code-block:: bash
+
+    make html
 
 
 reST Style
@@ -83,7 +84,7 @@ If there's no prefix in a reference,
 the target is assumed to be the specification or section itself.
 
 For example, an image (figure), table, XML description,
-BNF description of the fault tree specification:
+RNC schema of the fault tree specification:
 
 .. code-block:: rst
 

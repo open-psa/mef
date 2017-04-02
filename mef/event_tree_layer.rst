@@ -31,7 +31,7 @@ This event tree is made of the following elements.
 The numbered black dots should be ignored for now.
 We added them only for the convenience of the forthcoming discussion.
 
-The expected interpreted interpretation of this event tree is as follows.
+The expected interpretation of this event tree is as follows.
 A fault tree is associated with each functional event.
 This fault tree describes how the functional event may occur.
 For the sake of the simplicity,
@@ -52,7 +52,7 @@ we obtain the following interpretation for the sequences.
 
 In practice, things are less simple:
 
-- There may be more that one initiating event
+- There may be more than one initiating event
   because the same event tree can be used with different flavors.
 - Values of house events may be changed at some points along the branches
   to give flavors to fault trees.
@@ -116,7 +116,7 @@ Assume that end states S1 and S3 on the one hand, S2 and S4 on the other hand, a
 and that we merge the corresponding sub-trees.
 Assume moreover that the lowest success branch of the functional event H is actually a bypass.
 Then, the structure of the tree is pictured in :numref:`fig_event_tree_structure`.
-On this figure, nodes of the tree are numbered from 1 to 8.
+On this figure, the nodes of the tree are numbered from 1 to 8.
 The initiating event is represented as a fork.
 Finally, the branch (the sub-tree) rooted by the node 2 is named B1.
 
@@ -137,7 +137,7 @@ Components of the event tree pictured in :numref:`fig_event_tree_structure` are 
 Forks decompose the current branch according to the state of a functional event.
 Usually, this state is either "success" or "failure".
 It may be "bypass" as well (as in our example for the path from node 6 to node 7).
-In the case of multiple branches, the name of state is defined by the user.
+In the case of multiple branches, the name of a state is defined by the user.
 
 Instructions to collect and to modify fault trees and probability distributions
 are applied at the different nodes.
@@ -282,7 +282,7 @@ Description
 
 :numref:`fig_event_tree_structure` gives the XML representation for the structure of an event tree.
 This structure makes it possible to walk along the sequences,
-but not to construct the Boolean formulae associated with each sequences.
+but not to construct the Boolean formulae associated with each sequence.
 To do so, we need to fill the structure with instructions.
 Instructions are actually used for two main purposes:
 
