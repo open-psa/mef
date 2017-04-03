@@ -17,7 +17,7 @@ factors =
 
 factor =
   element factor {
-    attribute level { xsd:nonNegativeInteger }?,
+    attribute level { xsd:positiveInteger }?,
     expression
   }
 

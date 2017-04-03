@@ -312,7 +312,7 @@ Exponential with two parameters
 
     P(t;\lambda) = 1 - e ^ {- \lambda t}
 
-Exponential with four parameters (Generalized Linear Model or GLM)
+Exponential with four parameters (Generalized Life Model or GLM)
     This built-in generalizes the previous one.
     It makes it possible to take into account
     repairable components (through the hourly repairing rate :math:`\mu`)
@@ -461,7 +461,7 @@ Extern functions
     +=====================+============+===========================================================================================================================+
     | **exponential**     | 2          | negative exponential distribution with hourly failure rate and time                                                       |
     +---------------------+------------+---------------------------------------------------------------------------------------------------------------------------+
-    | **exponential**     | 4          | negative exponential distribution with probability of failure on demand, hourly failure rate, hourly repair rate and time |
+    | **GLM**             | 4          | negative exponential distribution with probability of failure on demand, hourly failure rate, hourly repair rate and time |
     +---------------------+------------+---------------------------------------------------------------------------------------------------------------------------+
     | **Weibull**         | 4          | Weibull distribution with scale and shape parameters, a time shift and the time                                           |
     +---------------------+------------+---------------------------------------------------------------------------------------------------------------------------+

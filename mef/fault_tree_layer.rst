@@ -422,8 +422,8 @@ that is likely to produce portable identifiers.
     * May contain alphanumeric characters and special characters like ``_``, ``-``.
     * No whitespace or other special characters like ``:``, ``,``, ``/``, etc.
 
-- No double dashes ``--``
-- No trailing dash
+- No double hyphens ``--``
+- No trailing hyphen
 - No periods ``.`` (reserved for references)
 
 .. __: https://www.w3.org/TR/xmlschema-2/#NCName

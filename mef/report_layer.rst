@@ -27,7 +27,7 @@ It can also provide a check-list
 of what should be included as information
 to make results truly exportable and importable.
 The existence of such report style
-would be very useful for reporting tools (whether they are graphic or textual):
+would be very useful for reporting tools (whether they are graphical or textual):
 it would be much easier for these tools to extract the information
 they need from the XML result files.
 
