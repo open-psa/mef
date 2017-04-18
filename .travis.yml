@@ -1,7 +1,13 @@
+sudo: required
+
+services:
+    - docker
+
 language: python
-python:
-    - 2.7
-    - 3.4
+
+env:
+    global:
+        - secure: "yteXlVvfBXfaYGGoxFZqEtG895OB7JK9euPCAAPjjbguyepy7qwEKRkOne3/SEVrGAf0QGsmJRCWaQkHBcd1SKzPbo2QXU7aZwZTwb7zp91BpsFz3EiQbz7Nzc79Kn0hkQ0CntlFSBovWastmX11NX/dHlBrJObe+BTDI/xfMWHJ9uU6uS8Ozzyenxv3GcZ+pKUADzbGAUhjBpeshB/Ys1c+zUP0hQocXUrzJ3hfyrGOdOz5agsyesKxdLnkORJObYtbRe5WUUNIL4rXagLygAmU5E4skG/esbrqZqqj4thES7xmx3MaApVoN+NwfUSqjenHhJUkFCuafUXoQJ6HQbhcZbSC9wPEiDPqrZf/dWMJR4Yx/bhYBjy7WdqQdDJlKfhsAe1nJ8fuaun6w7Jad/uqdtvZbxEHRNz/pK7XvmROsHRcfJcv3WOTm57W/w3kB/Q5Ih4MHwbwrYtrPKjwJ9qvf3cxj/RtITnTcDcSH8TtTGicK+SSF2n82fNOhSSmgzJ9JnSD3gz8GMIO7q3ujDMzkOSqf6F8w6lm2YTD2vV/fy7bmy1b0nB1eMpUWdv/65tSK61y/iCxhjWV1IhZervLOxWoTAv+mRMx2Fd498G2JkLW9Dwpw0d9Q2jsBYCd3RiVpkp6v9I2AQryKgFU3jkltgfQZ7FaFtIxIYflhI4="
 
 git:
     depth: 1000
@@ -9,19 +15,14 @@ git:
 addons:
     apt:
         packages:
-            - texlive
-            - texlive-fonts-recommended
-            - texlive-fonts-extra
-            - texlive-latex-extra
-            - texlive-xetex
-            - lmodern
-            - inkscape
             - trang
-            - libxml2
+            - libxml2-utils
+
+before_install:
+    - docker build -t mef/make .
 
 install:
     - sudo apt-get install spell
-    - pip install sphinx sphinx_rtd_theme
 
 before_script:
     - git clone --depth 1 --branch master https://github.com/open-psa/mef-examples
@@ -30,12 +31,21 @@ script:
     - grep -P -n "(\t|\s$)" *.rst mef/*.rst >> _warnings || echo "Great, no tabs or trailing spaces!"
     - spell -n -o -d en_us.ascii.add.spl mef/*.rst | grep -v 'bibliography' > _warnings || echo "no spelling errors!"
     - grep -P -n "[^[:ascii:]]" mef/*.rst | grep -v 'bibliography' >> _warnings || echo "no non-ASCII chars!"
-    - make latexpdf > /dev/null || echo "Outdated LaTeX on Ubuntu 14.04 :("
-    - PYTHONOPTIMIZE=1 make html linkcheck 2>> _warnings
     - cat _warnings && [[ ! -s _warnings ]]
+
+    - docker run mef/make
+    - docker cp $(docker ps -alq):mef/build ./
 
 after_script:
     - trang mef/schema/mef.rnc _check_mef.rng
     - trang mef/schema/mef.rnc _check_mef.xsd
     - xmllint --noout --relaxng _check_mef.rng mef-examples/Baobab/*.xml
     - xmllint --noout --schema _check_mef.xsd mef-examples/Baobab/*.xml
+
+deploy:
+    local_dir: build/html
+    provider: pages
+    skip_cleanup: true
+    github_token: $GITHUB_TOKEN
+    on:
+        branch: master
