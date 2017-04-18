@@ -3,7 +3,8 @@ model =
     name?,
     label?,
     attributes?,
-    (event-tree-definition
+    (model-data
+     |event-tree-definition
      | alignment-definition
      | consequence-group-definition
      | consequence-definition
@@ -14,5 +15,4 @@ model =
      | substitution-definition
      | CCF-group-definition
      | include-directive)*,
-    model-data?
   }
