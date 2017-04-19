@@ -4,7 +4,7 @@
 Meta-Logical Layer
 ******************
 
-The meta-logical layer is populated constructs
+The meta-logical layer is populated with constructs
 like common cause groups, delete terms, recovery rules,
 and exchange events that are used to give flavors to fault trees.
 This chapter reviews all these constructs.

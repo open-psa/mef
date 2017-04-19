@@ -42,5 +42,5 @@ int =
 
 float =
   element float {
-    attribute value { xsd:float }
+    attribute value { xsd:double }
   }

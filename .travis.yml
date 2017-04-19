@@ -36,7 +36,6 @@ script:
     - docker run mef/make
     - docker cp $(docker ps -alq):mef/build ./
 
-after_script:
     - trang mef/schema/mef.rnc _check_mef.rng
     - trang mef/schema/mef.rnc _check_mef.xsd
     - xmllint --noout --relaxng _check_mef.rng mef-examples/Baobab/*.xml

@@ -9,7 +9,7 @@ sum-of-products =
 
 product =
   element product {
-    attribute order { xsd:nonNegativeInteger }?,
+    attribute order { xsd:positiveInteger }?,
     literal*
   }
 

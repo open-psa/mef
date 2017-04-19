@@ -9,7 +9,7 @@ formula =
   | element nand { formula+ }
   | element nor { formula+ }
   | element atleast {
-      attribute min { xsd:nonNegativeInteger },
+      attribute min { xsd:positiveInteger },
       formula+
     }
   | element cardinality {

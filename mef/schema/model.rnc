@@ -14,5 +14,5 @@ model =
      | fault-tree-definition
      | substitution-definition
      | CCF-group-definition
-     | include-directive)*,
+     | include-directive)*
   }

@@ -6,7 +6,7 @@ alignment-definition =
 phase-definition =
   element define-phase {
     name,
-    attribute time-fraction { xsd:float },
+    attribute time-fraction { xsd:double },
     label?,
     attributes?,
     instruction*
