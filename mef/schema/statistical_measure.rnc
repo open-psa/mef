@@ -28,14 +28,14 @@ statistical-measure =
 
 quantiles =
   element quantiles {
-    attribute number { xsd:nonNegativeInteger },
+    attribute number { xsd:positiveInteger },
     quantile+
   }
 
 quantile = element quantile { bin-data }
 
 bin-data =
-  attribute number { xsd:nonNegativeInteger },
+  attribute number { xsd:positiveInteger },
   attribute mean { xsd:double }?,
   attribute lower-bound { xsd:double }?,
   attribute upper-bound { xsd:double }?

@@ -94,7 +94,7 @@ RNC schema of the fault tree specification:
         Fault tree diagram
 
 
-    .. table:: The fault tree specifiction
+    .. table:: The fault tree specification
         :name: table_fault_tree
 
         +-------+------+

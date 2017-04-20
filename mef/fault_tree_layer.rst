@@ -147,8 +147,8 @@ This description deserves some comments.
   it is often convenient to use variables in formulae before declaring them.
   The Model Exchange Format, therefore, refers to variables with the generic term "event",
   possibly without a "type" attribute.
-- By default, the value of a house is event is "false".
-  So it is not necessary to associate a value with a house event when declaring it.
+- By default, the value of a house is event is "false",
+  so it is not necessary to associate a value with a house event when declaring it.
   We shall see in :numref:`instructions` how to change the value of a house event.
 - Although events are typed (they are either gates, house events or basic events),
   two different events cannot have the same name (within the same name space),
@@ -169,7 +169,7 @@ The attribute "role" is used to declare whether an element is public or private,
 i.e., whether it can be referred by its name everywhere in the model
 or only within its inner most container.
 This point will be further explained in the next section.
-This attribute is optional for by default all elements are public.
+This attribute is optional, for by default, all elements are public.
 
 The fault tree pictured in :numref:`fig_fault_tree` is described in :numref:`xml_fault_tree`.
 In this representation, the house event "h1" has by default the value "true".
