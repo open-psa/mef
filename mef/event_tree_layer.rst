@@ -28,13 +28,10 @@ This event tree is made of the following elements.
 - Three functional events F, G, and H
 - Six sequences ending in six (a priori) different states S1 to S6
 
-The numbered black dots should be ignored for now.
-We added them only for the convenience of the forthcoming discussion.
-
 The expected interpretation of this event tree is as follows.
 A fault tree is associated with each functional event.
 This fault tree describes how the functional event may occur.
-For the sake of the simplicity,
+For the sake of simplicity,
 we may assume that its top-event has the same name as the functional event itself.
 Upper branches represent a success of the corresponding safety mission,
 while lower branches represent its failure.
