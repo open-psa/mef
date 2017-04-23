@@ -1,0 +1,20 @@
+machine:
+    services:
+        - docker
+
+checkout:
+    post:
+        - git fetch --depth=1000
+
+dependencies:
+    override:
+        - docker build -t mef/make .
+
+test:
+    override:
+        - docker run mef/make
+        - docker cp $(docker ps -alq):mef/build/html ./
+
+general:
+    artifacts:
+        - html
