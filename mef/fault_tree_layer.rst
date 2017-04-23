@@ -154,6 +154,8 @@ This description deserves some comments.
   two different events cannot have the same name (within the same name space),
   even if they are of different types.
   This point will be explained in the next section.
+- A "pass-through" gate can be defined without a connective
+  but with a single argument event for its formula.
 
 .. literalinclude:: schema/fault_tree.rnc
     :name: schema_fault_tree
