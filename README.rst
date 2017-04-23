@@ -4,6 +4,8 @@ The Open-PSA Model Exchange Format
 
 .. image:: https://travis-ci.org/open-psa/mef.svg?branch=master
     :target: https://travis-ci.org/open-psa/mef
+.. image:: https://circleci.com/gh/open-psa/mef/tree/master.svg?style=svg
+    :target: https://circleci.com/gh/open-psa/mef/tree/master
 
 |
 
