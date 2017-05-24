@@ -9,7 +9,7 @@ consequence-definition =
 
 consequence-group-definition =
   element define-consequence-group {
-    name, label?, attributes?, (consequence | consequence-group)
+    name, label?, attributes?, (consequence | consequence-group)*
   }
 
 consequence = element consequence { name }

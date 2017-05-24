@@ -147,7 +147,7 @@ This description deserves some comments.
   it is often convenient to use variables in formulae before declaring them.
   The Model Exchange Format, therefore, refers to variables with the generic term "event",
   possibly without a "type" attribute.
-- By default, the value of a house is event is "false",
+- By default, the value of a house event is "false",
   so it is not necessary to associate a value with a house event when declaring it.
   We shall see in :numref:`instructions` how to change the value of a house event.
 - Although events are typed (they are either gates, house events or basic events),

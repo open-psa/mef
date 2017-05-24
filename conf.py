@@ -77,7 +77,6 @@ contributors = ', and '.join((', '.join(contributors[:-1]), contributors[-1]))
 git_log = check_output(['git', 'log', '-n', '1', '--format=format:%H.%cd',
                         '--date=short', 'mef/']).strip().decode()
 commit_hash, commit_date = git_log.split('.')
-# commit_hash, commit_date = '89', '2017'
 # The full version, including alpha/beta/rc tags.
 release = check_output(['git', 'describe', '--tags',
                         commit_hash]).strip().decode()
