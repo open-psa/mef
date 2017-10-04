@@ -63,6 +63,12 @@ images: $(PDFs)
 clean:
 	rm -rf $(BUILDDIR)/*
 
+.PHONY: spelling
+spelling:
+	SPHINX_SPELL=1 $(SPHINXBUILD) -b spelling $(ALLSPHINXOPTS) $(BUILDDIR)/spelling
+	@echo
+	@echo "Spelling checker messages are written to $(BUILDDIR)/spelling/output.txt"
+
 .PHONY: cleanpdf
 	rm $(PDFs)
 
