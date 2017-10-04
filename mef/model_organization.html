@@ -1,0 +1,405 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>8 Organization of a Model &mdash; The Open-PSA Model Exchange Format 2.0</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/opsa.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="The Open-PSA Model Exchange Format 2.0" href="../index.html"/>
+        <link rel="next" title="9 Report Layer" href="report_layer.html"/>
+        <link rel="prev" title="7 Event Tree Layer" href="event_tree_layer.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> The Open-PSA Model Exchange Format
+          
+
+          
+            
+            <img src="../_static/full_opsa_logo.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="open_psa_initiative.html">1 The Open-PSA Initiative</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">2 Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="anatomy.html">3 Anatomy of the Model Exchange Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fault_tree_layer.html">4 Fault Tree Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stochastic_layer.html">5 Stochastic Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="meta_logical_layer.html">6 Meta-Logical Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event_tree_layer.html">7 Event Tree Layer</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">8 Organization of a Model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#additional-constructs">8.1 Additional Constructs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#consequences-and-consequence-groups">8.1.1 Consequences and Consequence Groups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#missions-phases">8.1.2 Missions, Phases</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#splitting-the-model-into-several-files">8.2 Splitting the Model into Several Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">8.3 Organization of a Model</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="report_layer.html">9 Report Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bibliography.html">10 Bibliography</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">The Open-PSA Model Exchange Format</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>8 Organization of a Model</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="organization-of-a-model">
+<span id="model-organization"></span><h1>8 Organization of a Model<a class="headerlink" href="#organization-of-a-model" title="Permalink to this headline">¶</a></h1>
+<p>This chapter discusses the organizations of models.
+It includes the definition of two additional constructs:
+the notions of consequence, consequence group, and alignment.</p>
+<div class="section" id="additional-constructs">
+<h2>8.1 Additional Constructs<a class="headerlink" href="#additional-constructs" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="consequences-and-consequence-groups">
+<h3>8.1.1 Consequences and Consequence Groups<a class="headerlink" href="#consequences-and-consequence-groups" title="Permalink to this headline">¶</a></h3>
+<p>It is often convenient to group sequences of event trees
+into bins of sequences with similar physical consequences (e.g., Core Melt).
+The Model Exchange Format provides the notion of consequence to do so.
+A consequence is characterized by
+an event tree, a particular initiating event for this event tree,
+and a particular sequence (end-state) of the same tree.
+Consequences are given a name.
+Groups of consequences can be defined as well.
+They are also given a name, and can include sub-groups.
+The RNC schema for the XML representation of declarations of groups of consequences
+is given in <a class="reference internal" href="#schema-consequence-groups"><span class="std std-numref">Listing 8.1</span></a>.</p>
+<div class="literal-block-wrapper docutils container" id="schema-consequence-groups">
+<div class="code-block-caption"><span class="caption-number">Listing 8.1 </span><span class="caption-text">The RNC schema of the XML representation of consequence groups</span><a class="headerlink" href="#schema-consequence-groups" title="Permalink to this code">¶</a></div>
+<div class="highlight-rnc"><div class="highlight"><pre><span></span>consequence-definition <span class="o">=</span>
+  <span class="kd">element</span><span class="nv"> define-consequence </span><span class="p">{</span>
+    name<span class="o">,</span>
+    label<span class="o">?,</span>
+    attributes<span class="o">?,</span>
+    <span class="kd">element</span><span class="nv"> initiating-event </span><span class="p">{</span> name <span class="p">}</span><span class="o">,</span>
+    <span class="kd">element</span><span class="nv"> sequence </span><span class="p">{</span> name <span class="p">}</span>
+  <span class="p">}</span>
+
+consequence-group-definition <span class="o">=</span>
+  <span class="kd">element</span><span class="nv"> define-consequence-group </span><span class="p">{</span>
+    name<span class="o">,</span> label<span class="o">?,</span> attributes<span class="o">?,</span> <span class="p">(</span>consequence <span class="o">|</span> consequence-group<span class="p">)</span><span class="o">*</span>
+  <span class="p">}</span>
+
+consequence <span class="o">=</span> <span class="kd">element</span><span class="nv"> consequence </span><span class="p">{</span> name <span class="p">}</span>
+
+consequence-group <span class="o">=</span> <span class="kd">element</span><span class="nv"> consequence-group </span><span class="p">{</span> name <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>Note that consequences and consequence groups can be used as initiating events
+(see <a class="reference internal" href="event_tree_layer.html#event-tree-structure-xml-representation"><span class="std std-numref">Section 7.2.2</span></a>).
+This mechanism makes it possible to link event trees.</p>
+</div>
+<div class="section" id="missions-phases">
+<h3>8.1.2 Missions, Phases<a class="headerlink" href="#missions-phases" title="Permalink to this headline">¶</a></h3>
+<p>Phases are physical configurations (e.g., operation and maintenance)
+in which the plant spends a fraction of the mission time.
+Phases are grouped into missions.
+The time fractions of the phases of a mission should sum to 1.
+House events and parameters may be given different values in each phase.
+The RNC schema for the XML representation of phase declarations
+is given in <a class="reference internal" href="#schema-mission-phase"><span class="std std-numref">Listing 8.2</span></a>.</p>
+<div class="literal-block-wrapper docutils container" id="schema-mission-phase">
+<div class="code-block-caption"><span class="caption-number">Listing 8.2 </span><span class="caption-text">The RNC schema of the XML representation of Missions and Phases</span><a class="headerlink" href="#schema-mission-phase" title="Permalink to this code">¶</a></div>
+<div class="highlight-rnc"><div class="highlight"><pre><span></span>alignment-definition <span class="o">=</span>
+  <span class="kd">element</span><span class="nv"> define-alignment </span><span class="p">{</span>
+    name<span class="o">,</span> label<span class="o">?,</span> attributes<span class="o">?,</span> phase-definition+
+  <span class="p">}</span>
+
+phase-definition <span class="o">=</span>
+  <span class="kd">element</span><span class="nv"> define-phase </span><span class="p">{</span>
+    name<span class="o">,</span>
+    <span class="kd">attribute</span><span class="nv"> time-fraction </span><span class="p">{</span> <span class="kt">xsd:double</span> <span class="p">}</span><span class="o">,</span>
+    label<span class="o">?,</span>
+    attributes<span class="o">?,</span>
+    instruction<span class="o">*</span>
+  <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="splitting-the-model-into-several-files">
+<h2>8.2 Splitting the Model into Several Files<a class="headerlink" href="#splitting-the-model-into-several-files" title="Permalink to this headline">¶</a></h2>
+<p>So far, we have written as if the model fits completely into a single file.
+For even medium size PSA models this assumption not compatible with Quality Control.
+Moreover, such a monolithic organization of data would be very hard to manage
+when several persons work together on the same model.</p>
+<p>A first way to split the model into several files is to use the XML notion of entities:
+in any XML file, it is possible to declare file entities in the preamble,
+and to include them in the body of the document.
+This mechanism is exemplified below.</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; ?&gt;</span>
+
+<span class="cp">&lt;!DOCTYPE SMRF [</span>
+<span class="cp">&lt;!ENTITY file1 SYSTEM &quot;file1.xml&quot;&gt;</span>
+<span class="cp">&lt;!ENTITY file2 SYSTEM &quot;file2.xml&quot;&gt;</span>
+]&gt;
+<span class="nt">&lt;smrf&gt;</span>
+    ...
+    <span class="ni">&amp;file1;</span>
+    ...
+    <span class="ni">&amp;file2;</span>
+    ...
+<span class="nt">&lt;/smrf&gt;</span>
+</pre></div>
+</div>
+<p>This mechanism, however, has the drawback
+that XML tools have to actually include the files into the document,
+hence, making its manipulation heavier.</p>
+<p>The Model Exchange Format proposes another simple mechanism to achieve the same goal:
+the tag include.
+This tag can be inserted at any place in a document.
+Its effect is to load the content of the given file into the model.</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;opsa-mef&gt;</span>
+    ...
+    <span class="nt">&lt;include</span> <span class="na">file=</span><span class="s">&quot;basic-events.xml&quot;</span><span class="nt">/&gt;</span>
+    ...
+<span class="nt">&lt;/opsa-mef&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>8.3 Organization of a Model<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>The Model Exchange Format introduces five types of containers:
+models at the top level, event trees, fault trees, components, and model-data.
+The Model Exchange Format introduces also eighteen constructs.
+<a class="reference internal" href="#fig-containers-and-constructs"><span class="std std-numref">Fig. 8.1</span></a> shows the containers and the constructs they can define.</p>
+<div class="figure align-center" id="fig-containers-and-constructs">
+<img alt="../_images/containers_and_constructs.svg" src="../_images/containers_and_constructs.svg" /><p class="caption"><span class="caption-number">Fig. 8.1 </span><span class="caption-text">Containers and the constructs they can define</span></p>
+</div>
+<p><a class="reference internal" href="#schema-model"><span class="std std-numref">Listing 8.3</span></a> gives the RNC schema of the XML representation of a model.</p>
+<div class="literal-block-wrapper docutils container" id="schema-model">
+<div class="code-block-caption"><span class="caption-number">Listing 8.3 </span><span class="caption-text">The RNC schema for the XML representation of a model</span><a class="headerlink" href="#schema-model" title="Permalink to this code">¶</a></div>
+<div class="highlight-rnc"><div class="highlight"><pre><span></span>model <span class="o">=</span>
+  <span class="kd">element</span><span class="nv"> opsa-mef </span><span class="p">{</span>
+    name<span class="o">?,</span>
+    label<span class="o">?,</span>
+    attributes<span class="o">?,</span>
+    <span class="p">(</span>model-data
+     <span class="o">|</span>event-tree-definition
+     <span class="o">|</span> alignment-definition
+     <span class="o">|</span> consequence-group-definition
+     <span class="o">|</span> consequence-definition
+     <span class="o">|</span> rule-definition
+     <span class="o">|</span> initiating-event-group-definition
+     <span class="o">|</span> initiating-event-definition
+     <span class="o">|</span> fault-tree-definition
+     <span class="o">|</span> substitution-definition
+     <span class="o">|</span> CCF-group-definition
+     <span class="o">|</span> include-directive<span class="p">)</span><span class="o">*</span>
+  <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="report_layer.html" class="btn btn-neutral float-right" title="9 Report Layer" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="event_tree_layer.html" class="btn btn-neutral" title="7 Event Tree Layer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2007-2017, The Open-PSA Initiative.
+      Last updated on Oct 04, 2017.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.0.d-120-g703be91',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

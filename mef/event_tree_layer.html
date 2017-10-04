@@ -1,0 +1,824 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>7 Event Tree Layer &mdash; The Open-PSA Model Exchange Format 2.0</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/opsa.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="The Open-PSA Model Exchange Format 2.0" href="../index.html"/>
+        <link rel="next" title="8 Organization of a Model" href="model_organization.html"/>
+        <link rel="prev" title="6 Meta-Logical Layer" href="meta_logical_layer.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> The Open-PSA Model Exchange Format
+          
+
+          
+            
+            <img src="../_static/full_opsa_logo.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="open_psa_initiative.html">1 The Open-PSA Initiative</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">2 Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="anatomy.html">3 Anatomy of the Model Exchange Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fault_tree_layer.html">4 Fault Tree Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stochastic_layer.html">5 Stochastic Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="meta_logical_layer.html">6 Meta-Logical Layer</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">7 Event Tree Layer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#preliminary-discussion">7.1 Preliminary Discussion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#structure-of-event-trees">7.2 Structure of Event Trees</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#description">7.2.1 Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#xml-representation">7.2.2 XML Representation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#example">7.2.2.1 Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#instructions">7.3 Instructions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">7.3.1 Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">7.3.2 XML Representation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id5">7.3.2.1 Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="model_organization.html">8 Organization of a Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="report_layer.html">9 Report Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bibliography.html">10 Bibliography</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">The Open-PSA Model Exchange Format</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>7 Event Tree Layer</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="event-tree-layer">
+<span id="id1"></span><h1>7 Event Tree Layer<a class="headerlink" href="#event-tree-layer" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="preliminary-discussion">
+<h2>7.1 Preliminary Discussion<a class="headerlink" href="#preliminary-discussion" title="Permalink to this headline">¶</a></h2>
+<p>The first three layers are rather straightforward to describe
+since there is a general agreement
+on how to interpret fault trees and probability distributions.
+The Event Tree layer is much more delicate to handle.
+The reason stands in the dynamic nature of event trees
+and the lack of common interpretation for this formalism.
+To illustrate this point, we shall consider the toy example
+pictured in <a class="reference internal" href="#fig-small-event-tree"><span class="std std-numref">Fig. 7.1</span></a>.</p>
+<div class="figure align-center" id="fig-small-event-tree">
+<img alt="../_images/small_event_tree.svg" src="../_images/small_event_tree.svg" /><p class="caption"><span class="caption-number">Fig. 7.1 </span><span class="caption-text">A Small Event Tree</span></p>
+</div>
+<p>This event tree is made of the following elements.</p>
+<ul class="simple">
+<li>An initiating event I</li>
+<li>Three functional events F, G, and H</li>
+<li>Six sequences ending in six (a priori) different states S1 to S6</li>
+</ul>
+<p>The expected interpretation of this event tree is as follows.
+A fault tree is associated with each functional event.
+This fault tree describes how the functional event may occur.
+For the sake of simplicity,
+we may assume that its top-event has the same name as the functional event itself.
+Upper branches represent a success of the corresponding safety mission,
+while lower branches represent its failure.
+Applying the so-called fault tree linking approach,
+we obtain the following interpretation for the sequences.</p>
+<div class="math">
+\[\begin{split}S1&amp; = I \land \lnot F \land \lnot H\\
+S2&amp; = I \land \lnot F \land H\\
+S3&amp; = I \land F \land \lnot G \land \lnot H\\
+S4&amp; = I \land F \land \lnot G \land H\\
+S5&amp; = I \land F \land G \land \lnot F\\
+S6&amp; = I \land F \land G \land H\end{split}\]</div>
+<p>In practice, things are less simple:</p>
+<ul class="simple">
+<li>There may be more than one initiating event
+because the same event tree can be used with different flavors.</li>
+<li>Values of house events may be changed at some points along the branches
+to give flavors to fault trees.
+The value of a house event may be changed either locally to a fault tree,
+or for all the fault trees encountered after the setting point.</li>
+<li>The flavoring mechanism may be even more complex:
+some gates or basic events may be negated;
+some parameters of probability distributions may be impacted.</li>
+<li>The flavor given to a fault tree may depend on what has happened so far in the sequence:
+initiating event, value of house events, etc.</li>
+<li>Some success branches may not be interpreted as the negation of the associated fault tree
+but rather as a bypass.
+This interpretation of success branches is typically tool-dependent:
+some tools (have options to) ignore success branches;
+therefore, modelers use this &#8220;possibility&#8221; to &#8220;factorize&#8221; models.</li>
+<li>Branching may have more than two alternatives,
+or represent multi-states, not just success and failure,
+each alternative being labeled with a different fault tree.</li>
+<li>In the event tree linking approach, branching may involve no fault tree at all,
+but rather a multiplication by some factor of the current probability of the sequence.</li>
+<li>It is sometimes convenient to replace a sub-tree by a reference to a previously defined sub-tree.
+For instance, if we identify end-states S1 and S3 one the one hand, S2 and S4 on the other hand,
+we can merge the two corresponding sub-trees rooted.
+It saves space (both in computer memory and onto the display device)
+to replace the latter by a reference to the former.</li>
+</ul>
+<p>In a word, event trees cannot be seen as a static description formalism like fault trees.
+Rather, they should be seen as a kind of graphical programming language.
+This language is used to collect and modify data when walking along the sequences,
+and even to decide when to stop to walk a sequence (in the event tree linking approach).
+The Model Exchange Format should thus reflect this programming nature of event trees.</p>
+</div>
+<div class="section" id="structure-of-event-trees">
+<h2>7.2 Structure of Event Trees<a class="headerlink" href="#structure-of-event-trees" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="description">
+<h3>7.2.1 Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h3>
+<p>The Model Exchange Format distinguishes the structure of the event trees,
+i.e., the set of sequences they encode,
+from what is collected along the sequences and how it is collected.
+Let us consider for now only the structural view point.
+With that respect, an event tree is made of the following components.</p>
+<ul class="simple">
+<li>One or more initiating events</li>
+<li>An ordered set of functional events (the columns)</li>
+<li>A set of end-states (so called sequences)</li>
+<li>A set of branches to describe sequences</li>
+</ul>
+<p>Branches end up either with a sequence name
+or with a reference to another branch (such references are sometimes called transfers).
+They contain forks.
+Each fork is associated with a functional event.
+The initiating event could also be seen as a special fork
+(between the occurrence of this event and the occurrence of no event).
+In the Model Exchange Format, alternatives of the fork are called paths.
+Paths are labeled by the state of the functional event that labels the fork.</p>
+<p>Let us consider again the event tree pictured in <a class="reference internal" href="#fig-small-event-tree"><span class="std std-numref">Fig. 7.1</span></a>.
+Assume that end states S1 and S3 on the one hand, S2 and S4 on the other hand, are identical,
+and that we merge the corresponding sub-trees.
+Assume moreover that the lowest success branch of the functional event H is actually a bypass.
+Then, the structure of the tree is pictured in <a class="reference internal" href="#fig-event-tree-structure"><span class="std std-numref">Fig. 7.2</span></a>.
+On this figure, the nodes of the tree are numbered from 1 to 8.
+The initiating event is represented as a fork.
+Finally, the branch (the sub-tree) rooted by the node 2 is named B1.</p>
+<div class="figure align-center" id="fig-event-tree-structure">
+<img alt="../_images/event_tree_structure.svg" src="../_images/event_tree_structure.svg" /><p class="caption"><span class="caption-number">Fig. 7.2 </span><span class="caption-text">Structure of an Event Tree</span></p>
+</div>
+<p>Components of the event tree pictured in <a class="reference internal" href="#fig-event-tree-structure"><span class="std std-numref">Fig. 7.2</span></a> are the following.</p>
+<ul class="simple">
+<li>The initiating event I</li>
+<li>The three functional events F, G, and H</li>
+<li>The end states S1, S2, S5, and S6</li>
+<li>The branch B1</li>
+<li>The tree rooted by the initial node (here the node 1)</li>
+</ul>
+<p>Forks decompose the current branch according to the state of a functional event.
+Usually, this state is either &#8220;success&#8221; or &#8220;failure&#8221;.
+It may be &#8220;bypass&#8221; as well (as in our example for the path from node 6 to node 7).
+In the case of multiple branches, the name of a state is defined by the user.</p>
+<p>Instructions to collect and to modify fault trees and probability distributions
+are applied at the different nodes.
+Instructions to be applied
+may depend on the initiating event and the states of functional events.</p>
+<p>The states of functional events at a node depend on the path
+that has been followed from the root node to this node.
+By default, functional events are in an unspecified state,
+i.e., that the predicate &#8220;test-functional-event&#8221; (see <a class="reference internal" href="stochastic_layer.html#test-event"><span class="std std-numref">Section 5.5</span></a>)
+returns false in any case.
+<a class="reference internal" href="#table-event-tree-structure-paths"><span class="std std-numref">Table 7.1</span></a> gives the states of functional events
+for all the possible paths starting from the root node of the event tree
+pictured in <a class="reference internal" href="#fig-event-tree-structure"><span class="std std-numref">Fig. 7.2</span></a>.
+Empty cells correspond to unspecified states.</p>
+<table border="1" class="docutils" id="table-event-tree-structure-paths">
+<caption><span class="caption-number">Table 7.1 </span><span class="caption-text">States of Functional Events for the different paths
+       of the Event Tree in <a class="reference internal" href="#fig-event-tree-structure"><span class="std std-numref">Fig. 7.2</span></a></span><a class="headerlink" href="#table-event-tree-structure-paths" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">path</th>
+<th class="head">F</th>
+<th class="head">G</th>
+<th class="head">H</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>1-2</td>
+<td>success</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>1-2-3</td>
+<td>success</td>
+<td>&#160;</td>
+<td>success</td>
+</tr>
+<tr class="row-odd"><td>1-2-4</td>
+<td>success</td>
+<td>&#160;</td>
+<td>failure</td>
+</tr>
+<tr class="row-even"><td>1-5</td>
+<td>failure</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>1-5-2</td>
+<td>failure</td>
+<td>success</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>1-5-2-3</td>
+<td>failure</td>
+<td>success</td>
+<td>success</td>
+</tr>
+<tr class="row-odd"><td>1-5-2-4</td>
+<td>failure</td>
+<td>success</td>
+<td>failure</td>
+</tr>
+<tr class="row-even"><td>1-5-6</td>
+<td>failure</td>
+<td>failure</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>1-5-6-7</td>
+<td>failure</td>
+<td>failure</td>
+<td>bypass</td>
+</tr>
+<tr class="row-even"><td>1-5-6-8</td>
+<td>failure</td>
+<td>failure</td>
+<td>failure</td>
+</tr>
+</tbody>
+</table>
+<p>As mentioned above, an event tree may be parametric:
+the same tree can be used for several initiating events.
+To implement this idea,
+the Model Exchange Format provides the analyst with the notion of group of initiating events.
+Such a group has a name and may contain sub-groups.
+Groups of initiating events may be freely defined inside or outside event trees.
+There is one condition, however:
+an initiating event can be used in only one tree.</p>
+</div>
+<div class="section" id="xml-representation">
+<span id="event-tree-structure-xml-representation"></span><h3>7.2.2 XML Representation<a class="headerlink" href="#xml-representation" title="Permalink to this headline">¶</a></h3>
+<p>We are now ready to explicitly define the XML grammar of the structure of event trees.
+Its RNC schema is given in <a class="reference internal" href="#schema-initiating-events"><span class="std std-numref">Listing 7.1</span></a> and <a class="reference internal" href="#schema-event-tree"><span class="std std-numref">Listing 7.2</span></a>.
+In these figures, we leave instructions unspecified,
+for they do not concern the structure of the tree and are the subject of the next section.
+Note that branches and functional events cannot be declared (nor referred to) outside event trees,
+for there would be no meaning in doing so.</p>
+<div class="literal-block-wrapper docutils container" id="schema-initiating-events">
+<div class="code-block-caption"><span class="caption-number">Listing 7.1 </span><span class="caption-text">The RNC schema of the XML representation of initiating events</span><a class="headerlink" href="#schema-initiating-events" title="Permalink to this code">¶</a></div>
+<div class="highlight-rnc"><div class="highlight"><pre><span></span>initiating-event-definition <span class="o">=</span>
+  <span class="kd">element</span><span class="nv"> define-initiating-event </span><span class="p">{</span>
+    name<span class="o">,</span>
+    <span class="kd">attribute</span><span class="nv"> event-tree </span><span class="p">{</span> Identifier <span class="p">}</span><span class="o">?,</span>
+    label<span class="o">?,</span>
+    attributes<span class="o">?,</span>
+    <span class="p">(</span>collected-item <span class="o">|</span> consequence <span class="o">|</span> consequence-group<span class="p">)</span><span class="o">?</span>
+  <span class="p">}</span>
+
+initiating-event-group-definition <span class="o">=</span>
+  <span class="kd">element</span><span class="nv"> define-initiating-event-group </span><span class="p">{</span>
+    name<span class="o">,</span>
+    <span class="kd">attribute</span><span class="nv"> event-tree </span><span class="p">{</span> Identifier <span class="p">}</span><span class="o">?,</span>
+    label<span class="o">?,</span>
+    attributes<span class="o">?,</span>
+    initiating-event+
+  <span class="p">}</span>
+
+initiating-event <span class="o">=</span>
+  <span class="kd">element</span><span class="nv"> initiating-event </span><span class="p">{</span> name <span class="p">}</span>
+  <span class="o">|</span> <span class="kd">element</span><span class="nv"> initiating-event-group </span><span class="p">{</span> name <span class="p">}</span>
+
+collected-item <span class="o">=</span> basic-event <span class="o">|</span> gate <span class="o">|</span> parameter
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="schema-event-tree">
+<div class="code-block-caption"><span class="caption-number">Listing 7.2 </span><span class="caption-text">The RNC schema of the XML representation of event trees and sequences</span><a class="headerlink" href="#schema-event-tree" title="Permalink to this code">¶</a></div>
+<div class="highlight-rnc"><div class="highlight"><pre><span></span>event-tree-definition <span class="o">=</span>
+  <span class="kd">element</span><span class="nv"> define-event-tree </span><span class="p">{</span>
+    name<span class="o">,</span>
+    label<span class="o">?,</span>
+    attributes<span class="o">?,</span>
+    functional-event-definition<span class="o">*,</span>
+    sequence-definition<span class="o">*,</span>
+    branch-definition<span class="o">*,</span>
+    initial-state
+  <span class="p">}</span>
+
+functional-event-definition <span class="o">=</span>
+  <span class="kd">element</span><span class="nv"> define-functional-event </span><span class="p">{</span> name<span class="o">,</span> label<span class="o">?,</span> attributes<span class="o">?</span> <span class="p">}</span>
+
+sequence-definition <span class="o">=</span>
+  <span class="kd">element</span><span class="nv"> define-sequence </span><span class="p">{</span> name<span class="o">,</span> label<span class="o">?,</span> attributes<span class="o">?,</span> instruction<span class="o">*</span> <span class="p">}</span>
+
+branch-definition <span class="o">=</span>
+  <span class="kd">element</span><span class="nv"> define-branch </span><span class="p">{</span> name<span class="o">,</span> label<span class="o">?,</span> attributes<span class="o">?,</span> branch <span class="p">}</span>
+
+initial-state <span class="o">=</span> <span class="kd">element</span><span class="nv"> initial-state </span><span class="p">{</span> branch <span class="p">}</span>
+
+branch <span class="o">=</span> instruction<span class="o">*,</span> <span class="p">(</span>fork <span class="o">|</span> end-state<span class="p">)</span>
+
+fork <span class="o">=</span>
+  <span class="kd">element</span><span class="nv"> fork </span><span class="p">{</span>
+    <span class="kd">attribute</span><span class="nv"> functional-event </span><span class="p">{</span> Identifier <span class="p">}</span><span class="o">,</span>
+    path+
+  <span class="p">}</span>
+
+path <span class="o">=</span>
+  <span class="kd">element</span><span class="nv"> path </span><span class="p">{</span>
+    <span class="kd">attribute</span><span class="nv"> state </span><span class="p">{</span> Identifier <span class="p">}</span><span class="o">,</span>
+    branch
+  <span class="p">}</span>
+
+end-state <span class="o">=</span>
+  <span class="kd">element</span><span class="nv"> sequence </span><span class="p">{</span> name <span class="p">}</span>
+  <span class="o">|</span> <span class="kd">element</span><span class="nv"> branch </span><span class="p">{</span> name <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="example">
+<h4>7.2.2.1 Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h4>
+<p>Consider again the event tree pictured in <a class="reference internal" href="#fig-event-tree-structure"><span class="std std-numref">Fig. 7.2</span></a>.
+The XML description for this example is given in <a class="reference internal" href="#xml-event-tree-structure"><span class="std std-numref">Listing 7.3</span></a>.</p>
+<div class="literal-block-wrapper docutils container" id="xml-event-tree-structure">
+<div class="code-block-caption"><span class="caption-number">Listing 7.3 </span><span class="caption-text">XML representation for the structure
+of the Event Tree pictured in <a class="reference internal" href="#fig-event-tree-structure"><span class="std std-numref">Fig. 7.2</span></a></span><a class="headerlink" href="#xml-event-tree-structure" title="Permalink to this code">¶</a></div>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;define-event-tree</span> <span class="na">name=</span><span class="s">&quot;my-first-event-tree&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;define-functional-event</span> <span class="na">name=</span><span class="s">&quot;F&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;define-functional-event</span> <span class="na">name=</span><span class="s">&quot;G&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;define-functional-event</span> <span class="na">name=</span><span class="s">&quot;H&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;define-sequence</span> <span class="na">name=</span><span class="s">&quot;S1&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;define-sequence</span> <span class="na">name=</span><span class="s">&quot;S2&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;define-sequence</span> <span class="na">name=</span><span class="s">&quot;S5&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;define-sequence</span> <span class="na">name=</span><span class="s">&quot;S6&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;define-branch</span> <span class="na">name=</span><span class="s">&quot;sub-tree7&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;fork</span> <span class="na">functional-event=</span><span class="s">&quot;H&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;path</span> <span class="na">state=</span><span class="s">&quot;success&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;sequence</span> <span class="na">name=</span><span class="s">&quot;S1&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/path&gt;</span>
+            <span class="nt">&lt;path</span> <span class="na">state=</span><span class="s">&quot;failure&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;sequence</span> <span class="na">name=</span><span class="s">&quot;S2&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/path&gt;</span>
+        <span class="nt">&lt;/fork&gt;</span>
+    <span class="nt">&lt;/define-branch&gt;</span>
+    <span class="nt">&lt;initial-state&gt;</span>
+        <span class="nt">&lt;fork</span> <span class="na">functional-event=</span><span class="s">&quot;F&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;path</span> <span class="na">state=</span><span class="s">&quot;success&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;branch</span> <span class="na">name=</span><span class="s">&quot;sub-tree7&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/path&gt;</span>
+            <span class="nt">&lt;path</span> <span class="na">state=</span><span class="s">&quot;failure&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;fork</span> <span class="na">functional-event=</span><span class="s">&quot;G&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;path</span> <span class="na">state=</span><span class="s">&quot;success&quot;</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;branch</span> <span class="na">name=</span><span class="s">&quot;sub-tree7&quot;</span><span class="nt">/&gt;</span>
+                    <span class="nt">&lt;/path&gt;</span>
+                    <span class="nt">&lt;path</span> <span class="na">state=</span><span class="s">&quot;failure&quot;</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;fork</span> <span class="na">functional-event=</span><span class="s">&quot;H&quot;</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;path</span> <span class="na">state=</span><span class="s">&quot;success&quot;</span><span class="nt">&gt;</span>
+                                <span class="nt">&lt;sequence</span> <span class="na">name=</span><span class="s">&quot;S5&quot;</span><span class="nt">/&gt;</span>
+                            <span class="nt">&lt;/path&gt;</span>
+                            <span class="nt">&lt;path</span> <span class="na">state=</span><span class="s">&quot;failure&quot;</span><span class="nt">&gt;</span>
+                                <span class="nt">&lt;sequence</span> <span class="na">name=</span><span class="s">&quot;S6&quot;</span><span class="nt">/&gt;</span>
+                            <span class="nt">&lt;/path&gt;</span>
+                        <span class="nt">&lt;/fork&gt;</span>
+                    <span class="nt">&lt;/path&gt;</span>
+                <span class="nt">&lt;/fork&gt;</span>
+            <span class="nt">&lt;/path&gt;</span>
+        <span class="nt">&lt;/fork&gt;</span>
+    <span class="nt">&lt;/initial-state&gt;</span>
+<span class="nt">&lt;/define-event-tree&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="instructions">
+<span id="id2"></span><h2>7.3 Instructions<a class="headerlink" href="#instructions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h3>7.3.1 Description<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference internal" href="#fig-event-tree-structure"><span class="std std-numref">Fig. 7.2</span></a> gives the XML representation for the structure of an event tree.
+This structure makes it possible to walk along the sequences,
+but not to construct the Boolean formulae associated with each sequence.
+To do so, we need to fill the structure with instructions.
+Instructions are actually used for two main purposes:</p>
+<ul class="simple">
+<li>To collect formulae or stochastic expressions</li>
+<li>To define flavors of fault trees and probability distributions,
+i.e., to set values of house events and flag parameters</li>
+</ul>
+<p>The collection of a top event consists in a Boolean product of the formula
+associated with the sequence and a copy of the fault tree rooted with the top event.
+In the Model Exchange Format,
+the operation is performed by means of the instruction &#8220;collect-formula&#8221;.
+The collection of an expression
+multiplies the current probability of the sequence by the value of this expression.
+In the Model Exchange Format,
+the operation is performed by means of the instruction &#8220;collect-expression&#8221;.</p>
+<p>To give flavors to fault trees,
+i.e., to change the values of gates, house events, basic events, and parameters,
+the Model Exchange Format introduces the four corresponding instruction:
+&#8220;set-gate&#8221;, &#8220;set-house-event&#8221;, &#8220;set-basic-event&#8221;, and &#8220;set-parameter&#8221;.</p>
+<p>Sequences are walked from left to right.
+Therefore, when a value of an element is changed,
+this change applies on the current environment and propagates to the right.
+This default behavior can be changed by using the flag &#8220;direction&#8221;,
+which can take either the value &#8220;forward&#8221; (the default), &#8220;backward&#8221; or &#8220;both&#8221;.
+This feature should be handled with much care.</p>
+<p>The flavor given to fault trees, as well as what is collected,
+may depend on the initial event and the current state of functional events.
+To do so, the Model Exchange Format provides
+an if-then-else instruction (the &#8220;else&#8221; part is optional)
+and the two expressions &#8220;test-initiating-event&#8221; and &#8220;test-functional-event&#8221;.
+These two instructions have been introduced in <a class="reference internal" href="stochastic_layer.html#test-event"><span class="std std-numref">Section 5.5</span></a>.
+Since the then- and else-branches of the &#8220;if-then-else&#8221; may contain several instructions,
+the Model Exchange Format introduces the notion of block of instructions.</p>
+<p>Finally, some models require linking event trees.
+A special instruction &#8220;event-tree&#8221; is introduced for this purpose.
+It should be used only in sequence definitions, i.e., in end-state.</p>
+<p>It is sometimes the case
+that the same values of house events and parameter flags are used at several places.
+Such a configuration is called a split-fraction in the event tree linking approach.
+The Model Exchange Format refers it as a rule, for it is a sequence of instructions.</p>
+</div>
+<div class="section" id="id4">
+<h3>7.3.2 XML Representation<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>The RNC schema for the XML representation of instructions
+is given in <a class="reference internal" href="#schema-instructions"><span class="std std-numref">Listing 7.4</span></a>.</p>
+<div class="literal-block-wrapper docutils container" id="schema-instructions">
+<div class="code-block-caption"><span class="caption-number">Listing 7.4 </span><span class="caption-text">The RNC schema for the XML representation of instructions</span><a class="headerlink" href="#schema-instructions" title="Permalink to this code">¶</a></div>
+<div class="highlight-rnc"><div class="highlight"><pre><span></span>instruction <span class="o">=</span> set <span class="o">|</span> collect <span class="o">|</span> if-then-else <span class="o">|</span> block <span class="o">|</span> rule <span class="o">|</span> link
+
+set <span class="o">=</span> set-gate <span class="o">|</span> set-house-event <span class="o">|</span> set-basic-event <span class="o">|</span> set-parameter
+
+set-gate <span class="o">=</span>
+  <span class="kd">element</span><span class="nv"> set-gate </span><span class="p">{</span>
+    name<span class="o">,</span>
+    <span class="kd">attribute</span><span class="nv"> direction </span><span class="p">{</span> direction <span class="p">}</span><span class="o">?,</span>
+    formula
+  <span class="p">}</span>
+
+set-house-event <span class="o">=</span>
+  <span class="kd">element</span><span class="nv"> set-house-event </span><span class="p">{</span>
+    name<span class="o">,</span>
+    <span class="kd">attribute</span><span class="nv"> direction </span><span class="p">{</span> direction <span class="p">}</span><span class="o">?,</span>
+    Boolean-constant
+  <span class="p">}</span>
+
+set-basic-event <span class="o">=</span>
+  <span class="kd">element</span><span class="nv"> set-basic-event </span><span class="p">{</span>
+    name<span class="o">,</span>
+    <span class="kd">attribute</span><span class="nv"> direction </span><span class="p">{</span> direction <span class="p">}</span><span class="o">?,</span>
+    expression
+  <span class="p">}</span>
+
+set-parameter <span class="o">=</span>
+  <span class="kd">element</span><span class="nv"> set-parameter </span><span class="p">{</span>
+    name<span class="o">,</span>
+    <span class="kd">attribute</span><span class="nv"> direction </span><span class="p">{</span> direction <span class="p">}</span><span class="o">?,</span>
+    expression
+  <span class="p">}</span>
+
+direction <span class="o">=</span> <span class="s2">&quot;forward&quot;</span> <span class="o">|</span> <span class="s2">&quot;backward&quot;</span> <span class="o">|</span> <span class="s2">&quot;both&quot;</span>
+
+if-then-else <span class="o">=</span> <span class="kd">element</span><span class="nv"> if </span><span class="p">{</span> expression<span class="o">,</span> instruction<span class="o">,</span> instruction<span class="o">?</span> <span class="p">}</span>
+
+collect <span class="o">=</span> collect-formula <span class="o">|</span> collect-expression
+
+collect-formula <span class="o">=</span> <span class="kd">element</span><span class="nv"> collect-formula </span><span class="p">{</span> formula <span class="p">}</span>
+
+collect-expression <span class="o">=</span> <span class="kd">element</span><span class="nv"> collect-expression </span><span class="p">{</span> expression <span class="p">}</span>
+
+block <span class="o">=</span> <span class="kd">element</span><span class="nv"> block </span><span class="p">{</span> instruction<span class="o">*</span> <span class="p">}</span>
+
+rule <span class="o">=</span> <span class="kd">element</span><span class="nv"> rule </span><span class="p">{</span> name <span class="p">}</span>
+
+link <span class="o">=</span> <span class="kd">element</span><span class="nv"> event-tree </span><span class="p">{</span> name <span class="p">}</span>
+
+rule-definition <span class="o">=</span>
+  <span class="kd">element</span><span class="nv"> define-rule </span><span class="p">{</span> name<span class="o">,</span> label<span class="o">?,</span> attributes<span class="o">?,</span> instruction+ <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h4>7.3.2.1 Example<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<p>Consider again the event tree pictured in <a class="reference internal" href="#fig-event-tree-structure"><span class="std std-numref">Fig. 7.2</span></a>.
+The XML representation for the structure of this tree
+has been given in <a class="reference internal" href="#xml-event-tree-structure"><span class="std std-numref">Listing 7.3</span></a>.
+Assume that the success branch of the lower fork on system H is a bypass.
+The XML description for the branches of this example is given in <a class="reference internal" href="#xml-event-tree-branches"><span class="std std-numref">Listing 7.5</span></a>.
+It is easy to verify by traversing this tree by hand so that it produces the expected semantics.</p>
+<div class="literal-block-wrapper docutils container" id="xml-event-tree-branches">
+<div class="code-block-caption"><span class="caption-number">Listing 7.5 </span><span class="caption-text">XML representation of the branches
+of the event tree pictured in <a class="reference internal" href="#fig-event-tree-structure"><span class="std std-numref">Fig. 7.2</span></a></span><a class="headerlink" href="#xml-event-tree-branches" title="Permalink to this code">¶</a></div>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;define-event-tree</span> <span class="na">name=</span><span class="s">&quot;my-first-event-tree&quot;</span><span class="nt">&gt;</span>
+    ...
+    <span class="nt">&lt;initial-state&gt;</span>
+        <span class="nt">&lt;fork</span> <span class="na">functional-event=</span><span class="s">&quot;F&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;path</span> <span class="na">state=</span><span class="s">&quot;success&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;collect-formula&gt;</span> <span class="nt">&lt;not&gt;</span> <span class="nt">&lt;gate</span> <span class="na">name=</span><span class="s">&quot;F&quot;</span><span class="nt">/&gt;</span> <span class="nt">&lt;/not&gt;</span> <span class="nt">&lt;/collect-formula&gt;</span>
+                <span class="nt">&lt;branch</span> <span class="na">name=</span><span class="s">&quot;sub-tree7&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/path&gt;</span>
+            <span class="nt">&lt;path</span> <span class="na">state=</span><span class="s">&quot;failure&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;collect-formula&gt;</span> <span class="nt">&lt;gate</span> <span class="na">name=</span><span class="s">&quot;F&quot;</span><span class="nt">/&gt;</span> <span class="nt">&lt;/collect-formula&gt;</span>
+                <span class="nt">&lt;fork</span> <span class="na">functional-event=</span><span class="s">&quot;G&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;path</span> <span class="na">state=</span><span class="s">&quot;success&quot;</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;collect-formula&gt;</span> <span class="nt">&lt;not&gt;</span> <span class="nt">&lt;gate</span> <span class="na">name=</span><span class="s">&quot;G&quot;</span><span class="nt">/&gt;</span> <span class="nt">&lt;/not&gt;</span> <span class="nt">&lt;/collect-formula&gt;</span>
+                        <span class="nt">&lt;branch</span> <span class="na">name=</span><span class="s">&quot;sub-tree7&quot;</span><span class="nt">/&gt;</span>
+                    <span class="nt">&lt;/path&gt;</span>
+                    <span class="nt">&lt;path</span> <span class="na">state=</span><span class="s">&quot;failure&quot;</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;collect-formula&gt;</span> <span class="nt">&lt;gate</span> <span class="na">name=</span><span class="s">&quot;G&quot;</span><span class="nt">/&gt;</span> <span class="nt">&lt;/collect-formula&gt;</span>
+                        <span class="nt">&lt;fork</span> <span class="na">functional-event=</span><span class="s">&quot;H&quot;</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;path</span> <span class="na">state=</span><span class="s">&quot;bypass&quot;</span><span class="nt">&gt;</span>
+                                <span class="c">&lt;!-- here nothing is collected --&gt;</span>
+                                <span class="nt">&lt;sequence</span> <span class="na">name=</span><span class="s">&quot;S5&quot;</span><span class="nt">/&gt;</span>
+                            <span class="nt">&lt;/path&gt;</span>
+                            <span class="nt">&lt;path</span> <span class="na">state=</span><span class="s">&quot;failure&quot;</span><span class="nt">&gt;</span>
+                                <span class="nt">&lt;collect-formula&gt;</span> <span class="nt">&lt;gate</span> <span class="na">name=</span><span class="s">&quot;H&quot;</span><span class="nt">/&gt;</span> <span class="nt">&lt;/collect-formula&gt;</span>
+                                <span class="nt">&lt;sequence</span> <span class="na">name=</span><span class="s">&quot;S6&quot;</span><span class="nt">/&gt;</span>
+                            <span class="nt">&lt;/path&gt;</span>
+                        <span class="nt">&lt;/fork&gt;</span>
+                    <span class="nt">&lt;/path&gt;</span>
+                <span class="nt">&lt;/fork&gt;</span>
+            <span class="nt">&lt;/path&gt;</span>
+        <span class="nt">&lt;/fork&gt;</span>
+    <span class="nt">&lt;/initial-state&gt;</span>
+<span class="nt">&lt;/define-event-tree&gt;</span>
+</pre></div>
+</div>
+</div>
+<p>This example does not set any house events or flag parameters.
+To set a house event for all subsequent sub-tree exploration
+(including the next fault tree to be collected),
+it suffices to insert an instruction &#8220;set&#8221; in front of the instruction &#8220;collect&#8221;.</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;set-house-event</span> <span class="na">name=</span><span class="s">&quot;h1&quot;</span><span class="nt">&gt;</span> <span class="nt">&lt;bool</span> <span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span> <span class="nt">&lt;/set-house-event&gt;</span>
+<span class="nt">&lt;collect-formula&gt;</span> <span class="nt">&lt;gate</span> <span class="na">name=</span><span class="s">&quot;G&quot;</span><span class="nt">/&gt;</span> <span class="nt">&lt;/collect-formula&gt;</span>
+</pre></div>
+</div>
+<p>To set the same house event locally for the next fault tree to be collected,
+it suffices to set back its value to &#8220;false&#8221; after gathering of the fault tree.</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;set-house-event</span> <span class="na">name=</span><span class="s">&quot;h1&quot;</span><span class="nt">&gt;</span> <span class="nt">&lt;bool</span> <span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span> <span class="nt">&lt;/set-house-event&gt;</span>
+<span class="nt">&lt;collect-formula&gt;</span> <span class="nt">&lt;gate</span> <span class="na">name=</span><span class="s">&quot;G&quot;</span><span class="nt">/&gt;</span> <span class="nt">&lt;/collect-formula&gt;</span>
+<span class="nt">&lt;set-house-event</span> <span class="na">name=</span><span class="s">&quot;h1&quot;</span><span class="nt">&gt;</span> <span class="nt">&lt;bool</span> <span class="na">value=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span> <span class="nt">&lt;/set-house-event&gt;</span>
+</pre></div>
+</div>
+<p>The same principle applies to parameters.</p>
+<p>Assume now that we want
+to set the parameters &#8220;lambda1&#8221; and &#8220;lambda2&#8221; of some probability distributions to &#8220;0.001&#8221;
+if the initiating event was &#8220;I1&#8221; and the functional event &#8220;G&#8221; is in the state failure
+and to &#8220;0.002&#8221;, otherwise.
+This goal is achieved by means of
+an &#8220;if-then-else&#8221; construct and the &#8220;test-initiating-event&#8221; expression.</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;if&gt;</span>
+    <span class="nt">&lt;and&gt;</span>
+        <span class="nt">&lt;test-initiating-event</span> <span class="na">name=</span><span class="s">&quot;I1&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;test-functional-event</span> <span class="na">name=</span><span class="s">&quot;G&quot;</span> <span class="na">state=</span><span class="s">&quot;failure&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/and&gt;</span>
+    <span class="nt">&lt;block&gt;</span>
+        <span class="nt">&lt;set-parameter</span> <span class="na">name=</span><span class="s">&quot;lambda1&quot;</span><span class="nt">&gt;</span> <span class="nt">&lt;float</span> <span class="na">value=</span><span class="s">&quot;0.001&quot;</span><span class="nt">/&gt;</span> <span class="nt">&lt;/set-parameter&gt;</span>
+        <span class="nt">&lt;set-parameter</span> <span class="na">name=</span><span class="s">&quot;lambda2&quot;</span><span class="nt">&gt;</span> <span class="nt">&lt;float</span> <span class="na">value=</span><span class="s">&quot;0.001&quot;</span><span class="nt">/&gt;</span> <span class="nt">&lt;/set-parameter&gt;</span>
+    <span class="nt">&lt;/block&gt;</span>
+    <span class="nt">&lt;block&gt;</span>
+        <span class="nt">&lt;set-parameter</span> <span class="na">name=</span><span class="s">&quot;lambda1&quot;</span><span class="nt">&gt;</span> <span class="nt">&lt;float</span> <span class="na">value=</span><span class="s">&quot;0.002&quot;</span><span class="nt">/&gt;</span> <span class="nt">&lt;/set-parameter&gt;</span>
+        <span class="nt">&lt;set-parameter</span> <span class="na">name=</span><span class="s">&quot;lambda2&quot;</span><span class="nt">&gt;</span> <span class="nt">&lt;float</span> <span class="na">value=</span><span class="s">&quot;0.002&quot;</span><span class="nt">/&gt;</span> <span class="nt">&lt;/set-parameter&gt;</span>
+    <span class="nt">&lt;/block&gt;</span>
+<span class="nt">&lt;/if&gt;</span>
+</pre></div>
+</div>
+<p>Finally, we could imagine that the sequence S1 is linked to an event tree ET2
+if the initiating event was I1
+and to another event tree ET3, otherwise.
+The definition of the sequence S1 would be as follows.</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;define-sequence</span> <span class="na">name=</span><span class="s">&quot;S1&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;if&gt;</span>
+        <span class="nt">&lt;test-initiating-event</span> <span class="na">name=</span><span class="s">&quot;I1&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;event-tree</span> <span class="na">name=</span><span class="s">&quot;ET2&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;event-tree</span> <span class="na">name=</span><span class="s">&quot;ET3&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/if&gt;</span>
+<span class="nt">&lt;/define-sequence&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="model_organization.html" class="btn btn-neutral float-right" title="8 Organization of a Model" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="meta_logical_layer.html" class="btn btn-neutral" title="6 Meta-Logical Layer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2007-2017, The Open-PSA Initiative.
+      Last updated on Oct 04, 2017.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.0.d-120-g703be91',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

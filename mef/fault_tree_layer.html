@@ -1,0 +1,784 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>4 Fault Tree Layer &mdash; The Open-PSA Model Exchange Format 2.0</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/opsa.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="The Open-PSA Model Exchange Format 2.0" href="../index.html"/>
+        <link rel="next" title="5 Stochastic Layer" href="stochastic_layer.html"/>
+        <link rel="prev" title="3 Anatomy of the Model Exchange Format" href="anatomy.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> The Open-PSA Model Exchange Format
+          
+
+          
+            
+            <img src="../_static/full_opsa_logo.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="open_psa_initiative.html">1 The Open-PSA Initiative</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">2 Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="anatomy.html">3 Anatomy of the Model Exchange Format</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">4 Fault Tree Layer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#description">4.1 Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#xml-representation">4.2 XML Representation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#extra-logical-constructs-and-recommendations">4.3 Extra Logical Constructs and Recommendations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#model-data-and-components">4.3.1 Model-Data and Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#solving-name-conflicts-public-versus-private-elements">4.3.2 Solving Name Conflicts: Public versus Private Elements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#inherited-attributes">4.3.3 Inherited attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#recommendations">4.3.4 Recommendations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#layered-models">4.3.4.1 Layered Models</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#use-portable-identifiers">4.3.4.2 Use Portable Identifiers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#role-of-parameters-house-events-and-basic-events">4.3.4.3 Role of Parameters, House Events, and Basic Events</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="stochastic_layer.html">5 Stochastic Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="meta_logical_layer.html">6 Meta-Logical Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event_tree_layer.html">7 Event Tree Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model_organization.html">8 Organization of a Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="report_layer.html">9 Report Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bibliography.html">10 Bibliography</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">The Open-PSA Model Exchange Format</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>4 Fault Tree Layer</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="fault-tree-layer">
+<span id="id1"></span><h1>4 Fault Tree Layer<a class="headerlink" href="#fault-tree-layer" title="Permalink to this headline">¶</a></h1>
+<p>The Fault Tree layer is populated with logical components of Fault Trees.
+It includes the stochastic layer,
+which contains itself the probabilistic data.
+The stochastic layer will be presented in the next section.</p>
+<div class="section" id="description">
+<h2>4.1 Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Constituents of fault trees are
+Boolean variables (gates, basic events, and house events),
+Boolean constants (true and false)
+and connectives (and, or, k-out-of-n, not, etc.).
+Despite of their name,
+fault trees have in general a directed acyclic graph structure (and not a tree-like structure)
+because variables can be referenced more than once.
+The simplest way to describe a fault tree
+is to represent it as a set of equations
+in the form &#8220;variable = Boolean-formula&#8221;.
+Variables that show up as left hand side of an equation are gates.
+Variables that show up only in right hand side formulae are basic events.
+Finally, variables that show up only as left hand side of an equation are top events.
+Such a representation imposes two additional conditions:
+first, the set of equations must contain no loop,
+i.e., that the Boolean formula at the right hand side of an equation
+must not depend, even indirectly (recursively), on the variable at the left hand side.
+Second, a variable must not show up more than once at the left hand side of an equation,
+i.e., gates must be uniquely defined.
+<a class="reference internal" href="#fig-fault-tree"><span class="std std-numref">Fig. 4.1</span></a> shows a Fault Tree.
+The corresponding set of equations is as follows.</p>
+<div class="math">
+\[\begin{split}TOP&amp; = G1 \lor G2\\
+G1&amp; = H1 \land G3 \land G4\\
+G2&amp; = \lnot H1 \land BE2 \land G4\\
+G3&amp; = BE1 \lor BE3\\
+G4&amp; = BE3 \lor BE4\end{split}\]</div>
+<p>On the figure, basic events are surrounded with a circle.
+Basic events are in general associated with a probability distribution
+(see <a class="reference internal" href="stochastic_layer.html#stochastic-layer"><span class="std std-numref">Chapter 5</span></a>).</p>
+<p>House events (surrounded by a house shape frame on the figure)
+are represented as variables but are actually constants:
+when the tree is evaluated house events are always interpreted by their value,
+which is either true or false.
+By default, house events take the value false.
+Negated house events (gates, basic events)
+are represented by adding a small circle over their symbol.</p>
+<p>A formal description of constructs of Fault Trees
+is given under the RNC schema in <a class="reference internal" href="#schema-fault-tree"><span class="std std-numref">Listing 4.1</span></a>.
+This description allows loops (in the sense defined above),
+multiple definitions and trees with multiple top events.
+The presence of loops must be detected by a specific check procedure.
+If a variable or a parameter is declared more than once,
+tools should emit a warning
+and consider only the last definition as the good one (the previous ones are just ignored).
+In some circumstances, it is of interest to define several fault trees at once
+by means of a unique set of declarations.
+Therefore, the presence of multiple top events should not be prevented.
+We shall see what parameters and expressions are in the next chapter.</p>
+<div class="figure align-center" id="fig-fault-tree">
+<img alt="../_images/fault_tree.svg" src="../_images/fault_tree.svg" /><p class="caption"><span class="caption-number">Fig. 4.1 </span><span class="caption-text">A Fault Tree</span></p>
+</div>
+<p>The semantics of connectives is given in <a class="reference internal" href="#table-boolean-connectives"><span class="std std-numref">Table 4.1</span></a>.
+Note that connectives &#8220;and&#8221;, &#8220;or&#8221;, &#8220;xor&#8221;, &#8220;iff&#8221;, &#8220;nand&#8221;, and &#8220;nor&#8221; are associative.
+Therefore, it suffices to give their semantics when they take two arguments,
+i.e., two Boolean formulae F and G.</p>
+<table border="1" class="docutils" id="table-boolean-connectives">
+<caption><span class="caption-number">Table 4.1 </span><span class="caption-text">Semantics of Boolean connectives</span><a class="headerlink" href="#table-boolean-connectives" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="15%" />
+<col width="85%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Connective</th>
+<th class="head">Semantics</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>and</strong></td>
+<td>F and G is true if both F and G are true, and false otherwise</td>
+</tr>
+<tr class="row-odd"><td><strong>or</strong></td>
+<td>F or G is true if either F or G is true, and false otherwise</td>
+</tr>
+<tr class="row-even"><td><strong>not</strong></td>
+<td>not F is true if its F is false, and false otherwise</td>
+</tr>
+<tr class="row-odd"><td><strong>xor</strong></td>
+<td>F xor G is equivalent to (F and not G) or (not F and G)</td>
+</tr>
+<tr class="row-even"><td><strong>iff</strong></td>
+<td>F iff G is equivalent to (F and G) or (not F and not G)</td>
+</tr>
+<tr class="row-odd"><td><strong>nand</strong></td>
+<td>F nand G is equivalent to not (F and G)</td>
+</tr>
+<tr class="row-even"><td><strong>nor</strong></td>
+<td>F nor G is equivalent to not (F or G)</td>
+</tr>
+<tr class="row-odd"><td><strong>atleast</strong></td>
+<td>true if at least <strong>k</strong> out of the Boolean formulae given as arguments are true,
+and false otherwise. This connective is also called <em>k-out-of-n</em>,
+where <strong>k</strong> is the integer and <strong>n</strong> is the Boolean formulae given in arguments</td>
+</tr>
+<tr class="row-even"><td><strong>cardinality</strong></td>
+<td>true if at least <strong>l</strong> and at most <strong>h</strong> of the Boolean formulae given as arguments are true,
+and false otherwise. <strong>l</strong> and <strong>h</strong> are the two integers (in order) given as arguments.</td>
+</tr>
+<tr class="row-odd"><td><strong>imply</strong></td>
+<td>F implies G is equivalent to (not F or G)</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition-dynamic-gates admonition">
+<p class="first admonition-title">Dynamic Gates</p>
+<p class="last">In a second step, it would be of interest to incorporate to the Model Exchange Format
+&#8220;inhibit&#8221; gates, &#8220;priority&#8221; gates, and &#8220;triggers&#8221;
+(like in Boolean Driven Markov processes).
+All of these dynamic gates can be interpreted as &#8220;and&#8221; gates in a Boolean framework.
+In more general frameworks (like Markovian frameworks),
+they can have different interpretations,
+and provide mechanisms to accurately model backup systems, limited amount of resources, etc.
+The complexity of the assessment of this kind of model is indeed much higher
+than the one of Boolean models (which is already at least NP-hard or #P-hard).</p>
+</div>
+</div>
+<div class="section" id="xml-representation">
+<h2>4.2 XML Representation<a class="headerlink" href="#xml-representation" title="Permalink to this headline">¶</a></h2>
+<p>The RNC schema for the XML description of fault trees
+is given in <a class="reference internal" href="#schema-fault-tree"><span class="std std-numref">Listing 4.1</span></a> and <a class="reference internal" href="#schema-boolean-formulae"><span class="std std-numref">Listing 4.2</span></a>.</p>
+<p>This description deserves some comments.</p>
+<ul class="simple">
+<li>It leaves for now the tags &#8220;define-parameter&#8221; and &#8220;expression&#8221; unspecified.
+We shall see in the next chapter
+how these tags are used to define the probability distributions.</li>
+<li>Similarly, the tag &#8220;define-component&#8221; will be explained in the next section.</li>
+<li>Although the Model Exchange Format adopts the declarative modeling paradigm,
+it is often convenient to use variables in formulae before declaring them.
+The Model Exchange Format, therefore, refers to variables with the generic term &#8220;event&#8221;,
+possibly without a &#8220;type&#8221; attribute.</li>
+<li>By default, the value of a house event is &#8220;false&#8221;,
+so it is not necessary to associate a value with a house event when declaring it.
+We shall see in <a class="reference internal" href="event_tree_layer.html#instructions"><span class="std std-numref">Section 7.3</span></a> how to change the value of a house event.</li>
+<li>Although events are typed (they are either gates, house events or basic events),
+two different events cannot have the same name (within the same name space),
+even if they are of different types.
+This point will be explained in the next section.</li>
+<li>A &#8220;pass-through&#8221; gate can be defined without a connective
+but with a single argument event for its formula.</li>
+</ul>
+<div class="literal-block-wrapper docutils container" id="schema-fault-tree">
+<div class="code-block-caption"><span class="caption-number">Listing 4.1 </span><span class="caption-text">The RNC schema of XML description of Fault Trees</span><a class="headerlink" href="#schema-fault-tree" title="Permalink to this code">¶</a></div>
+<div class="highlight-rnc"><div class="highlight"><pre><span></span>fault-tree-definition <span class="o">=</span>
+  <span class="kd">element</span><span class="nv"> define-fault-tree </span><span class="p">{</span>
+    name<span class="o">,</span>
+    label<span class="o">?,</span>
+    attributes<span class="o">?,</span>
+    <span class="p">(</span>substitution-definition
+     <span class="o">|</span> CCF-group-definition
+     <span class="o">|</span> event-definition
+     <span class="o">|</span> component-definition
+     <span class="o">|</span> parameter-definition
+     <span class="o">|</span> include-directive<span class="p">)</span><span class="o">*</span>
+  <span class="p">}</span>
+
+component-definition <span class="o">=</span>
+  <span class="kd">element</span><span class="nv"> define-component </span><span class="p">{</span>
+    name<span class="o">,</span>
+    role<span class="o">?,</span>
+    label<span class="o">?,</span>
+    attributes<span class="o">?,</span>
+    <span class="p">(</span>substitution-definition
+     <span class="o">|</span> CCF-group-definition
+     <span class="o">|</span> event-definition
+     <span class="o">|</span> component-definition
+     <span class="o">|</span> parameter-definition
+     <span class="o">|</span> include-directive<span class="p">)</span><span class="o">*</span>
+  <span class="p">}</span>
+
+role <span class="o">=</span> <span class="kd">attribute</span><span class="nv"> role </span><span class="p">{</span> <span class="s2">&quot;private&quot;</span> <span class="o">|</span> <span class="s2">&quot;public&quot;</span> <span class="p">}</span>
+
+model-data <span class="o">=</span>
+  <span class="kd">element</span><span class="nv"> model-data </span><span class="p">{</span>
+    <span class="p">(</span>house-event-definition
+     <span class="o">|</span> basic-event-definition
+     <span class="o">|</span> parameter-definition
+     <span class="o">|</span> include-directive<span class="p">)</span><span class="o">*</span>
+  <span class="p">}</span>
+
+event-definition <span class="o">=</span>
+  gate-definition <span class="o">|</span> house-event-definition <span class="o">|</span> basic-event-definition
+
+gate-definition <span class="o">=</span>
+  <span class="kd">element</span><span class="nv"> define-gate </span><span class="p">{</span> name<span class="o">,</span> role<span class="o">?,</span> label<span class="o">?,</span> attributes<span class="o">?,</span> formula <span class="p">}</span>
+
+house-event-definition <span class="o">=</span>
+  <span class="kd">element</span><span class="nv"> define-house-event </span><span class="p">{</span>
+    name<span class="o">,</span> role<span class="o">?,</span> label<span class="o">?,</span> attributes<span class="o">?,</span> Boolean-constant<span class="o">?</span>
+  <span class="p">}</span>
+
+basic-event-definition <span class="o">=</span>
+  <span class="kd">element</span><span class="nv"> define-basic-event </span><span class="p">{</span>
+    name<span class="o">,</span> role<span class="o">?,</span> label<span class="o">?,</span> attributes<span class="o">?,</span> expression<span class="o">?</span>
+  <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="schema-boolean-formulae">
+<div class="code-block-caption"><span class="caption-number">Listing 4.2 </span><span class="caption-text">The RNC schema of the XML representation of Boolean formulae</span><a class="headerlink" href="#schema-boolean-formulae" title="Permalink to this code">¶</a></div>
+<div class="highlight-rnc"><div class="highlight"><pre><span></span>formula <span class="o">=</span>
+  event
+  <span class="o">|</span> Boolean-constant
+  <span class="o">|</span> <span class="kd">element</span><span class="nv"> and </span><span class="p">{</span> formula+ <span class="p">}</span>
+  <span class="o">|</span> <span class="kd">element</span><span class="nv"> or </span><span class="p">{</span> formula+ <span class="p">}</span>
+  <span class="o">|</span> <span class="kd">element</span><span class="nv"> not </span><span class="p">{</span> formula <span class="p">}</span>
+  <span class="o">|</span> <span class="kd">element</span><span class="nv"> xor </span><span class="p">{</span> formula+ <span class="p">}</span>
+  <span class="o">|</span> <span class="kd">element</span><span class="nv"> iff </span><span class="p">{</span> formula+ <span class="p">}</span>
+  <span class="o">|</span> <span class="kd">element</span><span class="nv"> nand </span><span class="p">{</span> formula+ <span class="p">}</span>
+  <span class="o">|</span> <span class="kd">element</span><span class="nv"> nor </span><span class="p">{</span> formula+ <span class="p">}</span>
+  <span class="o">|</span> <span class="kd">element</span><span class="nv"> atleast </span><span class="p">{</span>
+      <span class="kd">attribute</span><span class="nv"> min </span><span class="p">{</span> <span class="kt">xsd:positiveInteger</span> <span class="p">}</span><span class="o">,</span>
+      formula+
+    <span class="p">}</span>
+  <span class="o">|</span> <span class="kd">element</span><span class="nv"> cardinality </span><span class="p">{</span>
+      <span class="kd">attribute</span><span class="nv"> min </span><span class="p">{</span> <span class="kt">xsd:nonNegativeInteger</span> <span class="p">}</span><span class="o">,</span>
+      <span class="kd">attribute</span><span class="nv"> max </span><span class="p">{</span> <span class="kt">xsd:nonNegativeInteger</span> <span class="p">}</span><span class="o">,</span>
+      formula+
+    <span class="p">}</span>
+  <span class="o">|</span> <span class="kd">element</span><span class="nv"> imply </span><span class="p">{</span> formula<span class="o">,</span> formula <span class="p">}</span>
+
+event <span class="o">=</span>
+  <span class="kd">element</span><span class="nv"> event </span><span class="p">{</span>
+    reference<span class="o">,</span>
+    <span class="kd">attribute</span><span class="nv"> type </span><span class="p">{</span> event-type <span class="p">}</span><span class="o">?</span>
+  <span class="p">}</span>
+  <span class="o">|</span> gate
+  <span class="o">|</span> house-event
+  <span class="o">|</span> basic-event
+
+event-type <span class="o">=</span> <span class="s2">&quot;gate&quot;</span> <span class="o">|</span> <span class="s2">&quot;basic-event&quot;</span> <span class="o">|</span> <span class="s2">&quot;house-event&quot;</span>
+
+gate <span class="o">=</span> <span class="kd">element</span><span class="nv"> gate </span><span class="p">{</span> reference <span class="p">}</span>
+
+house-event <span class="o">=</span> <span class="kd">element</span><span class="nv"> house-event </span><span class="p">{</span> reference <span class="p">}</span>
+
+basic-event <span class="o">=</span> <span class="kd">element</span><span class="nv"> basic-event </span><span class="p">{</span> reference <span class="p">}</span>
+
+Boolean-constant <span class="o">=</span>
+  <span class="kd">element</span><span class="nv"> constant </span><span class="p">{</span>
+    <span class="kd">attribute</span><span class="nv"> value </span><span class="p">{</span> Boolean-value <span class="p">}</span>
+  <span class="p">}</span>
+
+Boolean-value <span class="o">=</span> <span class="s2">&quot;true&quot;</span> <span class="o">|</span> <span class="s2">&quot;false&quot;</span>
+</pre></div>
+</div>
+</div>
+<p>The attribute &#8220;role&#8221; is used to declare whether an element is public or private,
+i.e., whether it can be referred by its name everywhere in the model
+or only within its inner most container.
+This point will be further explained in the next section.
+This attribute is optional, for by default, all elements are public.</p>
+<p>The fault tree pictured in <a class="reference internal" href="#fig-fault-tree"><span class="std std-numref">Fig. 4.1</span></a> is described in <a class="reference internal" href="#xml-fault-tree"><span class="std std-numref">Listing 4.3</span></a>.
+In this representation, the house event &#8220;h1&#8221; has by default the value &#8220;true&#8221;.
+Basic events are not declared, for it is not necessary,
+so no probability distributions are associated with basic events.</p>
+<div class="literal-block-wrapper docutils container" id="xml-fault-tree">
+<div class="code-block-caption"><span class="caption-number">Listing 4.3 </span><span class="caption-text">XML description of Fault Tree pictured in <a class="reference internal" href="#fig-fault-tree"><span class="std std-numref">Fig. 4.1</span></a></span><a class="headerlink" href="#xml-fault-tree" title="Permalink to this code">¶</a></div>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; ?&gt;</span>
+<span class="cp">&lt;!DOCTYPE opsa-mef&gt;</span>
+<span class="nt">&lt;opsa-mef&gt;</span>
+    <span class="nt">&lt;define-fault-tree</span> <span class="na">name=</span><span class="s">&quot;FT1&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;define-gate</span> <span class="na">name=</span><span class="s">&quot;top&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;or&gt;</span>
+                <span class="nt">&lt;gate</span> <span class="na">name=</span><span class="s">&quot;g1&quot;</span><span class="nt">/&gt;</span>
+                <span class="nt">&lt;gate</span> <span class="na">name=</span><span class="s">&quot;g2&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/or&gt;</span>
+        <span class="nt">&lt;/define-gate&gt;</span>
+        <span class="nt">&lt;define-gate</span> <span class="na">name=</span><span class="s">&quot;g1&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;and&gt;</span>
+                <span class="nt">&lt;house-event</span> <span class="na">name=</span><span class="s">&quot;h1&quot;</span><span class="nt">/&gt;</span>
+                <span class="nt">&lt;gate</span> <span class="na">name=</span><span class="s">&quot;g3&quot;</span><span class="nt">/&gt;</span>
+                <span class="nt">&lt;gate</span> <span class="na">name=</span><span class="s">&quot;g4&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/and&gt;</span>
+        <span class="nt">&lt;/define-gate&gt;</span>
+        <span class="nt">&lt;define-gate</span> <span class="na">name=</span><span class="s">&quot;g2&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;and&gt;</span>
+                <span class="nt">&lt;not&gt;</span>
+                    <span class="nt">&lt;house-event</span> <span class="na">name=</span><span class="s">&quot;h1&quot;</span><span class="nt">/&gt;</span>
+                <span class="nt">&lt;/not&gt;</span>
+                <span class="nt">&lt;basic-event</span> <span class="na">name=</span><span class="s">&quot;e2&quot;</span><span class="nt">/&gt;</span>
+                <span class="nt">&lt;gate</span> <span class="na">name=</span><span class="s">&quot;g4&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/and&gt;</span>
+        <span class="nt">&lt;/define-gate&gt;</span>
+        <span class="nt">&lt;define-gate</span> <span class="na">name=</span><span class="s">&quot;g3&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;or&gt;</span>
+                <span class="nt">&lt;basic-event</span> <span class="na">name=</span><span class="s">&quot;e1&quot;</span><span class="nt">/&gt;</span>
+                <span class="nt">&lt;basic-event</span> <span class="na">name=</span><span class="s">&quot;e3&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/or&gt;</span>
+        <span class="nt">&lt;/define-gate&gt;</span>
+        <span class="nt">&lt;define-gate</span> <span class="na">name=</span><span class="s">&quot;g4&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;or&gt;</span>
+                <span class="nt">&lt;basic-event</span> <span class="na">name=</span><span class="s">&quot;e3&quot;</span><span class="nt">/&gt;</span>
+                <span class="nt">&lt;basic-event</span> <span class="na">name=</span><span class="s">&quot;e4&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/or&gt;</span>
+        <span class="nt">&lt;/define-gate&gt;</span>
+        <span class="nt">&lt;define-house-event</span> <span class="na">name=</span><span class="s">&quot;h1&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;constant</span> <span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/define-house-event&gt;</span>
+    <span class="nt">&lt;/define-fault-tree&gt;</span>
+<span class="nt">&lt;/opsa-mef&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="extra-logical-constructs-and-recommendations">
+<h2>4.3 Extra Logical Constructs and Recommendations<a class="headerlink" href="#extra-logical-constructs-and-recommendations" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="model-data-and-components">
+<h3>4.3.1 Model-Data and Components<a class="headerlink" href="#model-data-and-components" title="Permalink to this headline">¶</a></h3>
+<p>The Model Exchange Format provides a number of extra-logical constructs
+to document and structure models.
+Labels and attributes are introduced in <a class="reference internal" href="anatomy.html#definitions-labels-attributes"><span class="std std-numref">Section 3.2.4</span></a>.
+They can be associated with a declared element in order to document this element.
+Fault trees are a first mean to structure models.
+A fault tree groups any number of declarations of
+gates, house events, basic event, and parameters.</p>
+<p>It is sometimes convenient
+to group definitions of house events, basic events, and parameters outside fault trees.
+The Model Exchange Format provides the container &#8220;model-data&#8221; to do so.</p>
+<p>The Model Exchange Format makes it possible
+to group further declarations through the notion of component.
+A component is just a container for declarations of events and parameters.
+It has a name and may contain other components.
+The use of components is illustrated by the following example.</p>
+<p><a class="reference internal" href="#fault-tree-with-components"><span class="std std-numref">Fig. 4.2</span></a> shows a fault tree FT with three components A, B, and C.
+The component B is nested into the component A.
+The XML representation for this Fault Tree is given in <a class="reference internal" href="#xml-fault-tree-with-components"><span class="std std-numref">Listing 4.4</span></a>.
+With a little anticipation, we declared basic events.
+Note that components and fault trees may also contain definitions of parameters.
+Note also that the basic event BE1, which is declared in the component A,
+is used outside of this component (namely in the sibling component C).</p>
+<div class="figure align-center" id="fault-tree-with-components">
+<img alt="../_images/fault_tree_with_components.svg" src="../_images/fault_tree_with_components.svg" /><p class="caption"><span class="caption-number">Fig. 4.2 </span><span class="caption-text">A Fault Tree with Three Components</span></p>
+</div>
+<div class="literal-block-wrapper docutils container" id="xml-fault-tree-with-components">
+<div class="code-block-caption"><span class="caption-number">Listing 4.4 </span><span class="caption-text">XML Representation for the Fault Tree pictured in <a class="reference internal" href="#fault-tree-with-components"><span class="std std-numref">Fig. 4.2</span></a></span><a class="headerlink" href="#xml-fault-tree-with-components" title="Permalink to this code">¶</a></div>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;define-fault-tree</span> <span class="na">name=</span><span class="s">&quot;FT&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;define-gate</span> <span class="na">name=</span><span class="s">&quot;TOP&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;or&gt;</span>
+            <span class="nt">&lt;gate</span> <span class="na">name=</span><span class="s">&quot;G1&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;gate</span> <span class="na">name=</span><span class="s">&quot;G2&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;gate</span> <span class="na">name=</span><span class="s">&quot;G3&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/or&gt;</span>
+    <span class="nt">&lt;/define-gate&gt;</span>
+    <span class="nt">&lt;define-component</span> <span class="na">name=</span><span class="s">&quot;A&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;define-gate</span> <span class="na">name=</span><span class="s">&quot;G1&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;and&gt;</span>
+                <span class="nt">&lt;basic-event</span> <span class="na">name=</span><span class="s">&quot;BE1&quot;</span><span class="nt">/&gt;</span>
+                <span class="nt">&lt;basic-event</span> <span class="na">name=</span><span class="s">&quot;BE2&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/and&gt;</span>
+        <span class="nt">&lt;/define-gate&gt;</span>
+        <span class="nt">&lt;define-gate</span> <span class="na">name=</span><span class="s">&quot;G2&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;and&gt;</span>
+                <span class="nt">&lt;basic-event</span> <span class="na">name=</span><span class="s">&quot;BE1&quot;</span><span class="nt">/&gt;</span>
+                <span class="nt">&lt;basic-event</span> <span class="na">name=</span><span class="s">&quot;BE3&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/and&gt;</span>
+        <span class="nt">&lt;/define-gate&gt;</span>
+        <span class="nt">&lt;define-basic-event</span> <span class="na">name=</span><span class="s">&quot;BE1&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;float</span> <span class="na">value=</span><span class="s">&quot;1.2e-3&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/define-basic-event&gt;</span>
+        <span class="nt">&lt;define-component</span> <span class="na">name=</span><span class="s">&quot;B&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;define-basic-event</span> <span class="na">name=</span><span class="s">&quot;BE2&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;float</span> <span class="na">value=</span><span class="s">&quot;2.4e-3&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/define-basic-event&gt;</span>
+            <span class="nt">&lt;define-basic-event</span> <span class="na">name=</span><span class="s">&quot;BE3&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;float</span> <span class="na">value=</span><span class="s">&quot;5.2e-3&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/define-basic-event&gt;</span>
+        <span class="nt">&lt;/define-component&gt;</span>
+    <span class="nt">&lt;/define-component&gt;</span>
+    <span class="nt">&lt;define-component</span> <span class="na">name=</span><span class="s">&quot;C&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;define-gate</span> <span class="na">name=</span><span class="s">&quot;G3&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;and&gt;</span>
+                <span class="nt">&lt;basic-event</span> <span class="na">name=</span><span class="s">&quot;BE1&quot;</span><span class="nt">/&gt;</span>
+                <span class="nt">&lt;basic-event</span> <span class="na">name=</span><span class="s">&quot;BE4&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/and&gt;</span>
+        <span class="nt">&lt;/define-gate&gt;</span>
+        <span class="nt">&lt;define-basic-event</span> <span class="na">name=</span><span class="s">&quot;BE4&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;float</span> <span class="na">value=</span><span class="s">&quot;1.6e-3&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/define-basic-event&gt;</span>
+    <span class="nt">&lt;/define-component&gt;</span>
+<span class="nt">&lt;/define-fault-tree&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="solving-name-conflicts-public-versus-private-elements">
+<h3>4.3.2 Solving Name Conflicts: Public versus Private Elements<a class="headerlink" href="#solving-name-conflicts-public-versus-private-elements" title="Permalink to this headline">¶</a></h3>
+<p>By default, all elements of a model are public:
+they are visible everywhere in the model
+and they can be referred by their name.
+For instance, the basic event &#8220;BE1&#8221; of the fault tree
+pictured in <a class="reference internal" href="#xml-fault-tree-with-components"><span class="std std-numref">Listing 4.4</span></a>
+can be just referred as &#8220;BE1&#8221;.
+This principle is fairly simple.
+It may, however, cause some problem for large models, developed by several persons:
+it is hard to prevent the same name to be used twice,
+especially for what concerns gates (some software allow actually this possibility).</p>
+<p>The Model Exchange Format makes it possible to declare elements of fault trees
+either as public or as private (to their inner most container).
+Unless declared otherwise, an element is public
+if its innermost container is public and private otherwise.
+For instance, if the component &#8220;A&#8221; of the fault tree
+pictured in <a class="reference internal" href="#xml-fault-tree-with-components"><span class="std std-numref">Listing 4.4</span></a>
+is declared as private,
+then the component &#8220;B&#8221; (and its two basic events &#8220;BE2&#8221; and &#8220;BE3&#8221;),
+the gates &#8220;G1&#8221; and &#8220;G2&#8221;, and the basic event &#8220;BE1&#8221; are private by default.
+There is no difference between public and private elements
+except that two private elements of two different containers may have the same name,
+while public elements must be uniquely defined.</p>
+<p>There is actually three ways to refer an element:</p>
+<ul class="simple">
+<li>An element can be referred by its name.
+This works either if the element is public
+or if it is referred inside the container (fault tree or component) in which it is declared.
+For instance, if the basic event &#8220;BE1&#8221; is public,
+it can be referred as &#8220;BE1&#8221; anywhere in the model.
+If it is private, it can be referred as &#8220;BE1&#8221; only inside the component &#8220;A&#8221;.</li>
+<li>An element can be referred by its full path (of containers),
+whether it is public or private.
+The names of containers should be separated with dots.
+For instance, the basic event &#8220;BE2&#8221; can be referred as &#8220;FT.A.B.BE2&#8221; anywhere in the model.</li>
+<li>Finally, an element can be referred by its local path,
+whether it is public or private.
+For instance, if the gate &#8220;G1&#8221; can be referred as &#8220;FT.A.G1&#8221; outside of the fault tree &#8220;FT&#8221;,
+as &#8220;A.G1&#8221; inside the declaration of &#8220;FT&#8221;,
+and finally as &#8220;G1&#8221; inside the declaration of the component &#8220;A&#8221;.
+If the basic event BE1 is private (for a reason or another),
+it should be referred either as &#8220;FT.A.BE1&#8221; inside the component &#8220;C&#8221;.
+In this case, the definition of the gate &#8220;G3&#8221; is as follows.</li>
+</ul>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;define-gate</span> <span class="na">name=</span><span class="s">&quot;G3&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;and&gt;</span>
+        <span class="nt">&lt;basic-event</span> <span class="na">name=</span><span class="s">&quot;FT.A.BE1&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;basic-event</span> <span class="na">name=</span><span class="s">&quot;BE4&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/and&gt;</span>
+<span class="nt">&lt;/define-gate&gt;</span>
+</pre></div>
+</div>
+<p>The important point here is that it is possible
+to name two private elements of two different containers with the same identifier.
+For instance, if components &#8220;B&#8221; and &#8220;C&#8221; are private,
+it is possible to rename the basic-event &#8220;BE4&#8221; as &#8220;BE2&#8221;.
+Outside these two components,
+the two basic events &#8220;B2&#8221; must be referred using their (local or global) paths.</p>
+</div>
+<div class="section" id="inherited-attributes">
+<h3>4.3.3 Inherited attributes<a class="headerlink" href="#inherited-attributes" title="Permalink to this headline">¶</a></h3>
+<p>Attributes associated with a container (fault tree, event tree or component)
+are automatically inherited by all the elements declared in the container.
+It is indeed possible to change the value of the attribute at element level.</p>
+</div>
+<div class="section" id="recommendations">
+<h3>4.3.4 Recommendations<a class="headerlink" href="#recommendations" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="layered-models">
+<h4>4.3.4.1 Layered Models<a class="headerlink" href="#layered-models" title="Permalink to this headline">¶</a></h4>
+<p>In PSA models, fault trees are in general layered,
+i.e., arguments of connectives (and, or, etc.)
+are always either variables or negations of variables.
+Although there is no reason to force such a condition,
+it is recommended to obey it for the sake of clarity.</p>
+</div>
+<div class="section" id="use-portable-identifiers">
+<h4>4.3.4.2 Use Portable Identifiers<a class="headerlink" href="#use-portable-identifiers" title="Permalink to this headline">¶</a></h4>
+<p>In the XML description of fault trees,
+we intentionally did not define identifiers.
+In many fault tree tools, identifiers can be any string.
+It is, however, strongly recommended for portability issues to use non problematic identifiers,
+like those of programming languages,
+and to add a description of elements as a comment.
+This means
+not using lexical entities, such as spaces, tabulations, &#8221;.&#8221; or &#8220;/&#8221;, in names of elements,
+as well as realizing that some old tools cannot differentiate between capital and small letters.</p>
+<p>The following is a general, recommended format
+that is likely to produce portable identifiers.</p>
+<ul>
+<li><p class="first">Consistent with XML NCName datatype
+(XML Schema Part 2: Datatypes Second Edition, Derived datatypes, <a class="reference external" href="https://www.w3.org/TR/xmlschema-2/#NCName">Section 3.3.7</a>)</p>
+<blockquote>
+<div><ul class="simple">
+<li>The first character must be alphabetic.</li>
+<li>May contain alphanumeric characters and special characters like <code class="docutils literal"><span class="pre">_</span></code>, <code class="docutils literal"><span class="pre">-</span></code>.</li>
+<li>No whitespace or other special characters like <code class="docutils literal"><span class="pre">:</span></code>, <code class="docutils literal"><span class="pre">,</span></code>, <code class="docutils literal"><span class="pre">/</span></code>, etc.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">No double hyphens <code class="docutils literal"><span class="pre">--</span></code></p>
+</li>
+<li><p class="first">No trailing hyphen</p>
+</li>
+<li><p class="first">No periods <code class="docutils literal"><span class="pre">.</span></code> (reserved for references)</p>
+</li>
+</ul>
+<p>References to constructs, such as gates, events, and parameters,
+may include names of fault trees or components to access public or private members.
+This feature requires a period <code class="docutils literal"><span class="pre">.</span></code> between names;
+thus references may follow the pattern <code class="docutils literal"><span class="pre">fault_tree.component.event</span></code>.</p>
+<p>In addition to the identifier format,
+the following is a set of recommendations for conforming tools
+to maximize the input acceptability:</p>
+<ul class="simple">
+<li>Avoid restricting the word character set (e.g., ASCII-only, English-only)</li>
+<li>Support popular character encodings (e.g., UTF-8, UTF-16)</li>
+<li>Provide case-sensitive identifier processing (e.g., no capital-letters-only restrictions)</li>
+<li>Sanitize input leading and trailing whitespace characters
+(i.e., insensitive to noise)</li>
+</ul>
+</div>
+<div class="section" id="role-of-parameters-house-events-and-basic-events">
+<h4>4.3.4.3 Role of Parameters, House Events, and Basic Events<a class="headerlink" href="#role-of-parameters-house-events-and-basic-events" title="Permalink to this headline">¶</a></h4>
+<p>Parameters, house events, and basic events should be always public,
+in order to facilitate their portability from one tool to another.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="stochastic_layer.html" class="btn btn-neutral float-right" title="5 Stochastic Layer" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="anatomy.html" class="btn btn-neutral" title="3 Anatomy of the Model Exchange Format" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2007-2017, The Open-PSA Initiative.
+      Last updated on Oct 04, 2017.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.0.d-120-g703be91',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

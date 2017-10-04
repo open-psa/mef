@@ -1,0 +1,1292 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>5 Stochastic Layer &mdash; The Open-PSA Model Exchange Format 2.0</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/opsa.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="The Open-PSA Model Exchange Format 2.0" href="../index.html"/>
+        <link rel="next" title="6 Meta-Logical Layer" href="meta_logical_layer.html"/>
+        <link rel="prev" title="4 Fault Tree Layer" href="fault_tree_layer.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> The Open-PSA Model Exchange Format
+          
+
+          
+            
+            <img src="../_static/full_opsa_logo.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="open_psa_initiative.html">1 The Open-PSA Initiative</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">2 Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="anatomy.html">3 Anatomy of the Model Exchange Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fault_tree_layer.html">4 Fault Tree Layer</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">5 Stochastic Layer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#description">5.1 Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#operations">5.2 Operations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#numerical-operation">5.2.1 Numerical Operation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#example">5.2.1.1 Example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#boolean-operations">5.2.2 Boolean Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#conditional-operations">5.2.3 Conditional Operations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">5.2.3.1 Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#built-ins">5.3 Built-Ins</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">5.3.1 Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#xml-representation">5.3.2 XML Representation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">5.3.2.1 Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#primitive-to-generate-random-deviates">5.4 Primitive to Generate Random Deviates</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id5">5.4.1 Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">5.4.2 XML Representation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id7">5.4.2.1 Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">5.4.2.2 Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#directives-to-test-the-status-of-initiating-and-functional-events">5.5 Directives to Test the Status of Initiating and Functional Events</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id9">5.5.1 Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">5.5.2 XML Representation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="meta_logical_layer.html">6 Meta-Logical Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event_tree_layer.html">7 Event Tree Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model_organization.html">8 Organization of a Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="report_layer.html">9 Report Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bibliography.html">10 Bibliography</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">The Open-PSA Model Exchange Format</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>5 Stochastic Layer</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="stochastic-layer">
+<span id="id1"></span><h1>5 Stochastic Layer<a class="headerlink" href="#stochastic-layer" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="description">
+<h2>5.1 Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>The stochastic layer is populated with
+failure probabilities or failure probability distributions associated with basic events
+(in the event tree linking approach,
+functional events also can be associated with such a distribution).
+Probability distributions are described by (stochastic) expressions,
+which are terms, according to the terminology of <a class="reference internal" href="anatomy.html#mef-anatomy"><span class="std std-numref">Chapter 3</span></a>.
+These expressions may depend on parameters (variables),
+so the stochastic layer can be seen a set of stochastic equations.</p>
+<p>Stochastic equations associated with basic events actually play two roles:</p>
+<ul class="simple">
+<li>They are applied to calculate probability distributions of each basic event,
+i.e., for a given mission time <span class="math">\(t\)</span>,
+the probability <span class="math">\(Q(t)\)</span> that the given basic event occurs before <span class="math">\(t\)</span>.
+The probability distribution associated with a basic event
+is typically a negative exponential distribution of parameter <span class="math">\(\lambda\)</span>:</li>
+</ul>
+<div class="math">
+\[Q(t) = 1 - e ^ {- \lambda t}\]</div>
+<p>Note that, for the sake of the clarity,
+the Model Exchange Format represents explicitly the mission time as a parameter of a special type.</p>
+<ul class="simple">
+<li>Parameters are sometimes not known with certainty.
+Sensitivity analyses, such as Monte-Carlo simulations,
+are thus performed to study the change in risk due to this uncertainty.
+Expressions, therefore, are used to describe distributions of parameters.
+Typically, the parameter <span class="math">\(\lambda\)</span> of a negative exponential distribution
+will be itself distributed according to a lognormal law of mean 0.001 and error factor 3.</li>
+</ul>
+<p>Stochastic expressions are made of the following elements:</p>
+<ul class="simple">
+<li>Boolean and numerical constants</li>
+<li>Stochastic variables, i.e., parameters,
+including the special variable to represent the mission time</li>
+<li>Boolean and arithmetic operations (sums, differences, products, etc.)</li>
+<li>Built-in expressions that can be seen as macro-expressions
+that are used to simplify and shorten the writing of probability distributions
+(exponential, Weibull, etc.)</li>
+<li>Primitives to generate numbers at pseudo-random
+according to some probability distribution.
+The base primitive makes it possible
+to generate random deviates with a uniform probability distribution.
+Several other primitives are derived from this one
+to generate random deviates with normal, lognormal, or other distributions.
+Moreover, it is possible to define discrete distributions &#8220;by hand&#8221;
+through the notion of histogram.</li>
+<li>Directives to test the status of initial and functional events</li>
+</ul>
+<p><a class="reference internal" href="#schema-stochastic-layer"><span class="std std-numref">Listing 5.1</span></a> presents the RNC schema
+for the constructs of the stochastic layer.
+Note that, conversely to variables (events) of the Fault Tree layer,
+parameters have to be defined
+(there is no equivalent to Basic Events).</p>
+<div class="literal-block-wrapper docutils container" id="schema-stochastic-layer">
+<div class="code-block-caption"><span class="caption-number">Listing 5.1 </span><span class="caption-text">The RNC schema for the constructs of the stochastic layer</span><a class="headerlink" href="#schema-stochastic-layer" title="Permalink to this code">¶</a></div>
+<div class="highlight-rnc"><div class="highlight"><pre><span></span>expression <span class="o">=</span>
+  constant
+  <span class="o">|</span> parameter
+  <span class="o">|</span> operation
+  <span class="o">|</span> built-in
+  <span class="o">|</span> random-deviate
+  <span class="o">|</span> test-event
+
+operation <span class="o">=</span>
+  numerical-operation <span class="o">|</span> Boolean-operation <span class="o">|</span> conditional-operation
+
+built-in <span class="o">=</span> exponential <span class="o">|</span> GLM <span class="o">|</span> Weibull <span class="o">|</span> periodic-test <span class="o">|</span> extern-function
+
+random-deviate <span class="o">=</span>
+  uniform-deviate
+  <span class="o">|</span> normal-deviate
+  <span class="o">|</span> lognormal-deviate
+  <span class="o">|</span> gamma-deviate
+  <span class="o">|</span> beta-deviate
+  <span class="o">|</span> histogram
+
+test-event <span class="o">=</span> test-initiating-event <span class="o">|</span> test-functional-event
+</pre></div>
+</div>
+</div>
+<p>The XML representation of the stochastic layer just reflects these different constructs.</p>
+<div class="literal-block-wrapper docutils container" id="id11">
+<div class="code-block-caption"><span class="caption-number">Listing 5.2 </span><span class="caption-text">The RNC schema for XML representation of expressions (main)</span><a class="headerlink" href="#id11" title="Permalink to this code">¶</a></div>
+<div class="highlight-rnc"><div class="highlight"><pre><span></span>parameter-definition <span class="o">=</span>
+  <span class="kd">element</span><span class="nv"> define-parameter </span><span class="p">{</span>
+    name<span class="o">,</span>
+    role<span class="o">?,</span>
+    <span class="kd">attribute</span><span class="nv"> unit </span><span class="p">{</span> units <span class="p">}</span><span class="o">?,</span>
+    label<span class="o">?,</span>
+    attributes<span class="o">?,</span>
+    expression
+  <span class="p">}</span>
+
+parameter <span class="o">=</span>
+  <span class="kd">element</span><span class="nv"> parameter </span><span class="p">{</span>
+    reference<span class="o">,</span>
+    <span class="kd">attribute</span><span class="nv"> unit </span><span class="p">{</span> units <span class="p">}</span><span class="o">?</span>
+  <span class="p">}</span>
+  <span class="o">|</span> <span class="kd">element</span><span class="nv"> system-mission-time </span><span class="p">{</span>
+      <span class="kd">attribute</span><span class="nv"> unit </span><span class="p">{</span> units <span class="p">}</span><span class="o">?</span>
+    <span class="p">}</span>
+
+units <span class="o">=</span>
+  <span class="s2">&quot;bool&quot;</span>
+  <span class="o">|</span> <span class="s2">&quot;int&quot;</span>
+  <span class="o">|</span> <span class="s2">&quot;float&quot;</span>
+  <span class="o">|</span> <span class="s2">&quot;hours&quot;</span>
+  <span class="o">|</span> <span class="s2">&quot;hours-1&quot;</span>
+  <span class="o">|</span> <span class="s2">&quot;years&quot;</span>
+  <span class="o">|</span> <span class="s2">&quot;years-1&quot;</span>
+  <span class="o">|</span> <span class="s2">&quot;fit&quot;</span>
+  <span class="o">|</span> <span class="s2">&quot;demands&quot;</span>
+
+constant <span class="o">=</span> bool <span class="o">|</span> int <span class="o">|</span> float
+
+bool <span class="o">=</span>
+  <span class="kd">element</span><span class="nv"> bool </span><span class="p">{</span>
+    <span class="kd">attribute</span><span class="nv"> value </span><span class="p">{</span> Boolean-value <span class="p">}</span>
+  <span class="p">}</span>
+
+int <span class="o">=</span>
+  <span class="kd">element</span><span class="nv"> int </span><span class="p">{</span>
+    <span class="kd">attribute</span><span class="nv"> value </span><span class="p">{</span> <span class="kt">xsd:integer</span> <span class="p">}</span>
+  <span class="p">}</span>
+
+float <span class="o">=</span>
+  <span class="kd">element</span><span class="nv"> float </span><span class="p">{</span>
+    <span class="kd">attribute</span><span class="nv"> value </span><span class="p">{</span> <span class="kt">xsd:double</span> <span class="p">}</span>
+  <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>Operations, built-ins, and random deviates will be described in the following sections.</p>
+<p>We believe that the formalism to define stochastic equations
+should be as large and as open as possible for at least two reasons:
+first, available tools already propose a large set of distributions;
+second, this is an easy and interesting way to widen the spectrum of PSA.
+The Model Exchange Format proposes a panoply of Boolean and arithmetic operators.
+More operations can be added on demand.
+A major step would be to introduce some algorithmic concepts like loops and functions.
+At this stage, it does seem useful to introduce
+such advanced concepts in the Model Exchange Format.</p>
+</div>
+<div class="section" id="operations">
+<h2>5.2 Operations<a class="headerlink" href="#operations" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="numerical-operation">
+<h3>5.2.1 Numerical Operation<a class="headerlink" href="#numerical-operation" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference internal" href="#table-numerical-operation"><span class="std std-numref">Table 5.1</span></a> gives the list of arithmetic operators
+proposed by the Model Exchange Format.
+Their XML representation is given in <a class="reference internal" href="#schema-numerical-operation"><span class="std std-numref">Listing 5.3</span></a>.</p>
+<table border="1" class="docutils" id="table-numerical-operation">
+<caption><span class="caption-number">Table 5.1 </span><span class="caption-text">Numerical Operations, their number of arguments, and their semantics</span><a class="headerlink" href="#table-numerical-operation" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="16%" />
+<col width="18%" />
+<col width="66%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Operator</th>
+<th class="head">#arguments</th>
+<th class="head">Semantics</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>neg</strong></td>
+<td>1</td>
+<td>unary minus</td>
+</tr>
+<tr class="row-odd"><td><strong>add</strong></td>
+<td>&gt;1</td>
+<td>addition</td>
+</tr>
+<tr class="row-even"><td><strong>sub</strong></td>
+<td>&gt;1</td>
+<td>subtraction</td>
+</tr>
+<tr class="row-odd"><td><strong>mul</strong></td>
+<td>&gt;1</td>
+<td>multiplication</td>
+</tr>
+<tr class="row-even"><td><strong>div</strong></td>
+<td>&gt;1</td>
+<td>division</td>
+</tr>
+<tr class="row-odd"><td><strong>pi</strong></td>
+<td>0</td>
+<td>3.1415926535...</td>
+</tr>
+<tr class="row-even"><td><strong>abs</strong></td>
+<td>1</td>
+<td>absolute value</td>
+</tr>
+<tr class="row-odd"><td><strong>acos</strong></td>
+<td>1</td>
+<td>arc cosine of the argument in radians</td>
+</tr>
+<tr class="row-even"><td><strong>asin</strong></td>
+<td>1</td>
+<td>arc sine of the argument in radians</td>
+</tr>
+<tr class="row-odd"><td><strong>atan</strong></td>
+<td>1</td>
+<td>arc tangent of the argument in radians</td>
+</tr>
+<tr class="row-even"><td><strong>cos</strong></td>
+<td>1</td>
+<td>cosine</td>
+</tr>
+<tr class="row-odd"><td><strong>cosh</strong></td>
+<td>1</td>
+<td>hyperbolic cosine</td>
+</tr>
+<tr class="row-even"><td><strong>exp</strong></td>
+<td>1</td>
+<td>exponential</td>
+</tr>
+<tr class="row-odd"><td><strong>log</strong></td>
+<td>1</td>
+<td>(Napierian) logarithm</td>
+</tr>
+<tr class="row-even"><td><strong>log10</strong></td>
+<td>1</td>
+<td>decimal logarithm</td>
+</tr>
+<tr class="row-odd"><td><strong>mod</strong></td>
+<td>2</td>
+<td>modulo</td>
+</tr>
+<tr class="row-even"><td><strong>pow</strong></td>
+<td>2</td>
+<td>power</td>
+</tr>
+<tr class="row-odd"><td><strong>sin</strong></td>
+<td>1</td>
+<td>sine</td>
+</tr>
+<tr class="row-even"><td><strong>sinh</strong></td>
+<td>1</td>
+<td>hyperbolic sine</td>
+</tr>
+<tr class="row-odd"><td><strong>tan</strong></td>
+<td>1</td>
+<td>tangent</td>
+</tr>
+<tr class="row-even"><td><strong>tanh</strong></td>
+<td>1</td>
+<td>hyperbolic tangent</td>
+</tr>
+<tr class="row-odd"><td><strong>sqrt</strong></td>
+<td>1</td>
+<td>square root</td>
+</tr>
+<tr class="row-even"><td><strong>ceil</strong></td>
+<td>1</td>
+<td>first integer not less than the argument</td>
+</tr>
+<tr class="row-odd"><td><strong>floor</strong></td>
+<td>1</td>
+<td>first integer not greater than the argument</td>
+</tr>
+<tr class="row-even"><td><strong>min</strong></td>
+<td>&gt;1</td>
+<td>minimum</td>
+</tr>
+<tr class="row-odd"><td><strong>max</strong></td>
+<td>&gt;1</td>
+<td>maximum</td>
+</tr>
+<tr class="row-even"><td><strong>mean</strong></td>
+<td>&gt;1</td>
+<td>mean</td>
+</tr>
+</tbody>
+</table>
+<div class="literal-block-wrapper docutils container" id="schema-numerical-operation">
+<div class="code-block-caption"><span class="caption-number">Listing 5.3 </span><span class="caption-text">The RNC schema for XML representation of numerical operations</span><a class="headerlink" href="#schema-numerical-operation" title="Permalink to this code">¶</a></div>
+<div class="highlight-rnc"><div class="highlight"><pre><span></span>numerical-operation <span class="o">=</span>
+  <span class="kd">element</span><span class="nv"> neg </span><span class="p">{</span> expression <span class="p">}</span>
+  <span class="o">|</span> <span class="kd">element</span><span class="nv"> add </span><span class="p">{</span> expression+ <span class="p">}</span>
+  <span class="o">|</span> <span class="kd">element</span><span class="nv"> sub </span><span class="p">{</span> expression+ <span class="p">}</span>
+  <span class="o">|</span> <span class="kd">element</span><span class="nv"> mul </span><span class="p">{</span> expression+ <span class="p">}</span>
+  <span class="o">|</span> <span class="kd">element</span><span class="nv"> div </span><span class="p">{</span> expression+ <span class="p">}</span>
+  <span class="o">|</span> <span class="kd">element</span><span class="nv"> pi </span><span class="p">{</span> empty <span class="p">}</span>
+  <span class="o">|</span> <span class="kd">element</span><span class="nv"> abs </span><span class="p">{</span> expression <span class="p">}</span>
+  <span class="o">|</span> <span class="kd">element</span><span class="nv"> acos </span><span class="p">{</span> expression <span class="p">}</span>
+  <span class="o">|</span> <span class="kd">element</span><span class="nv"> asin </span><span class="p">{</span> expression <span class="p">}</span>
+  <span class="o">|</span> <span class="kd">element</span><span class="nv"> atan </span><span class="p">{</span> expression <span class="p">}</span>
+  <span class="o">|</span> <span class="kd">element</span><span class="nv"> cos </span><span class="p">{</span> expression <span class="p">}</span>
+  <span class="o">|</span> <span class="kd">element</span><span class="nv"> cosh </span><span class="p">{</span> expression <span class="p">}</span>
+  <span class="o">|</span> <span class="kd">element</span><span class="nv"> exp </span><span class="p">{</span> expression <span class="p">}</span>
+  <span class="o">|</span> <span class="kd">element</span><span class="nv"> log </span><span class="p">{</span> expression <span class="p">}</span>
+  <span class="o">|</span> <span class="kd">element</span><span class="nv"> log10 </span><span class="p">{</span> expression <span class="p">}</span>
+  <span class="o">|</span> <span class="kd">element</span><span class="nv"> mod </span><span class="p">{</span> expression<span class="o">,</span> expression <span class="p">}</span>
+  <span class="o">|</span> <span class="kd">element</span><span class="nv"> pow </span><span class="p">{</span> expression<span class="o">,</span> expression <span class="p">}</span>
+  <span class="o">|</span> <span class="kd">element</span><span class="nv"> sin </span><span class="p">{</span> expression <span class="p">}</span>
+  <span class="o">|</span> <span class="kd">element</span><span class="nv"> sinh </span><span class="p">{</span> expression <span class="p">}</span>
+  <span class="o">|</span> <span class="kd">element</span><span class="nv"> tan </span><span class="p">{</span> expression <span class="p">}</span>
+  <span class="o">|</span> <span class="kd">element</span><span class="nv"> tanh </span><span class="p">{</span> expression <span class="p">}</span>
+  <span class="o">|</span> <span class="kd">element</span><span class="nv"> sqrt </span><span class="p">{</span> expression <span class="p">}</span>
+  <span class="o">|</span> <span class="kd">element</span><span class="nv"> ceil </span><span class="p">{</span> expression <span class="p">}</span>
+  <span class="o">|</span> <span class="kd">element</span><span class="nv"> floor </span><span class="p">{</span> expression <span class="p">}</span>
+  <span class="o">|</span> <span class="kd">element</span><span class="nv"> min </span><span class="p">{</span> expression+ <span class="p">}</span>
+  <span class="o">|</span> <span class="kd">element</span><span class="nv"> max </span><span class="p">{</span> expression+ <span class="p">}</span>
+  <span class="o">|</span> <span class="kd">element</span><span class="nv"> mean </span><span class="p">{</span> expression+ <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="example">
+<h4>5.2.1.1 Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h4>
+<p>Assume, for instance,
+we want to associate a negative exponential distribution
+with a failure rate <span class="math">\(\lambda = {1.23 \times 10^{-4}}h^{-1}\)</span>
+to the basic event &#8220;pump-failure&#8221;.
+Using primitives defined above,
+we can encode explicitly such probability distribution as follows.</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;define-basic-event</span> <span class="na">name=</span><span class="s">&quot;pump-failure&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;sub&gt;</span>
+        <span class="nt">&lt;float</span> <span class="na">value=</span><span class="s">&quot;1.0&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;exp&gt;</span>
+            <span class="nt">&lt;mul&gt;</span>
+                <span class="nt">&lt;neg&gt;</span>
+                    <span class="nt">&lt;parameter</span> <span class="na">name=</span><span class="s">&quot;lambda&quot;</span><span class="nt">/&gt;</span>
+                <span class="nt">&lt;/neg&gt;</span>
+                <span class="nt">&lt;system-mission-time/&gt;</span>
+            <span class="nt">&lt;/mul&gt;</span>
+        <span class="nt">&lt;/exp&gt;</span>
+    <span class="nt">&lt;/sub&gt;</span>
+<span class="nt">&lt;/define-basic-event&gt;</span>
+<span class="nt">&lt;define-parameter</span> <span class="na">name=</span><span class="s">&quot;lambda&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;float</span> <span class="na">value=</span><span class="s">&quot;1.23e-4&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/define-parameter&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="boolean-operations">
+<h3>5.2.2 Boolean Operations<a class="headerlink" href="#boolean-operations" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference internal" href="#table-boolean-operators"><span class="std std-numref">Table 5.2</span></a> gives the list of Boolean operators
+proposed by the Model Exchange Format.
+Their XML representation is given in <a class="reference internal" href="#schema-boolean-operation"><span class="std std-numref">Listing 5.4</span></a>.</p>
+<table border="1" class="docutils" id="table-boolean-operators">
+<caption><span class="caption-number">Table 5.2 </span><span class="caption-text">Boolean operators, their number of arguments, and their semantics</span><a class="headerlink" href="#table-boolean-operators" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="27%" />
+<col width="32%" />
+<col width="41%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Operator</th>
+<th class="head">#arguments</th>
+<th class="head">Semantics</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>and</strong></td>
+<td>&gt;1</td>
+<td><span class="math">\(\land\)</span></td>
+</tr>
+<tr class="row-odd"><td><strong>or</strong></td>
+<td>&gt;1</td>
+<td><span class="math">\(\lor\)</span></td>
+</tr>
+<tr class="row-even"><td><strong>not</strong></td>
+<td>1</td>
+<td><span class="math">\(\lnot\)</span></td>
+</tr>
+<tr class="row-odd"><td><strong>eq</strong></td>
+<td>2</td>
+<td><span class="math">\(=\)</span></td>
+</tr>
+<tr class="row-even"><td><strong>df</strong></td>
+<td>2</td>
+<td><span class="math">\(\neq\)</span></td>
+</tr>
+<tr class="row-odd"><td><strong>lt</strong></td>
+<td>2</td>
+<td><span class="math">\(&lt;\)</span></td>
+</tr>
+<tr class="row-even"><td><strong>gt</strong></td>
+<td>2</td>
+<td><span class="math">\(&gt;\)</span></td>
+</tr>
+<tr class="row-odd"><td><strong>leq</strong></td>
+<td>2</td>
+<td><span class="math">\(\leq\)</span></td>
+</tr>
+<tr class="row-even"><td><strong>geq</strong></td>
+<td>2</td>
+<td><span class="math">\(\geq\)</span></td>
+</tr>
+</tbody>
+</table>
+<div class="literal-block-wrapper docutils container" id="schema-boolean-operation">
+<div class="code-block-caption"><span class="caption-number">Listing 5.4 </span><span class="caption-text">The RNC schema for XML representation of Boolean operations</span><a class="headerlink" href="#schema-boolean-operation" title="Permalink to this code">¶</a></div>
+<div class="highlight-rnc"><div class="highlight"><pre><span></span>Boolean-operation <span class="o">=</span>
+  <span class="kd">element</span><span class="nv"> not </span><span class="p">{</span> expression <span class="p">}</span>
+  <span class="o">|</span> <span class="kd">element</span><span class="nv"> and </span><span class="p">{</span> expression+ <span class="p">}</span>
+  <span class="o">|</span> <span class="kd">element</span><span class="nv"> or </span><span class="p">{</span> expression+ <span class="p">}</span>
+  <span class="o">|</span> <span class="kd">element</span><span class="nv"> eq </span><span class="p">{</span> expression<span class="o">,</span> expression <span class="p">}</span>
+  <span class="o">|</span> <span class="kd">element</span><span class="nv"> df </span><span class="p">{</span> expression<span class="o">,</span> expression <span class="p">}</span>
+  <span class="o">|</span> <span class="kd">element</span><span class="nv"> lt </span><span class="p">{</span> expression<span class="o">,</span> expression <span class="p">}</span>
+  <span class="o">|</span> <span class="kd">element</span><span class="nv"> gt </span><span class="p">{</span> expression<span class="o">,</span> expression <span class="p">}</span>
+  <span class="o">|</span> <span class="kd">element</span><span class="nv"> leq </span><span class="p">{</span> expression<span class="o">,</span> expression <span class="p">}</span>
+  <span class="o">|</span> <span class="kd">element</span><span class="nv"> geq </span><span class="p">{</span> expression<span class="o">,</span> expression <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="conditional-operations">
+<h3>5.2.3 Conditional Operations<a class="headerlink" href="#conditional-operations" title="Permalink to this headline">¶</a></h3>
+<p>The Model Exchange Format proposes two conditional operations:
+an &#8220;if-then-else&#8221; operation and a &#8220;switch/case&#8221; operation.
+The latter is a list of pairs of expressions introduced by the tag &#8220;case&#8221;.
+The first expression of the pair should be a Boolean condition.
+If this condition is realized,
+then the second expression is evaluated, and its value returned.
+Otherwise, the next pair is considered.</p>
+<p>The list ends with an expression
+in order to be sure that the switch has always a possible value.
+The XML representation for conditional operation is given in <a class="reference internal" href="#schema-conditional-operation"><span class="std std-numref">Listing 5.5</span></a>.</p>
+<div class="literal-block-wrapper docutils container" id="schema-conditional-operation">
+<div class="code-block-caption"><span class="caption-number">Listing 5.5 </span><span class="caption-text">The RNC schema for XML representation of conditional operations</span><a class="headerlink" href="#schema-conditional-operation" title="Permalink to this code">¶</a></div>
+<div class="highlight-rnc"><div class="highlight"><pre><span></span>conditional-operation <span class="o">=</span> if-then-else-operation <span class="o">|</span> switch-operation
+
+if-then-else-operation <span class="o">=</span>
+  <span class="kd">element</span><span class="nv"> ite </span><span class="p">{</span> expression<span class="o">,</span> expression<span class="o">,</span> expression <span class="p">}</span>
+
+switch-operation <span class="o">=</span> <span class="kd">element</span><span class="nv"> switch </span><span class="p">{</span> case-operation<span class="o">*,</span> expression <span class="p">}</span>
+
+case-operation <span class="o">=</span> <span class="kd">element</span><span class="nv"> case </span><span class="p">{</span> expression<span class="o">,</span> expression <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h4>5.2.3.1 Example<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<p>Assume, for instance, we want to give different values to the failure rate &#8220;lambda&#8221;
+depending on a global parameter &#8220;stress-level&#8221;:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="s2">&quot;lambda&quot;</span><span class="o">=</span><span class="mf">1.0e-4</span><span class="o">/</span><span class="n">h</span> <span class="k">if</span> <span class="s2">&quot;stress-level&quot;</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<span class="s2">&quot;lambda&quot;</span><span class="o">=</span><span class="mf">2.5e-4</span><span class="o">/</span><span class="n">h</span> <span class="k">if</span> <span class="s2">&quot;stress-level&quot;</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="ow">and</span> <span class="k">finally</span>
+<span class="s2">&quot;lambda&quot;</span><span class="o">=</span><span class="mf">1.0e-3</span><span class="o">/</span><span class="n">h</span> <span class="k">if</span> <span class="s2">&quot;stress-level&quot;</span><span class="o">=</span><span class="mf">3.</span>
+</pre></div>
+</div>
+<p>The value of &#8220;stress-level&#8221; will be modified
+while walking along the sequences of event trees
+or depending on the initiating event.
+Using primitives defined so far,
+we can encode the definition of &#8220;lambda&#8221; as follows.</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;define-parameter</span> <span class="na">name=</span><span class="s">&quot;lambda&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;switch&gt;</span>
+        <span class="nt">&lt;case&gt;</span>
+            <span class="nt">&lt;eq&gt;</span>
+                <span class="nt">&lt;parameter</span> <span class="na">name=</span><span class="s">&quot;stress-level&quot;</span><span class="nt">/&gt;</span>
+                <span class="nt">&lt;int</span> <span class="na">value=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/eq&gt;</span>
+            <span class="nt">&lt;float</span> <span class="na">value=</span><span class="s">&quot;1.0e-4&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/case&gt;</span>
+        <span class="nt">&lt;case&gt;</span>
+            <span class="nt">&lt;eq&gt;</span>
+                <span class="nt">&lt;parameter</span> <span class="na">name=</span><span class="s">&quot;stress-level&quot;</span><span class="nt">/&gt;</span>
+                <span class="nt">&lt;int</span> <span class="na">value=</span><span class="s">&quot;2&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/eq&gt;</span>
+            <span class="nt">&lt;float</span> <span class="na">value=</span><span class="s">&quot;2.5e-4&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/case&gt;</span>
+        <span class="nt">&lt;float</span> <span class="na">value=</span><span class="s">&quot;1.0e-3&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/switch&gt;</span>
+<span class="nt">&lt;/define-parameter&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="built-ins">
+<h2>5.3 Built-Ins<a class="headerlink" href="#built-ins" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h3>5.3.1 Description<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>Built-ins can be seen as macro arithmetic expressions.
+They are mainly used to simplify the writing of probability distributions.
+A special built-in &#8220;extern-function&#8221; makes it possible to define externally calculated built-ins.
+As for arithmetic operators, more built-ins can be added on demand to the Model Exchange Format.
+Here follows a preliminary list of built-ins.
+<a class="reference internal" href="#table-built-ins"><span class="std std-numref">Table 5.3</span></a> summarizes this preliminary list.</p>
+<dl class="docutils">
+<dt>Exponential with two parameters</dt>
+<dd>This built-in implements the negative exponential distribution.
+The two parameters are the hourly failure rate, usually called <span class="math">\(\lambda\)</span>,
+and the time <span class="math">\(t\)</span>.</dd>
+</dl>
+<div class="math">
+\[P(t;\lambda) = 1 - e ^ {- \lambda t}\]</div>
+<dl class="docutils">
+<dt>Exponential with four parameters (Generalized Life Model or GLM)</dt>
+<dd>This built-in generalizes the previous one.
+It makes it possible to take into account
+repairable components (through the hourly repairing rate <span class="math">\(\mu\)</span>)
+and failures on demand (through the probability <span class="math">\(\gamma\)</span> of such an event).
+It takes four parameters,
+<span class="math">\(\gamma\)</span>, the hourly failure rate <span class="math">\(\lambda\)</span>,
+<span class="math">\(\mu\)</span>, and the time <span class="math">\(t\)</span> (in this order).</dd>
+</dl>
+<div class="math">
+\[P(t;\gamma,\lambda,\mu) =
+    \frac{\lambda}{\lambda + \mu} -
+    \frac{\lambda - \gamma(\lambda + \mu)}{\lambda + \mu} \times e^{-(\lambda + \mu) t}\]</div>
+<dl class="docutils">
+<dt>Weibull</dt>
+<dd>This built-in implements the Weibull distribution.
+It takes four parameters:
+a scale parameter <span class="math">\(\alpha\)</span>, a shape parameter <span class="math">\(\beta\)</span>,
+a time shift <span class="math">\(t_0\)</span>, and the time <span class="math">\(t\)</span> (in this order).</dd>
+</dl>
+<div class="math">
+\[P(t;\alpha,\beta,t_0) = 1 - \exp \left[ -\left(\dfrac{t - t_0}{\alpha}\right) ^ \beta \right]\]</div>
+<dl class="docutils">
+<dt>Periodic test</dt>
+<dd>In several applications,
+it is of interest to introduce some specific distributions
+to describe periodically tested components.
+A further investigation is certainly necessary on this topic.
+We tentatively give here a candidate definition
+(that is extracted from one of the tools we considered).</dd>
+</dl>
+<p>The &#8220;periodic-test&#8221; built-in would take the following parameters (in order).</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="82%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><span class="math">\(\lambda\)</span></td>
+<td>failure rate when the component is working.</td>
+</tr>
+<tr class="row-even"><td><span class="math">\(\lambda*\)</span></td>
+<td>failure rate when the component is tested.</td>
+</tr>
+<tr class="row-odd"><td><span class="math">\(\mu\)</span></td>
+<td>repair rate (once the test showed that the component is failed).</td>
+</tr>
+<tr class="row-even"><td><span class="math">\(\tau\)</span></td>
+<td>delay between two consecutive tests.</td>
+</tr>
+<tr class="row-odd"><td><span class="math">\(\theta\)</span></td>
+<td>delay before the first test.</td>
+</tr>
+<tr class="row-even"><td><span class="math">\(\gamma\)</span></td>
+<td>probability of failure due to the (beginning of the) test.</td>
+</tr>
+<tr class="row-odd"><td><span class="math">\(\pi\)</span></td>
+<td>duration of the test.</td>
+</tr>
+<tr class="row-even"><td><span class="math">\(x\)</span></td>
+<td>indicator of the component availability during the test (1 available, 0 unavailable).</td>
+</tr>
+<tr class="row-odd"><td><span class="math">\(\sigma\)</span></td>
+<td>test covering: probability that the test detects the failure, if any.</td>
+</tr>
+<tr class="row-even"><td><span class="math">\(\omega\)</span></td>
+<td>probability that the component is badly restarted after a test or a repair.</td>
+</tr>
+<tr class="row-odd"><td><span class="math">\(t\)</span></td>
+<td>the mission time.</td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="#fig-periodic-test"><span class="std std-numref">Fig. 5.1</span></a> illustrates the meaning of the parameters
+<span class="math">\(\tau\)</span>, <span class="math">\(\theta\)</span>, and <span class="math">\(\pi\)</span>.</p>
+<div class="figure align-center" id="fig-periodic-test">
+<img alt="../_images/periodic_test.png" src="../_images/periodic_test.png" />
+<p class="caption"><span class="caption-number">Fig. 5.1 </span><span class="caption-text">Meaning of parameters <span class="math">\(\tau\)</span>, <span class="math">\(\theta\)</span>, and <span class="math">\(\pi\)</span>
+of the &#8220;periodic-test&#8221; built-in</span></p>
+</div>
+<p>There are three phases in the behavior of the component.
+The first phase corresponds to the time from 0 to the date of the first test, i.e. <span class="math">\(\theta\)</span>.
+The second phase is the test phase.
+It spreads from times <span class="math">\(\theta + n\tau\)</span> to <span class="math">\(\theta + n\tau + \pi\)</span>,
+with <em>n</em> any positive integer.
+The third phase is the functioning phase.
+It spreads from times <span class="math">\(\theta + n\tau + \pi\)</span> to <span class="math">\(\theta + (n + 1)\tau\)</span>.</p>
+<p>In the first phase, the distribution is a simple exponential law of parameter <span class="math">\(\lambda\)</span>.</p>
+<p>The component may enter in the second phase in three states,
+either working, failed or in repair.
+In the latter case, the test is not performed.
+The Markov graphs for each of these cases are pictured in <a class="reference internal" href="#fig-multi-phase-markov-graph"><span class="std std-numref">Fig. 5.2</span></a>.</p>
+<div class="figure align-center" id="fig-multi-phase-markov-graph">
+<img alt="../_images/multi_phase_markov_graph.png" src="../_images/multi_phase_markov_graph.png" />
+<p class="caption"><span class="caption-number">Fig. 5.2 </span><span class="caption-text">Multi-phase Markov graph for the &#8220;periodic-test&#8221; built-in</span></p>
+</div>
+<p>Ai&#8217;s, Fi&#8217;s, Ri&#8217;s states correspond respectively to states
+where the component is available, failed, and in repair.
+Dashed lines correspond to immediate transitions.
+Initial states are respectively A1, F1, and R1.</p>
+<p>The situation is simpler in the third phase.
+If the component enters available this phase,
+the distribution follows an exponential law of parameter <span class="math">\(\lambda\)</span>.
+If the component enters failed in this phase,
+it remains phase up to the next test.
+Finally, the Markov graph for the case where the component is in repair
+is the same as in the second phase.</p>
+<p>The Model Exchange Format could also provide
+two simplified forms for the periodic test distribution.</p>
+<dl class="docutils">
+<dt>Periodic-test with 5 arguments</dt>
+<dd><p class="first">The first one takes five parameters:
+<span class="math">\(\lambda\)</span>, <span class="math">\(\mu\)</span>, <span class="math">\(\tau\)</span>, <span class="math">\(\theta\)</span>, and <span class="math">\(t\)</span>.
+In that case, the test is assumed to be instantaneous.
+Therefore, parameters <span class="math">\(\lambda*\)</span> (the failure rate during the test)
+and <span class="math">\(x\)</span> (indicator of the component availability during the test) are meaningless.
+There other parameters are set as follows.</p>
+<ul class="last simple">
+<li><span class="math">\(\gamma\)</span> (the probability of failure due to the beginning of the test)
+is set to 0.</li>
+<li><span class="math">\(\sigma\)</span> (the probability that the test detects the failure, if any)
+is set to 1.</li>
+<li><span class="math">\(\omega\)</span>
+(the probability that the component is badly restarted after a test or a repair)
+is set to 0.</li>
+</ul>
+</dd>
+<dt>Periodic-test with 4 arguments</dt>
+<dd>The second one takes only four parameters:
+<span class="math">\(\lambda\)</span>, <span class="math">\(\tau\)</span>, <span class="math">\(\theta\)</span>, and <span class="math">\(t\)</span>.
+The repair is assumed to be instantaneous
+(or equivalently the repair rate <span class="math">\(\mu = {+\infty}\)</span>).</dd>
+<dt>Extern functions</dt>
+<dd>The Model Exchange Format should provide a mean to call extern functions.
+This makes it extensible and allows linking the PSA assessment tools
+with complex tools to calculate physical behavior (like fire propagation or gas dispersion).
+This call may take any number of arguments
+and return a single value at once
+(some interfacing glue can be used to handle the case where several values have to be returned).
+It has been also suggested that extern function calls take XML terms as input and output.
+This is probably the best way to handle communication between tools,
+but it would be far too complex to embed XML into stochastic expressions.</dd>
+</dl>
+<table border="1" class="docutils" id="table-built-ins">
+<caption><span class="caption-number">Table 5.3 </span><span class="caption-text">Built-ins, their number of arguments, and their semantics</span><a class="headerlink" href="#table-built-ins" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="13%" />
+<col width="8%" />
+<col width="79%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Built-in</th>
+<th class="head">#arguments</th>
+<th class="head">Semantics</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>exponential</strong></td>
+<td>2</td>
+<td>negative exponential distribution with hourly failure rate and time</td>
+</tr>
+<tr class="row-odd"><td><strong>GLM</strong></td>
+<td>4</td>
+<td>negative exponential distribution with probability of failure on demand, hourly failure rate, hourly repair rate and time</td>
+</tr>
+<tr class="row-even"><td><strong>Weibull</strong></td>
+<td>4</td>
+<td>Weibull distribution with scale and shape parameters, a time shift and the time</td>
+</tr>
+<tr class="row-odd"><td><strong>periodic-test</strong></td>
+<td>11, 5 or 4</td>
+<td>Distributions to describe periodically tested components</td>
+</tr>
+<tr class="row-even"><td><strong>extern-function</strong></td>
+<td>any</td>
+<td>call to an extern routine</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="xml-representation">
+<h3>5.3.2 XML Representation<a class="headerlink" href="#xml-representation" title="Permalink to this headline">¶</a></h3>
+<p>The RNC schema for the XML representation of built-ins
+is given in <a class="reference internal" href="#schema-built-ins"><span class="std std-numref">Listing 5.6</span></a>.</p>
+<div class="literal-block-wrapper docutils container" id="schema-built-ins">
+<div class="code-block-caption"><span class="caption-number">Listing 5.6 </span><span class="caption-text">The RNC schema for XML representation of Built-ins</span><a class="headerlink" href="#schema-built-ins" title="Permalink to this code">¶</a></div>
+<div class="highlight-rnc"><div class="highlight"><pre><span></span>exponential <span class="o">=</span> <span class="kd">element</span><span class="nv"> exponential </span><span class="p">{</span> expression<span class="o">,</span> expression <span class="p">}</span>
+
+GLM <span class="o">=</span> <span class="kd">element</span><span class="nv"> GLM </span><span class="p">{</span> expression<span class="o">,</span> expression<span class="o">,</span> expression<span class="o">,</span> expression <span class="p">}</span>
+
+Weibull <span class="o">=</span> <span class="kd">element</span><span class="nv"> Weibull </span><span class="p">{</span> expression<span class="o">,</span> expression<span class="o">,</span> expression<span class="o">,</span> expression <span class="p">}</span>
+
+periodic-test <span class="o">=</span> <span class="kd">element</span><span class="nv"> periodic-test </span><span class="p">{</span> expression+ <span class="p">}</span>
+
+extern-function <span class="o">=</span> <span class="kd">element</span><span class="nv"> extern-function </span><span class="p">{</span> name<span class="o">,</span> expression<span class="o">*</span> <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition-positional-versus-named-arguments admonition">
+<p class="first admonition-title">Positional versus Named Arguments</p>
+<p class="last">We adopted a positional definition of arguments.
+For instance, in the negative exponential distribution,
+we assumed that the failure rate is always the first argument,
+and the mission time is always the second.
+An alternative way would be to name arguments,
+i.e., to enclose them into tags explicating their role.
+For instance, the failure rate would be enclosed in a tag &#8220;failure-rate&#8221;,
+the mission time in a tag &#8220;time&#8221;, and so on.
+The problem with this second approach is that many additional tags must be defined,
+and it is not sure that it helps a lot the understanding of the built-ins.
+Nevertheless, we may switch to this approach
+if the experience shows that the first one proves to be confusing.</p>
+</div>
+<div class="section" id="id4">
+<h4>5.3.2.1 Example<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<p>The negative exponential distribution can be encoded as follows.</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;define-basic-event</span> <span class="na">name=</span><span class="s">&quot;pump-failure&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;exponential&gt;</span>
+        <span class="nt">&lt;parameter</span> <span class="na">name=</span><span class="s">&quot;lambda&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;system-mission-time/&gt;</span>
+    <span class="nt">&lt;/exponential&gt;</span>
+<span class="nt">&lt;/define-basic-event&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="primitive-to-generate-random-deviates">
+<h2>5.4 Primitive to Generate Random Deviates<a class="headerlink" href="#primitive-to-generate-random-deviates" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id5">
+<h3>5.4.1 Description<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>Primitives to generate random deviates are the real stochastic part of stochastic equations.
+They can be used in two ways:
+in a regular context they return a default value (typically their mean value).
+When used to perform Monte-Carlo simulations,
+they return a number drawn at pseudo-random according to their type.
+The Model Exchange Format includes two types of random deviates:
+built-in deviates like uniform, normal or lognormal,
+and histograms that are user defined discrete distributions.
+A preliminary list of distributions is summarized in <a class="reference internal" href="#table-random-deviates"><span class="std std-numref">Table 5.4</span></a>.
+As for arithmetic operators and built-ins, this list can be extended on demand.</p>
+<table border="1" class="docutils" id="table-random-deviates">
+<caption><span class="caption-number">Table 5.4 </span><span class="caption-text">Primitive to generate random deviates, their number of arguments, and their semantics</span><a class="headerlink" href="#table-random-deviates" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="16%" />
+<col width="8%" />
+<col width="76%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Distribution</th>
+<th class="head">#arguments</th>
+<th class="head">Semantics</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>uniform-deviate</strong></td>
+<td>2</td>
+<td>uniform distribution between a lower and an upper bounds</td>
+</tr>
+<tr class="row-odd"><td><strong>normal-deviate</strong></td>
+<td>2</td>
+<td>normal (Gaussian) distribution defined by its mean and its standard deviation</td>
+</tr>
+<tr class="row-even"><td><strong>lognormal-deviate</strong></td>
+<td>3 or 2</td>
+<td>lognormal distribution defined by its mean, its error factor, and the confidence level of this error factor</td>
+</tr>
+<tr class="row-odd"><td><strong>gamma-deviate</strong></td>
+<td>2</td>
+<td>gamma distributions defined by a shape and a scale factors</td>
+</tr>
+<tr class="row-even"><td><strong>beta-deviate</strong></td>
+<td>2</td>
+<td>beta distributions defined by two shape parameters <span class="math">\(\alpha\)</span> and <span class="math">\(\beta\)</span></td>
+</tr>
+<tr class="row-odd"><td><strong>histograms</strong></td>
+<td>any</td>
+<td>discrete distributions defined by means of a list of pairs</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>Uniform Deviates</dt>
+<dd>These primitives describe uniform distributions in a given range
+defined by its lower- and upper-bounds.
+The default value of a uniform deviate
+is the mean of the range, i.e., <code class="docutils literal"><span class="pre">(lower-bound</span> <span class="pre">+</span> <span class="pre">upper-bound)/2</span></code>.</dd>
+<dt>Normal Deviates</dt>
+<dd>These primitives describe normal distributions
+defined by their mean and their standard deviation
+(refer to a text book for a more detailed explanation).
+By default, the value of a normal distribution is its mean.</dd>
+<dt>Lognormal distribution</dt>
+<dd><p class="first">These primitives describe lognormal distributions
+defined by their mean <span class="math">\(E(x)\)</span> and their error factor <span class="math">\(EF\)</span>.
+A random variable is distributed according to a lognormal distribution
+if its logarithm is distributed according to a normal distribution.
+If <span class="math">\(\mu\)</span> and <span class="math">\(\sigma\)</span> are respectively
+the mean and the standard deviation of the associated normal distribution
+(the variable&#8217;s natural logarithm),
+the probability density of the random variable is as follows.</p>
+<div class="math">
+\[f(x;\mu,\sigma) = \frac{1}{\sigma x \sqrt{2\pi}} \times
+    \left[-\frac{1}{2}\left(\frac{\log x - \mu}{\sigma} \right)^2\right]\]</div>
+<p>Its mean, <span class="math">\(E(x)\)</span>, is defined as follows.</p>
+<div class="math">
+\[E(x) = \exp\left[\mu + \frac{\sigma^2}{2}\right]\]</div>
+<p>The error factor <span class="math">\(EF\)</span> for confidence level <span class="math">\(\alpha\)</span>
+is defined as follows:</p>
+<div class="math">
+\[\begin{split}EF_\alpha&amp; = \sqrt{\frac{X_\alpha}{X_{1-\alpha}}} = \exp[z_\alpha\cdot\sigma]\\\end{split}\]</div>
+<p>Where <span class="math">\(X_\alpha\)</span> is a left-tailed, upper bound
+corresponding to the <span class="math">\(\alpha\)</span> percentile,
+and <span class="math">\(z_\alpha\)</span> is the left-tailed z-score of the standard normal distribution
+for the <span class="math">\(\alpha\)</span> confidence level.
+Note that one-sided limits do not form confidence intervals.</p>
+<div class="math">
+\[\begin{split}z_\alpha&amp; = \sqrt{2} \cdot erf^{-1}(2\alpha - 1)\\
+X_\alpha&amp; = \exp[\mu + z_\alpha\cdot\sigma]\\
+X_{0.50}&amp; = e^\mu\end{split}\]</div>
+<p>For example, the error factor for a confidence level of <span class="math">\(0.95\)</span>:</p>
+<div class="math">
+\[\begin{split}z_{0.95}&amp; = -z_{0.05} = 1.645\\
+X_{0.05}&amp; = \exp[\mu - 1.645\sigma]\\
+X_{0.95}&amp; = \exp[\mu + 1.645\sigma]\\
+EF_{0.95}&amp; = \sqrt{\frac{X_{0.95}}{X_{0.05}}} = \exp[1.645\sigma]\end{split}\]</div>
+<p>Once the mean and error factor are known for a certain confidence level,
+it is then possible to determine the distribution parameters of the lognormal law.</p>
+<div class="math">
+\[\begin{split}\sigma&amp; = \frac{\log EF_\alpha}{z_\alpha}\\
+\mu&amp; = \log E(x) - \frac{\sigma^2}{2}\end{split}\]</div>
+<p class="last">Alternatively, these parameters (<span class="math">\(\mu\)</span>, <span class="math">\(\sigma\)</span>)
+of the underlying normal distribution can be supplied directly
+instead of the log-normal mean, error factor, and confidence level.
+These two parametrization schemes are distinguished by the number of parameters,
+i.e., 2 instead of 3.</p>
+</dd>
+<dt>Gamma Deviates</dt>
+<dd><p class="first">These primitives describe Gamma distributions
+defined by their shape parameter k and their scale parameter <span class="math">\(\theta\)</span>.
+If <span class="math">\(k\)</span> is an integer,
+then the distribution represents
+the sum of <span class="math">\(k\)</span> exponentially distributed random variables,
+each of which has mean <span class="math">\(\theta\)</span>.</p>
+<p>The probability density of the gamma distribution
+can be expressed in terms of the gamma function:</p>
+<div class="math">
+\[f(x) = x^{k-1} \frac{e^{-x/\theta}}{\theta^k \Gamma(k)}\]</div>
+<p class="last">The default value of the gamma distribution is its mean, i.e., <span class="math">\(k\theta\)</span>.</p>
+</dd>
+<dt>Beta Deviates</dt>
+<dd><p class="first">These primitives describe Beta distributions
+defined by two shape parameters <span class="math">\(\alpha\)</span> and <span class="math">\(\beta\)</span>.</p>
+<p>The probability density of the beta distribution
+can be expressed in terms of the B function:</p>
+<div class="math">
+\[\begin{split}f(x;\alpha,\beta)&amp; = \frac{1}{B(\alpha,\beta)}x^{\alpha-1} (1 - x)^{\beta-1}\\
+B(x, y)&amp; = \int_{0}^{1} t^{x-1} (1 - t^{y-1}) dt\end{split}\]</div>
+<p class="last">The default value of the beta distribution is its mean, i.e., <span class="math">\(\alpha/(\alpha + \beta)\)</span>.</p>
+</dd>
+<dt>Histograms</dt>
+<dd><p class="first">Histograms are lists of pairs <span class="math">\((x_1, E_1), \ldots, (x_n, E_n)\)</span>,
+where the <span class="math">\(x_i\)</span>&#8216;s are numbers
+such that <span class="math">\(x_i &lt; x_{i+1} \text{ for } i=1, \ldots, n-1\)</span>
+and the <span class="math">\(E_i\)</span>&#8216;s are expressions.</p>
+<p>The <span class="math">\(x_i\)</span>&#8216;s represent upper bounds of successive intervals.
+The lower bound of the first interval <span class="math">\(x_0\)</span> is given apart.</p>
+<p>The drawing of a value according to a histogram is a two-step process.
+First, a value <span class="math">\(z\)</span> is drawn uniformly in the range <span class="math">\([x_0, x_n]\)</span>.
+Then, a value is drawn at random by means of the expression <span class="math">\(E_i\)</span>,
+where <span class="math">\(i\)</span> is the index of the interval
+such that <span class="math">\(x_{i-1} &lt; z \leq x_i\)</span>.</p>
+<p>By default, the value of a histogram is its mean, i.e.,</p>
+<div class="math">
+\[\mathbf{E}(X) = \frac{1}{x_n - x_0} \times \sum_{i=1}^{n}(x_i - x_{i-1})\mathbf{E}(E_i)\]</div>
+<p>Both Cumulative Distribution Functions
+and Density Probability Distributions can be translated into histograms.</p>
+<p>A Cumulative Distribution Function is a list of pairs
+<span class="math">\((p_1, v_1), \ldots, (p_n, v_n)\)</span>,
+where the <span class="math">\(p_i\)</span>&#8216;s are
+such that <span class="math">\(p_i &lt; p_{i+1} \text{ for } i=1, \ldots, n \text{ and } p_n=1\)</span>.
+It differs from histograms in two ways.
+First, <span class="math">\(X\)</span> axis values are normalized (to spread between 0 and 1);
+second, they are presented in a cumulative way.
+The histogram that corresponds to a Cumulative Distribution Function
+<span class="math">\((p_1, v_1), \ldots, (p_n, v_n)\)</span>
+is the list of pairs <span class="math">\((x_1, v_1), \ldots, (x_n, v_n)\)</span>,
+with the initial value
+<span class="math">\(x_0 = 0, x_1 = p_1, \text{ and } x_i = p_i - p_{i-1} \text{ for all } i&gt;1\)</span>.</p>
+<p class="last">A Discrete Probability Distribution is a list of pairs
+<span class="math">\((d_1, m_1), \ldots, (d_n, m_n)\)</span>.
+The <span class="math">\(d_i\)</span>&#8216;s are probability densities.
+However, they could be any kind of values.
+The <span class="math">\(m_i\)</span>&#8216;s are midpoints of intervals
+and are such that <span class="math">\(m_1 &lt; m_2 &lt; \ldots &lt; m_n &lt; 1\)</span>.
+The histogram that corresponds to a Discrete Probability Distribution
+<span class="math">\((d_1, m_1), \ldots, (d_n, m_n)\)</span>
+is the list of pairs <span class="math">\((x_1, d_1), \ldots, (x_n, d_n)\)</span>,
+with the initial value
+<span class="math">\(x_0 = 0, x_1 = 2m_1, \text{ and } x_i = x_{i-1} + 2(m_i - x_{i-1})\)</span>.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="id6">
+<h3>5.4.2 XML Representation<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>The RNC schema for the XML representation of random deviates is given</p>
+<div class="literal-block-wrapper docutils container" id="id12">
+<div class="code-block-caption"><span class="caption-number">Listing 5.7 </span><span class="caption-text">The RNC schema for XML representation of random deviates</span><a class="headerlink" href="#id12" title="Permalink to this code">¶</a></div>
+<div class="highlight-rnc"><div class="highlight"><pre><span></span>uniform-deviate <span class="o">=</span> <span class="kd">element</span><span class="nv"> uniform-deviate </span><span class="p">{</span> expression<span class="o">,</span> expression <span class="p">}</span>
+
+normal-deviate <span class="o">=</span> <span class="kd">element</span><span class="nv"> normal-deviate </span><span class="p">{</span> expression<span class="o">,</span> expression <span class="p">}</span>
+
+lognormal-deviate <span class="o">=</span>
+  <span class="kd">element</span><span class="nv"> lognormal-deviate </span><span class="p">{</span> expression<span class="o">,</span> expression<span class="o">,</span> expression<span class="o">?</span> <span class="p">}</span>
+
+gamma-deviate <span class="o">=</span> <span class="kd">element</span><span class="nv"> gamma-deviate </span><span class="p">{</span> expression<span class="o">,</span> expression <span class="p">}</span>
+
+beta-deviate <span class="o">=</span> <span class="kd">element</span><span class="nv"> beta-deviate </span><span class="p">{</span> expression<span class="o">,</span> expression <span class="p">}</span>
+
+histogram <span class="o">=</span> <span class="kd">element</span><span class="nv"> histogram </span><span class="p">{</span> expression<span class="o">,</span> bin+ <span class="p">}</span>
+
+bin <span class="o">=</span> <span class="kd">element</span><span class="nv"> bin </span><span class="p">{</span> expression<span class="o">,</span> expression <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h4>5.4.2.1 Example<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
+<p>Assume that the parameter &#8220;lambda&#8221; of a negative exponential distribution
+is distributed according to a lognormal distribution
+of mean 0.001 and error factor 3 for a confidence level of 95%.
+The parameter &#8220;lambda&#8221; is then defined as follows.</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;define-parameter</span> <span class="na">name=</span><span class="s">&quot;lambda&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;lognormal-deviate&gt;</span>
+        <span class="nt">&lt;float</span> <span class="na">value=</span><span class="s">&quot;0.001&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;float</span> <span class="na">value=</span><span class="s">&quot;3&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;float</span> <span class="na">value=</span><span class="s">&quot;0.95&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/lognormal-deviate&gt;</span>
+<span class="nt">&lt;/define-parameter&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id8">
+<h4>5.4.2.2 Example<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
+<p>Assume that the parameter &#8220;lambda&#8221; has been sampled outside of the model
+and is distributed according to the following histogram.</p>
+<div align="center" class="align-center"><img alt="../_images/lambda_histogram.svg" src="../_images/lambda_histogram.svg" /></div>
+<p>The XML encoding for &#8220;lambda&#8221; is as follows.</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;define-parameter</span> <span class="na">name=</span><span class="s">&quot;lambda&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;histogram&gt;</span>
+        <span class="nt">&lt;float</span> <span class="na">value=</span><span class="s">&quot;100&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;bin&gt;</span> <span class="nt">&lt;float</span> <span class="na">value=</span><span class="s">&quot;170&quot;</span><span class="nt">/&gt;</span> <span class="nt">&lt;float</span> <span class="na">value=</span><span class="s">&quot;0.70e-4&quot;</span><span class="nt">/&gt;</span> <span class="nt">&lt;/bin&gt;</span>
+        <span class="nt">&lt;bin&gt;</span> <span class="nt">&lt;float</span> <span class="na">value=</span><span class="s">&quot;200&quot;</span><span class="nt">/&gt;</span> <span class="nt">&lt;float</span> <span class="na">value=</span><span class="s">&quot;1.10e-4&quot;</span><span class="nt">/&gt;</span> <span class="nt">&lt;/bin&gt;</span>
+        <span class="nt">&lt;bin&gt;</span> <span class="nt">&lt;float</span> <span class="na">value=</span><span class="s">&quot;210&quot;</span><span class="nt">/&gt;</span> <span class="nt">&lt;float</span> <span class="na">value=</span><span class="s">&quot;1.30e-4&quot;</span><span class="nt">/&gt;</span> <span class="nt">&lt;/bin&gt;</span>
+        <span class="nt">&lt;bin&gt;</span> <span class="nt">&lt;float</span> <span class="na">value=</span><span class="s">&quot;230&quot;</span><span class="nt">/&gt;</span> <span class="nt">&lt;float</span> <span class="na">value=</span><span class="s">&quot;1.00e-4&quot;</span><span class="nt">/&gt;</span> <span class="nt">&lt;/bin&gt;</span>
+        <span class="nt">&lt;bin&gt;</span> <span class="nt">&lt;float</span> <span class="na">value=</span><span class="s">&quot;280&quot;</span><span class="nt">/&gt;</span> <span class="nt">&lt;float</span> <span class="na">value=</span><span class="s">&quot;0.50e-4&quot;</span><span class="nt">/&gt;</span> <span class="nt">&lt;/bin&gt;</span>
+    <span class="nt">&lt;/histogram&gt;</span>
+<span class="nt">&lt;/define-parameter&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="directives-to-test-the-status-of-initiating-and-functional-events">
+<span id="test-event"></span><h2>5.5 Directives to Test the Status of Initiating and Functional Events<a class="headerlink" href="#directives-to-test-the-status-of-initiating-and-functional-events" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id9">
+<h3>5.5.1 Description<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p>The Model Exchange Format provides two special directives
+to test whether a given initiating event occurred
+and whether a given functional event is in a given state.
+The meaning of these directives will be further explained in <a class="reference internal" href="event_tree_layer.html#instructions"><span class="std std-numref">Section 7.3</span></a>.</p>
+<p><a class="reference internal" href="#table-test-event"><span class="std std-numref">Table 5.5</span></a> presents these directives and their arguments.</p>
+<table border="1" class="docutils" id="table-test-event">
+<caption><span class="caption-number">Table 5.5 </span><span class="caption-text">Directives to test the status of initiating and functional events</span><a class="headerlink" href="#table-test-event" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="23%" />
+<col width="10%" />
+<col width="67%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Built-in</th>
+<th class="head">#arguments</th>
+<th class="head">Semantics</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>test-initiating-event</strong></td>
+<td>1</td>
+<td>returns true if the initiating event of the given name occurred.</td>
+</tr>
+<tr class="row-odd"><td><strong>test-functional-event</strong></td>
+<td>2</td>
+<td>returns true if the functional event of the given name is in the given state.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id10">
+<h3>5.5.2 XML Representation<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<p>The XML representation for directives to test the status of initiating and functional events
+is given in <a class="reference internal" href="#schema-test-event"><span class="std std-numref">Listing 5.8</span></a>.</p>
+<div class="literal-block-wrapper docutils container" id="schema-test-event">
+<div class="code-block-caption"><span class="caption-number">Listing 5.8 </span><span class="caption-text">The RNC schema for XML representation of directives
+to test the status of initiating and functional events</span><a class="headerlink" href="#schema-test-event" title="Permalink to this code">¶</a></div>
+<div class="highlight-rnc"><div class="highlight"><pre><span></span>test-initiating-event <span class="o">=</span> <span class="kd">element</span><span class="nv"> test-initiating-event </span><span class="p">{</span> name <span class="p">}</span>
+
+test-functional-event <span class="o">=</span>
+  <span class="kd">element</span><span class="nv"> test-functional-event </span><span class="p">{</span>
+    name<span class="o">,</span>
+    <span class="kd">attribute</span><span class="nv"> state </span><span class="p">{</span> Identifier <span class="p">}</span>
+  <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="meta_logical_layer.html" class="btn btn-neutral float-right" title="6 Meta-Logical Layer" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="fault_tree_layer.html" class="btn btn-neutral" title="4 Fault Tree Layer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2007-2017, The Open-PSA Initiative.
+      Last updated on Oct 04, 2017.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.0.d-120-g703be91',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

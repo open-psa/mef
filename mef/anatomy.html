@@ -1,0 +1,570 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3 Anatomy of the Model Exchange Format &mdash; The Open-PSA Model Exchange Format 2.0</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/opsa.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="The Open-PSA Model Exchange Format 2.0" href="../index.html"/>
+        <link rel="next" title="4 Fault Tree Layer" href="fault_tree_layer.html"/>
+        <link rel="prev" title="2 Introduction" href="introduction.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> The Open-PSA Model Exchange Format
+          
+
+          
+            
+            <img src="../_static/full_opsa_logo.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="open_psa_initiative.html">1 The Open-PSA Initiative</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">2 Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3 Anatomy of the Model Exchange Format</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#elements-of-a-model">3.1 Elements of a Model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#variables-terms-and-containers">3.1.1 Variables, Terms and Containers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#stochastic-layer">3.1.2 Stochastic Layer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fault-tree-layer">3.1.3 Fault Tree Layer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#meta-logical-layer">3.1.4 Meta-Logical Layer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#event-tree-layer">3.1.5 Event Tree Layer</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#structure-of-a-model">3.2 Structure of a Model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#relationships-between-elements-of-a-model">3.2.1 Relationships between elements of a model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#giving-more-structure-to-a-model">3.2.2 Giving more structure to a model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#containers-as-name-spaces">3.2.3 Containers as name spaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#definitions-labels-and-attributes">3.2.4 Definitions, Labels, and Attributes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fault_tree_layer.html">4 Fault Tree Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stochastic_layer.html">5 Stochastic Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="meta_logical_layer.html">6 Meta-Logical Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event_tree_layer.html">7 Event Tree Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model_organization.html">8 Organization of a Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="report_layer.html">9 Report Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bibliography.html">10 Bibliography</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">The Open-PSA Model Exchange Format</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>3 Anatomy of the Model Exchange Format</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="anatomy-of-the-model-exchange-format">
+<span id="mef-anatomy"></span><h1>3 Anatomy of the Model Exchange Format<a class="headerlink" href="#anatomy-of-the-model-exchange-format" title="Permalink to this headline">¶</a></h1>
+<p>This chapter presents the anatomy of the Model Exchange Format,
+i.e., the main components of a model and their relationships.
+We assume the reader is familiar with the fault tree/event tree methodology.</p>
+<div class="section" id="elements-of-a-model">
+<h2>3.1 Elements of a Model<a class="headerlink" href="#elements-of-a-model" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="variables-terms-and-containers">
+<h3>3.1.1 Variables, Terms and Containers<a class="headerlink" href="#variables-terms-and-containers" title="Permalink to this headline">¶</a></h3>
+<p>Elements of a model are, as expected, components of fault trees/event trees,
+namely basic events, gates, house events, probability distributions,
+initiating events, safety systems, consequences, etc.
+Conceptually, it is convenient to arrange most of these elements
+into one of the three categories: terms, variables, and containers.</p>
+<dl class="docutils">
+<dt>Variables</dt>
+<dd>Variables are named elements.
+Gates, basic events, house events, stochastic parameters, functional events,
+initiating events, and consequences are all variables.
+A variable is always defined, i.e., associated with a term.</dd>
+<dt>Terms</dt>
+<dd>Terms are built over variables, constants, and operators.
+For instance, the Boolean formula &#8220;primary-motor-failure or no-current-to-motor&#8221;
+is a term built over the basic event &#8220;primary-motor-failure&#8221;,
+the gate &#8220;no-current-to-motor&#8221;, and the Boolean operator &#8220;or&#8221;.
+Similarly, the probability distribution &#8220;1-exp(-lambda*t)&#8221;
+is a term built over the numerical constant &#8220;1&#8221;,
+the failure rate &#8220;lambda&#8221;, the time &#8220;t&#8221;,
+and the three arithmetic operators &#8220;-&#8221;, &#8220;exp&#8221;, and &#8220;*&#8221;
+(&#8220;lambda&#8221; and &#8220;t&#8221; are variables).
+Note that variables are terms.</dd>
+<dt>Containers</dt>
+<dd>According to our terminology,
+a model is nothing but a set of definitions of variables.
+Since a brute list of such definitions would lack of structure,
+the Model Exchange Format makes it possible to group them into containers.
+Containers have names and can be themselves grouped into higher level containers.
+For instance, a fault tree is a container
+for definitions of gates, house-events,
+basic events, and parameters of probability distributions.
+Similarly, an event tree is a container
+for definitions of initiating events, functional events, sequences, etc.</dd>
+</dl>
+<p>We are now ready to list the main elements of a model.
+The exact content and role of these different elements
+will be detailed in the subsequent chapters.</p>
+</div>
+<div class="section" id="stochastic-layer">
+<h3>3.1.2 Stochastic Layer<a class="headerlink" href="#stochastic-layer" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Stochastic variables and terms</dt>
+<dd>Stochastic expressions are terms
+that are used to define probability distributions (associated with basic events).
+Stochastic variables are called parameters.
+For instance, &#8220;1-exp(-lambda*t)&#8221; is a stochastic expression
+built over the two parameters &#8220;lambda&#8221; and &#8220;t&#8221;.</dd>
+</dl>
+<p>From a programming viewpoint,
+it is convenient to group definitions of parameters into (stochastic) containers.
+The stochastic layer is populated with stochastic parameters, expressions, and containers.</p>
+</div>
+<div class="section" id="fault-tree-layer">
+<h3>3.1.3 Fault Tree Layer<a class="headerlink" href="#fault-tree-layer" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Boolean formulae, Basic Events, House Events, and Gates</dt>
+<dd>Boolean formulae, or formulae for short, are terms built over the usual set of
+constants (true, false), connectives (and, or, not, etc.), and Boolean variables,
+i.e., Basic Events, Gates, and House Events.
+Boolean variables are called events,
+for that is what they represent in the sense of the probability theory.
+Basic events are associated with probability distributions,
+i.e., with (stochastic) expressions.
+Gates are defined as Boolean formulae.
+House events are special gates
+that are defined as Boolean constants only.</dd>
+<dt>Fault Trees</dt>
+<dd>According to what precedes, a fault tree is container for
+definitions of parameters, basic events, house events, and gates.</dd>
+</dl>
+<p>The fault tree layer is populated with all elements we have seen so far.</p>
+</div>
+<div class="section" id="meta-logical-layer">
+<h3>3.1.4 Meta-Logical Layer<a class="headerlink" href="#meta-logical-layer" title="Permalink to this headline">¶</a></h3>
+<p>The meta-logical layer contains extra-logical constructs in addition to fault trees.
+These extra-logical constructs are used to handle issues
+that are not easy to handle in a purely declarative and logical way.</p>
+<dl class="docutils">
+<dt>Common Cause Groups</dt>
+<dd>Common cause groups are sets of basic events
+that are not statistically independent.
+Several models can be used to interpret common cause groups.
+All these models consist in splitting each event of the group
+into a disjunction of independent basic events.</dd>
+<dt>Substitutions</dt>
+<dd>Delete terms, exchange events, and recovery rules
+are global and extra-logical constraints
+that are used to describe situations
+such as physical impossibilities, technical specifications,
+or to modify the probability of a scenario
+according to some physical rules or judgments about human actions.
+In the Model Exchange Format, these extra-logical constructs
+are all modeled by means of the generic notion of substitution.</dd>
+</dl>
+</div>
+<div class="section" id="event-tree-layer">
+<h3>3.1.5 Event Tree Layer<a class="headerlink" href="#event-tree-layer" title="Permalink to this headline">¶</a></h3>
+<p>As we shall see, event trees must be seen
+as a (semi-)graphical language to describe and to combine sequences.
+Elements of this language are the following.</p>
+<dl class="docutils">
+<dt>Event Trees</dt>
+<dd>Event Trees define scenarios
+from an Initiating Event (or an Initiating Event Group) to different end-states.
+In the Model Exchange Format, end-states are called Sequences.
+The same event tree can be used for different Initiating Events.
+Along the scenarios, &#8220;flavored&#8221; copies of fault trees are collected
+and/or values are computed.
+Flavors are obtained by changing values of house events and parameters
+while walking along the tree.
+Event Trees are containers according to our terminology.
+They contain definition of functional events and states.</dd>
+<dt>Initiating Events, Initiating Event Groups</dt>
+<dd>Initiating Events describe the starting point of an accidental sequence.
+They are always associated with an event tree,
+although they are in general declared outside of this event tree.
+The Model Exchange Format makes it possible to chain event trees.
+Therefore, the end-state of a sequence of an event tree
+may be the initiating event of another event tree.
+Initiating Events are variables, according to our terminology.
+Initiating event groups are sets of initiating events.
+Despite of their set nature, initiative events are also variables
+because an initiating event group may contain another one
+(the initiating terms are set operations).</dd>
+<dt>Functional Events</dt>
+<dd>Functional Events describe actions
+that are taken to prevent an accident or to mitigate its consequences
+(usually by means of a fault tree).
+Depending on the result of such an action,
+the functional event may be in different, e.g., &#8220;success&#8221; or &#8220;failure&#8221;.
+Functional Events label the columns the graphical representation of Event Trees.</dd>
+<dt>Sequences, Branches</dt>
+<dd>Sequences are end-states of branches of event trees.
+Branches are named intermediate states.</dd>
+<dt>Instructions, Rules</dt>
+<dd>Instructions are used to describe the different paths of an event tree,
+to set the states of functional events,
+to give flavors of fault trees that are collected,
+and to communicate with the calculation engine.
+Rules are (named) groups of Instructions.
+They generalize split-fractions of the event tree linking approach,
+and boundary condition sets of the fault tree linking approach.</dd>
+<dt>Consequences, Consequence groups</dt>
+<dd>Consequences are couples made of an initiating event and a sequence (an event tree end-state).
+Consequences are named and defined.
+They are variables according to our terminology.
+Like Initiating Events, Consequences can be grouped to study a particular type of accident.
+Consequence Groups are also variables (the consequence terms are set operations).</dd>
+<dt>Missions, Phases</dt>
+<dd>In some cases, the mission of the system is split into different phase.
+The Model Exchange Format provides constructs to reflect this situation.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="structure-of-a-model">
+<h2>3.2 Structure of a Model<a class="headerlink" href="#structure-of-a-model" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="relationships-between-elements-of-a-model">
+<h3>3.2.1 Relationships between elements of a model<a class="headerlink" href="#relationships-between-elements-of-a-model" title="Permalink to this headline">¶</a></h3>
+<p>The elements of a model, their layer, and their dependencies
+are pictured in <a class="reference internal" href="#fig-mef-anatomy"><span class="std std-numref">Fig. 3.1</span></a>.
+This schema illustrates the description given in the previous section.
+Term categories are represented by rectangles.
+Variables categories are represented by rounded rectangles.
+A variable category is always included in a term category (for variables are terms).
+The three container categories, namely models, event trees, and fault trees,
+are represented by dashed rectangles.
+Dependencies among categories are represented by arrows.</p>
+<div class="figure align-center" id="fig-mef-anatomy">
+<a class="reference internal image-reference" href="../_images/anatomy.svg"><img alt="../_images/anatomy.svg" src="../_images/anatomy.svg" /></a>
+<p class="caption"><span class="caption-number">Fig. 3.1 </span><span class="caption-text">The main elements of a model, their layers, and their dependencies</span></p>
+</div>
+</div>
+<div class="section" id="giving-more-structure-to-a-model">
+<h3>3.2.2 Giving more structure to a model<a class="headerlink" href="#giving-more-structure-to-a-model" title="Permalink to this headline">¶</a></h3>
+<p>A model (like a fault tree or an event tree) is a list of declarations.
+The Model Exchange Format does not require structuring these declarations:
+they can be given in any order,
+provided that the type of an object can be decided prior to any use of this object.
+Fault trees and event trees provide a first mean to organize models.
+This may be not sufficient, especially when models are big.
+In order to structure models,
+the Model Exchange Format provides the analyst with two mechanisms.</p>
+<p>First, declarations can be grouped together by means of user defined containers.
+Such a container is just a XML tag.
+It has no semantics for the model.
+It just makes it possible to delimit a set of objects of the model
+that are physically or functionally related
+(for instance, the different failure modes of a physical component).</p>
+<p>Second, the Model Exchange Format makes it possible
+to associate user defined attributes to the main components.
+For instance, we may define an attribute &#8220;zone&#8221; with a value &#8220;room33&#8221;
+for all constructs describing components located in the room 33.
+This indirect mean is very powerful.
+It can be used extensively to perform calculations or changes on a particular subset of elements.</p>
+</div>
+<div class="section" id="containers-as-name-spaces">
+<h3>3.2.3 Containers as name spaces<a class="headerlink" href="#containers-as-name-spaces" title="Permalink to this headline">¶</a></h3>
+<p>Once declared, elements are visible and accessible everywhere in the model.
+This visibility means in turn that an object of a given type,
+e.g., parameter or event, is unique.
+No two distinct objects of the same type can have the same name.
+This constraint seems to be fine and coherent.
+However, some tools do not obey the rule:
+two gates of two different fault trees and representing two different functions
+may have the same name.
+It is not possible to reject this possibility (as a bad modeling practice),
+because when models are large and several persons are working in collaboration,
+such name conflicts are virtually impossible to avoid.</p>
+<p>To solve this problem, the Model Exchange Format considers containers,
+i.e., not only fault trees and event trees but also user defined containers, as name spaces.
+By default, objects defined in a container are global,
+but it is possible to declare them as local to the container as well.
+In that case, they are not visible outside the container,
+and tools are in charge of solving potential name conflicts.</p>
+</div>
+<div class="section" id="definitions-labels-and-attributes">
+<span id="definitions-labels-attributes"></span><h3>3.2.4 Definitions, Labels, and Attributes<a class="headerlink" href="#definitions-labels-and-attributes" title="Permalink to this headline">¶</a></h3>
+<p>Here follows some additional useful elements about the Model Exchange Format.</p>
+<dl class="docutils">
+<dt>Definitions versus references</dt>
+<dd><p class="first">For the sake of the clarity (and for XML specific reasons),
+it is important to distinguish the declaration/definition of an element
+from references to that element.
+For instance, we have to distinguish the definition of the gate &#8220;motor-fails-to-start&#8221;
+(as the Boolean formula &#8220;primary-motor-failure or no-current-to-motor&#8221;),
+from references to that gate into definitions of other gates.</p>
+<p>In the Model Exchange Format, the definition of a variable or a container,
+for instance a gate, is in the following form.</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;define-gate</span> <span class="na">name=</span><span class="s">&quot;motor-fails-to-start&quot;</span><span class="nt">&gt;</span>
+    ...
+<span class="nt">&lt;/define-gate&gt;</span>
+</pre></div>
+</div>
+<p>References to that gate are in the following form.</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span>...
+<span class="nt">&lt;gate</span> <span class="na">name=</span><span class="s">&quot;motor-fails-to-start&quot;</span><span class="nt">/&gt;</span>
+...
+</pre></div>
+</div>
+<p class="last">So, there are two tags for each element (variable or container) of the Model Exchange Format:
+the tag &#8220;define-element&#8221; to define this element
+and the tag &#8220;element&#8221; to refer this element.
+Note that the attribute &#8220;name&#8221; is systematically used to name elements.</p>
+</dd>
+<dt>Labels</dt>
+<dd><p class="first">It is often convenient to add a comment to the definition of an object.
+The Model Exchange Format defines a special tag &#8220;label&#8221; to do so.
+The tag label can contain any text.
+It must be inserted as the first child of the definition of the object.</p>
+<div class="last highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;define-gate</span> <span class="na">name=</span><span class="s">&quot;motor-fails-to-start&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label&gt;</span>Warning: secondary motor failures are not taken into account here.<span class="nt">&lt;/label&gt;</span>
+    ...
+<span class="nt">&lt;/define-gate&gt;</span>
+</pre></div>
+</div>
+</dd>
+<dt>Attributes</dt>
+<dd><p class="first">Attributes can be associated with each element
+(variable or container) of the Model Exchange Format.
+An attribute is a pair (name, value),
+where both name and value are normally short strings.
+Values are usually scalars, i.e., they are not interpreted.
+In order to allow tools to interpret values,
+a third field &#8220;type&#8221; can be optionally added to attributes.
+The tags &#8220;attributes&#8221; and &#8220;attribute&#8221; are used to set attributes.
+The former is mandatory, even when only one attribute is defined.
+It must be inserted as the first child of the definition of the object,
+or just after the tag label, if any.</p>
+<div class="last highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;define-gate</span> <span class="na">name=</span><span class="s">&quot;motor-fails-to-start&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label&gt;</span>Warning: secondary motor failures are not taken into account here.<span class="nt">&lt;/label&gt;</span>
+    <span class="nt">&lt;attributes&gt;</span>
+        <span class="nt">&lt;attribute</span> <span class="na">name=</span><span class="s">&quot;zone&quot;</span> <span class="na">value=</span><span class="s">&quot;room33&quot;</span> <span class="nt">/&gt;</span>
+        ...
+    <span class="nt">&lt;/attributes&gt;</span>
+    ...
+<span class="nt">&lt;/define-gate&gt;</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<p>The RNC schema for the XML representation of labels and attributes is as follows.</p>
+<div class="highlight-rnc"><div class="highlight"><pre><span></span>name <span class="o">=</span> <span class="kd">attribute</span><span class="nv"> name </span><span class="p">{</span> Identifier <span class="p">}</span>
+
+label <span class="o">=</span> <span class="kd">element</span><span class="nv"> label </span><span class="p">{</span> <span class="kt">text</span> <span class="p">}</span>
+
+attributes <span class="o">=</span>
+  <span class="kd">element</span><span class="nv"> attributes </span><span class="p">{</span>
+    <span class="kd">element</span><span class="nv"> attribute </span><span class="p">{</span>
+      name<span class="o">,</span>
+      <span class="kd">attribute</span><span class="nv"> value </span><span class="p">{</span> <span class="kt">xsd:string</span> <span class="p">}</span><span class="o">,</span>
+      <span class="kd">attribute</span><span class="nv"> type </span><span class="p">{</span> <span class="kt">xsd:string</span> <span class="p">}</span><span class="o">?</span>
+    <span class="p">}</span>+
+  <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="fault_tree_layer.html" class="btn btn-neutral float-right" title="4 Fault Tree Layer" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduction.html" class="btn btn-neutral" title="2 Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2007-2017, The Open-PSA Initiative.
+      Last updated on Oct 04, 2017.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.0.d-120-g703be91',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

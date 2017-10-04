@@ -1,0 +1,479 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>9 Report Layer &mdash; The Open-PSA Model Exchange Format 2.0</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/opsa.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="The Open-PSA Model Exchange Format 2.0" href="../index.html"/>
+        <link rel="next" title="10 Bibliography" href="bibliography.html"/>
+        <link rel="prev" title="8 Organization of a Model" href="model_organization.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> The Open-PSA Model Exchange Format
+          
+
+          
+            
+            <img src="../_static/full_opsa_logo.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="open_psa_initiative.html">1 The Open-PSA Initiative</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">2 Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="anatomy.html">3 Anatomy of the Model Exchange Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fault_tree_layer.html">4 Fault Tree Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stochastic_layer.html">5 Stochastic Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="meta_logical_layer.html">6 Meta-Logical Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event_tree_layer.html">7 Event Tree Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model_organization.html">8 Organization of a Model</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">9 Report Layer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#preliminary-discussion">9.1 Preliminary Discussion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#information-about-calculations">9.2 Information about calculations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#format-of-results">9.3 Format of Results</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#minimal-cut-sets">9.3.1 Minimal Cut Sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#statistical-measures">9.3.2 Statistical measures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#curves">9.3.3 Curves</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bibliography.html">10 Bibliography</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">The Open-PSA Model Exchange Format</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>9 Report Layer</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="report-layer">
+<span id="id1"></span><h1>9 Report Layer<a class="headerlink" href="#report-layer" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="preliminary-discussion">
+<h2>9.1 Preliminary Discussion<a class="headerlink" href="#preliminary-discussion" title="Permalink to this headline">¶</a></h2>
+<p>The report layer is populated with constructs to save results of calculations.
+These constructs fall into two categories:</p>
+<ul class="simple">
+<li>Constructs to tell which software, algorithm(s), and option(s) were used to produce the results</li>
+<li>The results themselves</li>
+</ul>
+<p>It is almost impossible and probably not even desirable to normalize fully the report layer.
+Tools are very different from one another and produce a wide variety of results.
+New calculation methods are regularly proposed.
+To normalize everything would lead to a huge and anyway incomplete format.
+Moreover, the way results are arranged into reports depends on the study.
+It is also, at least to some extent, a matter of taste.</p>
+<p>If the Model Exchange Format cannot give a formal structure for the report layer,
+it can at least suggest a style to describe
+what has been calculated and how it has been calculated.
+It can also provide a check-list
+of what should be included as information
+to make results truly exportable and importable.
+The existence of such report style
+would be very useful for reporting tools (whether they are graphical or textual):
+it would be much easier for these tools to extract the information
+they need from the XML result files.</p>
+</div>
+<div class="section" id="information-about-calculations">
+<h2>9.2 Information about calculations<a class="headerlink" href="#information-about-calculations" title="Permalink to this headline">¶</a></h2>
+<p>Here follows a non-exhaustive list of information
+about how the results have been obtained that can be relevant
+and other special or unique features of the model.</p>
+<ul>
+<li><p class="first">Software</p>
+<blockquote>
+<div><ul class="simple">
+<li>Version</li>
+<li>Contact organization (editor, vendor, etc.)</li>
+<li>...</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Calculated quantities</p>
+<blockquote>
+<div><ul class="simple">
+<li>Name</li>
+<li>Mathematical definition</li>
+<li>Approximations used</li>
+<li>...</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Calculation method(s)</p>
+<blockquote>
+<div><ul class="simple">
+<li>Name</li>
+<li>Limits (e.g., number of basic events, of sequences, of cut sets)</li>
+<li>Preprocessing techniques (modularization, rewritings, etc.)</li>
+<li>Handling of success terms</li>
+<li>Cutoffs, if any (absolute, relative, dynamic, etc.)</li>
+<li>Are delete terms, recovery rules or exchange events applied?</li>
+<li>Extra-logical methods used</li>
+<li>Secondary software necessary</li>
+<li>Warning and caveats</li>
+<li>Calculation time</li>
+<li>...</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Features of the model</p>
+<blockquote>
+<div><ul class="simple">
+<li>Name</li>
+<li>Number of: gates, basic events, house events, fault trees, event
+trees, functional events, initiating events</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Feedback</p>
+<blockquote>
+<div><ul class="simple">
+<li>Success or failure reports</li>
+<li>...</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="format-of-results">
+<h2>9.3 Format of Results<a class="headerlink" href="#format-of-results" title="Permalink to this headline">¶</a></h2>
+<p>PSA tools produce many kinds of results.
+Some are common to most of the tools,
+e.g., probability/frequency of some group of consequences, importance factors, sensitivity analyses.
+They fall into different categories.
+The following three categories are so frequent
+that is it worth to normalize the way they are stored into XML files.</p>
+<ul class="simple">
+<li>Minimal cut sets (and prime implicants)</li>
+<li>Statistical measures (with moments)</li>
+<li>Curves</li>
+</ul>
+<div class="section" id="minimal-cut-sets">
+<h3>9.3.1 Minimal Cut Sets<a class="headerlink" href="#minimal-cut-sets" title="Permalink to this headline">¶</a></h3>
+<p>A first (and good) way to encode minimal cut sets
+consists in using the representation of formulae defined by the Model Exchange Format.
+However, it is often convenient to attach some information to each product,
+which is not possible with the formulae of the Model Exchange Format.
+An alternative XML representation for sums of products
+(sets of minimal cut sets are a specific type of sums of products)
+is given in <a class="reference internal" href="#schema-sum-of-products"><span class="std std-numref">Listing 9.1</span></a>.
+More attributes can be added to tags &#8220;sum-of-products&#8221; and &#8220;product&#8221;
+to carry the relevant information.</p>
+<div class="literal-block-wrapper docutils container" id="schema-sum-of-products">
+<div class="code-block-caption"><span class="caption-number">Listing 9.1 </span><span class="caption-text">The RNC schema for the XML representation of sums-of-products</span><a class="headerlink" href="#schema-sum-of-products" title="Permalink to this code">¶</a></div>
+<div class="highlight-rnc"><div class="highlight"><pre><span></span>sum-of-products <span class="o">=</span>
+  <span class="kd">element</span><span class="nv"> sum-of-products </span><span class="p">{</span>
+    name<span class="o">?,</span>
+    <span class="kd">attribute</span><span class="nv"> description </span><span class="p">{</span> <span class="kt">text</span> <span class="p">}</span><span class="o">?,</span>
+    <span class="kd">attribute</span><span class="nv"> basic-events </span><span class="p">{</span> <span class="kt">xsd:nonNegativeInteger</span> <span class="p">}</span><span class="o">?,</span>
+    <span class="kd">attribute</span><span class="nv"> products </span><span class="p">{</span> <span class="kt">xsd:nonNegativeInteger</span> <span class="p">}</span><span class="o">?,</span>
+    product<span class="o">*</span>
+  <span class="p">}</span>
+
+product <span class="o">=</span>
+  <span class="kd">element</span><span class="nv"> product </span><span class="p">{</span>
+    <span class="kd">attribute</span><span class="nv"> order </span><span class="p">{</span> <span class="kt">xsd:positiveInteger</span> <span class="p">}</span><span class="o">?,</span>
+    literal<span class="o">*</span>
+  <span class="p">}</span>
+
+literal <span class="o">=</span>
+  <span class="kd">element</span><span class="nv"> basic-event </span><span class="p">{</span> name <span class="p">}</span>
+  <span class="o">|</span> <span class="kd">element</span><span class="nv"> not </span><span class="p">{</span> <span class="kd">element</span><span class="nv"> basic-event </span><span class="p">{</span> name <span class="p">}</span> <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="statistical-measures">
+<h3>9.3.2 Statistical measures<a class="headerlink" href="#statistical-measures" title="Permalink to this headline">¶</a></h3>
+<p>Statistical measures are typically produced by sensitivity analyses.
+They are the result, in general, of Monte-Carlo simulations on the values of some parameter.
+Such a measure can come with
+moments (mean, standard deviation), confidence ranges, error factors, quantiles, etc.
+The XML representation for statistical measure is given in <a class="reference internal" href="#schema-statistical-measure"><span class="std std-numref">Listing 9.2</span></a>.</p>
+<div class="literal-block-wrapper docutils container" id="schema-statistical-measure">
+<div class="code-block-caption"><span class="caption-number">Listing 9.2 </span><span class="caption-text">The RNC schema for the XML representation of statistical measures</span><a class="headerlink" href="#schema-statistical-measure" title="Permalink to this code">¶</a></div>
+<div class="highlight-rnc"><div class="highlight"><pre><span></span>statistical-measure <span class="o">=</span>
+  <span class="kd">element</span><span class="nv"> measure </span><span class="p">{</span>
+    name<span class="o">?,</span>
+    <span class="kd">attribute</span><span class="nv"> description </span><span class="p">{</span> <span class="kt">text</span> <span class="p">}</span><span class="o">?,</span>
+    <span class="kd">element</span><span class="nv"> mean </span><span class="p">{</span>
+      <span class="kd">attribute</span><span class="nv"> value </span><span class="p">{</span> <span class="kt">xsd:double</span> <span class="p">}</span>
+    <span class="p">}</span><span class="o">?,</span>
+    <span class="kd">element</span><span class="nv"> standard-deviation </span><span class="p">{</span>
+      <span class="kd">attribute</span><span class="nv"> value </span><span class="p">{</span> <span class="kt">xsd:double</span> <span class="p">}</span>
+    <span class="p">}</span><span class="o">?,</span>
+    <span class="kd">element</span><span class="nv"> confidence-range </span><span class="p">{</span>
+      <span class="kd">attribute</span><span class="nv"> percentage </span><span class="p">{</span>
+        <span class="kt">xsd:double</span> <span class="p">{</span> <span class="na">minExclusive</span> <span class="o">=</span> <span class="na">&quot;0&quot;</span> <span class="na">maxExclusive</span> <span class="o">=</span> <span class="na">&quot;100&quot;</span> <span class="p">}</span>
+      <span class="p">}</span><span class="o">,</span>
+      <span class="kd">attribute</span><span class="nv"> lower-bound </span><span class="p">{</span> <span class="kt">xsd:double</span> <span class="p">}</span><span class="o">,</span>
+      <span class="kd">attribute</span><span class="nv"> upper-bound </span><span class="p">{</span> <span class="kt">xsd:double</span> <span class="p">}</span>
+    <span class="p">}</span><span class="o">?,</span>
+    <span class="kd">element</span><span class="nv"> error-factor </span><span class="p">{</span>
+      <span class="kd">attribute</span><span class="nv"> percentage </span><span class="p">{</span>
+        <span class="kt">xsd:double</span> <span class="p">{</span> <span class="na">minExclusive</span> <span class="o">=</span> <span class="na">&quot;0&quot;</span> <span class="na">maxExclusive</span> <span class="o">=</span> <span class="na">&quot;100&quot;</span> <span class="p">}</span>
+      <span class="p">}</span><span class="o">,</span>
+      <span class="kd">attribute</span><span class="nv"> value </span><span class="p">{</span>
+        <span class="kt">xsd:double</span> <span class="p">{</span> <span class="na">minExclusive</span> <span class="o">=</span> <span class="na">&quot;0&quot;</span> <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span><span class="o">?,</span>
+    quantiles<span class="o">?,</span>
+  <span class="p">}</span>
+
+quantiles <span class="o">=</span>
+  <span class="kd">element</span><span class="nv"> quantiles </span><span class="p">{</span>
+    <span class="kd">attribute</span><span class="nv"> number </span><span class="p">{</span> <span class="kt">xsd:positiveInteger</span> <span class="p">}</span><span class="o">,</span>
+    quantile+
+  <span class="p">}</span>
+
+quantile <span class="o">=</span> <span class="kd">element</span><span class="nv"> quantile </span><span class="p">{</span> bin-data <span class="p">}</span>
+
+bin-data <span class="o">=</span>
+  <span class="kd">attribute</span><span class="nv"> number </span><span class="p">{</span> <span class="kt">xsd:positiveInteger</span> <span class="p">}</span><span class="o">,</span>
+  <span class="kd">attribute</span><span class="nv"> mean </span><span class="p">{</span> <span class="kt">xsd:double</span> <span class="p">}</span><span class="o">?,</span>
+  <span class="kd">attribute</span><span class="nv"> lower-bound </span><span class="p">{</span> <span class="kt">xsd:double</span> <span class="p">}</span><span class="o">?,</span>
+  <span class="kd">attribute</span><span class="nv"> upper-bound </span><span class="p">{</span> <span class="kt">xsd:double</span> <span class="p">}</span><span class="o">?</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="curves">
+<h3>9.3.3 Curves<a class="headerlink" href="#curves" title="Permalink to this headline">¶</a></h3>
+<p>Two or three dimensional curves are often produced in PSA studies.
+A typical example is indeed
+to study the evolution of the system unavailability through the time.
+The XML representation of curves suggested by the Model Exchange Format
+is given in <a class="reference internal" href="#schema-curves"><span class="std std-numref">Listing 9.3</span></a>.</p>
+<div class="literal-block-wrapper docutils container" id="schema-curves">
+<div class="code-block-caption"><span class="caption-number">Listing 9.3 </span><span class="caption-text">The RNC schema the XML representation of curves</span><a class="headerlink" href="#schema-curves" title="Permalink to this code">¶</a></div>
+<div class="highlight-rnc"><div class="highlight"><pre><span></span>curve <span class="o">=</span>
+  <span class="kd">element</span><span class="nv"> curve </span><span class="p">{</span>
+    <span class="kd">attribute</span><span class="nv"> name </span><span class="p">{</span> <span class="kt">xsd:NCName</span> <span class="p">}</span><span class="o">?,</span>
+    <span class="kd">attribute</span><span class="nv"> description </span><span class="p">{</span> <span class="kt">text</span> <span class="p">}</span><span class="o">?,</span>
+    <span class="p">(</span><span class="kd">attribute</span><span class="nv"> X-title </span><span class="p">{</span> <span class="kt">xsd:string</span> <span class="p">}</span><span class="o">,</span>
+     <span class="kd">attribute</span><span class="nv"> Y-title </span><span class="p">{</span> <span class="kt">xsd:string</span> <span class="p">}</span><span class="o">,</span>
+     <span class="kd">attribute</span><span class="nv"> Z-title </span><span class="p">{</span> <span class="kt">xsd:string</span> <span class="p">}</span><span class="o">?</span><span class="p">)</span><span class="o">?,</span>
+    <span class="p">(</span><span class="kd">attribute</span><span class="nv"> X-unit </span><span class="p">{</span> unit <span class="p">}</span><span class="o">,</span>
+     <span class="kd">attribute</span><span class="nv"> Y-unit </span><span class="p">{</span> unit <span class="p">}</span><span class="o">,</span>
+     <span class="kd">attribute</span><span class="nv"> Z-unit </span><span class="p">{</span> unit <span class="p">}</span><span class="o">?</span><span class="p">)</span><span class="o">?,</span>
+    <span class="kd">element</span><span class="nv"> point </span><span class="p">{</span>
+      <span class="kd">attribute</span><span class="nv"> X </span><span class="p">{</span> <span class="kt">xsd:double</span> <span class="p">}</span><span class="o">,</span>
+      <span class="kd">attribute</span><span class="nv"> Y </span><span class="p">{</span> <span class="kt">xsd:double</span> <span class="p">}</span><span class="o">,</span>
+      <span class="kd">attribute</span><span class="nv"> Z </span><span class="p">{</span> <span class="kt">xsd:double</span> <span class="p">}</span><span class="o">?</span>
+    <span class="p">}</span><span class="o">*</span>
+  <span class="p">}</span>
+
+unit <span class="o">=</span> <span class="s2">&quot;seconds&quot;</span> <span class="o">|</span> <span class="s2">&quot;hours&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="bibliography.html" class="btn btn-neutral float-right" title="10 Bibliography" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="model_organization.html" class="btn btn-neutral" title="8 Organization of a Model" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2007-2017, The Open-PSA Initiative.
+      Last updated on Oct 04, 2017.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.0.d-120-g703be91',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

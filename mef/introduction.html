@@ -1,0 +1,517 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2 Introduction &mdash; The Open-PSA Model Exchange Format 2.0</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/opsa.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="The Open-PSA Model Exchange Format 2.0" href="../index.html"/>
+        <link rel="next" title="3 Anatomy of the Model Exchange Format" href="anatomy.html"/>
+        <link rel="prev" title="1 The Open-PSA Initiative" href="open_psa_initiative.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> The Open-PSA Model Exchange Format
+          
+
+          
+            
+            <img src="../_static/full_opsa_logo.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="open_psa_initiative.html">1 The Open-PSA Initiative</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2 Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#why-do-we-need-a-model-exchange-format">2.1 Why Do We Need a Model Exchange Format?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#requirements-for-the-model-exchange-format">2.2 Requirements for the Model Exchange Format</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#choice-of-xml">2.3 Choice of XML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#a-four-plus-one-layer-architecture">2.4 A Four-Plus-One Layer Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#formalism">2.5 Formalism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#organization-of-the-document">2.6 Organization of the document</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="anatomy.html">3 Anatomy of the Model Exchange Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fault_tree_layer.html">4 Fault Tree Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stochastic_layer.html">5 Stochastic Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="meta_logical_layer.html">6 Meta-Logical Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event_tree_layer.html">7 Event Tree Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model_organization.html">8 Organization of a Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="report_layer.html">9 Report Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bibliography.html">10 Bibliography</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">The Open-PSA Model Exchange Format</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>2 Introduction</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction">
+<h1>2 Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="why-do-we-need-a-model-exchange-format">
+<h2>2.1 Why Do We Need a Model Exchange Format?<a class="headerlink" href="#why-do-we-need-a-model-exchange-format" title="Permalink to this headline">¶</a></h2>
+<p>Over the years, research efforts have been made in the direction of
+&#8220;next generation&#8221; PSA software and &#8220;declarative modeling&#8221;,
+which try to present a more informative view of the actual systems, components, and interactions
+which the model represents.
+The concern of these studies has been to end the use of approximations:
+numerical approximations for which we do not know the error factors,
+and modeling approximations which leave out perhaps critical elements
+of the actual system under study.
+From all these investigations,
+some issues related to large nuclear PSA models have been raised,
+which need to be addressed
+before putting new calculation engines or next generation user interfaces into place.
+To address these issues enumerated below,
+a &#8220;Model Exchange Format&#8221;, a representation which is independent of all PSA software,
+must be in place.
+In this perspective, software would retain their own internal representation for a model;
+moreover, each software would also be able to share models and industry data
+by means of the Model Exchange Format.</p>
+<dl class="docutils">
+<dt>Quality assurance of calculations</dt>
+<dd>At the moment, a model built with one software,
+cannot be simply quantified with another software, and visa versa;
+there are too many software-dependent features
+used by modelers to make inter-calculation comparisons a one-step process.
+The Model Exchange Format will allow models to be quantified by several calculation engines,
+resulting in stronger quality assurance.</dd>
+<dt>Over reliance on numerical approximations and truncation</dt>
+<dd>While this cannot be solved directly by the Model Exchange Format,
+as new calculation engines are completed,
+the Model Exchange Format will allow new engines
+to be snapped into new (or existing) user interfaces
+without changing the model or user interface software.</dd>
+<dt>Portability of the models between different software</dt>
+<dd>At the moment, models are essentially non-portable between calculation engines,
+as pointed out above.
+The Model Exchange Format allows complete, whole models
+to be shared right now between software;
+the bonus will be on each software to correctly interpret the model representation.</dd>
+<dt>Clarity of the models</dt>
+<dd>For one who examined a number of large nuclear PRA models, it is obvious
+that just looking at the basic events, gates, and fault trees/event trees
+is of little help in understanding the &#8220;where&#8221;, &#8220;why&#8221;, and &#8220;how&#8221; of model elements:
+common cause failures, initiating events, sequence information, alignment information,
+systems and trains, flags, logic of recovery rules, or the dreaded &#8220;delete terms&#8221;.
+The Model Exchange Format employs what is becoming known as structured modeling.
+Structured Modeling takes its name from the structured programming movement in the 1970s.
+Before that time, variables, arrays, and other data structures,
+were used with no definitions or explanations.
+Structured programming techniques forced programmers
+to &#8220;declare variables&#8221; at the beginning of a program by name
+and also by the type of variable it was:
+an integer, a real number, and so on.
+In this way the meaning of the program became clearer,
+and calculation speeds were increased.
+Structured Modeling, as applied to PRA models and software,
+has the same goal of making the meaning of the model
+more clear, more transparent, and to improve the speed and accuracy of the calculation.
+The user interface to create such a model is not of concern here.
+The concern is to discover the distinct model elements
+which are needed to quantify and clarify large PRA models.</dd>
+<dt>Completeness of the models</dt>
+<dd>Without clarity, there can be no knowledge of the completeness of the model,
+since their very size and complexity strains the brain.
+The Model Exchange Format will create more survey-able models.</dd>
+<dt>Difficulty of different software working with the same PSA model</dt>
+<dd>As more risk applications are being requested
+(seismic, fire, balance of plant assessments, risk monitors, release calculations),
+difficulties are arising
+because each risk application and major PSA software have different internal data formats.
+The Model Exchange Format will enable easy sharing of model data between applications,
+and specialized software would be available for all models.</dd>
+<dt>Lack of data and software backward and forward compatibility</dt>
+<dd>Again, as more diverse software need to interact,
+such as safety monitors, calculation engines, and fault tree editors,
+the need to have data and programs separate becomes of high importance.
+The Model Exchange Format solves this problem by allowing programs to change
+without the need for the data format to change
+and for other programs to change their operations.</dd>
+<dt>No universal format for industry data</dt>
+<dd>The Model Exchange Format will be a perfect way to publish industry data,
+such as common cause, failure rates, incidents, and initiating event frequencies.</dd>
+</dl>
+</div>
+<div class="section" id="requirements-for-the-model-exchange-format">
+<h2>2.2 Requirements for the Model Exchange Format<a class="headerlink" href="#requirements-for-the-model-exchange-format" title="Permalink to this headline">¶</a></h2>
+<p>To be acceptable and widely accepted,
+the Model Exchange Format for PSA must fulfill a number of requirements.
+The following list is an attempt to summarize these requirements.</p>
+<dl class="docutils">
+<dt>Soundness</dt>
+<dd>The Model Exchange Format must be unambiguous.
+The semantics of each construct must be clearly given in such way
+that no two correct implementations of the Model Exchange Format
+can differ in their interpretation of models
+(however, they may differ at least to a certain extent, in the results
+they provide if they use different calculation methods).</dd>
+<dt>Completeness</dt>
+<dd>The Model Exchange Format should cover as much as possible;
+not only all aspects of PSA models,
+but also references to external documentations and format of the results.
+These issues have to be covered by the Model Exchange Format
+in order to make models actually portable
+and to be able to cross check calculations.</dd>
+<dt>Clarity</dt>
+<dd>The Model Exchange Format should be self-documenting to a large extent.
+The constructs of the Model Exchange Format should reflect
+what the designer of the model has in mind.
+Low level constructs would help in making the format universal
+(any model can eventually be represented by means of a FORTRAN or C program,
+not to speak of a Turing machine or a Church lambda term),
+but constructs which are at too low a level would be of little help,
+and even counter-productive, for model review.</dd>
+<dt>Generality</dt>
+<dd>It should be possible to cast all the existing models
+into the Model Exchange Format without rewriting them from scratch.
+The translation of existing models should be automated,
+at least to a large extent.
+Moreover, any existing tool should be able to use the Model Exchange Format
+as its representation language.
+Indeed, most of the tools implement only a subpart of the Model Exchange Format,
+but the Model Exchange Format should be a superset of the underlying formalisms
+of all existing tools.</dd>
+<dt>Extensibility</dt>
+<dd>The Model Exchange Format should not restrict developers
+if they wish to introduce interesting new features in their tools.
+This means that it should be easy to introduce new constructs into the Model Exchange Format,
+even if these constructs are not recognized by all tools.
+On the other hand, these new constructs should be clearly identified;
+their semantics should be clear and public
+in such way that any other developer can embed the feature in his own tool.</dd>
+</dl>
+</div>
+<div class="section" id="choice-of-xml">
+<h2>2.3 Choice of XML<a class="headerlink" href="#choice-of-xml" title="Permalink to this headline">¶</a></h2>
+<p>To create the Model Exchange Format,
+we must make formal definitions for representing existing PRA models
+and define a syntax to write them.
+The Model Exchange Format is defined as an XML document type.
+XML is widely used on the Internet as a common way for programs to share data.
+It is well structured and makes it possible to give explicit name to each construct.
+XML, therefore, is well suited for structured modeling.
+By giving the elements of a model a formal designation
+(&#8220;this is an initiating event&#8221;, &#8220;this is a basic event&#8221;, and so on),
+quantification results and understanding of the model can be improved.</p>
+<p>XML presents another major advantage for tool developers:
+many development teams have more or less already designed its own XML parser
+and many such parsers are anyway freely available on the Internet.
+Therefore, the choice of an XML based syntax discharges programmers of PSA tools
+of the tedious task to design parsers and to perform syntactic checks.
+Moreover, due to their tree-like structure,
+it is easy to ignore parts of an XML description
+that are not relevant for a particular purpose.
+Therefore, tools which do not implement the whole Model Exchange Format
+can easily pick up what they are able to deal with.</p>
+</div>
+<div class="section" id="a-four-plus-one-layer-architecture">
+<h2>2.4 A Four-Plus-One Layer Architecture<a class="headerlink" href="#a-four-plus-one-layer-architecture" title="Permalink to this headline">¶</a></h2>
+<p>The Model Exchange Format relies on a four-plus-one layer architecture,
+as pictured in <a class="reference internal" href="#fig-mef-arch"><span class="std std-numref">Fig. 2.1</span></a>.
+Each layer corresponds to a specific class of objects/mathematical constructs.</p>
+<div class="figure align-center" id="fig-mef-arch">
+<img alt="../_images/architecture.svg" src="../_images/architecture.svg" /><p class="caption"><span class="caption-number">Fig. 2.1 </span><span class="caption-text">Architecture of the Model Exchange Format</span></p>
+</div>
+<ul class="simple">
+<li>The first, or stochastic, layer is populated with all stochastic aspects of models:
+probability distributions for the failure rates of basic events,
+parameters of these distributions and distributions of these parameters, flags, etc.</li>
+<li>The second, or fault tree layer, is populated with logical components of fault trees
+(gates, basic events, house events).
+This layer is the core of PSA models.
+The two first layers can be used in isolation.
+Some existing tools implement them only.</li>
+<li>The third, or meta-logical, layer is populated with constructs
+like common cause groups, delete terms, and recovery rules
+that are used to give flavors to fault trees.</li>
+<li>The fourth, or event tree, layer is populated with event trees,
+initiating events, and consequences.
+The Model Exchange Format sees event trees as (graphical) programs.
+The execution of such a program produces a set of sequences,
+i.e., a set (a disjunction) of Boolean formulae.
+Probability distributions are also collected while walking the event tree.</li>
+<li>The fifth, or report layer, is populated with constructs to store results of calculations.
+This includes constructs to describe calculations
+(version of the model, used engine, used cutoffs,
+targeted group of consequences, calculated quantities, etc.)
+as well as minimal cut sets and other results.</li>
+</ul>
+<p>This five-layer architecture helps to understand
+what the different elements of a model are
+and what their respective roles are.
+In a word, it is the backbone of the Model Exchange Format.
+However, it should be clear
+that any model will contain elements of the first fourth levels
+and that these elements may not be arranged by levels.
+For instance, a fault tree description will probably contain
+probability distributions of basic events as well as common cause groups.
+Again, the five-layer architecture intends to differentiate elements
+according to their meanings and operational behaviors.</p>
+</div>
+<div class="section" id="formalism">
+<h2>2.5 Formalism<a class="headerlink" href="#formalism" title="Permalink to this headline">¶</a></h2>
+<p>Throughout this document, we shall present a number of syntactic constructions,
+such as Boolean formulae, probability distributions, and so on.
+These constructions will eventually be represented by means of XML terms.
+However, XML is a bit too verbose
+to make clear the underlying mathematical nature of objects at hand.
+Therefore, we shall use an XML schema language to define constructs.</p>
+<p>There are several formal ways to describe an XML grammar.
+The most popular approach is to use one of XML schema languages,
+such as the XML Document Type Definition (DTD), XML Schema Definition (XSD),
+RELAX NG (REgular LAnguage for XML Next Generation), Schematron.
+The Model Exchange Format used to use the DTD for its formal schema;
+however, mainly due to the DTD&#8217;s lack of maintainability, age,
+and limitations (a lack of context awareness),
+<a class="reference external" href="http://relaxng.org/compact-20021121.html">RELAX NG Compact</a> (RNC) has been chosen as a modern replacement.
+The RNC has a non-XML syntax and leverages regular expression operators
+(similar to the DTD and Extended Backus Naur Form)
+and is structured in a very concise and human-readable form,
+and unlike the DTD, the RNC is feature-rich enough to support the MEF grammar.
+Even though the RNC language is very self-descriptive,
+please consult with <a class="reference external" href="http://relaxng.org/compact-tutorial-20030326.html">RELAX NG Compact Tutorial</a> and the specification
+to gain familiarity.
+In addition to the schema,
+we shall present the grammar of the Model Exchange Format by means of examples.</p>
+<p>The RNC schemas describing the Model Exchange Format
+can be combined into the main schema for validation purposes.
+The MEF XML schemas in various other formats
+are provided at <a class="reference external" href="https://github.com/open-psa/schemas">the MEF schemas repository</a>.
+These schemas are auto-generated from the RNC schema in this specification.</p>
+<p>It is worth noting that the XML descriptions we are giving here
+can be extended in any way to fulfill the needs of a particular tool.
+In particular, comments and pointers to documentation
+should be added here and there to the model.</p>
+</div>
+<div class="section" id="organization-of-the-document">
+<h2>2.6 Organization of the document<a class="headerlink" href="#organization-of-the-document" title="Permalink to this headline">¶</a></h2>
+<p>The remainder of this document is organized into six chapters,
+corresponding to the introductory overview,
+one chapter per layer of the architecture of the Model Exchange Format
+and one additional chapter for models as a whole.</p>
+<ul class="simple">
+<li><a class="reference internal" href="anatomy.html#mef-anatomy"><span class="std std-numref">Chapter 3</span></a> gives an overview of main elements of a model
+and shows how these elements are organized.
+It discusses how to split a description into several files,
+how to solve naming conflicts, etc.</li>
+<li><a class="reference internal" href="fault_tree_layer.html#fault-tree-layer"><span class="std std-numref">Chapter 4</span></a> presents the fault tree layer.
+The fault tree layer is not the lowest one in the hierarchy.
+However, fault trees are the most basic and the central concept of PSA models.
+For this reason, we put it in front.</li>
+<li><a class="reference internal" href="stochastic_layer.html#stochastic-layer"><span class="std std-numref">Chapter 5</span></a> presents the stochastic layer,
+i.e., all the mechanisms to associate probability distributions to basic events.</li>
+<li><a class="reference internal" href="meta_logical_layer.html#meta-logical-layer"><span class="std std-numref">Chapter 6</span></a> presents the meta-logical layer.</li>
+<li><a class="reference internal" href="event_tree_layer.html#event-tree-layer"><span class="std std-numref">Chapter 7</span></a> presents the event tree layer.</li>
+<li><a class="reference internal" href="model_organization.html#model-organization"><span class="std std-numref">Chapter 8</span></a> discusses the organization of models.</li>
+<li>Finally, <a class="reference internal" href="report_layer.html#report-layer"><span class="std std-numref">Chapter 9</span></a> presents the report/results layer,
+i.e., the normalized format for results of assessment of PSA models.</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="anatomy.html" class="btn btn-neutral float-right" title="3 Anatomy of the Model Exchange Format" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="open_psa_initiative.html" class="btn btn-neutral" title="1 The Open-PSA Initiative" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2007-2017, The Open-PSA Initiative.
+      Last updated on Oct 04, 2017.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.0.d-120-g703be91',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

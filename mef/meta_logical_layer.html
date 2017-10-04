@@ -1,0 +1,679 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>6 Meta-Logical Layer &mdash; The Open-PSA Model Exchange Format 2.0</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/opsa.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="The Open-PSA Model Exchange Format 2.0" href="../index.html"/>
+        <link rel="next" title="7 Event Tree Layer" href="event_tree_layer.html"/>
+        <link rel="prev" title="5 Stochastic Layer" href="stochastic_layer.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> The Open-PSA Model Exchange Format
+          
+
+          
+            
+            <img src="../_static/full_opsa_logo.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="open_psa_initiative.html">1 The Open-PSA Initiative</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">2 Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="anatomy.html">3 Anatomy of the Model Exchange Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fault_tree_layer.html">4 Fault Tree Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stochastic_layer.html">5 Stochastic Layer</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">6 Meta-Logical Layer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#common-cause-groups">6.1 Common Cause Groups</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#description">6.1.1 Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#xml-representation">6.1.2 XML representation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#example">6.1.2.1 Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#delete-terms-recovery-rules-and-exchange-events">6.2 Delete Terms, Recovery Rules, and Exchange Events</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">6.2.1 Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#all-extra-logical-constructs-in-one-the-notion-of-substitution">6.2.2 All Extra-Logical Constructs in One: the Notion of Substitution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">6.2.3 XML Representation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">6.2.3.1 Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">6.2.3.2 Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">6.2.3.3 Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="event_tree_layer.html">7 Event Tree Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model_organization.html">8 Organization of a Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="report_layer.html">9 Report Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bibliography.html">10 Bibliography</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">The Open-PSA Model Exchange Format</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>6 Meta-Logical Layer</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="meta-logical-layer">
+<span id="id1"></span><h1>6 Meta-Logical Layer<a class="headerlink" href="#meta-logical-layer" title="Permalink to this headline">¶</a></h1>
+<p>The meta-logical layer is populated with constructs
+like common cause groups, delete terms, recovery rules,
+and exchange events that are used to give flavors to fault trees.
+This chapter reviews all these constructs.</p>
+<div class="section" id="common-cause-groups">
+<h2>6.1 Common Cause Groups<a class="headerlink" href="#common-cause-groups" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="description">
+<h3>6.1.1 Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h3>
+<p>From a theoretical view point,
+one of the basic assumptions of the fault tree technique
+is that occurrences of basic events are independent from a statistical viewpoint.
+However, most of the PSA models include, to a large extent, so-called common cause groups.
+Common cause groups are groups of basic events
+whose failure are not independent from a statistical view point.
+They may occur either independently or dependently due to a common cause failure.
+So far, existing tools embed three models for common cause failures (CCF):
+the beta-factor model, the Multiple Greek letters (MGL) model, and the alpha-factor model.
+Alpha-factor and MGL models differ only in the way
+the factors for each level (2 components fail, 3 components fail, etc.) are given.
+The Model Exchange Format proposes the three mentioned models plus a fourth one,
+so-called phi-factor, which is a more direct way to set factors.</p>
+<dl class="docutils">
+<dt>Beta-Factor</dt>
+<dd><p class="first">The <span class="math">\(\beta\)</span>-factor model assumes
+that if a common cause occurs,
+then all components of the group fail simultaneously.
+Components can fail independently.
+Multiple independent failures are neglected.
+The <span class="math">\(\beta\)</span>-factor model assumes, moreover,
+that all the components of the group
+have the same probability distribution.
+It is characterized by this probability distribution
+and the conditional probability <span class="math">\(\beta\)</span>
+that all components fail, given that one component failed.</p>
+<p>Let <span class="math">\(BE_1, BE_2, \ldots, BE_n\)</span> be the <span class="math">\(n\)</span> basic events of a common cause group
+with a probability distribution <span class="math">\(Q\)</span> and a beta-factor <span class="math">\(\beta\)</span>.
+Applying the beta-factor model on the fault tree consists in following operations.</p>
+<ol class="last arabic simple">
+<li>Create new basic events <span class="math">\(BE_{CCF_i}\)</span> for each <span class="math">\(BE_i\)</span>
+to represent the independent occurrence of <span class="math">\(BE_i\)</span>
+and <span class="math">\(BE_{CCF_i}\)</span> to represent the occurrence of all <span class="math">\(BE_i\)</span> together.</li>
+<li>Substitute a gate <span class="math">\(G_i = BE_{CCF_i} \lor BE_i\)</span>
+for each basic event <span class="math">\(BE_i\)</span>.</li>
+<li>Associate the probability distribution (e.g., <span class="math">\(\beta \times Q\)</span>)
+with the event <span class="math">\(BE_{CCF_i}\)</span>.</li>
+</ol>
+</dd>
+<dt>Multiple Greek Letters</dt>
+<dd><p class="first">The Multiple Greek Letters (MGL) model generalizes the beta-factor model.
+It considers the cases
+where sub-groups of <span class="math">\(1, 2, \ldots, n-1\)</span> components of the group fail together.
+This model is characterized by the probability distribution of failure of the components,
+and <span class="math">\(n-1\)</span> factors <span class="math">\(\rho_2, \ldots, \rho_n\)</span>,
+<span class="math">\(\rho_k\)</span> denotes the conditional probability
+that <span class="math">\(k\)</span> components of the group fail given that <span class="math">\(k-1\)</span> failed.</p>
+<p>Let <span class="math">\(BE_1, BE_2, \ldots, BE_n\)</span> be the <span class="math">\(n\)</span> basic events of a common cause group
+with a probability distribution <span class="math">\(Q\)</span> and factors <span class="math">\(\rho_2, \ldots, \rho_n\)</span>.
+Applying the MGL model on the fault tree consists in following operations.</p>
+<ol class="arabic simple">
+<li>Create a basic event for each combination of basic events of the group
+(there are <span class="math">\(2^n-1\)</span> such combinations).</li>
+<li>Transform each basic event <span class="math">\(BE_i\)</span> into an OR-gate <span class="math">\(G_i\)</span>
+over all newly created event basic events
+that represent a group that contains <span class="math">\(BE_i\)</span>.</li>
+<li>Associate the following probability distribution
+with each newly created basic event representing a group of <span class="math">\(k\)</span> components
+(with <span class="math">\(\rho_{n+1} = 0\)</span>).</li>
+</ol>
+<div class="math">
+\[Q_k = \frac{1}{\binom{n-1}{k-1}} \times \left(\prod_{i=2}^{k}\rho_i \right) \times
+    (1 - \rho_{k+1}) \times Q\]</div>
+<p>For instance, for a group of 4 basic events: A, B, C, and D,
+the basic event A is transformed into a gate
+<span class="math">\(G_A = A \lor AB \lor AC \lor AD \lor ABC \lor ABD \lor ACD \lor ABDC\)</span>,
+and the <span class="math">\(Q_k\)</span>&#8216;s are as follows.</p>
+<div class="math">
+\[\begin{split}Q_1&amp; = (1 - \rho_2) \times Q\\
+Q_2&amp; = \tfrac{1}{3} \times \rho_2 \times (1 - \rho_3) \times Q\\
+Q_3&amp; = \tfrac{1}{3} \times \rho_2 \times \rho_3  \times (1 - \rho_4) \times Q\\
+Q_4&amp; = \rho_2 \times \rho_3 \times \rho_4 \times Q\end{split}\]</div>
+<p class="last">Note that if <span class="math">\(\rho_k = 0\)</span>,
+then <span class="math">\(Q_k, Q_{k+1}, \ldots\)</span> are null as well.
+In such a case it is not necessary to create the groups with k elements or more.</p>
+</dd>
+<dt>Alpha-Factor</dt>
+<dd><p class="first">The alpha-factor model is the same as the MGL model
+except in the way the factors are given.
+Here <span class="math">\(n\)</span> factors <span class="math">\(\alpha_1, \ldots, \alpha_n\)</span> are given.
+<span class="math">\(\alpha_k\)</span> represents the fraction of the total failure probability
+due to common cause failures that impact exactly <span class="math">\(k\)</span> components.
+The distribution associated with a group of size <span class="math">\(k\)</span> is as follows:</p>
+<div class="last math">
+\[Q_k = \frac{k}{\binom{n-1}{k-1}} \times
+    \frac{\alpha_k}{\sum_{i=1}^{n}i\cdot\alpha_i} \times Q\]</div>
+</dd>
+<dt>Phi-Factor</dt>
+<dd><p class="first">The phi-factor model is the same as MGL and alpha-factor models
+except that factors for each level are given directly.</p>
+<p class="last">Indeed, the sum of the <span class="math">\(\phi_i\)</span>&#8216;s should equal 1.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="xml-representation">
+<h3>6.1.2 XML representation<a class="headerlink" href="#xml-representation" title="Permalink to this headline">¶</a></h3>
+<p>The RNC schema for the XML description of Common Cause Failure Groups
+is given in <a class="reference internal" href="#schema-ccf-groups"><span class="std std-numref">Listing 6.1</span></a>.
+Note that the number of factors depends on the model.
+Tools are in charge of checking that there is the good number of factors.
+Note also that each created basic event is associated with a factor
+that depends on the model and the level of the basic event.
+The sum of the factors
+associated with basic events of a member of the CCF group should be equal to 1;
+although, this is not strictly required by the Model Exchange Format.</p>
+<div class="literal-block-wrapper docutils container" id="schema-ccf-groups">
+<div class="code-block-caption"><span class="caption-number">Listing 6.1 </span><span class="caption-text">The RNC schema for the XML representation of CCF-groups</span><a class="headerlink" href="#schema-ccf-groups" title="Permalink to this code">¶</a></div>
+<div class="highlight-rnc"><div class="highlight"><pre><span></span>CCF-group-definition <span class="o">=</span>
+  <span class="kd">element</span><span class="nv"> define-CCF-group </span><span class="p">{</span>
+    name<span class="o">,</span>
+    <span class="kd">attribute</span><span class="nv"> model </span><span class="p">{</span> CCF-model <span class="p">}</span><span class="o">,</span>
+    label<span class="o">?,</span>
+    attributes<span class="o">?,</span>
+    members<span class="o">,</span>
+    distribution<span class="o">,</span>
+    factors
+  <span class="p">}</span>
+
+members <span class="o">=</span> <span class="kd">element</span><span class="nv"> members </span><span class="p">{</span> basic-event+ <span class="p">}</span>
+
+factors <span class="o">=</span>
+  <span class="kd">element</span><span class="nv"> factors </span><span class="p">{</span> factor+ <span class="p">}</span>
+  <span class="o">|</span> factor
+
+factor <span class="o">=</span>
+  <span class="kd">element</span><span class="nv"> factor </span><span class="p">{</span>
+    <span class="kd">attribute</span><span class="nv"> level </span><span class="p">{</span> <span class="kt">xsd:positiveInteger</span> <span class="p">}</span><span class="o">?,</span>
+    expression
+  <span class="p">}</span>
+
+distribution <span class="o">=</span> <span class="kd">element</span><span class="nv"> distribution </span><span class="p">{</span> expression <span class="p">}</span>
+
+CCF-model <span class="o">=</span> <span class="s2">&quot;beta-factor&quot;</span> <span class="o">|</span> <span class="s2">&quot;MGL&quot;</span> <span class="o">|</span> <span class="s2">&quot;alpha-factor&quot;</span> <span class="o">|</span> <span class="s2">&quot;phi-factor&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="example">
+<h4>6.1.2.1 Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h4>
+<p>Here follows a declaration of a CCF-group with four elements under the MGL model.</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;define-CCF-group</span> <span class="na">name=</span><span class="s">&quot;pumps&quot;</span> <span class="na">model=</span><span class="s">&quot;MGL&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;members&gt;</span>
+        <span class="nt">&lt;basic-event</span> <span class="na">name=</span><span class="s">&quot;pumpA&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;basic-event</span> <span class="na">name=</span><span class="s">&quot;pumpB&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;basic-event</span> <span class="na">name=</span><span class="s">&quot;pumpC&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;basic-event</span> <span class="na">name=</span><span class="s">&quot;pumpD&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/members&gt;</span>
+    <span class="nt">&lt;factors&gt;</span>
+        <span class="nt">&lt;factor</span> <span class="na">level=</span><span class="s">&quot;2&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;float</span> <span class="na">value=</span><span class="s">&quot;0.10&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/factor&gt;</span>
+        <span class="nt">&lt;factor</span> <span class="na">level=</span><span class="s">&quot;3&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;float</span> <span class="na">value=</span><span class="s">&quot;0.20&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/factor&gt;</span>
+        <span class="nt">&lt;factor</span> <span class="na">level=</span><span class="s">&quot;4&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;float</span> <span class="na">value=</span><span class="s">&quot;0.30&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/factor&gt;</span>
+    <span class="nt">&lt;/factors&gt;</span>
+    <span class="nt">&lt;distribution&gt;</span>
+        <span class="nt">&lt;exponential&gt;</span>
+            <span class="nt">&lt;parameter</span> <span class="na">name=</span><span class="s">&quot;lambda&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;system-mission-time/&gt;</span>
+        <span class="nt">&lt;/exponential&gt;</span>
+    <span class="nt">&lt;/distribution&gt;</span>
+<span class="nt">&lt;/define-CCF-group&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="delete-terms-recovery-rules-and-exchange-events">
+<h2>6.2 Delete Terms, Recovery Rules, and Exchange Events<a class="headerlink" href="#delete-terms-recovery-rules-and-exchange-events" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id2">
+<h3>6.2.1 Description<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Delete Terms</dt>
+<dd><p class="first">Delete Terms are groups of pairwise exclusive basic events,
+used to model impossible configurations.
+A typical example is the case where:</p>
+<ul class="simple">
+<li>The basic event a can only occur when the equipment A is in maintenance.</li>
+<li>The basic event b can only occur when the equipment B is in maintenance.</li>
+<li>Equipment A and B are redundant and cannot be simultaneously in maintenance.</li>
+</ul>
+<p>In most of the tools, delete terms are considered as a post-processing mechanism:
+minimal cut sets containing two basic events of a delete terms are discarded.
+In order to speed-up calculations,
+some tools use basic events to discard minimal cut sets on the fly, during their generation.</p>
+<p>Delete Terms can be handled in several ways.
+Let <span class="math">\(G = \{e_1, e_2, e_3\}\)</span> be a Delete Term (group).</p>
+<ul class="last">
+<li><p class="first">A first way to handle <span class="math">\(G\)</span>, is to use it to post-process minimal cut sets,
+or to discard them on the fly during their generation.
+If a minimal cut set contains at least two of the elements of <span class="math">\(G\)</span>,
+it is discarded.</p>
+</li>
+<li><p class="first">A global constraint <span class="math">\(C_G = \lnot \binom{3}{2}(e_1, e_2, e_3)\)</span> is introduced,
+and each top event (or event tree sequences) &#8220;top&#8221; is rewritten as <span class="math">\(top \land C_G\)</span>.</p>
+</li>
+<li><p class="first">As for Common Causes Groups, the <span class="math">\(e_i\)</span>&#8216;s are locally rewritten in as gates:</p>
+<blockquote>
+<div><ul class="simple">
+<li><span class="math">\(e_1\)</span> is rewritten as
+a gate <span class="math">\(ge_1 = e_1 \land \lnot e_2 \land \lnot e_3\)</span></li>
+<li><span class="math">\(e_2\)</span> is rewritten as
+a gate <span class="math">\(ge_2 = e_2 \land \lnot e_1 \land \lnot e_3\)</span></li>
+<li><span class="math">\(e_3\)</span> is rewritten as
+a gate <span class="math">\(ge_3 = e_3 \land \lnot e_1 \land \lnot e_2\)</span></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</dd>
+<dt>Recovery Rules</dt>
+<dd><p class="first">Recovery Rules are an extension of Delete Terms.
+A Recovery Rule is a couple <span class="math">\((H, e)\)</span>,
+where <span class="math">\(H\)</span> is a set of basic events, and <span class="math">\(e\)</span> is a (fake) basic event.
+It is used to post-process minimal cut sets:
+if a minimal cut set <span class="math">\(C\)</span> contains <span class="math">\(H\)</span>, the <span class="math">\(e\)</span> is added to <span class="math">\(C\)</span>.
+Recovery Rules are used to model actions taken in some specific configurations
+to mitigate the risk (hence their name).</p>
+<p>Here several remarks can be made.</p>
+<ul class="last simple">
+<li>It is possible to mimic Delete Terms by means of recovery rules.
+To do so, it suffices to assign the basic event e to the value &#8220;false&#8221; or the probability 0.0.</li>
+<li>As for Delete Terms,
+it is possible to give purely logical interpretation to Recovery Rules.
+The idea is to add a global constraint <span class="math">\(H \Rightarrow e\)</span>, i.e., <span class="math">\(\lnot H \lor e\)</span>,
+for each Recovery Rule <span class="math">\((H, e)\)</span>.</li>
+<li>Another definition of Recovery Rules as a post-processing
+is that the event <span class="math">\(e\)</span> is substituted for subset <span class="math">\(H\)</span> in the minimal cut set.
+This definition, however, has the major drawback
+by being impossible to interpret with a Boolean logic.
+No Boolean formula can withdraw events from a configuration.</li>
+</ul>
+</dd>
+<dt>Exchange Events</dt>
+<dd>Exchange Events are very similar to Recovery Rules.
+An Exchange Event (Rule) is a triple <span class="math">\((H, e, e')\)</span>,
+where <span class="math">\(H\)</span> is a set of basic events,
+and <span class="math">\(e\)</span> and <span class="math">\(e'\)</span> are two basic events.
+Considered as a post-processing of minimal cut sets,
+such a rule is interpreted as follows.
+If the minimal cut set contains both the set <span class="math">\(H\)</span> and the basic event <span class="math">\(e\)</span>,
+then the basic event <span class="math">\(e'\)</span> is substituted for <span class="math">\(e\)</span> in the cut set.
+For the same reason as above,
+Exchange Events cannot be interpreted with a Boolean logic.</dd>
+</dl>
+</div>
+<div class="section" id="all-extra-logical-constructs-in-one-the-notion-of-substitution">
+<h3>6.2.2 All Extra-Logical Constructs in One: the Notion of Substitution<a class="headerlink" href="#all-extra-logical-constructs-in-one-the-notion-of-substitution" title="Permalink to this headline">¶</a></h3>
+<p>Constructs that cannot be interpreted with a Boolean logic
+should be avoided for at least two reasons.
+First, models containing such constructs are not declarative.
+Second, and more importantly,
+they tighten assessment tools to one specific type of algorithms.
+The second interpretation of Recovery Rules and Exchange Events
+tighten the models to be assessed by means of the minimal cut sets approach.</p>
+<p>Nevertheless, Recovery Rules and Exchange Events are useful and broadly used in practice.
+Fortunately, Exchange Events (considered as a post processing mechanism)
+can be avoided in many cases by using the instructions
+that give flavors to fault trees while walking along event tree sequences:
+in a given sequence, one may decide to substitute the event <span class="math">\(e'\)</span> for the event <span class="math">\(e\)</span>
+(or the parameter <span class="math">\(p'\)</span> for the parameter <span class="math">\(p\)</span>) in the Fault Trees collected so far.
+This mechanism is perfectly acceptable
+because it applies while creating the Boolean formula to be assessed.</p>
+<p>It is not yet possible to decide
+whether Recovery Rules (under the second interpretation) and Exchange Events
+can be replaced by purely declarative constructs or by instructions of event trees.
+This has to be checked on real-life models.
+To represent Delete Term, Recovery Rules and Exchange Events,
+the Model Exchange Format introduces a unique construct: the notion of substitution.</p>
+<p>A substitution is a triple <span class="math">\((H, S, t)\)</span> where:</p>
+<ul class="simple">
+<li><span class="math">\(H\)</span>, the hypothesis, is a (simple) Boolean formula built over basic events.</li>
+<li><span class="math">\(S\)</span>, the source, is also a possibly empty set of basic events.</li>
+<li><span class="math">\(t\)</span>, the target, is either a basic event or a constant.</li>
+</ul>
+<p>Let <span class="math">\(C\)</span> be a minimal cut set, i.e., a set of basic events.
+The substitution <span class="math">\((H, S, t)\)</span> is applicable on <span class="math">\(C\)</span>
+if <span class="math">\(C\)</span> satisfies <span class="math">\(H\)</span> (i.e., if <span class="math">\(H\)</span> is true when <span class="math">\(C\)</span> is realized).
+The application of <span class="math">\((H, S, t)\)</span> on <span class="math">\(C\)</span> consists
+in removing from <span class="math">\(C\)</span> all the basic events of <span class="math">\(S\)</span>
+and in adding to <span class="math">\(C\)</span> the target <span class="math">\(t\)</span>.</p>
+<p>Note that if t is the constant &#8220;true&#8221;,
+adding t to <span class="math">\(C\)</span> is equivalent to adding nothing.
+If <span class="math">\(t\)</span> is the constant &#8220;false&#8221;,
+adding <span class="math">\(t\)</span> to <span class="math">\(C\)</span> is equivalent to discard <span class="math">\(C\)</span>.</p>
+<p>This notion of substitution generalizes
+the notions of Delete Terms, Recovery Rules, and Exchange Events:</p>
+<ul class="simple">
+<li>Let <span class="math">\(D = \{e_1, e_2, \ldots, e_n\}\)</span>
+be a group of pairwise exclusive events (a Delete Term).
+Then <span class="math">\(D\)</span> is represented as the substitution
+<span class="math">\((\binom{n}{2}(e_1, e_2, \ldots, e_n), \varnothing, \text{false})\)</span>.</li>
+<li>Let <span class="math">\((H, e)\)</span> be a Recovery Rule, under the first interpretation,
+where <span class="math">\(H = \{e_1, e_2, \ldots, e_n\}\)</span>.
+Then, <span class="math">\((H, e)\)</span> is represented by the substitution
+<span class="math">\((e_1 \land e_2 \land \ldots \land e_n, \varnothing, e)\)</span>.</li>
+<li>Let <span class="math">\((H, e)\)</span> be a Recovery Rule, under the second interpretation,
+where <span class="math">\(H = \{e_1, e_2, \ldots, e_n\}\)</span>.
+Then <span class="math">\((H, e)\)</span> is represented by the substitution
+<span class="math">\((e_1 \land e_2 \land \ldots \land e_n, H, e)\)</span>.</li>
+<li>Finally, let <span class="math">\((H, e, e')\)</span> be an Exchange Event Rule,
+where <span class="math">\(H = \{e_1, e_2, \ldots, e_n\}\)</span>.
+Then <span class="math">\((H, e, e')\)</span> is represented by the substitution
+<span class="math">\((e_1 \land e_2 \land \ldots \land e_n \land e, {e}, e')\)</span>.</li>
+</ul>
+<p>Note that a substitution <span class="math">\((H, \varnothing, t)\)</span>
+can always be interpreted as the global constraint <span class="math">\(H \Rightarrow t\)</span>.</p>
+</div>
+<div class="section" id="id3">
+<h3>6.2.3 XML Representation<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>The RNC schema for the XML description of substitutions
+is given in <a class="reference internal" href="#schema-substitution"><span class="std std-numref">Listing 6.2</span></a>.
+The optional attribute &#8220;type&#8221; is used to help tools that implement &#8220;traditional&#8221; substitutions.</p>
+<div class="literal-block-wrapper docutils container" id="schema-substitution">
+<div class="code-block-caption"><span class="caption-number">Listing 6.2 </span><span class="caption-text">The RNC schema for the XML representation of exclusive-groups</span><a class="headerlink" href="#schema-substitution" title="Permalink to this code">¶</a></div>
+<div class="highlight-rnc"><div class="highlight"><pre><span></span>substitution-definition <span class="o">=</span>
+  <span class="kd">element</span><span class="nv"> define-substitution </span><span class="p">{</span>
+    name<span class="o">?,</span>
+    <span class="kd">attribute</span><span class="nv"> type </span><span class="p">{</span> <span class="kt">xsd:string</span> <span class="p">}</span><span class="o">?,</span>
+    label<span class="o">?,</span>
+    attributes<span class="o">?,</span>
+    <span class="kd">element</span><span class="nv"> hypothesis </span><span class="p">{</span> formula <span class="p">}</span><span class="o">,</span>
+    <span class="kd">element</span><span class="nv"> source </span><span class="p">{</span> basic-event+ <span class="p">}</span><span class="o">?,</span>
+    <span class="kd">element</span><span class="nv"> target </span><span class="p">{</span> basic-event+ <span class="o">|</span> Boolean-constant <span class="p">}</span>
+  <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h4>6.2.3.1 Example<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<p>Assume that Basic Events &#8220;failure-pump-A&#8221;, &#8220;failure-pump-B&#8221;, and &#8220;failure-pump-C&#8221;
+are pairwise exclusive (they form a delete term)
+because they can only occur
+when, respectively, equipment A, B, and C are under maintenance
+and only one equipment can be in maintenance at once.
+The representation of such a delete term is as follows.</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;define-substitution</span> <span class="na">name=</span><span class="s">&quot;pumps&quot;</span> <span class="na">type=</span><span class="s">&quot;delete-terms&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;hypothesis&gt;</span>
+        <span class="nt">&lt;atleast</span> <span class="na">min=</span><span class="s">&quot;2&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;basic-event</span> <span class="na">name=</span><span class="s">&quot;failure-pump-A&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;basic-event</span> <span class="na">name=</span><span class="s">&quot;failure-pump-B&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;basic-event</span> <span class="na">name=</span><span class="s">&quot;failure-pump-C&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/atleast&gt;</span>
+    <span class="nt">&lt;/hypothesis&gt;</span>
+    <span class="nt">&lt;target&gt;</span>
+        <span class="nt">&lt;constant</span> <span class="na">value=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/target&gt;</span>
+<span class="nt">&lt;/define-substitution&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h4>6.2.3.2 Example<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<p>Assume that if the valve V is broken, and an overpressure is detected in pipe P,
+then a mitigating action A is performed.
+This is a typical Recovery Rule (under the first interpretation),
+where the hypothesis is the conjunction of Basic Events &#8220;valve-V-broken&#8221; and &#8220;overpressure-pipe-P&#8221;,
+and the added Basic Event is &#8220;failure-action-A&#8221;.
+It is encoded as follows.</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;define-substitution</span> <span class="na">name=</span><span class="s">&quot;mitigation&quot;</span> <span class="na">type=</span><span class="s">&quot;recovery-rule&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;hypothesis&gt;</span>
+        <span class="nt">&lt;and&gt;</span>
+            <span class="nt">&lt;basic-event</span> <span class="na">name=</span><span class="s">&quot;valve-V-broken&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;basic-event</span> <span class="na">name=</span><span class="s">&quot;overpressure-pipe-P&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/and&gt;</span>
+    <span class="nt">&lt;/hypothesis&gt;</span>
+    <span class="nt">&lt;target&gt;</span>
+        <span class="nt">&lt;basic-event</span> <span class="na">name=</span><span class="s">&quot;failure-action-A&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/target&gt;</span>
+<span class="nt">&lt;/define-substitution&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h4>6.2.3.3 Example<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
+<p>Assume that if magnitude of the earthquake is 5, 6 or 7,
+the size of a leak of a given pipe P gets large,
+while it is small for magnitudes below 5.
+We can use an exchange event rule to model this situation.</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;define-substitution</span> <span class="na">name=</span><span class="s">&quot;magnitude-impact&quot;</span> <span class="na">type=</span><span class="s">&quot;exchange-event&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;hypothesis&gt;</span>
+        <span class="nt">&lt;or&gt;</span>
+            <span class="nt">&lt;basic-event</span> <span class="na">name=</span><span class="s">&quot;magnitude-5&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;basic-event</span> <span class="na">name=</span><span class="s">&quot;magnitude-6&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;basic-event</span> <span class="na">name=</span><span class="s">&quot;magnitude-7&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/or&gt;</span>
+    <span class="nt">&lt;/hypothesis&gt;</span>
+    <span class="nt">&lt;source&gt;</span>
+        <span class="nt">&lt;basic-event</span> <span class="na">name=</span><span class="s">&quot;small-leak-pipe-P&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/source&gt;</span>
+    <span class="nt">&lt;target&gt;</span>
+        <span class="nt">&lt;basic-event</span> <span class="na">name=</span><span class="s">&quot;large-leak-pipe-P&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/target&gt;</span>
+<span class="nt">&lt;/define-substitution&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="event_tree_layer.html" class="btn btn-neutral float-right" title="7 Event Tree Layer" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="stochastic_layer.html" class="btn btn-neutral" title="5 Stochastic Layer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2007-2017, The Open-PSA Initiative.
+      Last updated on Oct 04, 2017.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.0.d-120-g703be91',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
