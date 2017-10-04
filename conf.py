@@ -16,7 +16,7 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-# import os
+import os
 import sys
 from subprocess import check_output
 # sys.path.insert(0, os.path.abspath('.'))
@@ -43,6 +43,11 @@ extensions = [
     'sphinx.ext.mathjax',
     'sphinx.ext.githubpages',
 ]
+
+spelling = os.getenv('SPHINX_SPELL')  # Enable the optional spell check.
+
+if spelling:
+    extensions.append('sphinxcontrib.spelling')
 
 numfig = True
 
@@ -104,6 +109,8 @@ language = 'en'
 # directories to ignore when looking for source files.
 # This patterns also effect to html_static_path and html_extra_path
 exclude_patterns = ['build', 'Thumbs.db', '.DS_Store', '**README.rst']
+if spelling:
+    exclude_patterns += ['**bibliography.rst', 'stamp.rst']
 
 # The reST default role (used for this markup: `text`) to use for all
 # documents.
