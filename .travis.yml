@@ -21,15 +21,11 @@ addons:
 before_install:
     - docker build -t mef/make .
 
-install:
-    - sudo apt-get install spell
-
 before_script:
     - git clone --depth 1 --branch master https://github.com/open-psa/mef-examples
 
 script:
     - grep -P -n "(\t|\s$)" *.rst mef/*.rst >> _warnings || echo "Great, no tabs or trailing spaces!"
-    - spell -n -o -d en_us.ascii.add.spl mef/*.rst | grep -v 'bibliography' > _warnings || echo "no spelling errors!"
     - grep -P -n "[^[:ascii:]]" mef/*.rst | grep -v 'bibliography' >> _warnings || echo "no non-ASCII chars!"
     - cat _warnings && [[ ! -s _warnings ]]
 
